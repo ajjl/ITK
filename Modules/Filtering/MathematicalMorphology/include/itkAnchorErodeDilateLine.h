@@ -19,6 +19,7 @@
 #define itkAnchorErodeDilateLine_h
 
 #include "itkMovingHistogramMorphologyImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -99,7 +100,7 @@ private:
   inline bool Compare( const InputImagePixelType & a, const InputImagePixelType & b )
     {
     TCompare compare;
-    return compare( a, b ) || a == b;
+    return compare( a, b ) || itk::Math::FloatAlmostEqual(a, b);
     }
 
 }; // end of class
