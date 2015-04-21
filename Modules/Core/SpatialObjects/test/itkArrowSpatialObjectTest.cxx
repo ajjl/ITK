@@ -21,6 +21,7 @@
  */
 
 #include "itkArrowSpatialObject.h"
+#include "itkMath.h"
 
 int itkArrowSpatialObjectTest(int, char* [])
 {
@@ -31,7 +32,7 @@ int itkArrowSpatialObjectTest(int, char* [])
   // Testing the length
   std::cout << "Testing length : ";
   myArrow->SetLength(2);
-  if(myArrow->GetLength() != 2)
+  if(! itk::Math::FloatAlmostEqual(myArrow->GetLength(), 2.0))
     {
     std::cout << "[FAILURE]" << std::endl;
     return EXIT_FAILURE;
@@ -47,9 +48,9 @@ int itkArrowSpatialObjectTest(int, char* [])
   direction[1] = 1.0;
 
   myArrow->SetDirection(direction);
-  if(myArrow->GetDirection()[0] != 0
-    || myArrow->GetDirection()[1] != 1
-    || myArrow->GetDirection()[2] != 0
+  if(  (! itk::Math::FloatAlmostEqual(myArrow->GetDirection()[0], 0.0))
+    || (! itk::Math::FloatAlmostEqual(myArrow->GetDirection()[1], 1.0))
+    || (! itk::Math::FloatAlmostEqual(myArrow->GetDirection()[2], 0.0))
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -83,9 +84,9 @@ int itkArrowSpatialObjectTest(int, char* [])
   myArrow->ComputeBoundingBox();
   ArrowType::BoundingBoxType * boundingBox = myArrow->GetBoundingBox();
 
-  if( (boundingBox->GetBounds()[2] != 0 )
-     || (boundingBox->GetBounds()[3] != 1 )
-      )
+  if(  (! itk::Math::FloatAlmostEqual(boundingBox->GetBounds()[2], 0.0))
+    || (! itk::Math::FloatAlmostEqual(boundingBox->GetBounds()[3], 1.0))
+    )
     {
       std::cout<<"[FAILED]"<<std::endl;
       return EXIT_FAILURE;
