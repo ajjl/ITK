@@ -36,6 +36,7 @@
 #include "itkGreenPixelAccessor.h"
 #include "itkBluePixelAccessor.h"
 #include "itkFilterWatcher.h"
+#include "itkMath.h"
 
 #include "vnl/vnl_sample.h"
 
@@ -126,7 +127,7 @@ int itkAdaptImageFilterTest(int, char* [] ) {
   while( !it.IsAtEnd() )
   {
   std::cout << it.Get()   << std::endl;
-  if (it.Get() != it1.Get().GetRed())
+  if (! itk::Math::FloatAlmostEqual(it.Get(), it1.Get().GetRed()) )
     {
     passed = false;
     }
@@ -151,7 +152,7 @@ int itkAdaptImageFilterTest(int, char* [] ) {
   while( !it.IsAtEnd() )
   {
   std::cout << it.Get()   << std::endl;
-  if (it.Get() != it1.Get().GetGreen())
+  if (! itk::Math::FloatAlmostEqual(it.Get(), it1.Get().GetGreen()) )
     {
     passed = false;
     }
@@ -176,7 +177,7 @@ int itkAdaptImageFilterTest(int, char* [] ) {
   while( !it.IsAtEnd() )
   {
   std::cout << it.Get()   << std::endl;
-  if (it.Get() != it1.Get().GetBlue())
+  if (! itk::Math::FloatAlmostEqual(it.Get(), it1.Get().GetBlue()) )
     {
     passed = false;
     }
