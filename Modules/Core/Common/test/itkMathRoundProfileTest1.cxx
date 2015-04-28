@@ -18,11 +18,12 @@
 
 #include "itkTimeProbesCollectorBase.h"
 #include "itkMath.h"
+#include "itkMath.h"
 
 int itkMathRoundTestHelperFunction( double x )
 {
   x += 0.5;
-  return static_cast<int>(x>=0.?x:(x==static_cast<int>(x)?x:x-1.));
+  return static_cast<int>(x>=0.?x:(itk::Math::FloatAlmostEqual(x,static_cast<int>(x))?x:x-1.));
 }
 
 #define itkRoundMacro( x, y )                 \
@@ -138,7 +139,7 @@ int itkMathRoundProfileTest1( int, char *[] )
     while( inpItr != inputEnd )
       {
       const double x = (*inpItr++) + 0.5;
-      *outItr3nc++ = static_cast<int>(x>=0.?x:(x==static_cast<int>(x)?x:x-1.));
+      *outItr3nc++ = static_cast<int>(x>=0.?x:(itk::Math::FloatAlmostEqual(x,static_cast<int>(x))?x:x-1.));
       }
 
     chronometer.Stop("Functor");
