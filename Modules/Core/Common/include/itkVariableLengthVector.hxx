@@ -22,6 +22,7 @@
 #include "vnl/vnl_math.h"
 #include <cstring>
 #include <cstdlib>
+#include "itkMath.h"
 
 namespace itk
 {
@@ -318,7 +319,7 @@ VariableLengthVector< TValue >
     }
   for ( ElementIdentifier i = 0; i < m_NumElements; i++ )
     {
-    if ( m_Data[i] != v[i] )
+    if ( !itk::Math::FloatAlmostEqual(m_Data[i] , v[i]) )
       {
       return false;
       }
@@ -337,7 +338,7 @@ VariableLengthVector< TValue >
     }
   for ( ElementIdentifier i = 0; i < m_NumElements; i++ )
     {
-    if ( m_Data[i] != v[i] )
+    if ( !itk::Math::FloatAlmostEqual(m_Data[i] , v[i]) )
       {
       return true;
       }
