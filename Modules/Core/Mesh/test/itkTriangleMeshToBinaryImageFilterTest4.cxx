@@ -21,6 +21,7 @@
 #include "itkMeshFileReader.h"
 #include "itkTestingMacros.h"
 #include "itkImage.h"
+#include "itkMath.h"
 int itkTriangleMeshToBinaryImageFilterTest4( int argc, char * argv [] )
 {
 
@@ -110,7 +111,7 @@ int itkTriangleMeshToBinaryImageFilterTest4( int argc, char * argv [] )
   }
 
   const ImageType::DirectionType& inbuiltDirection = imageFilter->GetDirection();
-  if ((inbuiltDirection[0][0] == 1)&&(inbuiltDirection[1][1] == 1)&&(inbuiltDirection[2][2] == 1))
+  if ((itk::Math::FloatAlmostEqual(inbuiltDirection[0][0] , 1))&&(inbuiltDirection[1][1] == 1)&&(inbuiltDirection[2][2] == 1))
   {
     ImageType::DirectionType Direction;
 
@@ -149,7 +150,7 @@ int itkTriangleMeshToBinaryImageFilterTest4( int argc, char * argv [] )
 
   const ImageType::SpacingType& mySpacing = imageFilter->GetOutput()->GetSpacing();
 
-  if((mySpacing[0] != spacing[0])&&(mySpacing[1] != spacing[1])&&(mySpacing[2] != spacing[2]))
+  if((!itk::Math::FloatAlmostEqual(mySpacing[0] , spacing[0]))&&(mySpacing[1] != spacing[1])&&(mySpacing[2] != spacing[2]))
     {
     std::cerr << "image->GetSpacing() != spacing" <<std::endl;
     return EXIT_FAILURE;
@@ -213,7 +214,7 @@ int itkTriangleMeshToBinaryImageFilterTest4( int argc, char * argv [] )
 
   for(unsigned i = 0; i < 3; ++i)
     {
-    if(testSpacing[i] != spacingAsFloatArray[i])
+    if(!itk::Math::FloatAlmostEqual(testSpacing[i] , spacingAsFloatArray[i]))
       {
       std::cerr << "SetSpacing failure " << testSpacing << std::endl
                 << "!= " << spacingAsFloatArray[0]
@@ -232,7 +233,7 @@ int itkTriangleMeshToBinaryImageFilterTest4( int argc, char * argv [] )
   const ImageType::PointType& testOrigin =imageFilter->GetOrigin();
   for(unsigned i = 0; i < 3; ++i)
     {
-    if(testOrigin[i] != originAsFloatArray[i])
+    if(!itk::Math::FloatAlmostEqual(testOrigin[i] , originAsFloatArray[i]))
       {
       std::cerr << "SetOrigin failure " << testOrigin << std::endl
                 << "!= " << originAsFloatArray[0]
