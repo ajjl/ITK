@@ -18,6 +18,7 @@
 
 #include <iostream>
 #include "itkTimeProbe.h"
+#include "itkMath.h"
 
 
 int itkTimeProbeTest( int, char * [] )
@@ -66,12 +67,12 @@ int itkTimeProbeTest( int, char * [] )
     std::cerr << "Reset() failure" << std::endl;
     return EXIT_FAILURE;
     }
-  if( localTimer.GetTotal() != 0 )
+  if( !itk::Math::FloatAlmostEqual(localTimer.GetTotal() , 0) )
     {
     std::cerr << "Reset() failure" << std::endl;
     return EXIT_FAILURE;
     }
-  if( localTimer.GetMean() != 0 )
+  if( !itk::Math::FloatAlmostEqual(localTimer.GetMean() , 0) )
     {
     std::cerr << "Reset() failure" << std::endl;
     return EXIT_FAILURE;
