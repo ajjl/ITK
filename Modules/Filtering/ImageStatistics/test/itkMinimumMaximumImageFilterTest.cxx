@@ -18,6 +18,7 @@
 
 #include "itkMinimumMaximumImageFilter.h"
 #include "itkFilterWatcher.h"
+#include "itkMath.h"
 
 int
 itkMinimumMaximumImageFilterTest(int , char *[] )
@@ -85,7 +86,7 @@ itkMinimumMaximumImageFilterTest(int , char *[] )
   float minimumResult = filter->GetMinimum();
   std::cout << "The Minimum intensity value is : " << minimumResult << std::endl;
 
-  if(minimumResult != minimum)
+  if(!itk::Math::FloatAlmostEqual(minimumResult , minimum))
     {
     std::cout << "Minimum Value is wrong : " << minimumResult;
     std::cout << " != " << minimum << std::endl;
@@ -96,7 +97,7 @@ itkMinimumMaximumImageFilterTest(int , char *[] )
   float maximumResult = filter->GetMaximum();
   std::cout << "The Maximum intensity value is : " << maximumResult << std::endl;
 
-  if(maximumResult != maximum)
+  if(!itk::Math::FloatAlmostEqual(maximumResult , maximum))
     {
     std::cout << "Maximum Value is wrong : " << maximumResult;
     std::cout << " != " << maximum << std::endl;
