@@ -20,6 +20,7 @@
 
 #include "itkImageMaskSpatialObject.h"
 #include "itkImageRegionConstIteratorWithIndex.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -75,7 +76,7 @@ ImageMaskSpatialObject< TDimension >
   typedef typename InterpolatorType::OutputType InterpolatorOutputType;
   const bool insideMask = (
     DefaultConvertPixelTraits<InterpolatorOutputType>::GetScalarValue(this->m_Interpolator->EvaluateAtContinuousIndex(index))
-    != NumericTraits<PixelType>::Zero);
+    , N!itk::Math::FloatAlmostEqual(umericTraits<PixelType>::Zero));
   return insideMask;
 }
 
