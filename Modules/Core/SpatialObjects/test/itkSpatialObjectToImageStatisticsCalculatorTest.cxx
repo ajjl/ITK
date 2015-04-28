@@ -21,6 +21,7 @@
 #include "itkSpatialObjectToImageFilter.h"
 #include "itkEllipseSpatialObject.h"
 #include "itkImageSliceIteratorWithIndex.h"
+#include "itkMath.h"
 
 int itkSpatialObjectToImageStatisticsCalculatorTest(int, char * [] )
 {
@@ -69,7 +70,7 @@ int itkSpatialObjectToImageStatisticsCalculatorTest(int, char * [] )
   std::cout << "Sample covariance = " << calculator->GetCovarianceMatrix();
 
   if(calculator->GetMean() != CalculatorType::VectorType(255)
-    || calculator->GetCovarianceMatrix()[0][0] != 0
+    || !itk::Math::FloatAlmostEqual(calculator->GetCovarianceMatrix()[0][0] , 0)
     )
     {
     std::cout << "[FAILED]" << std::endl;
