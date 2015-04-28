@@ -31,6 +31,7 @@
 #include <time.h>
 #include <assert.h>
 #include <vector>
+#include "itkMath.h"
 
 //From uiig library "The University of Iowa Imaging Group-UIIG"
 
@@ -582,7 +583,7 @@ int IPLCommonImageIO
     {
     return 0;
     }
-  else if(XRes != m_FilenameList->GetXRes() || YRes != m_FilenameList->GetYRes()  )
+  else if(!itk::Math::FloatAlmostEqual(XRes , m_FilenameList->GetXRes()) || YRes != m_FilenameList->GetYRes()  )
     {
     return 0;
     }
