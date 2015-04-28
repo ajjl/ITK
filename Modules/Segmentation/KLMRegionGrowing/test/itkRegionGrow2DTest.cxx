@@ -21,6 +21,7 @@
 
 #include "itkKLMRegionGrowImageFilter.h"
 #include "itkScalarImageToHistogramGenerator.h"
+#include "itkMath.h"
 
 #define   NUMBANDS1           1
 #define   NUMBANDS2           2
@@ -347,27 +348,27 @@ unsigned int test_regiongrowKLM1D()
     pixelIn  = inIt.Get();
     pixelLabel = labelIt.Get();
 
-    if( pixelOut[0] != pixelIn[0] ||
-        pixelOut[1] != pixelIn[1] ||
-        pixelOut[2] != pixelIn[2] ||
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) ||
+        !itk::Math::FloatAlmostEqual(pixelOut[1] , pixelIn[1]) ||
+        !itk::Math::FloatAlmostEqual(pixelOut[2] , pixelIn[2]) ||
         pixelLabel  != m )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != pixelIn[0] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "pixelIn[0]: " << pixelIn[0]
                   << std::endl;
         }
-      if( pixelOut[1] != pixelIn[1] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , pixelIn[1]) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
                   << "pixelIn[1]: " << pixelIn[1]
                   << std::endl;
         }
-      if( pixelOut[2] != pixelIn[2] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[2] , pixelIn[2]) )
         {
         std::cout << "pixelOut[2]: " << pixelOut[2]
                   << " != "
@@ -1020,17 +1021,17 @@ unsigned int test_regiongrowKLM2D()
     pixelOut = outIt.Get();
     pixelIn  = inIt.Get();
 
-    if( pixelOut[0] != pixelIn[0] || pixelOut[1] != pixelIn[1] )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) || pixelOut[1] != pixelIn[1] )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != pixelIn[0] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "pixelIn[0]: " << pixelIn[0]
                   << std::endl;
         }
-      if( pixelOut[1] != pixelIn[1] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , pixelIn[1]) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
@@ -1130,18 +1131,18 @@ unsigned int test_regiongrowKLM2D()
     {
     pixelOut = outIt2.Get();
 
-    if( pixelOut[0] != outImageVals[k] ||
-        pixelOut[1] != 100 - pixelOut[0] )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , outImageVals[k]) ||
+        !itk::Math::FloatAlmostEqual(pixelOut[1] , 100 - pixelOut[0]) )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != outImageVals[k] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , outImageVals[k]) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "outImageVals[k]: " << outImageVals[k]
                   << std::endl;
         }
-      if( pixelOut[1] != (100 - pixelOut[0]) )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , (100 - pixelOut[0])) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
@@ -1242,17 +1243,17 @@ unsigned int test_regiongrowKLM2D()
     {
     pixelOut = outIt3.Get();
 
-    if( pixelOut[0] != 0 || pixelOut[1] != 0 )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , 0) || pixelOut[1] != 0 )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != 0 )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , 0) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "0"
                   << std::endl;
         }
-      if( pixelOut[1] != 0 )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , 0) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
@@ -1300,7 +1301,7 @@ unsigned int test_regiongrowKLM2D()
 
     double probability = histIt.GetFrequency() / Sum;
 
-    if( probability == 0 )
+    if( itk::Math::FloatAlmostEqual(probability , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       return EXIT_FAILURE;
@@ -1657,17 +1658,17 @@ unsigned int test_regiongrowKLM3D()
     pixelOut = outIt.Get();
     pixelIn  = inIt.Get();
 
-    if( pixelOut[0] != pixelIn[0] || pixelOut[1] != pixelIn[1] )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) || pixelOut[1] != pixelIn[1] )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != pixelIn[0] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "pixelIn[0]: " << pixelIn[0]
                   << std::endl;
         }
-      if( pixelOut[1] != 0 )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , 0) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
@@ -1767,18 +1768,18 @@ unsigned int test_regiongrowKLM3D()
     {
     pixelOut = outIt2.Get();
 
-    if( pixelOut[0] != outImageVals[k] ||
-        pixelOut[1] != 100 - pixelOut[0] )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , outImageVals[k]) ||
+        !itk::Math::FloatAlmostEqual(pixelOut[1] , 100 - pixelOut[0]) )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != outImageVals[k] )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , outImageVals[k]) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "outImageVals[k]: " << outImageVals[k]
                   << std::endl;
         }
-      if( pixelOut[1] != (100 - pixelOut[0]) )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , (100 - pixelOut[0])) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
@@ -1877,17 +1878,17 @@ unsigned int test_regiongrowKLM3D()
     {
     pixelOut = outIt3.Get();
 
-    if( pixelOut[0] != 0 || pixelOut[1] != 0 )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , 0) || pixelOut[1] != 0 )
       {
       std::cout << "Test FAILED" << std::endl;
-      if( pixelOut[0] != 0 )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[0] , 0) )
         {
         std::cout << "pixelOut[0]: " << pixelOut[0]
                   << " != "
                   << "0"
                   << std::endl;
         }
-      if( pixelOut[1] != 0 )
+      if( !itk::Math::FloatAlmostEqual(pixelOut[1] , 0) )
         {
         std::cout << "pixelOut[1]: " << pixelOut[1]
                   << " != "
@@ -1935,7 +1936,7 @@ unsigned int test_regiongrowKLM3D()
 
     double probability = histIt.GetFrequency() / Sum;
 
-    if( probability == 0 )
+    if( itk::Math::FloatAlmostEqual(probability , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       return EXIT_FAILURE;
@@ -2091,7 +2092,7 @@ unsigned int test_regiongrowKLM4D()
     pixelOut = outIt.Get();
     pixelIn  = inIt.Get();
 
-    if( pixelOut[0] != pixelIn[0] )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) )
       {
       std::cout << "Test FAILED" << std::endl;
       std::cout << "pixelOut[0]: " << pixelOut[0]
@@ -2190,7 +2191,7 @@ unsigned int test_regiongrowKLM4D()
     pixelOut = outIt2.Get();
     pixelIn = inIt.Get();
 
-    if( pixelOut[0] != pixelIn[0] )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , pixelIn[0]) )
       {
       std::cout << "Test FAILED" << std::endl;
       std::cout << "pixelOut[0]: " << pixelOut[0]
@@ -2293,7 +2294,7 @@ unsigned int test_regiongrowKLM4D()
     {
     pixelOut = outIt3.Get();
 
-    if( pixelOut[0] != 0 )
+    if( !itk::Math::FloatAlmostEqual(pixelOut[0] , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       std::cout << "pixelOut[0]: " << pixelOut[0]
@@ -2341,7 +2342,7 @@ unsigned int test_regiongrowKLM4D()
 
     double probability = histIt.GetFrequency() / Sum;
 
-    if( probability == 0 )
+    if( itk::Math::FloatAlmostEqual(probability , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       return EXIT_FAILURE;
