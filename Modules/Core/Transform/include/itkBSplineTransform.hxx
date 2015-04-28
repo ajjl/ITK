@@ -23,6 +23,7 @@
 #include "itkContinuousIndex.h"
 #include "itkImageScanlineConstIterator.h"
 #include "itkImageRegionConstIteratorWithIndex.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -476,7 +477,7 @@ BSplineTransform<TScalar, NDimensions, VSplineOrder>
     {
     ScalarType maxLimit = static_cast<ScalarType>( gridSize[j] ) - 0.5
       * static_cast<ScalarType>( SplineOrder - 1 ) - 1.0;
-    if( index[j] == maxLimit  )
+    if( itk::Math::FloatAlmostEqual(index[j] , maxLimit)  )
       {
       index[j] -= 1e-6;
       }
