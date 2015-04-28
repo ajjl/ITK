@@ -18,6 +18,7 @@
 
 #include "itkSpatialObjectWriter.h"
 #include "itkSpatialObjectReader.h"
+#include "itkMath.h"
 
 int itkReadWriteSpatialObjectTest(int argc, char* argv[])
 {
@@ -434,7 +435,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*j).GetPosition()[d] != value * (*obj)->GetId())
+          if(!itk::Math::FloatAlmostEqual((*j).GetPosition()[d] , value * (*obj)->GetId()))
             {
             std::cout<<" [FAILED] (Position is: " << (*j).GetPosition()[d] << " expected : "<< value * (*obj)->GetId()<< " ) " <<std::endl;
             delete mySceneChildren;
@@ -442,28 +443,28 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
           }
           // Testing the color of the tube points
-        if( (*j).GetRed() != value)
+        if( !itk::Math::FloatAlmostEqual((*j).GetRed() , value))
           {
           std::cout<<" [FAILED] : Red : found " << ( *j).GetRed() << " instead of " << value <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*j).GetGreen() != value+1)
+        if(!itk::Math::FloatAlmostEqual((*j).GetGreen() , value+1))
           {
           std::cout<<" [FAILED] : Green : found " << ( *j).GetGreen() << " instead of " << value+1 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*j).GetBlue() != value+2)
+        if(!itk::Math::FloatAlmostEqual((*j).GetBlue() , value+2))
           {
           std::cout<<"[FAILED] : Blue : found " << ( *j).GetBlue() << " instead of " << value+2 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*j).GetAlpha() != value+3)
+        if(!itk::Math::FloatAlmostEqual((*j).GetAlpha() , value+3))
           {
           std::cout<<" [FAILED] : Alpha : found " << ( *j).GetAlpha() << " instead of " << value+3 <<std::endl;
           delete mySceneChildren;
@@ -493,7 +494,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*jv).GetPosition()[d] != value * (*obj)->GetId())
+          if(!itk::Math::FloatAlmostEqual((*jv).GetPosition()[d] , value * (*obj)->GetId()))
             {
             std::cout<<" [FAILED] (Position is: " << (*jv).GetPosition()[d] << " expected : "<< value * (*obj)->GetId()<< " ) " <<std::endl;
             delete mySceneChildren;
@@ -501,46 +502,46 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
           }
           // Testing the color of the tube points
-        if( (*jv).GetRed() != value)
+        if( !itk::Math::FloatAlmostEqual((*jv).GetRed() , value))
           {
           std::cout<<" [FAILED] : Red : found " << ( *jv).GetRed() << " instead of " << value <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jv).GetGreen() != value+1)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetGreen() , value+1))
           {
           std::cout<<" [FAILED] : Green : found " << ( *jv).GetGreen() << " instead of " << value+1 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jv).GetBlue() != value+2)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetBlue() , value+2))
           {
           std::cout<<"[FAILED] : Blue : found " << ( *jv).GetBlue() << " instead of " << value+2 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jv).GetAlpha() != value+3)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetAlpha() , value+3))
           {
           std::cout<<" [FAILED] : Alpha : found " << ( *jv).GetAlpha() << " instead of " << value+3 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jv).GetRidgeness() != value*1)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetRidgeness() , value*1))
           {
           std::cout<<" [FAILED] : Ridgeness : found " << ( *jv).GetRidgeness() << " instead of " << value*1 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jv).GetMedialness() != value*2)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetMedialness() , value*2))
           {
           std::cout<<" [FAILED] : Medialness : found " << ( *jv).GetMedialness() << " instead of " << value*2 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jv).GetBranchness() != value*3)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetBranchness() , value*3))
           {
           std::cout<<" [FAILED] : Branchness : found " << ( *jv).GetBranchness() << " instead of " << value*3 <<std::endl;
           delete mySceneChildren;
@@ -552,19 +553,19 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jv).GetAlpha1() != value*1)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetAlpha1() , value*1))
           {
           std::cout<<" [FAILED] : Alpha1 : found " << ( *jv).GetAlpha1() << " instead of " << value*1 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jv).GetAlpha2() != value*2)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetAlpha2() , value*2))
           {
           std::cout<<" [FAILED] : Alpha2 : found " << ( *jv).GetAlpha2() << " instead of " << value*2 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jv).GetAlpha3() != value*3)
+        if(!itk::Math::FloatAlmostEqual((*jv).GetAlpha3() , value*3))
           {
           std::cout<<" [FAILED] : Alpha3 : found " << ( *jv).GetAlpha3() << " instead of " << value*3 <<std::endl;
           delete mySceneChildren;
@@ -603,7 +604,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*jdti).GetPosition()[d] != value * (*obj)->GetId())
+          if(!itk::Math::FloatAlmostEqual((*jdti).GetPosition()[d] , value * (*obj)->GetId()))
             {
             std::cout<<" [FAILED] (Position is: " << (*jdti).GetPosition()[d] << " expected : "<< value * (*obj)->GetId()<< " ) " <<std::endl;
             delete mySceneChildren;
@@ -611,65 +612,65 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
           }
           // Testing the color of the tube points
-        if( (*jdti).GetRed() != value)
+        if( !itk::Math::FloatAlmostEqual((*jdti).GetRed() , value))
           {
           std::cout<<" [FAILED] : Red : found " << ( *jdti).GetRed() << " instead of " << value <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jdti).GetGreen() != value+1)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetGreen() , value+1))
           {
           std::cout<<" [FAILED] : Green : found " << ( *jdti).GetGreen() << " instead of " << value+1 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jdti).GetBlue() != value+2)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetBlue() , value+2))
           {
           std::cout<<"[FAILED] : Blue : found " << ( *jdti).GetBlue() << " instead of " << value+2 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jdti).GetAlpha() != value+3)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetAlpha() , value+3))
           {
           std::cout<<" [FAILED] : Alpha : found " << ( *jdti).GetAlpha() << " instead of " << value+3 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
 
-        if((*jdti).GetField(DTITubePointType::FA) != value+1)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetField(DTITubePointType::FA) , value+1))
           {
           std::cout<<" [FAILED] : FA : found " << ( *jdti).GetField("FA") << " instead of " << value+1 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jdti).GetField(DTITubePointType::ADC) != value*2)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetField(DTITubePointType::ADC) , value*2))
           {
           std::cout<<" [FAILED] : ADC : found " << ( *jdti).GetField("ADC") << " instead of " << value*2 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jdti).GetField(DTITubePointType::GA) != value*3)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetField(DTITubePointType::GA) , value*3))
           {
           std::cout<<" [FAILED] : GA : found " << ( *jdti).GetField("FA") << " instead of " << value*3 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jdti).GetField("Lambda1") != value*4)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetField("Lambda1") , value*4))
           {
           std::cout<<" [FAILED] : GetLambda1 : found " << ( *jdti).GetField("Lambda1") << " instead of " << value*4 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jdti).GetField("Lambda2") != value*5)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetField("Lambda2") , value*5))
           {
           std::cout<<" [FAILED] : GetLambda2 : found " << ( *jdti).GetField("Lambda2") << " instead of " << value*5 <<std::endl;
           delete mySceneChildren;
           return EXIT_FAILURE;
           }
-        if((*jdti).GetField("Lambda3") != value*6)
+        if(!itk::Math::FloatAlmostEqual((*jdti).GetField("Lambda3") , value*6))
           {
           std::cout<<" [FAILED] : GetLambda3 : found " << ( *jdti).GetField("Lambda3") << " instead of " << value*6 <<std::endl;
           delete mySceneChildren;
@@ -678,7 +679,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         int ind;
         for(ind=0;ind<6;ind++)
           {
-          if((*jdti).GetTensorMatrix()[ind] != ind)
+          if(!itk::Math::FloatAlmostEqual((*jdti).GetTensorMatrix()[ind] , ind))
             {
             std::cout<<" [FAILED] : GetTensorMatrix : found " << ( *jdti).GetTensorMatrix()[ind] << " instead of " << ind <<std::endl;
             delete mySceneChildren;
@@ -711,7 +712,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
       {
       for(unsigned int jj=0;jj<3;jj++)
         {
-        if (dynamic_cast<EllipseType*>((*obj).GetPointer())->GetRadius()[jj] != 9)
+        if (!itk::Math::FloatAlmostEqual(dynamic_cast<EllipseType*>((*obj).GetPointer())->GetRadius()[jj] , 9))
           {
           std::cout<<" [FAILED]"<<std::endl;
           delete mySceneChildren;
@@ -806,35 +807,35 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*pit).GetPosition()[d] != value)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetPosition()[d] , value))
             {
             std::cout<<" [FAILED]"<<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
           // Testing the color of the tube points
-          if( (*pit).GetRed() != value)
+          if( !itk::Math::FloatAlmostEqual((*pit).GetRed() , value))
             {
             std::cout<<" [FAILED] : Red : found " << (*pit).GetRed() << " instead of " << value <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetGreen() != value+1)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetGreen() , value+1))
             {
             std::cout<<" [FAILED] : Green : found " << (*pit).GetGreen() << " instead of " << value+1 <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetBlue() != value+2)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetBlue() , value+2))
             {
             std::cout<<" [FAILED] : Blue : found " << (*pit).GetBlue() << " instead of " << value+2 <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetAlpha() != value+3)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetAlpha() , value+3))
             {
             std::cout<<" [FAILED] : Alpha : found " << (*pit).GetAlpha() << " instead of " << value+3 <<std::endl;
             delete mySceneChildren;
@@ -863,7 +864,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*pit).GetPosition()[d] != value)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetPosition()[d] , value))
             {
             std::cout << (*pit).GetPosition()[d] << "!=" << value << std::endl;
             std::cout<<" [FAILED]"<<std::endl;
@@ -871,7 +872,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetNormal()[d] != d)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetNormal()[d] , d))
             {
             std::cout << "Normal : " << (*pit).GetNormal()[d] << std::endl;
             std::cout<<" [FAILED]"<<std::endl;
@@ -880,28 +881,28 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
 
           // Testing the color of the tube points
-          if( (*pit).GetRed() != value)
+          if( !itk::Math::FloatAlmostEqual((*pit).GetRed() , value))
             {
             std::cout<<" [FAILED] : Red : found " << ( *pit).GetRed() << " instead of " << value <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetGreen() != value+1)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetGreen() , value+1))
             {
             std::cout<<" [FAILED] : Green : found " << ( *pit).GetGreen() << " instead of " << value+1 <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetBlue() != value+2)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetBlue() , value+2))
             {
             std::cout<<" [FAILED] : Blue : found " << ( *pit).GetBlue() << " instead of " << value+2 <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetAlpha() != value+3)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetAlpha() , value+3))
             {
             std::cout<<" [FAILED] : Alpha : found " << ( *pit).GetAlpha() << " instead of " << value+3 <<std::endl;
             delete mySceneChildren;
@@ -929,21 +930,21 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*pit).GetPosition()[d] != value)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetPosition()[d] , value))
             {
             std::cout<<" [FAILED]"<<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if(((*pit).GetNormal(0))[d] != d)
+          if(!itk::Math::FloatAlmostEqual(((*pit).GetNormal(0))[d] , d))
             {
             std::cout<<" [FAILED]"<<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if(((*pit).GetNormal(1))[d] != 2*d)
+          if(!itk::Math::FloatAlmostEqual(((*pit).GetNormal(1))[d] , 2*d))
             {
             std::cout<<" [FAILED]"<<std::endl;
             delete mySceneChildren;
@@ -951,28 +952,28 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
 
           // Testing the color of the tube points
-          if( (*pit).GetRed() != value)
+          if( !itk::Math::FloatAlmostEqual((*pit).GetRed() , value))
             {
             std::cout<<" [FAILED] : Red : found " << ( *pit).GetRed() << " instead of " << value <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetGreen() != value+1)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetGreen() , value+1))
             {
             std::cout<<" [FAILED] : Green : found " << ( *pit).GetGreen() << " instead of " << value+1 <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetBlue() != value+2)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetBlue() , value+2))
             {
             std::cout<<" [FAILED] : Blue : found " << ( *pit).GetBlue() << " instead of " << value+2 <<std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-          if((*pit).GetAlpha() != value+3)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetAlpha() , value+3))
             {
             std::cout<<" [FAILED] : Alpha : found " << ( *pit).GetAlpha() << " instead of " << value+3 <<std::endl;
             delete mySceneChildren;
@@ -1000,7 +1001,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
         {
         for(unsigned int d=0;d<3;d++)
           {
-          if((*pit).GetPosition()[d] != value)
+          if(!itk::Math::FloatAlmostEqual((*pit).GetPosition()[d] , value))
             {
             std::cout<<" [FAILED]"<<std::endl;
             delete mySceneChildren;
@@ -1059,14 +1060,14 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*ctrl).GetPosition()[d] != value)
+          if(!itk::Math::FloatAlmostEqual((*ctrl).GetPosition()[d] , value))
             {
             std::cout << "Control Position [FAILED]" << std::endl;
             delete mySceneChildren;
             return EXIT_FAILURE;
             }
 
-         if((*ctrl).GetPickedPoint()[d] != -value)
+         if(!itk::Math::FloatAlmostEqual((*ctrl).GetPickedPoint()[d] , -value))
             {
             std::cout << "Picked Point [FAILED]" << (*ctrl).GetPickedPoint()
                       << " v.s. " << -value << std::endl;
@@ -1074,7 +1075,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if(((*ctrl).GetNormal())[d] != value)
+          if(!itk::Math::FloatAlmostEqual(((*ctrl).GetNormal())[d] , value))
             {
             std::cout << "Normal [FAILED]" << std::endl;
             delete mySceneChildren;
@@ -1082,7 +1083,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
 
           // Testing the color of the tube points
-          if( (*ctrl).GetRed() != value)
+          if( !itk::Math::FloatAlmostEqual((*ctrl).GetRed() , value))
             {
             std::cout << " [FAILED] : CRed : found " << (*ctrl).GetRed()
                       << " instead of " << value <<std::endl;
@@ -1090,7 +1091,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*ctrl).GetGreen() != value+1)
+          if(!itk::Math::FloatAlmostEqual((*ctrl).GetGreen() , value+1))
             {
             std::cout << " [FAILED] : CGreen : found " << (*ctrl).GetGreen()
                       << " instead of " << value+1 <<std::endl;
@@ -1098,7 +1099,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*ctrl).GetBlue() != value+2)
+          if(!itk::Math::FloatAlmostEqual((*ctrl).GetBlue() , value+2))
             {
             std::cout << " [FAILED] : CBlue : found " << (*ctrl).GetBlue()
                       << " instead of " << value+2 <<std::endl;
@@ -1106,7 +1107,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*ctrl).GetAlpha() != value+3)
+          if(!itk::Math::FloatAlmostEqual((*ctrl).GetAlpha() , value+3))
             {
             std::cout << " [FAILED] : CAlpha : found " << (*ctrl).GetAlpha()
                       << " instead of " << value+3 <<std::endl;
@@ -1132,7 +1133,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*inter).GetPosition()[d] != value)
+          if(!itk::Math::FloatAlmostEqual((*inter).GetPosition()[d] , value))
             {
             std::cout << "Interpolated Position [FAILED]" << std::endl;
             delete mySceneChildren;
@@ -1140,7 +1141,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             }
 
           // Testing the color of the tube points
-          if( (*inter).GetRed() != value)
+          if( !itk::Math::FloatAlmostEqual((*inter).GetRed() , value))
             {
             std::cout << " [FAILED] : IRed : found " << (*inter).GetRed()
                       << " instead of " << value <<std::endl;
@@ -1148,7 +1149,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*inter).GetGreen() != value+1)
+          if(!itk::Math::FloatAlmostEqual((*inter).GetGreen() , value+1))
             {
             std::cout << " [FAILED] : IGreen : found " << (*inter).GetGreen()
                       << " instead of " << value+1 <<std::endl;
@@ -1156,7 +1157,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*inter).GetBlue() != value+2)
+          if(!itk::Math::FloatAlmostEqual((*inter).GetBlue() , value+2))
             {
             std::cout << " [FAILED] : IBlue : found " << (*inter).GetBlue()
                       << " instead of " << value+2 <<std::endl;
@@ -1164,7 +1165,7 @@ int itkReadWriteSpatialObjectTest(int argc, char* argv[])
             return EXIT_FAILURE;
             }
 
-          if((*inter).GetAlpha() != value+3)
+          if(!itk::Math::FloatAlmostEqual((*inter).GetAlpha() , value+3))
             {
             std::cout << " [FAILED] : IAlpha : found " << (*inter).GetAlpha()
                       << " instead of " << value+3 <<std::endl;
