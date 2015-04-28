@@ -25,6 +25,7 @@
 #include "itkImageMaskSpatialObject.h"
 #include "vnl/vnl_vector.h"
 #include "itkProgressReporter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -266,13 +267,13 @@ void DiffusionTensor3DReconstructionImageFilter< TReferenceImagePixelType,
         unmaskedPixel = maskSpatialObject->IsInside(point);
         }
 
-      if ( ( b0 != 0 ) && unmaskedPixel && ( b0 >= m_Threshold ) )
+      if ( ( !itk::Math::FloatAlmostEqual(b0 , 0) ) && unmaskedPixel && ( b0 >= m_Threshold ) )
         {
         for ( unsigned int i = 0; i < m_NumberOfGradientDirections; i++ )
           {
           GradientPixelType b = gradientItContainer[i]->Get();
 
-          if ( b == 0 )
+          if ( itk::Math::FloatAlmostEqual(b , 0) )
             {
             B[i] = 0;
             }
@@ -390,11 +391,11 @@ void DiffusionTensor3DReconstructionImageFilter< TReferenceImagePixelType,
         unmaskedPixel = maskSpatialObject->IsInside(point);
         }
 
-      if ( ( b0 != 0 ) && unmaskedPixel && ( b0 >= m_Threshold ) )
+      if ( ( !itk::Math::FloatAlmostEqual(b0 , 0) ) && unmaskedPixel && ( b0 >= m_Threshold ) )
         {
         for ( unsigned int i = 0; i < m_NumberOfGradientDirections; i++ )
           {
-          if ( b[gradientind[i]] == 0 )
+          if ( itk::Math::FloatAlmostEqual(b[gradientind[i]] , 0) )
             {
             B[i] = 0;
             }
