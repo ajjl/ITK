@@ -18,6 +18,7 @@
 
 #include "itkGaussianSmoothingOnUpdateDisplacementFieldTransform.h"
 #include "itkGaussianSmoothingOnUpdateDisplacementFieldTransformParametersAdaptor.h"
+#include "itkMath.h"
 
 int itkGaussianSmoothingOnUpdateDisplacementFieldTransformParametersAdaptorTest(int, char * [] )
 {
@@ -146,12 +147,12 @@ int itkGaussianSmoothingOnUpdateDisplacementFieldTransformParametersAdaptorTest(
     std::cerr << "required direction conversion is incorrect." << std::endl;
     return EXIT_FAILURE;
     }
-  if( adaptor->GetGaussianSmoothingVarianceForTheUpdateField() != transform->GetGaussianSmoothingVarianceForTheUpdateField() )
+  if( !itk::Math::FloatAlmostEqual(adaptor->GetGaussianSmoothingVarianceForTheUpdateField() , transform->GetGaussianSmoothingVarianceForTheUpdateField()) )
     {
     std::cerr << "update field variance conversion is incorrect." << std::endl;
     return EXIT_FAILURE;
     }
-  if( adaptor->GetGaussianSmoothingVarianceForTheTotalField() != transform->GetGaussianSmoothingVarianceForTheTotalField() )
+  if( !itk::Math::FloatAlmostEqual(adaptor->GetGaussianSmoothingVarianceForTheTotalField() , transform->GetGaussianSmoothingVarianceForTheTotalField()) )
     {
     std::cerr << "total field variance conversion is incorrect." << std::endl;
     return EXIT_FAILURE;
