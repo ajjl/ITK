@@ -19,6 +19,7 @@
 #include <iostream>
 
 #include "itkFixedCenterOfRotationAffineTransform.h"
+#include "itkMath.h"
 
 
 int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
@@ -90,14 +91,14 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   point2 = aff2->GetCenterOfRotationComponent();
 
   if(
-    matrix2[0][0] != 1 ||
-    matrix2[0][1] != 2 ||
-    matrix2[1][0] != 3 ||
-    matrix2[1][1] != 4 ||
-    vector2[0] != 5 ||
-    vector2[1] != 6 ||
-    point2[0] != 1 ||
-    point2[1] != 1
+    !itk::Math::FloatAlmostEqual(matrix2[0][0] , 1) ||
+    !itk::Math::FloatAlmostEqual(matrix2[0][1] , 2) ||
+    !itk::Math::FloatAlmostEqual(matrix2[1][0] , 3) ||
+    !itk::Math::FloatAlmostEqual(matrix2[1][1] , 4) ||
+    !itk::Math::FloatAlmostEqual(vector2[0] , 5) ||
+    !itk::Math::FloatAlmostEqual(vector2[1] , 6) ||
+    !itk::Math::FloatAlmostEqual(point2[0] , 1) ||
+    !itk::Math::FloatAlmostEqual(point2[1] , 1)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -123,16 +124,16 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   std::cout << "Modify the affine matrix: ";
 
   if(
-    matrix2[0][0] != 1 ||
-    matrix2[0][1] != 2 ||
-    matrix2[1][0] != 3 ||
-    matrix2[1][1] != 4 ||
-    vector2[0] != 5 ||
-    vector2[1] != 6 ||
-    point2[0] != 1 ||
-    point2[1] != 1 ||
-    resultingScale[0] !=2 ||
-    resultingScale[1] !=4
+    !itk::Math::FloatAlmostEqual(matrix2[0][0] , 1) ||
+    !itk::Math::FloatAlmostEqual(matrix2[0][1] , 2) ||
+    !itk::Math::FloatAlmostEqual(matrix2[1][0] , 3) ||
+    !itk::Math::FloatAlmostEqual(matrix2[1][1] , 4) ||
+    !itk::Math::FloatAlmostEqual(vector2[0] , 5) ||
+    !itk::Math::FloatAlmostEqual(vector2[1] , 6) ||
+    !itk::Math::FloatAlmostEqual(point2[0] , 1) ||
+    !itk::Math::FloatAlmostEqual(point2[1] , 1) ||
+    !itk::Math::FloatAlmostEqual(resultingScale[0] ,2) ||
+    !itk::Math::FloatAlmostEqual(resultingScale[1] ,4)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -151,10 +152,10 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   matrix2 = aff2->GetMatrix();
 
   if(
-      matrix2[0][0] != 2 ||
-      matrix2[0][1] != 0 ||
-      matrix2[1][0] != 0 ||
-      matrix2[1][1] != 4
+      !itk::Math::FloatAlmostEqual(matrix2[0][0] , 2) ||
+      !itk::Math::FloatAlmostEqual(matrix2[0][1] , 0) ||
+      !itk::Math::FloatAlmostEqual(matrix2[1][0] , 0) ||
+      !itk::Math::FloatAlmostEqual(matrix2[1][1] , 4)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -191,12 +192,12 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   parameters2 = aff2->GetParameters();
 
   if(
-      parameters2[0] != 1 ||
-      parameters2[1] != 2 ||
-      parameters2[2] != 3 ||
-      parameters2[3] != 4 ||
-      parameters2[4] != 3 ||
-      parameters2[5] != 4
+      !itk::Math::FloatAlmostEqual(parameters2[0] , 1) ||
+      !itk::Math::FloatAlmostEqual(parameters2[1] , 2) ||
+      !itk::Math::FloatAlmostEqual(parameters2[2] , 3) ||
+      !itk::Math::FloatAlmostEqual(parameters2[3] , 4) ||
+      !itk::Math::FloatAlmostEqual(parameters2[4] , 3) ||
+      !itk::Math::FloatAlmostEqual(parameters2[5] , 4)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
