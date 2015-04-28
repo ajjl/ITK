@@ -19,6 +19,7 @@
 #define itkFEMSolverHyperbolic_hxx
 
 #include "itkFEMSolverHyperbolic.h"
+#include "itkMath.h"
 
 namespace itk {
 namespace fem {
@@ -80,11 +81,11 @@ SolverHyperbolic<VDimension>
        * element in Ke is zero, to prevent zeros from being
        * allocated in sparse matrix.
        */
-      if ( Ke[j][k]!=Float(0.0) )
+      if ( !itk::Math::FloatAlmostEqual(Ke[j][k],Float(0.0)) )
         {
         this->m_ls->AddMatrixValue( e->GetDegreeOfFreedom(j), e->GetDegreeOfFreedom(k), Ke[j][k], matrix_K );
         }
-      if ( Me[j][k]!=Float(0.0) )
+      if ( !itk::Math::FloatAlmostEqual(Me[j][k],Float(0.0)) )
         {
         this->m_ls->AddMatrixValue( e->GetDegreeOfFreedom(j), e->GetDegreeOfFreedom(k), Me[j][k], matrix_M );
         }
