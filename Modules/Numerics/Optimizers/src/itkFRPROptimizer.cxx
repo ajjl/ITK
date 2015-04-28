@@ -19,6 +19,7 @@
 #define _itkFRPROptimizer_cxx
 
 #include "itkFRPROptimizer.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -192,7 +193,7 @@ FRPROptimizer
         }
       }
 
-    if ( gg == 0 )
+    if ( itk::Math::FloatAlmostEqual(gg , 0) )
       {
       this->SetCurrentPosition(p);
       this->InvokeEvent( EndEvent() );
