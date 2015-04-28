@@ -21,6 +21,7 @@
  */
 
 #include "itkGaussianSpatialObject.h"
+#include "itkMath.h"
 
 int itkGaussianSpatialObjectTest(int, char* [])
 {
@@ -32,7 +33,7 @@ int itkGaussianSpatialObjectTest(int, char* [])
   myGaussian->SetMaximum(2);
   GaussianType::ScalarType maximum = myGaussian->GetMaximum();
   std::cout << "Testing Maximum: ";
-  if( maximum != 2 )
+  if( !itk::Math::FloatAlmostEqual(maximum , 2) )
     {
     std::cout << "[FAILURE]" << std::endl;
       return EXIT_FAILURE;
@@ -42,7 +43,7 @@ int itkGaussianSpatialObjectTest(int, char* [])
   GaussianType::ScalarType radius =
     myGaussian->GetRadius();
   std::cout << "Testing Radius: ";
-  if( radius != 3 )
+  if( !itk::Math::FloatAlmostEqual(radius , 3) )
     {
     std::cout << "[FAILURE]" << std::endl;
       return EXIT_FAILURE;
@@ -112,8 +113,8 @@ int itkGaussianSpatialObjectTest(int, char* [])
 
   offset3 = myGaussian2->GetObjectToParentTransform()->GetOffset();
 
-  if( (offset3[0]!=5) || (offset3[1]!=5)
-      ||(offset3[2]!=5) ||(offset3[3]!=5)
+  if( (!itk::Math::FloatAlmostEqual(offset3[0],5)) || (offset3[1]!=5)
+      ||(!itk::Math::FloatAlmostEqual(offset3[2],5)) ||(offset3[3]!=5)
     )
     {
     std::cout<<"[FAILED]"<<std::endl;
@@ -128,8 +129,8 @@ int itkGaussianSpatialObjectTest(int, char* [])
 
   for(unsigned int i=0;i<3;i++)
     {
-    if( (boundingBox->GetBounds()[2*i] != 7 )
-        || (boundingBox->GetBounds()[2*i+1] != 16 )
+    if( (!itk::Math::FloatAlmostEqual(boundingBox->GetBounds()[2*i] , 7) )
+        || (!itk::Math::FloatAlmostEqual(boundingBox->GetBounds()[2*i+1] , 16) )
       )
       {
       std::cout<<"[FAILED]"<<std::endl;
