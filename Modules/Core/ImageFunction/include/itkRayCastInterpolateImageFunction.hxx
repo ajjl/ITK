@@ -22,6 +22,7 @@
 #include "itkRayCastInterpolateImageFunction.h"
 
 #include "vnl/vnl_math.h"
+#include "itkMath.h"
 
 // Put the helper class in an anonymous namespace so that it is not
 // exposed to the user
@@ -437,7 +438,7 @@ RayCastHelper< TInputImage, TCoordRep >
     m_BoundingPlane[j][2] = C / std::sqrt(A * A + B * B + C * C);
     m_BoundingPlane[j][3] = D / std::sqrt(A * A + B * B + C * C);
 
-    if ( ( A * A + B * B + C * C ) == 0 )
+    if ( itk::Math::FloatAlmostEqual(( A * A + B * B + C * C ) , 0) )
       {
       itk::ExceptionObject err(__FILE__, __LINE__);
       err.SetLocation(ITK_LOCATION);
