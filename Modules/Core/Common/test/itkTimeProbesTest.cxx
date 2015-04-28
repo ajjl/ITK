@@ -21,6 +21,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "itkMath.h"
 
 template <typename T>
 void TestTransformIndexToPhysicalPoint(T * image)
@@ -61,7 +62,7 @@ void TestTransformPhysicalPointToIndex(T * image)
         image->TransformPhysicalPointToIndex(point3D, index3D);
         }
       }
-    if (k == 5) std::cout << point3D << std::endl;
+    if (itk::Math::FloatAlmostEqual(k , 5)) std::cout << point3D << std::endl;
     }
 }
 //-------------------------
