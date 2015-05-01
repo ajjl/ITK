@@ -27,6 +27,7 @@
 #include <cstdio>
 
 #include "itkSimpleFilterWatcher.h"
+#include "itkMath.h"
 namespace itk
 {
 /**
@@ -288,7 +289,7 @@ GradientDifferenceImageToImageMetric< TFixedImage, TMovingImage >
 
   for ( iDimension = 0; iDimension < FixedImageDimension; iDimension++ )
     {
-    if ( m_Variance[iDimension] == NumericTraits< MovedGradientPixelType >::ZeroValue() )
+    if ( itk::Math::EqualsComparison(m_Variance[iDimension], NumericTraits< MovedGradientPixelType >::ZeroValue()) )
       {
       continue;
       }

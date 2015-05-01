@@ -21,6 +21,7 @@
 
 #include "itkNumericTraits.h"
 #include "itkVector.h"
+#include "itkMath.h"
 
 #include "vnl/vnl_vector_ref.h"
 
@@ -102,7 +103,7 @@ public:
     bool same = true;
 
     for ( unsigned int i = 0; i < NPointDimension && same; i++ )
-          { same = ( ( *this )[i] == pt[i] ); }
+          { same = ( itk::Math::EqualsComparison( ( *this )[i], pt[i] ) ); }
     return same;
   }
 
@@ -110,14 +111,7 @@ public:
   bool
   operator!=(const Self & pt) const
   {
-    bool same = true;
-
-CLANG_PRAGMA_PUSH
-CLANG_SUPPRESS_Wfloat_equal
-    for ( unsigned int i = 0; i < NPointDimension && same; i++ )
-          { same = ( ( *this )[i] == pt[i] ); }
-CLANG_PRAGMA_POP
-    return !same;
+    return !this->operator==(pt);
   }
 
   /** Point operator+=.  Adds a vector to the current point. */

@@ -21,6 +21,7 @@
 #include "itkSinRegularizedHeavisideStepFunction.h"
 #include "itkBinaryImageToLevelSetImageAdaptor.h"
 #include "itkNumericTraits.h"
+#include "itkMath.h"
 
 int itkLevelSetEquationCurvatureTermTest( int argc, char* argv[] )
 {
@@ -180,7 +181,7 @@ int itkLevelSetEquationCurvatureTermTest( int argc, char* argv[] )
   term->InitializeParameters();
   term->Update();
 
-  if( term->Evaluate( index ) != value * binary->GetPixel( index ) )
+  if( itk::Math::NotEqualsComparison( term->Evaluate( index ), value * binary->GetPixel( index ) ) )
     {
     std::cerr << "term->Evaluate( index ) != value * binary->GetPixel( index )" << std::endl;
     std::cerr << "term->Evaluate( index ) = " << term->Evaluate( index ) << std::endl;
@@ -191,7 +192,7 @@ int itkLevelSetEquationCurvatureTermTest( int argc, char* argv[] )
 
   term->SetUseCurvatureImage( false );
 
-  if( term->Evaluate( index ) != value )
+  if( itk::Math::NotEqualsComparison( term->Evaluate( index ), value ) )
     {
     std::cerr << "term->Evaluate( index ) != value" << std::endl;
     std::cerr << "term->Evaluate( index ) = " << term->Evaluate( index ) << std::endl;

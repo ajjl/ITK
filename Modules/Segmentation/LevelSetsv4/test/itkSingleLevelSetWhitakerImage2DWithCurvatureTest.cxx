@@ -26,6 +26,7 @@
 #include "itkBinaryImageToLevelSetImageAdaptor.h"
 #include "itkLevelSetEquationCurvatureTerm.h"
 #include "itkLevelSetEvolutionNumberOfIterationsStoppingCriterion.h"
+#include "itkMath.h"
 
 int itkSingleLevelSetWhitakerImage2DWithCurvatureTest( int argc, char* argv[] )
 {
@@ -234,7 +235,7 @@ int itkSingleLevelSetWhitakerImage2DWithCurvatureTest( int argc, char* argv[] )
     return EXIT_FAILURE;
     }
 
-  if( evolution->GetAlpha() != 0.9 )
+  if( itk::Math::NotEqualsComparison( evolution->GetAlpha(), 0.9 ) )
     {
     std::cerr << "evolution->GetAlpha() != 0.9" << std::endl;
 

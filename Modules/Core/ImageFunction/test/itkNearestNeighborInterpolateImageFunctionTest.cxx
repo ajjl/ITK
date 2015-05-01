@@ -21,6 +21,7 @@
 #include "itkImage.h"
 #include "itkVectorImage.h"
 #include "itkNearestNeighborInterpolateImageFunction.h"
+#include "itkMath.h"
 
 
 int itkNearestNeighborInterpolateImageFunctionTest( int , char*[] )
@@ -167,7 +168,7 @@ int itkNearestNeighborInterpolateImageFunctionTest( int , char*[] )
            //test scalar image
            const double computedValue = interpolator->Evaluate( point );
 
-           if( expectedValue != computedValue )
+           if( itk::Math::NotEqualsComparison(expectedValue, computedValue) )
              {
              std::cerr << "Error found while computing interpolation "
                        << std::endl;

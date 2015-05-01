@@ -23,6 +23,7 @@
 #include "itkGradientRecursiveGaussianImageFilter.h"
 #include "itkGradientImageFilter.h"
 #include "itkVectorCastImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -83,7 +84,7 @@ LevelSetEquationAdvectionTerm< TInput, TLevelSetContainer >
 
   AdvectionImagePointer gradientImage;
 
-  if ( m_DerivativeSigma != NumericTraits< LevelSetOutputRealType >::ZeroValue() )
+  if ( itk::Math::NotEqualsComparison( m_DerivativeSigma, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
     {
     typedef GradientRecursiveGaussianImageFilter< InputImageType, AdvectionImageType >
     DerivativeFilterType;

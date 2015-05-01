@@ -19,6 +19,7 @@
 #define itkRescaleIntensityImageFilter_h
 
 #include "itkUnaryFunctorImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -46,10 +47,10 @@ public:
   void SetMaximum(TOutput max) { m_Maximum = max; }
   bool operator!=(const IntensityLinearTransform & other) const
   {
-    if ( m_Factor != other.m_Factor
-         || m_Offset != other.m_Offset
-         || m_Maximum != other.m_Maximum
-         || m_Minimum != other.m_Minimum )
+    if ( itk::Math::NotEqualsComparison(m_Factor, other.m_Factor )
+         || itk::Math::NotEqualsComparison(m_Offset, other.m_Offset )
+         || itk::Math::NotEqualsComparison(m_Maximum, other.m_Maximum )
+         || itk::Math::NotEqualsComparison(m_Minimum, other.m_Minimum ) )
       {
       return true;
       }

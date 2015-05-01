@@ -19,6 +19,7 @@
 #define itkSigmoidImageFilter_h
 
 #include "itkUnaryFunctorImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -43,7 +44,6 @@ namespace itk
  * \wikiexample{ImageProcessing/SigmoidImageFilter,Pass image pixels through a sigmoid function}
  * \endwiki
  */
-
 namespace Functor
 {
 template< typename TInput, typename TOutput >
@@ -61,10 +61,10 @@ public:
   ~Sigmoid() {}
   bool operator!=(const Sigmoid & other) const
   {
-    if ( m_Alpha != other.m_Alpha
-         || m_Beta != other.m_Beta
-         || m_OutputMaximum != other.m_OutputMaximum
-         || m_OutputMinimum != other.m_OutputMinimum  )
+    if (    itk::Math::NotEqualsComparison( m_Alpha, other.m_Alpha )
+         || itk::Math::NotEqualsComparison( m_Beta, other.m_Beta )
+         || itk::Math::NotEqualsComparison( m_OutputMaximum, other.m_OutputMaximum )
+         || itk::Math::NotEqualsComparison( m_OutputMinimum, other.m_OutputMinimum  ) )
       {
       return true;
       }
@@ -163,7 +163,7 @@ public:
 
   void SetAlpha(double alpha)
   {
-    if ( alpha == this->GetFunctor().GetAlpha() )
+    if ( itk::Math::EqualsComparison( alpha, this->GetFunctor().GetAlpha() ) )
       {
       return;
       }
@@ -178,7 +178,7 @@ public:
 
   void SetBeta(double beta)
   {
-    if ( beta == this->GetFunctor().GetBeta() )
+    if ( itk::Math::EqualsComparison( beta, this->GetFunctor().GetBeta() ) )
       {
       return;
       }
@@ -193,7 +193,7 @@ public:
 
   void SetOutputMinimum(OutputPixelType min)
   {
-    if ( min == this->GetFunctor().GetOutputMinimum() )
+    if ( itk::Math::EqualsComparison( min, this->GetFunctor().GetOutputMinimum() ) )
       {
       return;
       }
@@ -208,7 +208,7 @@ public:
 
   void SetOutputMaximum(OutputPixelType max)
   {
-    if ( max == this->GetFunctor().GetOutputMaximum() )
+    if ( itk::Math::EqualsComparison(  max, this->GetFunctor().GetOutputMaximum() ) )
       {
       return;
       }

@@ -22,6 +22,7 @@
 #include "itkMultiplyImageFilter.h"
 
 #include "itkCommand.h"
+#include "itkMath.h"
 
 // For debugging
 
@@ -103,7 +104,7 @@ int itkIsoContourDistanceImageFilterTest(int, char* [] )
   isocontour->SetFarValue(10);
   //  isocontour->SetNumberOfThreads(8);
 
-  if( isocontour->GetFarValue() != 10 )
+  if( itk::Math::NotEqualsComparison(isocontour->GetFarValue(), 10) )
     {
     std::cout << "isocontour->GetFarValue() != 10" << std::endl;
     return EXIT_FAILURE;

@@ -21,6 +21,7 @@
 #include "itkSegmentationBorder.h"
 #include "itkKLMSegmentationRegion.h"
 #include "itkMacro.h"
+#include "itkMath.h"
 
 #include "vnl/vnl_math.h"
 #include "vnl/vnl_vector.h"
@@ -51,7 +52,7 @@ public:
    */
   bool operator>(const KLMDynamicBorderArray< TBorder > & rhs) const
   {
-    if ( m_Pointer->GetLambda() == rhs.m_Pointer->GetLambda() )
+    if ( itk::Math::EqualsComparison( m_Pointer->GetLambda(), rhs.m_Pointer->GetLambda() ) )
       {
       if ( m_Pointer->GetLambda() < 0 )
         {

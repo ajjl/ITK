@@ -21,6 +21,7 @@
 
 #include "itkImageRegionIteratorWithIndex.h"
 #include <functional>
+#include "itkMath.h"
 
 
 // templates for explicit checking of image results in logic
@@ -51,7 +52,7 @@ int checkImOnImRes(typename InIm1::Pointer A, typename InIm2::Pointer B,
       {
       Expected = FG;
       }
-    if (it3.Get() != Expected)
+    if (itk::Math::NotEqualsComparison( it3.Get(), Expected) )
       {
       std::cerr << "Result : Im1 Op Im2" << std::endl;
       std::cerr << "Expected " << Expected << ", got " << it3.Get() << std::endl;
@@ -85,7 +86,7 @@ int checkImOnConstRes(typename InIm1::Pointer A, ConstT B,
       {
       Expected = FG;
       }
-    if (it3.Get() != Expected)
+    if (itk::Math::NotEqualsComparison( it3.Get(), Expected) )
       {
       std::cerr << "Result : Im1 Op Const" << std::endl;
       std::cerr << "Expected " << Expected << ", got " << it3.Get() << std::endl;
@@ -119,7 +120,7 @@ int checkConstOnImRes(ConstT A, typename InIm1::Pointer B,
       {
       Expected = FG;
       }
-    if (it3.Get() != Expected)
+    if ( itk::Math::NotEqualsComparison( it3.Get(), Expected) )
       {
       std::cerr << "Result : Const Op Im1" << std::endl;
       std::cerr << "Expected " << Expected << ", got " << it3.Get() << std::endl;

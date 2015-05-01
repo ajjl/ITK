@@ -20,6 +20,7 @@
 #include "itkLevelSetEquationOverlapPenaltyTerm.h"
 #include "itkSinRegularizedHeavisideStepFunction.h"
 #include "itkBinaryImageToLevelSetImageAdaptor.h"
+#include "itkMath.h"
 
 int itkLevelSetEquationOverlapPenaltyTermTest( int argc, char* argv[] )
 {
@@ -189,7 +190,7 @@ int itkLevelSetEquationOverlapPenaltyTermTest( int argc, char* argv[] )
   index[1] = 5;
 
   std::cout << penaltyTerm0->Evaluate( index ) << std::endl;
-  if ( penaltyTerm0->Evaluate( index ) != 0 )
+  if ( itk::Math::NotEqualsComparison( penaltyTerm0->Evaluate( index ), 0 ) )
     {
     return EXIT_FAILURE;
     }
@@ -198,7 +199,7 @@ int itkLevelSetEquationOverlapPenaltyTermTest( int argc, char* argv[] )
   index[1] = 20;
 
   std::cout << penaltyTerm0->Evaluate( index ) << std::endl;
-  if ( penaltyTerm0->Evaluate( index ) != 1000 )
+  if ( itk::Math::NotEqualsComparison( penaltyTerm0->Evaluate( index ), 1000 ) )
     {
     return EXIT_FAILURE;
     }

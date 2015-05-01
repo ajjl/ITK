@@ -30,6 +30,7 @@
 
 #include "itkPixelTraits.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 #include <iostream>
 
 /** Choose a concept checking implementation based on compiler abilities. */
@@ -256,8 +257,11 @@ struct EqualityComparable {
   struct Constraints {
     void constraints()
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
       Detail::RequireBooleanExpression(a == b);
       Detail::RequireBooleanExpression(a != b);
+CLANG_PRAGMA_POP
     }
 
     T1 a;
@@ -278,8 +282,11 @@ struct Comparable {
       Detail::RequireBooleanExpression(a > b);
       Detail::RequireBooleanExpression(a <= b);
       Detail::RequireBooleanExpression(a >= b);
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
       Detail::RequireBooleanExpression(a == b);
       Detail::RequireBooleanExpression(a != b);
+CLANG_PRAGMA_POP
     }
 
     T1 a;

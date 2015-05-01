@@ -20,6 +20,7 @@
 #include "itkCompensatedSummation.h"
 #include <iostream>
 #include <iomanip>
+#include "itkMath.h"
 
 /*
  * This test demonstrates the variance in output when the same operation is
@@ -166,7 +167,7 @@ int itkCompensatedSummationTest2(int, char* [])
             << domainThreader->GetNumberOfThreadsUsed() << "\n\n" << std::endl;
 
   /* Check results */
-  if( enclosingClass.GetCompensatedSumOfThreads() != enclosingClass.GetUncompensatedSumOfThreads() )
+  if( itk::Math::NotEqualsComparison(enclosingClass.GetCompensatedSumOfThreads(), enclosingClass.GetUncompensatedSumOfThreads()) )
     {
     std::cerr << std::setprecision(20)
               << "Error. Expected the sum to be the same for compensated and uncompensated."

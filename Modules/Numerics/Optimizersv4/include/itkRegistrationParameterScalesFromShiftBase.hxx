@@ -19,6 +19,7 @@
 #define itkRegistrationParameterScalesFromShiftBase_hxx
 
 #include "itkRegistrationParameterScalesFromShiftBase.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -88,7 +89,7 @@ RegistrationParameterScalesFromShiftBase< TMetric >
       }
     }
 
-  if (minNonZeroShift == NumericTraits<FloatType>::max())
+  if (itk::Math::EqualsComparison( minNonZeroShift, NumericTraits<FloatType>::max()) )
     {
     itkWarningMacro(  << "Variation in any parameter won't change a voxel position. The default scales (1.0) are used to avoid division-by-zero." );
     parameterScales.Fill(NumericTraits< typename ScalesType::ValueType >::One);

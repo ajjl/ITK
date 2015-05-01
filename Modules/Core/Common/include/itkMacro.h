@@ -741,7 +741,10 @@ TTarget itkDynamicCastInDebugMode(TSource x)
     const DecoratorType *oldInput =                                  \
       itkDynamicCastInDebugMode< const DecoratorType * >(            \
         this->ProcessObject::GetInput(#name) );                      \
+    CLANG_PRAGMA_PUSH                                   \
+    CLANG_SUPPRESS_Wfloat_equal                         \
     if ( oldInput && oldInput->Get() == _arg )                       \
+    CLANG_PRAGMA_POP                                                               \
       {                                                              \
       return;                                                        \
       }                                                              \
@@ -1088,7 +1091,10 @@ CLANG_PRAGMA_POP                                       \
     unsigned int i;                          \
     for ( i = 0; i < count; i++ )            \
       {                                      \
+CLANG_PRAGMA_PUSH                                   \
+CLANG_SUPPRESS_Wfloat_equal                         \
       if ( data[i] != this->m_##name[i] )  \
+CLANG_PRAGMA_POP                                                               \
         {                                    \
         break;                               \
         }                                    \

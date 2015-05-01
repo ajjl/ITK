@@ -20,6 +20,7 @@
 #include "itkTranslationTransform.h"
 #include "itkGaussianSmoothingOnUpdateDisplacementFieldTransform.h"
 #include "itkTestingMacros.h"
+#include "itkMath.h"
 
 #include <fstream>
 
@@ -153,7 +154,7 @@ int itkEuclideanDistancePointSetMetricTest2Run()
   std::cout << "value: " << value << std::endl;
 
   // Check for the same results from different methods
-  if( value != value2 )
+  if( itk::Math::NotEqualsComparison( value, value2 ) )
     {
     std::cerr << "value does not match between calls to different methods: "
               << "value: " << value << " value2: " << value2 << std::endl;
@@ -176,7 +177,7 @@ int itkEuclideanDistancePointSetMetricTest2Run()
     transformedPoint = displacementTransform->TransformPoint( fixedPoint );
     for( unsigned int d = 0; d < Dimension; d++ )
       {
-      if( transformedPoint[d] != movingPoint[d] )
+      if( itk::Math::NotEqualsComparison( transformedPoint[d], movingPoint[d] ) )
         {
         passed = false;
         }
@@ -215,12 +216,12 @@ int itkEuclideanDistancePointSetMetricTest2Run()
   bool derivative2IsZero = true;
   for( itk::SizeValueType n=0; n < metric->GetNumberOfParameters(); n++ )
     {
-    if( derivative2[n] != itk::NumericTraits<typename PointSetMetricType::DerivativeValueType>::ZeroValue() )
+    if( itk::Math::NotEqualsComparison( derivative2[n], itk::NumericTraits<typename PointSetMetricType::DerivativeValueType>::ZeroValue() ) )
       {
       derivative2IsZero = false;
       }
     }
-  if( value2 != itk::NumericTraits<typename PointSetMetricType::MeasureType>::max() || ! derivative2IsZero )
+  if( itk::Math::NotEqualsComparison( value2, itk::NumericTraits<typename PointSetMetricType::MeasureType>::max() ) || ! derivative2IsZero )
     {
     std::cerr << "Failed testing with no valid points. Number of valid points: " << metric->GetNumberOfValidPoints()
               << " value2: " << value2 << " derivative2IsZero: " << derivative2IsZero << std::endl;

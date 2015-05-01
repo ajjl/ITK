@@ -19,6 +19,7 @@
 #define itkVectorRescaleIntensityImageFilter_h
 
 #include "itkUnaryFunctorImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -37,7 +38,7 @@ public:
   itkStaticConstMacro(VectorDimension, unsigned int, TInput::Dimension);
   bool operator!=(const VectorMagnitudeLinearTransform & other) const
   {
-    if ( m_Factor != other.m_Factor )
+    if ( itk::Math::NotEqualsComparison( m_Factor, other.m_Factor ) )
       {
       return true;
       }

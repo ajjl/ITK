@@ -26,6 +26,7 @@
 #include "itkOffset.h"
 #include "itkProgressReporter.h"
 #include "itkBinaryDilateImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -98,7 +99,7 @@ BinaryDilateImageFilter< TInputImage, TOutputImage, TKernel >
     {
     InputPixelType value = inIt.Get();
     // replace foreground pixels with the default background
-    if ( value == foregroundValue )
+    if ( itk::Math::EqualsComparison(value, foregroundValue) )
       {
       outIt.Set( static_cast< OutputPixelType >( backgroundValue ) );
       }
@@ -157,7 +158,7 @@ BinaryDilateImageFilter< TInputImage, TOutputImage, TKernel >
         ++iRegIt, ++tmpRegIt )
     {
     OutputPixelType pxl = iRegIt.Get();
-    if ( pxl == foregroundValue )
+    if ( itk::Math::EqualsComparison(pxl, foregroundValue) )
       {
       tmpRegIt.Set(onTag);
       }
@@ -442,7 +443,7 @@ BinaryDilateImageFilter< TInputImage, TOutputImage, TKernel >
         // has a value equal to the dilate one, this means
         // that the output pixel at currentIndex will be on in the output.
         if ( !inputRegionForThread.IsInside(translatedIndex)
-             || input->GetPixel(translatedIndex) == foregroundValue )
+             || itk::Math::EqualsComparison(input->GetPixel(translatedIndex), foregroundValue) )
           {
           ouRegIndexIt.Set( static_cast< OutputPixelType >( foregroundValue ) );
           break; // Do not need to examine other offsets because at least one
@@ -464,7 +465,7 @@ BinaryDilateImageFilter< TInputImage, TOutputImage, TKernel >
         IndexType translatedIndex = currentIndex - *vecIt;
 
         if ( inputRegionForThread.IsInside(translatedIndex)
-             && input->GetPixel(translatedIndex) == foregroundValue )
+             && itk::Math::EqualsComparison(input->GetPixel(translatedIndex), foregroundValue) )
           {
           ouRegIndexIt.Set( static_cast< OutputPixelType >( foregroundValue ) );
           break;
