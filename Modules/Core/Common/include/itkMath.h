@@ -276,6 +276,85 @@ FloatAlmostEqual( T x1, T x2,
   return ulps <= maxUlps;
 }
 
+template <typename T1, typename T2>
+inline bool
+EqualsComparison( T1 x1, T2 x2 )
+{
+  return ( x1 == x2 );
+}
+
+template<>
+inline bool
+EqualsComparison( double x1, double x2 )
+{
+  return FloatAlmostEqual( x1, x2 );
+}
+
+template<>
+inline bool
+EqualsComparison( float x1, float x2 )
+{
+  return FloatAlmostEqual( x1, x2 );
+}
+/*
+template<>
+inline bool
+EqualsComparison( float x1, double x2 )
+{
+  return FloatAlmostEqual( static_cast<double>( x1 ), x2 );
+}
+
+template<>
+inline bool
+EqualsComparison( double x1, float x2 )
+{
+  return FloatAlmostEqual( x1, static_cast<double>( x2 ) );
+}
+*/
+
+template <typename T1>
+inline bool
+EqualsComparison( T1 x1, float x2)
+{
+  return FloatAlmostEqual( static_cast<float>(x1), x2 );
+}
+
+template <typename T2>
+inline bool
+EqualsComparison( float x1, T2 x2)
+{
+  return FloatAlmostEqual( x1, static_cast<float> (x2) );
+}
+
+template <typename T2>
+inline bool
+EqualsComparison( double x1, T2 x2)
+{
+  return FloatAlmostEqual( x1, static_cast<double>(x2) );
+}
+template <typename T1>
+inline bool
+EqualsComparison( T1 x1, double x2 )
+{
+  return FloatAlmostEqual( static_cast<double>(x1), x2 );
+}
+
+template <typename T1, typename T2>
+inline bool
+NotEqualsComparison( T1 x1, T2 x2 )
+{
+  return ! EqualsComparison( x1, x2 );
+}
+
+
+template <typename T1, typename T2>
+inline bool
+EqualsComparisonCaller( T1 x1, T2 x2 )
+{
+  return EqualsComparison( x1, x2 );
+}
+
+
 } // end namespace Math
 } // end namespace itk
 #endif // end of itkMath.h
