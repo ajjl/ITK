@@ -23,6 +23,7 @@
 #include "itkFloodFilledImageFunctionConditionalIterator.h"
 #include "itkProgressReporter.h"
 #include "itkIterationReporter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -277,7 +278,7 @@ IsolatedConnectedImageFilter< TInputImage, TOutputImage >
         si++;
         }
 
-      if ( seedIntensitySum != 0 )
+      if ( itk::Math::NotEqualsComparison(seedIntensitySum , 0) )
         {
         upper = guess;
         }
@@ -344,7 +345,7 @@ IsolatedConnectedImageFilter< TInputImage, TOutputImage >
         si++;
         }
 
-      if ( seedIntensitySum != 0 )
+      if ( itk::Math::NotEqualsComparison(seedIntensitySum , 0) )
         {
         lower = guess;
         }
@@ -412,7 +413,7 @@ IsolatedConnectedImageFilter< TInputImage, TOutputImage >
     seed2IntensitySum += value;
     si2++;
     }
-  if ( seed1IntensitySum != m_ReplaceValue * m_Seeds1.size() || seed2IntensitySum != 0 )
+  if ( itk::Math::NotEqualsComparison(seed1IntensitySum , m_ReplaceValue * m_Seeds1.size()) || itk::Math::NotEqualsComparison(seed2IntensitySum , 0) )
     {
     m_ThresholdingFailed = true;
     }
