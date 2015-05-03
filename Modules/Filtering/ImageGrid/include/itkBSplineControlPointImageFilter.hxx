@@ -24,6 +24,7 @@
 #include "itkImageRegionConstIteratorWithIndex.h"
 #include "itkImageRegionIterator.h"
 #include "itkImageRegionIteratorWithIndex.h"
+#include "itkMath.h"
 
 /*
  *
@@ -300,7 +301,7 @@ BSplineControlPointImageFilter<TInputImage, TOutputImage>
       }
     for( int i = ImageDimension - 1; i >= 0; i-- )
       {
-      if( U[i] != currentU[i] )
+      if( itk::Math::NotEqualsComparison(U[i] , currentU[i]) )
         {
         for( int j = i; j >= 0; j-- )
           {
