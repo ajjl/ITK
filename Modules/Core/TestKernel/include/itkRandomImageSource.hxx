@@ -32,6 +32,7 @@
 #include "itkImageRegionIterator.h"
 #include "itkObjectFactory.h"
 #include "itkProgressReporter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -103,7 +104,7 @@ RandomImageSource< TOutputImage >
 
   for ( i = 0; i < count; i++ )
     {
-    if ( spacingArray[i] != this->m_Spacing[i] )
+    if ( itk::Math::NotEqualsComparison(spacingArray[i] , this->m_Spacing[i]) )
       {
       break;
       }
@@ -128,7 +129,7 @@ RandomImageSource< TOutputImage >
 
   for ( i = 0; i < count; i++ )
     {
-    if ( originArray[i] != this->m_Origin[i] )
+    if ( itk::Math::NotEqualsComparison(originArray[i] , this->m_Origin[i]) )
       {
       break;
       }
