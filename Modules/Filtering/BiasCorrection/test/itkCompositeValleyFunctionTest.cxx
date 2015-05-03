@@ -21,6 +21,7 @@
 
 #include "itkCompositeValleyFunction.h"
 #include "itkStdStreamStateSave.h"
+#include "itkMath.h"
 
 int itkCompositeValleyFunctionTest(int , char* [] )
 {
@@ -45,7 +46,7 @@ int itkCompositeValleyFunctionTest(int , char* [] )
     return EXIT_FAILURE;
     }
 
-  if ( function.GetLowerBound() != -180.0 )
+  if ( itk::Math::NotEqualsComparison(function.GetLowerBound() , -180.0) )
     {
     std::cout << "Test fails: GetLowerBound()" << std::endl;
     return EXIT_FAILURE;
