@@ -25,6 +25,7 @@
 #include "itkNeighborhoodAlgorithm.h"
 #include "itkProgressReporter.h"
 #include "itkImageRegionConstIterator.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -95,7 +96,7 @@ void
 ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
 ::BeforeThreadedGenerateData()
 {
-  if ( m_ObjectValue == 0 )
+  if ( itk::Math::EqualsComparisonCaller(m_ObjectValue , 0) )
     {
     this->GetOutput()->FillBuffer(1);
     }
@@ -123,7 +124,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
   oRegIter.GoToBegin();
   while ( !oRegIter.IsAtEnd() )
     {
-    if ( oRegIter.Get() != m_ObjectValue )
+    if ( itk::Math::NotEqualsComparison(oRegIter.Get() , m_ObjectValue) )
       {
       oRegIter.Set( iRegIter.Get() );
       }
@@ -168,7 +169,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
 
     while ( !iSNIter.IsAtEnd() )
       {
-      if ( iSNIter.GetCenterPixel() == m_ObjectValue )
+      if ( itk::Math::EqualsComparisonCaller(iSNIter.GetCenterPixel() , m_ObjectValue) )
         {
         if ( this->IsObjectPixelOnBoundary(iSNIter) )
           {
@@ -201,7 +202,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
     for ( i = 0; i < s; i++ )
       {
       tf = iNIter.GetPixel(i);
-      if ( tf != m_ObjectValue )
+      if ( itk::Math::NotEqualsComparison(tf , m_ObjectValue) )
         {
         return true;
         }
@@ -212,7 +213,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
     for ( i = 0; i < s; i++ )
       {
       tf = iNIter.GetPixel(i, isInside);
-      if ( tf != m_ObjectValue && isInside )
+      if ( itk::Math::NotEqualsComparison(tf , m_ObjectValue) && isInside )
         {
         return true;
         }
