@@ -19,6 +19,7 @@
 #define itkBinaryThresholdImageFunction_hxx
 
 #include "itkBinaryThresholdImageFunction.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -38,8 +39,8 @@ void
 BinaryThresholdImageFunction< TInputImage, TCoordRep >
 ::ThresholdAbove(PixelType thresh)
 {
-  if ( m_Lower != thresh
-       || m_Upper != NumericTraits< PixelType >::max() )
+  if ( itk::Math::NotEqualsComparison(m_Lower , thresh)
+       || itk::Math::NotEqualsComparison(m_Upper , NumericTraits< PixelType >::max()) )
     {
     m_Lower = thresh;
     m_Upper = NumericTraits< PixelType >::max();
@@ -55,8 +56,8 @@ void
 BinaryThresholdImageFunction< TInputImage, TCoordRep >
 ::ThresholdBelow(PixelType thresh)
 {
-  if ( m_Lower != NumericTraits< PixelType >::NonpositiveMin()
-       || m_Upper != thresh )
+  if ( itk::Math::NotEqualsComparison(m_Lower , NumericTraits< PixelType >::NonpositiveMin())
+       || itk::Math::NotEqualsComparison(m_Upper , thresh) )
     {
     m_Lower = NumericTraits< PixelType >::NonpositiveMin();
     m_Upper = thresh;
@@ -72,8 +73,8 @@ void
 BinaryThresholdImageFunction< TInputImage, TCoordRep >
 ::ThresholdBetween(PixelType lower, PixelType upper)
 {
-  if ( m_Lower != lower
-       || m_Upper != upper )
+  if ( itk::Math::NotEqualsComparison(m_Lower , lower)
+       || itk::Math::NotEqualsComparison(m_Upper , upper) )
     {
     m_Lower = lower;
     m_Upper = upper;
