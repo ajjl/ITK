@@ -21,6 +21,7 @@
 #include "itkBSplineControlPointImageFunction.h"
 
 #include "itkImageRegionIteratorWithIndex.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -194,7 +195,7 @@ BSplineControlPointImageFunction<TInputImage, TCoordRep>
   for( unsigned int i = 0; i < ImageDimension; i++ )
     {
     p[i] = params[i];
-    if( p[i] == NumericTraits<CoordRepType>::OneValue() )
+    if( itk::Math::EqualsComparisonCaller(p[i] , NumericTraits<CoordRepType>::OneValue()) )
       {
       p[i] = NumericTraits<CoordRepType>::OneValue() - this->m_BSplineEpsilon;
       }
@@ -348,7 +349,7 @@ BSplineControlPointImageFunction<TInputImage, TCoordRep>
   for( unsigned int i = 0; i < ImageDimension; i++ )
     {
     p[i] = params[i];
-    if( p[i] == NumericTraits<CoordRepType>::OneValue() )
+    if( itk::Math::EqualsComparisonCaller(p[i] , NumericTraits<CoordRepType>::OneValue()) )
       {
       p[i] = NumericTraits<CoordRepType>::OneValue() - this->m_BSplineEpsilon;
       }
@@ -522,7 +523,7 @@ BSplineControlPointImageFunction<TInputImage, TCoordRep>
   for( unsigned int i = 0; i < ImageDimension; i++ )
     {
     p[i] = params[i];
-    if( p[i] == NumericTraits<CoordRepType>::OneValue() )
+    if( itk::Math::EqualsComparisonCaller(p[i] , NumericTraits<CoordRepType>::OneValue()) )
       {
       p[i] = NumericTraits<CoordRepType>::OneValue() - this->m_BSplineEpsilon;
       }
