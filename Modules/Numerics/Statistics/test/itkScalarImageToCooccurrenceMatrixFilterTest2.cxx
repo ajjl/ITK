@@ -21,6 +21,7 @@
 
 
 #include "itkScalarImageToCooccurrenceMatrixFilter.h"
+#include "itkMath.h"
 
 int itkScalarImageToCooccurrenceMatrixFilterTest2(int, char* [] )
 {
@@ -171,7 +172,7 @@ int itkScalarImageToCooccurrenceMatrixFilterTest2(int, char* [] )
     ttF = hist->GetFrequency(two_two);
     totalF = hist->GetTotalFrequency();
 
-    if( ooF != 4 || ttF != 0 || otF != 0 || toF != 0 || ooF != totalF)
+    if( itk::Math::NotEqualsComparison(ooF , 4) || itk::Math::NotEqualsComparison(ttF , 0) || itk::Math::NotEqualsComparison(otF , 0) || itk::Math::NotEqualsComparison(toF , 0) || itk::Math::NotEqualsComparison(ooF , totalF))
       {
       std::cerr << "Error:" << std::endl;
       std::cerr << "The histogram was calculated incorrectly" << std::endl;
@@ -209,7 +210,7 @@ int itkScalarImageToCooccurrenceMatrixFilterTest2(int, char* [] )
     ttF = hist->GetFrequency(two_two);
     totalF = hist->GetTotalFrequency();
 
-    if( ooF != 16 || ttF != 16 || otF != 14 || toF != 14 || ooF + ttF + otF + toF != totalF)
+    if( itk::Math::NotEqualsComparison(ooF , 16) || itk::Math::NotEqualsComparison(ttF , 16) || itk::Math::NotEqualsComparison(otF , 14) || itk::Math::NotEqualsComparison(toF , 14) || itk::Math::NotEqualsComparison(ooF + ttF + otF + toF , totalF))
       {
       std::cerr << "Error:" << std::endl;
       std::cerr << "The histogram was calculated incorrectly" << std::endl;
@@ -254,7 +255,7 @@ int itkScalarImageToCooccurrenceMatrixFilterTest2(int, char* [] )
     totalF = hist->GetTotalFrequency();
 
 
-    if( ooF != 24 || ttF != 16 || otF != 20 || toF != 20 || ooF + ttF + otF + toF != totalF)
+    if( itk::Math::NotEqualsComparison(ooF , 24) || itk::Math::NotEqualsComparison(ttF , 16) || itk::Math::NotEqualsComparison(otF , 20) || itk::Math::NotEqualsComparison(toF , 20) || itk::Math::NotEqualsComparison(ooF + ttF + otF + toF , totalF))
       {
       std::cerr << "Error:" << std::endl;
       std::cerr << "The histogram was calculated incorrectly" << std::endl;
@@ -278,7 +279,7 @@ int itkScalarImageToCooccurrenceMatrixFilterTest2(int, char* [] )
     ttF = hist->GetFrequency(two_two);
     totalF = hist->GetTotalFrequency();
 
-    if( ooF != 0 || ttF != 0 || otF != 0 || toF != 0 || totalF != 4)
+    if( itk::Math::NotEqualsComparison(ooF , 0) || itk::Math::NotEqualsComparison(ttF , 0) || itk::Math::NotEqualsComparison(otF , 0) || itk::Math::NotEqualsComparison(toF , 0) || itk::Math::NotEqualsComparison(totalF , 4))
       {
       std::cerr << "Error:" << std::endl;
       std::cerr << "The histogram was calculated incorrectly" << std::endl;
@@ -299,7 +300,7 @@ int itkScalarImageToCooccurrenceMatrixFilterTest2(int, char* [] )
     ttF = hist->GetFrequency(two_two);
     totalF = hist->GetTotalFrequency();
 
-    if( ooF != 0 || ttF != 0 || otF != 0 || toF != 0 || totalF != 24)
+    if( itk::Math::NotEqualsComparison(ooF , 0) || itk::Math::NotEqualsComparison(ttF , 0) || itk::Math::NotEqualsComparison(otF , 0) || itk::Math::NotEqualsComparison(toF , 0) || itk::Math::NotEqualsComparison(totalF , 24))
       {
       std::cerr << "Error:" << std::endl;
       std::cerr << "The histogram was calculated incorrectly" << std::endl;
