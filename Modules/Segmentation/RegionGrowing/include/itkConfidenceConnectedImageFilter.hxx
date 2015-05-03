@@ -26,6 +26,7 @@
 #include "itkBinaryThresholdImageFunction.h"
 #include "itkFloodFilledImageFunctionConditionalIterator.h"
 #include "itkProgressReporter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -349,7 +350,7 @@ ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
     m_Mean      = sum / double(numberOfSamples);
     m_Variance  = ( sumOfSquares - ( sum * sum / double(numberOfSamples) ) ) / ( double(numberOfSamples) - 1.0 );
     // if the variance is zero, there is no point in continuing
-    if ( m_Variance == 0 )
+    if ( itk::Math::EqualsComparisonCaller(m_Variance , 0) )
       {
       itkDebugMacro( << "\nLower intensity = " << lower
                      << ", Upper intensity = " << upper
