@@ -20,6 +20,7 @@
 
 #include "itkMatchCardinalityImageToImageMetric.h"
 #include "itkImageRegionConstIteratorWithIndex.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -177,11 +178,11 @@ MatchCardinalityImageToImageMetric< TFixedImage, TMovingImage >
 
       if ( m_MeasureMatches )
         {
-        diff = ( movingValue == fixedValue ); // count matches
+        diff = ( itk::Math::EqualsComparisonCaller(movingValue , fixedValue) ); // count matches
         }
       else
         {
-        diff = ( movingValue != fixedValue ); // count mismatches
+        diff = ( itk::Math::NotEqualsComparison(movingValue , fixedValue) ); // count mismatches
         }
       threadMeasure += diff;
       }
