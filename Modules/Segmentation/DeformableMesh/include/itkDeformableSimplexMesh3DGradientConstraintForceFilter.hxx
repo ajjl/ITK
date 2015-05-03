@@ -23,6 +23,7 @@
 #include "vnl/vnl_math.h"
 
 #include <set>
+#include "itkMath.h"
 
 namespace itk
 {
@@ -230,7 +231,7 @@ DeformableSimplexMesh3DGradientConstraintForceFilter< TInputMesh, TOutputMesh >
     ImageVoxel *current;
     vpos[0] = ic[0]; vpos[1] = ic[1]; vpos[2] = ic[2];
 
-    if ( data->normal[0] == 0 )
+    if ( itk::Math::EqualsComparisonCaller(data->normal[0] , 0) )
       {
       dp[0] = 1e-6;
       }
@@ -239,7 +240,7 @@ DeformableSimplexMesh3DGradientConstraintForceFilter< TInputMesh, TOutputMesh >
       dp[0] = data->normal[0];
       }
 
-    if ( data->normal[1] == 0 )
+    if ( itk::Math::EqualsComparisonCaller(data->normal[1] , 0) )
       {
       dp[1] = 1e-6;
       }
@@ -248,7 +249,7 @@ DeformableSimplexMesh3DGradientConstraintForceFilter< TInputMesh, TOutputMesh >
       dp[1] = data->normal[1];
       }
 
-    if ( data->normal[2] == 0 )
+    if ( itk::Math::EqualsComparisonCaller(data->normal[2] , 0) )
       {
       dp[2] = 1e-6;
       }
