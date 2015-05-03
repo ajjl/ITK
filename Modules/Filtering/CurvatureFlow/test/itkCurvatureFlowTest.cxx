@@ -23,6 +23,7 @@
 #include "itkTextOutput.h"
 #include "itkCastImageFilter.h"
 #include "itkStreamingImageFilter.h"
+#include "itkMath.h"
 
 
 namespace
@@ -212,7 +213,7 @@ int itkCurvatureFlowTest(int argc, char* argv[] )
   unsigned int failedPixels = 0;
   while( !it1.IsAtEnd() )
     {
-    if( it1.Get() != it2.Get() )
+    if( itk::Math::NotEqualsComparison(it1.Get() , it2.Get()) )
       {
       if (failedPixels == 0)
         {
