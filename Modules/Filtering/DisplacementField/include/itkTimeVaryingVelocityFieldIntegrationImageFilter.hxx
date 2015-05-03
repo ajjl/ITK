@@ -22,6 +22,7 @@
 
 #include "itkImageRegionIteratorWithIndex.h"
 #include "itkVectorLinearInterpolateImageFunction.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -149,7 +150,7 @@ TimeVaryingVelocityFieldIntegrationImageFilter
   <TTimeVaryingVelocityField, TDisplacementField>
 ::ThreadedGenerateData( const OutputRegionType &region, ThreadIdType itkNotUsed( threadId ) )
 {
-  if( this->m_LowerTimeBound == this->m_UpperTimeBound )
+  if( itk::Math::EqualsComparisonCaller(this->m_LowerTimeBound , this->m_UpperTimeBound) )
     {
     return;
     }
