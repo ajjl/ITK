@@ -20,6 +20,7 @@
 
 #include "itkClampImageFilter.h"
 #include "itkProgressReporter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -109,7 +110,7 @@ void
 ClampImageFilter< TInputImage, TOutputImage >
 ::SetBounds(const OutputPixelType lowerBound, const OutputPixelType upperBound)
   {
-  if ( lowerBound == this->GetFunctor().GetLowerBound() && upperBound == this->GetFunctor().GetUpperBound())
+  if ( itk::Math::EqualsComparisonCaller(lowerBound , this->GetFunctor().GetLowerBound()) && itk::Math::EqualsComparisonCaller(upperBound , this->GetFunctor().GetUpperBound()))
     {
     return;
     }
