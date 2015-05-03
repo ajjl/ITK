@@ -21,6 +21,7 @@
 #include <iostream>
 
 #include "itkGaussianMixtureModelComponent.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -104,7 +105,7 @@ GaussianMixtureModelComponent< TSample >
 
   for ( i = 0; i < measurementVectorSize; i++ )
     {
-    if ( m_Mean[i] != parameters[paramIndex] )
+    if ( itk::Math::NotEqualsComparison(m_Mean[i] , parameters[paramIndex]) )
       {
       m_Mean[i] = parameters[paramIndex];
       changed = true;
