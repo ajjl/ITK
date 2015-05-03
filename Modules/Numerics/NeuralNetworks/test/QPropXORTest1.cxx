@@ -20,6 +20,7 @@
 #include "itkBatchSupervisedTrainingFunction.h"
 #include "itkListSample.h"
 #include <fstream>
+#include "itkMath.h"
 
 #define ROUND(x) (floor(x+0.5))
 
@@ -160,7 +161,7 @@ QPropXORTest1(int argc, char* argv[])
         {
         ++error1;
         }
-      else if (flag == 1 && tv[0] == -0.5)
+      else if (flag == 1 && itk::Math::EqualsComparisonCaller(tv[0] , -0.5))
         {
         ++error2;
         }
