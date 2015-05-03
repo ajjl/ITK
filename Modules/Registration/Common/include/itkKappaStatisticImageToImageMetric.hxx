@@ -20,6 +20,7 @@
 
 #include "itkKappaStatisticImageToImageMetric.h"
 #include "itkImageRegionIteratorWithIndex.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -110,7 +111,7 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
     // Increment 'fixedForegroundArea'
     //
     //
-    if( fixedValue == m_ForegroundValue )
+    if( itk::Math::EqualsComparisonCaller(fixedValue , m_ForegroundValue) )
       {
       fixedForegroundArea++;
       }
@@ -134,11 +135,11 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
     if( this->m_Interpolator->IsInsideBuffer(transformedPoint) )
       {
       const RealType movingValue = this->m_Interpolator->Evaluate(transformedPoint);
-      if( movingValue == m_ForegroundValue )
+      if( itk::Math::EqualsComparisonCaller(movingValue , m_ForegroundValue) )
         {
         movingForegroundArea++;
         }
-      if( ( movingValue == m_ForegroundValue ) && ( fixedValue == m_ForegroundValue ) )
+      if( ( itk::Math::EqualsComparisonCaller(movingValue , m_ForegroundValue) ) && ( itk::Math::EqualsComparisonCaller(fixedValue , m_ForegroundValue) ) )
         {
         intersection++;
         }
@@ -231,7 +232,7 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
       }
 
     const RealType fixedValue = ti.Value();
-    if( fixedValue == m_ForegroundValue )
+    if( itk::Math::EqualsComparisonCaller(fixedValue , m_ForegroundValue) )
       {
       fixedArea++;
       }
@@ -248,12 +249,12 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
       {
       const RealType movingValue  = this->m_Interpolator->Evaluate(transformedPoint);
 
-      if( movingValue == m_ForegroundValue )
+      if( itk::Math::EqualsComparisonCaller(movingValue , m_ForegroundValue) )
         {
         movingArea++;
         }
 
-      if( ( movingValue == m_ForegroundValue ) && ( fixedValue == m_ForegroundValue ) )
+      if( ( itk::Math::EqualsComparisonCaller(movingValue , m_ForegroundValue) ) && ( itk::Math::EqualsComparisonCaller(fixedValue , m_ForegroundValue) ) )
         {
         intersection++;
         }
@@ -283,7 +284,7 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
         for( unsigned int dim = 0; dim < ImageDimension; dim++ )
           {
           sum2[par] += jacobian(dim, par) * gradient[dim];
-          if( fixedValue == m_ForegroundValue )
+          if( itk::Math::EqualsComparisonCaller(fixedValue , m_ForegroundValue) )
             {
             sum1[par] += 2.0 * jacobian(dim, par) * gradient[dim];
             }
@@ -354,11 +355,11 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
         plusIndex[i] = currIndex[i] + 1;
         double minusVal = double( this->m_MovingImage->GetPixel(minusIndex) );
         double plusVal  = double( this->m_MovingImage->GetPixel(plusIndex) );
-        if( ( minusVal != m_ForegroundValue ) && ( plusVal == m_ForegroundValue ) )
+        if( ( itk::Math::NotEqualsComparison(minusVal , m_ForegroundValue) ) && ( itk::Math::EqualsComparisonCaller(plusVal , m_ForegroundValue) ) )
           {
           tempGradPixel[i] = 1;
           }
-        else if( ( minusVal == m_ForegroundValue ) && ( plusVal != m_ForegroundValue ) )
+        else if( ( itk::Math::NotEqualsComparison(minusVal , m_ForegroundValue) ) && ( itk::Math::NotEqualsComparison(plusVal , m_ForegroundValue) ) )
           {
           tempGradPixel[i] = -1;
           }
