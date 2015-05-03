@@ -22,6 +22,7 @@
 #include "itkTestingComparisonImageFilter.h"
 #include "itkExtractImageFilter.h"
 #include "itkPipelineMonitorImageFilter.h"
+#include "itkMath.h"
 
 
 const unsigned int VDimension = 3;
@@ -61,7 +62,7 @@ bool SameImage(ImagePointer testImage, ImagePointer baselineImage)
   // compare spacing
   for( unsigned int i = 0; i < VDimension; i++ )
     {
-    if( testImageSpacing[i] != baselineImageSpacing[i] )
+    if( itk::Math::NotEqualsComparison(testImageSpacing[i] , baselineImageSpacing[i]) )
       {
       return false;
       }
