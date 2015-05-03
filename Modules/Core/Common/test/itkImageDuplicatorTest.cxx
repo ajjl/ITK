@@ -21,6 +21,7 @@
 #include "itkRGBPixel.h"
 #include "itkVectorImage.h"
 #include "itkShiftScaleImageFilter.h"
+#include "itkMath.h"
 
 int itkImageDuplicatorTest(int, char* [] )
 {
@@ -78,7 +79,7 @@ int itkImageDuplicatorTest(int, char* [] )
   i = 0;
   while(!it2.IsAtEnd())
     {
-    if(it2.Get() != i)
+    if(itk::Math::NotEqualsComparison(it2.Get() , i))
       {
       std::cout << "Error: Pixel value mismatched: " << it2.Get() << " vs. " << i << std::endl;
       return EXIT_FAILURE;
@@ -101,7 +102,7 @@ int itkImageDuplicatorTest(int, char* [] )
   i = 0;
   while(!it2b.IsAtEnd())
     {
-    if(it2b.Get() != i+1)
+    if(itk::Math::NotEqualsComparison(it2b.Get() , i+1))
       {
       std::cout << "Error: Pixel value mismatched: " << it2b.Get() << " vs. " << i+1 << std::endl;
       return EXIT_FAILURE;
@@ -123,7 +124,7 @@ int itkImageDuplicatorTest(int, char* [] )
   i = 0;
   while(!it2c.IsAtEnd())
     {
-    if(it2c.Get() != i+1)
+    if(itk::Math::NotEqualsComparison(it2c.Get() , i+1))
       {
       std::cout << "Error: Pixel value mismatched: " << it2c.Get() << " vs. " << i+1 << std::endl;
       return EXIT_FAILURE;
