@@ -18,6 +18,7 @@
 
 #include "itkComposeDisplacementFieldsImageFilter.h"
 #include "itkImageRegionIterator.h"
+#include "itkMath.h"
 
 int itkComposeDisplacementFieldsImageFilterTest( int, char * [] )
 {
@@ -73,7 +74,7 @@ int itkComposeDisplacementFieldsImageFilterTest( int, char * [] )
 
   VectorType v = composer->GetOutput()->GetPixel( index );
 
-  if( v[0] != 2 || v[1] != 2 )
+  if( itk::Math::NotEqualsComparison(v[0] , 2) || itk::Math::NotEqualsComparison(v[1] , 2) )
     {
     std::cerr << "Failed to compose properly." << std::endl;
     }
