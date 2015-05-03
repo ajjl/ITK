@@ -20,6 +20,7 @@
 
 #include "itkArrowSpatialObject.h"
 #include "itkEuler3DTransform.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -156,7 +157,7 @@ ArrowSpatialObject< TDimension >
     v.Normalize();
     v2.Normalize();
 
-    if ( dot_product( v.GetVnlVector(), v2.GetVnlVector() ) == 1 )
+    if ( itk::Math::EqualsComparisonCaller(dot_product( v.GetVnlVector(), v2.GetVnlVector() ) , 1) )
       {
       return true;
       }
