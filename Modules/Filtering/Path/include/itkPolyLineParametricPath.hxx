@@ -20,6 +20,7 @@
 
 #include "itkPolyLineParametricPath.h"
 #include <cmath>
+#include "itkMath.h"
 
 namespace itk
 {
@@ -90,7 +91,7 @@ PolyLineParametricPath<VDimension>
   bool timeStepSmallEnough = false;
   while (!timeStepSmallEnough)
     {
-    if (input == this->EndOfInput())
+    if (itk::Math::EqualsComparisonCaller(input , this->EndOfInput()))
       {
       const IndexType finalIndex = this->EvaluateToIndex(this->EndOfInput());
       OffsetType finalOffset;
