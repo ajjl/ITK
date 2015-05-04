@@ -19,6 +19,7 @@
 #define itkIntensityWindowingImageFilter_h
 
 #include "itkUnaryFunctorImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -42,12 +43,12 @@ public:
   ~IntensityWindowingTransform() {}
   bool operator!=(const IntensityWindowingTransform & other) const
   {
-    if ( m_Factor         != other.m_Factor
-         || m_Offset         != other.m_Offset
-         || m_OutputMaximum  != other.m_OutputMaximum
-         || m_OutputMinimum  != other.m_OutputMinimum
-         || m_WindowMaximum  != other.m_WindowMaximum
-         || m_WindowMinimum  != other.m_WindowMinimum )
+    if (    itk::Math::NotEqualsComparison( m_Factor,           other.m_Factor )
+         || itk::Math::NotEqualsComparison( m_Offset,           other.m_Offset )
+         || itk::Math::NotEqualsComparison( m_OutputMaximum,    other.m_OutputMaximum )
+         || itk::Math::NotEqualsComparison( m_OutputMinimum,    other.m_OutputMinimum )
+         || itk::Math::NotEqualsComparison( m_WindowMaximum,    other.m_WindowMaximum )
+         || itk::Math::NotEqualsComparison( m_WindowMinimum,    other.m_WindowMinimum ) )
       {
       return true;
       }

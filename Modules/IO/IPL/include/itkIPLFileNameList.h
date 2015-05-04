@@ -31,6 +31,7 @@
 
 #include "itkMacro.h"
 #include "itkObject.h"
+#include "itkMath.h"
 
 #include <cstdio>
 #include <string>
@@ -39,7 +40,10 @@
 #define IPLSetMacro(name, type)              \
   virtual void Set##name (const type _arg) \
     {                                        \
+CLANG_PRAGMA_PUSH                                   \
+CLANG_SUPPRESS_Wfloat_equal                         \
     if ( this->m_##name != _arg )          \
+CLANG_PRAGMA_POP                                                               \
       {                                      \
       this->m_##name = _arg;               \
       }                                      \
@@ -202,7 +206,7 @@ public:
       {
       return false;
       }
-    else if(XRes != m_XRes || YRes != m_YRes)
+    else if( itk::Math::NotEqualsComparison( XRes, m_XRes ) || itk::Math::NotEqualsComparison( YRes, m_YRes) )
       {
       return false;
       }

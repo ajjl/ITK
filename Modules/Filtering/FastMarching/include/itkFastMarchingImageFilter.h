@@ -22,6 +22,7 @@
 #include "itkImageRegionConstIteratorWithIndex.h"
 #include "itkLevelSet.h"
 #include "vnl/vnl_math.h"
+#include "itkMath.h"
 
 #include <functional>
 #include <queue>
@@ -192,7 +193,7 @@ private:
 
     while( !b_it.IsAtEnd() )
       {
-      if( b_it.Get() == zero_value )
+      if( itk::Math::EqualsComparisonCaller( b_it.Get(), zero_value ) )
         {
         if( NumberOfPoints == 0 )
           {

@@ -20,6 +20,7 @@
 #include "itkLevelSetEquationChanAndVeseExternalTerm.h"
 #include "itkSinRegularizedHeavisideStepFunction.h"
 #include "itkBinaryImageToLevelSetImageAdaptor.h"
+#include "itkMath.h"
 
 int itkLevelSetEquationChanAndVeseExternalTermTest( int argc, char* argv[] )
 {
@@ -162,7 +163,7 @@ int itkLevelSetEquationChanAndVeseExternalTermTest( int argc, char* argv[] )
 
   cvExternalTerm0->Update();
 
-  if( cvExternalTerm0->GetMean() != 1 )
+  if( itk::Math::NotEqualsComparison( cvExternalTerm0->GetMean(), 1 ) )
     {
     return EXIT_FAILURE;
     }

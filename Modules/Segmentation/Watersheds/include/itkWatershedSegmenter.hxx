@@ -567,8 +567,8 @@ void Segmenter< TInputImage >
             for ( i = 0; i < m_Connectivity.size; i++ )
               {
               nPos = m_Connectivity.index[i];
-              if ( searchIt.GetPixel(nPos) ==
-                   searchIt.GetPixel(nCenter) )
+              if ( itk::Math::EqualsComparisonCaller( searchIt.GetPixel(nPos),
+                   searchIt.GetPixel(nCenter) ) )
                 {
                 tempFlatRegion.bounds_min = max;
                 tempFlatRegion.min_label_ptr =

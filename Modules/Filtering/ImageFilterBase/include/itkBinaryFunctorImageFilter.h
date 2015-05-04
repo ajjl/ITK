@@ -20,6 +20,7 @@
 
 #include "itkInPlaceImageFilter.h"
 #include "itkSimpleDataObjectDecorator.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -142,7 +143,7 @@ public:
    * appropriate). */
   void SetFunctor(const FunctorType & functor)
   {
-    if ( m_Functor != functor )
+    if ( itk::Math::NotEqualsComparison( m_Functor, functor ) )
       {
       m_Functor = functor;
       this->Modified();

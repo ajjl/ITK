@@ -21,6 +21,7 @@
 #define itkLevelSetEvolution_hxx
 
 #include "itkLevelSetEvolution.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -134,7 +135,7 @@ LevelSetEvolution< TEquationContainer, LevelSetDenseImage< TImage > >
         }
       else
         {
-        if( contribution == NumericTraits< LevelSetOutputRealType >::max() )
+        if( itk::Math::EqualsComparisonCaller( contribution, NumericTraits< LevelSetOutputRealType >::max() ) )
           {
           itkGenericExceptionMacro( << "contribution is " << contribution );
           }
@@ -317,7 +318,7 @@ LevelSetEvolution< TEquationContainer, WhitakerSparseLevelSetImage< TOutput, VDi
         }
       else
         {
-        if( contribution == NumericTraits< LevelSetOutputRealType >::max() )
+        if( itk::Math::EqualsComparisonCaller( contribution, NumericTraits< LevelSetOutputRealType >::max() ) )
           {
           itkGenericExceptionMacro( << "contribution is " << contribution );
           }

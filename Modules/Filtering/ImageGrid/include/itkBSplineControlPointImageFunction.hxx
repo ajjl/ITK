@@ -116,8 +116,8 @@ BSplineControlPointImageFunction<TInputImage, TCoordRep>
       }
     }
   this->m_BSplineEpsilon = 100 * std::numeric_limits<CoordRepType>::epsilon();
-  while( static_cast<CoordRepType>( maximumNumberOfSpans ) ==
-    static_cast<CoordRepType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon )
+  while( itk::Math::EqualsComparisonCaller( static_cast<CoordRepType>( maximumNumberOfSpans ),
+    ( static_cast<CoordRepType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon ) ) )
     {
     this->m_BSplineEpsilon *= 10;
     }

@@ -31,6 +31,7 @@
 #include "itkIntTypes.h"
 #include "itkMathDetail.h"
 #include "itkConceptChecking.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -280,7 +281,10 @@ template <typename T1, typename T2>
 inline bool
 EqualsComparison( T1 x1, T2 x2 )
 {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   return ( x1 == x2 );
+CLANG_PRAGMA_POP
 }
 
 template<>

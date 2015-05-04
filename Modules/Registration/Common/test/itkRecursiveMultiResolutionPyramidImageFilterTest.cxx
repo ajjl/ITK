@@ -269,8 +269,8 @@ int itkRecursiveMultiResolutionPyramidImageFilterTest(int argc, char* argv[] )
 
   for( j = 0; j < ImageDimension; j++ )
     {
-    if( outputSpacing[j] !=
-      inputSpacing[j] * (double) schedule[testLevel][j] )
+    if( itk::Math::NotEqualsComparison( outputSpacing[j],
+      inputSpacing[j] * (double) schedule[testLevel][j] ) )
       {
       break;
       }

@@ -20,6 +20,7 @@
 
 #include "itkUnaryFunctorImageFilter.h"
 #include "vnl/vnl_math.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -39,7 +40,7 @@ public:
 
   bool operator!=(const ExpNegative & other) const
   {
-    if ( m_Factor != other.m_Factor )
+    if ( itk::Math::NotEqualsComparison( m_Factor, other.m_Factor ) )
       {
       return true;
       }
@@ -111,7 +112,7 @@ public:
 
   void SetFactor(double factor)
   {
-    if ( factor == this->GetFunctor().GetFactor() )
+    if ( itk::Math::EqualsComparisonCaller( factor, this->GetFunctor().GetFactor() ) )
       {
       return;
       }

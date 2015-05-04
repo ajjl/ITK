@@ -211,8 +211,8 @@ BSplineControlPointImageFilter<TInputImage, TOutputImage>
       }
     }
   this->m_BSplineEpsilon = 100 * std::numeric_limits<RealType>::epsilon();
-  while( static_cast<RealType>( maximumNumberOfSpans ) ==
-    static_cast<RealType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon )
+  while( itk::Math::EqualsComparisonCaller( static_cast<RealType>( maximumNumberOfSpans ),
+    ( static_cast<RealType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon ) ) )
     {
     this->m_BSplineEpsilon *= 10;
     }
