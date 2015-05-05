@@ -112,7 +112,7 @@ public:
 
   void SetFactor(double factor)
   {
-    if ( itk::Math::EqualsComparisonCaller( factor, this->GetFunctor().GetFactor() ) )
+    if ( itk::Math::EqualsComparison( factor, this->GetFunctor().GetFactor() ) )
       {
       return;
       }

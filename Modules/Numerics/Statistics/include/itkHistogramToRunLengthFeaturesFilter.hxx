@@ -108,7 +108,7 @@ GenerateData( void )
           hit != inputHistogram->End(); ++hit )
     {
     MeasurementType frequency = hit.GetFrequency();
-    if ( itk::Math::EqualsComparisonCaller(frequency , 0) )
+    if ( itk::Math::EqualsComparison(frequency , 0) )
       {
       continue;
       }

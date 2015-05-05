@@ -1301,7 +1301,7 @@ unsigned int test_regiongrowKLM2D()
 
     double probability = histIt.GetFrequency() / Sum;
 
-    if( itk::Math::EqualsComparisonCaller(probability , 0) )
+    if( itk::Math::EqualsComparison(probability , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       return EXIT_FAILURE;
@@ -1936,7 +1936,7 @@ unsigned int test_regiongrowKLM3D()
 
     double probability = histIt.GetFrequency() / Sum;
 
-    if( itk::Math::EqualsComparisonCaller(probability , 0) )
+    if( itk::Math::EqualsComparison(probability , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       return EXIT_FAILURE;
@@ -2342,7 +2342,7 @@ unsigned int test_regiongrowKLM4D()
 
     double probability = histIt.GetFrequency() / Sum;
 
-    if( itk::Math::EqualsComparisonCaller(probability , 0) )
+    if( itk::Math::EqualsComparison(probability , 0) )
       {
       std::cout << "Test FAILED" << std::endl;
       return EXIT_FAILURE;

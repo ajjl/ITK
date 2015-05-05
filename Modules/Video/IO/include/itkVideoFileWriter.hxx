@@ -147,7 +147,7 @@ VideoFileWriter< TInputVideoStream >
     }
 
   // Make sure FramesPerSecond and FourCC have been set
-  if (itk::Math::EqualsComparisonCaller(m_FramesPerSecond , 0) || m_FourCC.length() == 0)
+  if (itk::Math::EqualsComparison(m_FramesPerSecond , 0) || m_FourCC.length() == 0)
     {
     itkExceptionMacro("Cannot write with FramesPerSecond or FourCC unset");
     }

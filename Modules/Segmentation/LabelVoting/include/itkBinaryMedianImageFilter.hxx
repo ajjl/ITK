@@ -137,7 +137,7 @@ BinaryMedianImageFilter< TInputImage, TOutputImage >
       for ( unsigned int i = 0; i < neighborhoodSize; ++i )
         {
         InputPixelType value = bit.GetPixel(i);
-        if ( itk::Math::EqualsComparisonCaller(value , m_ForegroundValue) )
+        if ( itk::Math::EqualsComparison(value , m_ForegroundValue) )
           {
           count++;
           }

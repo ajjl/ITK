@@ -54,7 +54,7 @@ GeodesicActiveContourLevelSetImageFilter< TInputImage, TFeatureImage, TOutputTyp
   // Make sure the SpeedImage is setup for the case when PropagationScaling
   // is zero
   if ( this->GetSegmentationFunction()
-       && itk::Math::EqualsComparisonCaller(this->GetSegmentationFunction()->GetPropagationWeight() , 0) )
+       && itk::Math::EqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight() , 0) )
     {
     this->GetSegmentationFunction()->AllocateSpeedImage();
     this->GetSegmentationFunction()->CalculateSpeedImage();

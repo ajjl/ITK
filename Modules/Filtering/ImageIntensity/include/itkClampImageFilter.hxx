@@ -110,7 +110,7 @@ void
 ClampImageFilter< TInputImage, TOutputImage >
 ::SetBounds(const OutputPixelType lowerBound, const OutputPixelType upperBound)
   {
-  if ( itk::Math::EqualsComparisonCaller(lowerBound , this->GetFunctor().GetLowerBound()) && itk::Math::EqualsComparisonCaller(upperBound , this->GetFunctor().GetUpperBound()))
+  if ( itk::Math::EqualsComparison(lowerBound , this->GetFunctor().GetLowerBound()) && itk::Math::EqualsComparison(upperBound , this->GetFunctor().GetUpperBound()))
     {
     return;
     }

@@ -447,14 +447,6 @@ NotEqualsComparison( T1 x1, T2 x2 )
 }
 
 
-template <typename T1, typename T2>
-inline bool
-EqualsComparisonCaller( T1 x1, T2 x2 )
-{
-  return EqualsComparison( x1, x2 );
-}
-
-
 } // end namespace Math
 } // end namespace itk
 #endif // end of itkMath.h

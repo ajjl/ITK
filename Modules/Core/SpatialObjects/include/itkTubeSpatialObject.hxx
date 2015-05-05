@@ -410,7 +410,7 @@ TubeSpatialObject< TDimension, TTubePointType >
       }
 
     l = std::sqrt(l);
-    if ( itk::Math::EqualsComparisonCaller(l , 0) )
+    if ( itk::Math::EqualsComparison(l , 0) )
       {
       std::cerr << "TubeSpatialObject::ComputeTangentAndNormals() : ";
       std::cerr << "length between two consecutive points is 0";

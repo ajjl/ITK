@@ -132,7 +132,7 @@ public:
   }
   inline TOutput operator()( const TInput1 & A, const TInput2 & B)
   {
-    if( itk::Math::EqualsComparisonCaller( A, static_cast<TInput1>(B) ) )
+    if( itk::Math::EqualsComparison( A, static_cast<TInput1>(B) ) )
       {
       return this->m_ForegroundValue;
       }

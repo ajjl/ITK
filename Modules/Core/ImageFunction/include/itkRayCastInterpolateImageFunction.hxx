@@ -438,7 +438,7 @@ RayCastHelper< TInputImage, TCoordRep >
     m_BoundingPlane[j][2] = C / std::sqrt(A * A + B * B + C * C);
     m_BoundingPlane[j][3] = D / std::sqrt(A * A + B * B + C * C);
 
-    if ( itk::Math::EqualsComparisonCaller(( A * A + B * B + C * C ) , 0) )
+    if ( itk::Math::EqualsComparison(( A * A + B * B + C * C ) , 0) )
       {
       itk::ExceptionObject err(__FILE__, __LINE__);
       err.SetLocation(ITK_LOCATION);

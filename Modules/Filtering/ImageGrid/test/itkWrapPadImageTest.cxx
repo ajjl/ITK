@@ -37,7 +37,7 @@ int VerifyPixel(int row, int col, short val, float & expected)
   if (col > 11) col -= 12;
   if (col > 11) col -= 12;
   expected = 8*col+row;
-  return (itk::Math::EqualsComparisonCaller(val , expected));
+  return (itk::Math::EqualsComparison(val , expected));
 }
 
 

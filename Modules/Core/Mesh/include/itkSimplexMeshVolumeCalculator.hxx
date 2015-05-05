@@ -179,19 +179,19 @@ SimplexMeshVolumeCalculator< TInputMesh >
     {
     m_Muncz++;
     }
-  else if ( ( itk::Math::EqualsComparisonCaller(absu[0] , absu[1]) ) && ( itk::Math::EqualsComparisonCaller(absu[0] , absu[2]) ) )
+  else if ( ( itk::Math::EqualsComparison(absu[0] , absu[1]) ) && ( itk::Math::EqualsComparison(absu[0] , absu[2]) ) )
     {
     m_Wxyz++;
     }
-  else if ( ( itk::Math::EqualsComparisonCaller(absu[0] , absu[1]) ) && ( absu[0] > absu[2] ) )
+  else if ( ( itk::Math::EqualsComparison(absu[0] , absu[1]) ) && ( absu[0] > absu[2] ) )
     {
     m_Wxy++;
     }
-  else if ( ( itk::Math::EqualsComparisonCaller(absu[0] , absu[2]) ) && ( absu[0] > absu[1] ) )
+  else if ( ( itk::Math::EqualsComparison(absu[0] , absu[2]) ) && ( absu[0] > absu[1] ) )
     {
     m_Wxz++;
     }
-  else if ( ( itk::Math::EqualsComparisonCaller(absu[1] , absu[2]) ) && ( absu[0] < absu[2] ) )
+  else if ( ( itk::Math::EqualsComparison(absu[1] , absu[2]) ) && ( absu[0] < absu[2] ) )
     {
     m_Wyz++;
     }

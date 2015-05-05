@@ -194,7 +194,7 @@ int itkHoughTransform2DLinesImageTest(int, char* [])
 
     for(it_input.GoToBegin();!it_input.IsAtEnd();++it_input)
     {
-      if(itk::Math::EqualsComparisonCaller(it_input.Get() , max))
+      if(itk::Math::EqualsComparison(it_input.Get() , max))
       {
         houghPoint m_HoughPoint;
         m_HoughPoint.radius = it_input.GetIndex()[0];

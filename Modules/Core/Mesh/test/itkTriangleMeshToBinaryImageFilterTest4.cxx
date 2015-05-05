@@ -111,7 +111,7 @@ int itkTriangleMeshToBinaryImageFilterTest4( int argc, char * argv [] )
   }
 
   const ImageType::DirectionType& inbuiltDirection = imageFilter->GetDirection();
-  if ((itk::Math::EqualsComparisonCaller(inbuiltDirection[0][0] , 1))&&(itk::Math::EqualsComparisonCaller(inbuiltDirection[1][1] , 1))&&(itk::Math::EqualsComparisonCaller(inbuiltDirection[2][2] , 1)))
+  if ((itk::Math::EqualsComparison(inbuiltDirection[0][0] , 1))&&(itk::Math::EqualsComparison(inbuiltDirection[1][1] , 1))&&(itk::Math::EqualsComparison(inbuiltDirection[2][2] , 1)))
   {
     ImageType::DirectionType Direction;
 

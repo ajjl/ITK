@@ -367,7 +367,7 @@ LevelSetEquationTermContainer< TInputImage, TLevelSetContainer >
     {
     LevelSetOutputRealType cfl = ( term_it->second )->GetCFLContribution();
 
-    if( itk::Math::EqualsComparisonCaller( cfl, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
+    if( itk::Math::EqualsComparison( cfl, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
       {
       cfl = ( cfl_it->second );
       }

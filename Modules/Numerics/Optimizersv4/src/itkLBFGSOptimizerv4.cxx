@@ -90,7 +90,7 @@ void
 LBFGSOptimizerv4
 ::SetLineSearchAccuracy(double f)
 {
-  if ( itk::Math::EqualsComparisonCaller( f, m_LineSearchAccuracy ) )
+  if ( itk::Math::EqualsComparison( f, m_LineSearchAccuracy ) )
     {
     return;
     }
@@ -108,7 +108,7 @@ void
 LBFGSOptimizerv4
 ::SetDefaultStepLength(double f)
 {
-  if ( itk::Math::EqualsComparisonCaller( f, m_DefaultStepLength ) )
+  if ( itk::Math::EqualsComparison( f, m_DefaultStepLength ) )
     {
     return;
     }

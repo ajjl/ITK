@@ -1976,7 +1976,7 @@ PatchBasedDenoisingImageFilter<TInputImage, TOutputImage>
 
     // if second derivative is zero or negative, compute update using gradient
     // descent
-    if ( (itk::Math::EqualsComparisonCaller(vnl_math_abs(secondDerivative) , NumericTraits<RealValueType>::Zero)) ||
+    if ( (itk::Math::EqualsComparison(vnl_math_abs(secondDerivative) , NumericTraits<RealValueType>::Zero)) ||
          (secondDerivative < 0) )
       {
       itkDebugMacro( << "** Second derivative NOT POSITIVE" );

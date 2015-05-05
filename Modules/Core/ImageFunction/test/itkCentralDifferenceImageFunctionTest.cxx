@@ -259,7 +259,7 @@ int itkCentralDifferenceImageFunctionTest(int, char* [] )
   pointOutput = function->Evaluate( point );
   std::cout << "Point: " << point << " Derivative: " << pointOutput << std::endl;
 
-  if( itk::Math::NotEqualsComparison(pointOutput[0] , 0) || itk::Math::EqualsComparisonCaller(pointOutput[1] , 0) )
+  if( itk::Math::NotEqualsComparison(pointOutput[0] , 0) || itk::Math::EqualsComparison(pointOutput[1] , 0) )
     {
     std::cerr << "ERROR: Output of Evaluate just on boundary is not zero." << std::endl;
     std::cerr << " pointOutput: " << pointOutput << std::endl;

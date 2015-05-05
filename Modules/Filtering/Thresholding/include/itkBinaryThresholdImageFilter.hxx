@@ -65,7 +65,7 @@ BinaryThresholdImageFilter< TInputImage, TOutputImage >
 {
   // first check to see if anything changed
   typename InputPixelObjectType::Pointer lower = this->GetLowerThresholdInput();
-  if ( lower && itk::Math::EqualsComparisonCaller(lower->Get() , threshold) )
+  if ( lower && itk::Math::EqualsComparison(lower->Get() , threshold) )
     {
     return;
     }
@@ -156,7 +156,7 @@ BinaryThresholdImageFilter< TInputImage, TOutputImage >
 {
   // first check to see if anything changed
   typename InputPixelObjectType::Pointer upper = this->GetUpperThresholdInput();
-  if ( upper && itk::Math::EqualsComparisonCaller(upper->Get() , threshold) )
+  if ( upper && itk::Math::EqualsComparison(upper->Get() , threshold) )
     {
     return;
     }

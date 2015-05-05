@@ -358,7 +358,7 @@ MinMaxCurvatureFlowFunction< TImage >
     }
   theta = std::acos( (double)gradient[2] );
 
-  if ( itk::Math::EqualsComparisonCaller(gradient[0] , 0) )
+  if ( itk::Math::EqualsComparison(gradient[0] , 0) )
     {
     phi = vnl_math::pi * 0.5;
     }

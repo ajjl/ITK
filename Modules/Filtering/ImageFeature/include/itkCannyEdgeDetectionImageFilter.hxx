@@ -383,7 +383,7 @@ CannyEdgeDetectionImageFilter< TInputImage, TOutputImage >
                                                     this->m_OutputImage->GetRequestedRegion() );
 
   uit.SetIndex(index);
-  if ( itk::Math::EqualsComparisonCaller(uit.Get() , NumericTraits< OutputImagePixelType >::OneValue()) )
+  if ( itk::Math::EqualsComparison(uit.Get() , NumericTraits< OutputImagePixelType >::OneValue()) )
     {
     // we must remove the node if we are not going to follow it!
 

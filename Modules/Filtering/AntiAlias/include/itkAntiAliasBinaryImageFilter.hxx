@@ -46,7 +46,7 @@ AntiAliasBinaryImageFilter< TInputImage, TOutputImage >
   const BinaryValueType binary_val = m_InputImage->GetPixel(idx);
   const ValueType       new_value = value + dt * change;
 
-  if ( itk::Math::EqualsComparisonCaller(binary_val , m_UpperBinaryValue) )
+  if ( itk::Math::EqualsComparison(binary_val , m_UpperBinaryValue) )
     {
     return ( vnl_math_max( new_value, this->GetValueZero() ) );
     }

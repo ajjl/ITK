@@ -52,7 +52,7 @@ public:
    */
   bool operator>(const KLMDynamicBorderArray< TBorder > & rhs) const
   {
-    if ( itk::Math::EqualsComparisonCaller( m_Pointer->GetLambda(), rhs.m_Pointer->GetLambda() ) )
+    if ( itk::Math::EqualsComparison( m_Pointer->GetLambda(), rhs.m_Pointer->GetLambda() ) )
       {
       if ( m_Pointer->GetLambda() < 0 )
         {

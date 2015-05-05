@@ -52,7 +52,7 @@ bool DoCastWithRangeCheckTestVerify( const T2 value, const T1 = 0 )
     {
     // conversion should result in some overflow problem
     T1 retCheck =  static_cast<T1>( value );
-    if ( itk::Math::EqualsComparisonCaller(double(retCheck) , double(value)) )
+    if ( itk::Math::EqualsComparison(double(retCheck) , double(value)) )
       {
       std::cout << "unexpected exception with value: " << value << std::endl;
       return false;

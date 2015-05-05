@@ -162,7 +162,7 @@ CumulativeGaussianCostFunction
     if ( argument > 0 )
       {
       int temp = (int)( argument * 100 );
-      if ( itk::Math::EqualsComparisonCaller(argument , (int)temp) )
+      if ( itk::Math::EqualsComparison(argument , (int)temp) )
         {
         erfValue = .999976474;
         }

@@ -135,7 +135,7 @@ LevelSetEvolution< TEquationContainer, LevelSetDenseImage< TImage > >
         }
       else
         {
-        if( itk::Math::EqualsComparisonCaller( contribution, NumericTraits< LevelSetOutputRealType >::max() ) )
+        if( itk::Math::EqualsComparison( contribution, NumericTraits< LevelSetOutputRealType >::max() ) )
           {
           itkGenericExceptionMacro( << "contribution is " << contribution );
           }
@@ -318,7 +318,7 @@ LevelSetEvolution< TEquationContainer, WhitakerSparseLevelSetImage< TOutput, VDi
         }
       else
         {
-        if( itk::Math::EqualsComparisonCaller( contribution, NumericTraits< LevelSetOutputRealType >::max() ) )
+        if( itk::Math::EqualsComparison( contribution, NumericTraits< LevelSetOutputRealType >::max() ) )
           {
           itkGenericExceptionMacro( << "contribution is " << contribution );
           }

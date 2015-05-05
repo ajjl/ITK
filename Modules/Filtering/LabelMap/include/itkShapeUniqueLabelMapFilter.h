@@ -200,7 +200,7 @@ protected:
           typename TAttributeAccessor::AttributeValueType attr = accessor(l.labelObject);
           // this may be changed to a single boolean expression, but may become
           // quite difficult to read
-          if ( itk::Math::EqualsComparisonCaller( attr, prevAttr  ) )
+          if ( itk::Math::EqualsComparison( attr, prevAttr  ) )
             {
             if ( l.labelObject->GetLabel() > prev.labelObject->GetLabel() )
               {

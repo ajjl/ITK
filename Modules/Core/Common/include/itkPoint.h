@@ -103,7 +103,7 @@ public:
     bool same = true;
 
     for ( unsigned int i = 0; i < NPointDimension && same; i++ )
-          { same = ( itk::Math::EqualsComparisonCaller( ( *this )[i], pt[i] ) ); }
+          { same = ( itk::Math::EqualsComparison( ( *this )[i], pt[i] ) ); }
     return same;
   }
 

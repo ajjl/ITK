@@ -193,7 +193,7 @@ private:
 
     while( !b_it.IsAtEnd() )
       {
-      if( itk::Math::EqualsComparisonCaller( b_it.Get(), zero_value ) )
+      if( itk::Math::EqualsComparison( b_it.Get(), zero_value ) )
         {
         if( NumberOfPoints == 0 )
           {

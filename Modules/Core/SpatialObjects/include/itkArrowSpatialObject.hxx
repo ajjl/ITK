@@ -157,7 +157,7 @@ ArrowSpatialObject< TDimension >
     v.Normalize();
     v2.Normalize();
 
-    if ( itk::Math::EqualsComparisonCaller(dot_product( v.GetVnlVector(), v2.GetVnlVector() ) , 1) )
+    if ( itk::Math::EqualsComparison(dot_product( v.GetVnlVector(), v2.GetVnlVector() ) , 1) )
       {
       return true;
       }

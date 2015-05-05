@@ -386,14 +386,14 @@ PowellOptimizerv4<TInternalComputationValueType>
         b = t;
         }
 
-      if ( functionValueOft <= functionValueOfW || itk::Math::EqualsComparisonCaller( w, x ) )
+      if ( functionValueOft <= functionValueOfW || itk::Math::EqualsComparison( w, x ) )
         {
         v = w;
         w = t;
         functionValueOfV = functionValueOfW;
         functionValueOfW = functionValueOft;
         }
-      else if ( functionValueOft <= functionValueOfV || itk::Math::EqualsComparisonCaller( v, x ) || itk::Math::EqualsComparisonCaller(  v, w ) )
+      else if ( functionValueOft <= functionValueOfV || itk::Math::EqualsComparison( v, x ) || itk::Math::EqualsComparison(  v, w ) )
         {
         v = t;
         functionValueOfV = functionValueOft;

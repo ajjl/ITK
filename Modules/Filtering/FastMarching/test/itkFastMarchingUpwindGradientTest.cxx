@@ -182,7 +182,7 @@ int itkFastMarchingUpwindGradientTest(int, char* [] )
 
     double outputPixelNorm = (double) outputPixel.GetNorm();
 
-    if (itk::Math::EqualsComparisonCaller(distance , 0))
+    if (itk::Math::EqualsComparison(distance , 0))
       {
       continue;
       }

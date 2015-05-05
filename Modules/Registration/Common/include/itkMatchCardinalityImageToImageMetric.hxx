@@ -178,7 +178,7 @@ MatchCardinalityImageToImageMetric< TFixedImage, TMovingImage >
 
       if ( m_MeasureMatches )
         {
-        diff = ( itk::Math::EqualsComparisonCaller(movingValue , fixedValue) ); // count matches
+        diff = ( itk::Math::EqualsComparison(movingValue , fixedValue) ); // count matches
         }
       else
         {

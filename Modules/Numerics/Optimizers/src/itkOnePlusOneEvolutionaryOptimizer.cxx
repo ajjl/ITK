@@ -66,7 +66,7 @@ OnePlusOneEvolutionaryOptimizer
 {
   m_InitialRadius = initialRadius;
 
-  if ( itk::Math::EqualsComparisonCaller(grow , -1) )
+  if ( itk::Math::EqualsComparison(grow , -1) )
     {
     m_GrowthFactor = 1.05;
     }
@@ -74,7 +74,7 @@ OnePlusOneEvolutionaryOptimizer
     {
     m_GrowthFactor = grow;
     }
-  if ( itk::Math::EqualsComparisonCaller(shrink , -1) )
+  if ( itk::Math::EqualsComparison(shrink , -1) )
     {
     m_ShrinkFactor = std::pow(m_GrowthFactor, -0.25);
     }

@@ -100,7 +100,7 @@ private:
   inline bool Compare( const InputImagePixelType & a, const InputImagePixelType & b )
     {
     TCompare compare;
-    return compare( a, b ) || itk::Math::EqualsComparisonCaller( a, b );
+    return compare( a, b ) || itk::Math::EqualsComparison( a, b );
     }
 
 }; // end of class

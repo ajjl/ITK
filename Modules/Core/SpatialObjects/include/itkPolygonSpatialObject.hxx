@@ -65,7 +65,7 @@ PolygonSpatialObject< TDimension >
     {
     plane = Coronal;
     }
-  else if ( itk::Math::NotEqualsComparison(min[0] , max[0]) && itk::Math::NotEqualsComparison(min[1] , max[1]) && itk::Math::EqualsComparisonCaller(min[2] , max[2]) )
+  else if ( itk::Math::NotEqualsComparison(min[0] , max[0]) && itk::Math::NotEqualsComparison(min[1] , max[1]) && itk::Math::EqualsComparison(min[2] , max[2]) )
     {
     plane = Axial;
     }

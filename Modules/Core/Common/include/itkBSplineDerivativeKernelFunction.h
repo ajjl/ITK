@@ -93,7 +93,7 @@ private:
   /** Evaluate the function:  first order spline */
   inline TRealValueType Evaluate( const Dispatch<1>&, const TRealValueType& u ) const
     {
-    if( itk::Math::EqualsComparisonCaller( u, -NumericTraits< TRealValueType >::OneValue() ) )
+    if( itk::Math::EqualsComparison( u, -NumericTraits< TRealValueType >::OneValue() ) )
       {
       return static_cast< TRealValueType >(0.5);
       }
@@ -101,7 +101,7 @@ private:
       {
       return NumericTraits< TRealValueType >::OneValue();
       }
-    else if( itk::Math::EqualsComparisonCaller( u, NumericTraits< TRealValueType >::ZeroValue() ) )
+    else if( itk::Math::EqualsComparison( u, NumericTraits< TRealValueType >::ZeroValue() ) )
       {
       return NumericTraits< TRealValueType >::ZeroValue();
       }
@@ -109,7 +109,7 @@ private:
       {
       return -NumericTraits< TRealValueType >::OneValue();
       }
-    else if( itk::Math::EqualsComparisonCaller( u, NumericTraits< TRealValueType >::OneValue() ) )
+    else if( itk::Math::EqualsComparison( u, NumericTraits< TRealValueType >::OneValue() ) )
       {
       return static_cast< TRealValueType >(-0.5);
       }

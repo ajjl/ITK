@@ -90,7 +90,7 @@ private:
       {
       return NumericTraits< TRealValueType >::OneValue();
       }
-    else if ( itk::Math::EqualsComparisonCaller( absValue, static_cast< TRealValueType >(0.5) ) )
+    else if ( itk::Math::EqualsComparison( absValue, static_cast< TRealValueType >(0.5) ) )
       {
       return static_cast< TRealValueType >(0.5);
       }

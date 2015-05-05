@@ -240,7 +240,7 @@ VariableSizeMatrix< T >
     {
     for ( unsigned int c = 0; c < this->Cols(); c++ )
       {
-      if ( ! itk::Math::EqualsComparisonCaller(  m_Matrix(r, c), matrix.m_Matrix(r, c) ) )
+      if ( ! itk::Math::EqualsComparison(  m_Matrix(r, c), matrix.m_Matrix(r, c) ) )
         {
         equal = false;
         break;

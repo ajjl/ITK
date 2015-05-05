@@ -244,7 +244,7 @@ ScalarImageToRunLengthMatrixFilter<TImageType, THistogramFrequencyContainer>
         // the bin is left close and right open.
 
         if ( pixelIntensity >= centerBinMin
-            && ( pixelIntensity < centerBinMax || ( itk::Math::EqualsComparisonCaller(pixelIntensity , centerBinMax) && itk::Math::EqualsComparisonCaller(centerBinMax , lastBinMax) ) ) )
+            && ( pixelIntensity < centerBinMax || ( itk::Math::EqualsComparison(pixelIntensity , centerBinMax) && itk::Math::EqualsComparison(centerBinMax , lastBinMax) ) ) )
           {
           alreadyVisitedImage->SetPixel( index, true );
           lastGoodIndex = index;

@@ -284,11 +284,11 @@ GaussianDistribution
 {
   double x = GaussianDistribution::InverseCDF(p);
 
-  if ( itk::Math::EqualsComparisonCaller(x , itk::NumericTraits< double >::NonpositiveMin()) )
+  if ( itk::Math::EqualsComparison(x , itk::NumericTraits< double >::NonpositiveMin()) )
     {
     return x;
     }
-  else if ( itk::Math::EqualsComparisonCaller(x , itk::NumericTraits< double >::max()) )
+  else if ( itk::Math::EqualsComparison(x , itk::NumericTraits< double >::max()) )
     {
     return x;
     }

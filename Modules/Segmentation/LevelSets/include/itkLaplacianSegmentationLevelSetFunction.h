@@ -79,7 +79,7 @@ public:
    */
   void SetAdvectionWeight(const ScalarValueType value) ITK_OVERRIDE
   {
-    if ( itk::Math::EqualsComparisonCaller( value, NumericTraits< ScalarValueType >::ZeroValue() ) )
+    if ( itk::Math::EqualsComparison( value, NumericTraits< ScalarValueType >::ZeroValue() ) )
       {
       Superclass::SetAdvectionWeight(value);
       }

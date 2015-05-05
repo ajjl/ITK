@@ -43,8 +43,8 @@ bool testArray(const itk::Array2D<T> & m1, const itk::Array2D<T> & m2)
       // If only one is NaN, then the comparison should fail.
       // Without such a test, the comparison of the difference being greater than epsilon will pass.
       // The equality and inequality predicates are non-signaling so x = x returning false can be used to test if x is a quiet NaN.
-      bool m1_isNaN = (itk::Math::EqualsComparisonCaller(m1[i][j] , m1[i][j]));
-      bool m2_isNaN = (itk::Math::EqualsComparisonCaller(m2[i][j] , m2[i][j]));
+      bool m1_isNaN = (itk::Math::EqualsComparison(m1[i][j] , m1[i][j]));
+      bool m2_isNaN = (itk::Math::EqualsComparison(m2[i][j] , m2[i][j]));
       if( (m1_isNaN && !m2_isNaN) || (!m1_isNaN && m2_isNaN) )
       {
         pass = false;

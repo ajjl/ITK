@@ -163,7 +163,7 @@ public:
 
   void SetAlpha(double alpha)
   {
-    if ( itk::Math::EqualsComparisonCaller( alpha, this->GetFunctor().GetAlpha() ) )
+    if ( itk::Math::EqualsComparison( alpha, this->GetFunctor().GetAlpha() ) )
       {
       return;
       }
@@ -178,7 +178,7 @@ public:
 
   void SetBeta(double beta)
   {
-    if ( itk::Math::EqualsComparisonCaller( beta, this->GetFunctor().GetBeta() ) )
+    if ( itk::Math::EqualsComparison( beta, this->GetFunctor().GetBeta() ) )
       {
       return;
       }
@@ -193,7 +193,7 @@ public:
 
   void SetOutputMinimum(OutputPixelType min)
   {
-    if ( itk::Math::EqualsComparisonCaller( min, this->GetFunctor().GetOutputMinimum() ) )
+    if ( itk::Math::EqualsComparison( min, this->GetFunctor().GetOutputMinimum() ) )
       {
       return;
       }
@@ -208,7 +208,7 @@ public:
 
   void SetOutputMaximum(OutputPixelType max)
   {
-    if ( itk::Math::EqualsComparisonCaller(  max, this->GetFunctor().GetOutputMaximum() ) )
+    if ( itk::Math::EqualsComparison(  max, this->GetFunctor().GetOutputMaximum() ) )
       {
       return;
       }
