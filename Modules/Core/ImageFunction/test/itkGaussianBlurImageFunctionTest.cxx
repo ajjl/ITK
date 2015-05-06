@@ -189,7 +189,7 @@ int itkGaussianBlurImageFunctionTest(int, char* [] )
 
   std::cout << "Testing Evaluate(), EvaluateAtIndex() and EvaluateIndex: ";
   if( (std::fabs(blurredvalue_index-blurredvalue_point)>0.01)
-     || itk::Math::NotEqualsComparison(blurredvalue_point , blurredvalue_continuousIndex))
+     || itk::Math::NotEqualsComparison(blurredvalue_point, blurredvalue_continuousIndex))
     {
     std::cerr << "[FAILED] : "
               << blurredvalue_index << " : "

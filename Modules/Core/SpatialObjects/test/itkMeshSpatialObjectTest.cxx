@@ -71,12 +71,12 @@ int itkMeshSpatialObjectTest(int, char * [] )
 
   std::cout << "Testing Bounding Box: ";
 
-  if( (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[0] , 0))
-   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[1] , 9))
-   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[2] , 0))
-   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[3] , 9))
-   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[4] , 0))
-   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[5] , 9))
+  if( (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[0], 0))
+   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[1], 9))
+   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[2], 0))
+   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[3], 9))
+   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[4], 0))
+   || (itk::Math::NotEqualsComparison(meshSO->GetBoundingBox()->GetBounds()[5], 9))
    )
     {
     std::cout<<"[FAILED]"<<std::endl;

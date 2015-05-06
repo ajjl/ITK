@@ -133,7 +133,7 @@ int itkSimilarityIndexImageFilterTest(int, char* [] )
  filter->SetInput2( image4 );
  filter->Update();
 
- if ( itk::Math::NotEqualsComparison(filter->GetSimilarityIndex() , 0) )
+ if ( itk::Math::NotEqualsComparison(filter->GetSimilarityIndex(), 0) )
     {
     std::cout << "Overlap: " << filter->GetSimilarityIndex() << std::endl;
     std::cout << "Zero overlap expected." << std::endl;

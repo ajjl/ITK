@@ -67,12 +67,12 @@ int itkTimeProbeTest( int, char * [] )
     std::cerr << "Reset() failure" << std::endl;
     return EXIT_FAILURE;
     }
-  if( itk::Math::NotEqualsComparison(localTimer.GetTotal() , 0) )
+  if( itk::Math::NotEqualsComparison(localTimer.GetTotal(), 0) )
     {
     std::cerr << "Reset() failure" << std::endl;
     return EXIT_FAILURE;
     }
-  if( itk::Math::NotEqualsComparison(localTimer.GetMean() , 0) )
+  if( itk::Math::NotEqualsComparison(localTimer.GetMean(), 0) )
     {
     std::cerr << "Reset() failure" << std::endl;
     return EXIT_FAILURE;

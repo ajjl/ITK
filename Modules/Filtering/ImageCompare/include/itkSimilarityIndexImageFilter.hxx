@@ -172,7 +172,7 @@ SimilarityIndexImageFilter< TInputImage1, TInputImage2 >
       m_CountOfImage1[threadId]++;
       nonzero = true;
       }
-    if ( itk::Math::NotEqualsComparison(it2.Get() , NumericTraits< InputImage2PixelType >::ZeroValue()) )
+    if ( itk::Math::NotEqualsComparison(it2.Get(), NumericTraits< InputImage2PixelType >::ZeroValue()) )
       {
       m_CountOfImage2[threadId]++;
       if ( nonzero )

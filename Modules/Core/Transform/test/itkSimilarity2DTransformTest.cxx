@@ -228,9 +228,9 @@ int itkSimilarity2DTransformTest(int, char *[] )
   transform->ComputeJacobianWithRespectToParameters(p, jacobian0);
 
   if(
-    (itk::Math::NotEqualsComparison(jacobian0[0][0] , 10)) || (itk::Math::NotEqualsComparison(jacobian0[0][1] , -10)) || (itk::Math::NotEqualsComparison(jacobian0[0][2] , 0)) || (itk::Math::NotEqualsComparison(jacobian0[0][3] , 0))
-    || (itk::Math::NotEqualsComparison(jacobian0[0][4] , 1)) || (itk::Math::NotEqualsComparison(jacobian0[0][5] , 0)) || (itk::Math::NotEqualsComparison(jacobian0[1][0] , 10)) || (itk::Math::NotEqualsComparison(jacobian0[1][1] , 10))
-    || (itk::Math::NotEqualsComparison(jacobian0[1][2] , 0) ) || (itk::Math::NotEqualsComparison(jacobian0[1][3] , 0)) || (itk::Math::NotEqualsComparison(jacobian0[1][4] , 0)) || (itk::Math::NotEqualsComparison(jacobian0[1][5] , 1))
+    (itk::Math::NotEqualsComparison(jacobian0[0][0], 10)) || (itk::Math::NotEqualsComparison(jacobian0[0][1], -10)) || (itk::Math::NotEqualsComparison(jacobian0[0][2], 0)) || (itk::Math::NotEqualsComparison(jacobian0[0][3], 0))
+    || (itk::Math::NotEqualsComparison(jacobian0[0][4], 1)) || (itk::Math::NotEqualsComparison(jacobian0[0][5], 0)) || (itk::Math::NotEqualsComparison(jacobian0[1][0], 10)) || (itk::Math::NotEqualsComparison(jacobian0[1][1], 10))
+    || (itk::Math::NotEqualsComparison(jacobian0[1][2], 0) ) || (itk::Math::NotEqualsComparison(jacobian0[1][3], 0)) || (itk::Math::NotEqualsComparison(jacobian0[1][4], 0)) || (itk::Math::NotEqualsComparison(jacobian0[1][5], 1))
     )
     {
     std::cerr << "Error with Jacobian: " << jacobian0 << std::endl;

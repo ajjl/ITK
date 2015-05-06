@@ -66,7 +66,7 @@ class itkImageIteratorWithIndexTestIteratorTester
        PixelType value = it.Get();
        PixelType testValue = value * static_cast<typename itk::NumericTraits<PixelType>::ValueType>( 2 );
        it.Set( testValue);
-       if( itk::Math::NotEqualsComparison(it.Get() , testValue) )
+       if( itk::Math::NotEqualsComparison(it.Get(), testValue) )
         {
         std::cerr << "TestIterator failed!" << std::endl;
         return false;
@@ -90,7 +90,7 @@ class itkImageIteratorWithIndexTestIteratorTester
      while( !it.IsAtEnd() )
        {
        PixelType value = it.Get();
-       if( itk::Math::NotEqualsComparison(value , it.Get()) ) // check repeatibility
+       if( itk::Math::NotEqualsComparison(value, it.Get()) ) // check repeatibility
          {
          std::cerr << "TestConstIterator failed!" << std::endl;
          return false;
@@ -114,7 +114,7 @@ class itkImageIteratorWithIndexTestIteratorTester
      while( !it.IsAtReverseEnd() )
        {
        PixelType value = it.Get();
-       if( itk::Math::NotEqualsComparison(value , it.Get()) ) // check repeatibility
+       if( itk::Math::NotEqualsComparison(value, it.Get()) ) // check repeatibility
          {
          std::cerr << "TestReverseIteration failed!" << std::endl;
          return false;

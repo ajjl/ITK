@@ -42,7 +42,7 @@ ChiSquareDistribution
 
   if ( m_Parameters.GetSize() > 0 )
     {
-    if ( itk::Math::NotEqualsComparison(m_Parameters[0] , static_cast< double >( dof )) )
+    if ( itk::Math::NotEqualsComparison(m_Parameters[0], static_cast< double >( dof )) )
       {
       modified = true;
       }

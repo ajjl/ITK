@@ -49,7 +49,7 @@ CleanQuadEdgeMeshFilter< TInputMesh, TOutputMesh >
   InputCoordRepType zeroValue = NumericTraits< InputCoordRepType >::ZeroValue();
 
   InputCoordRepType absoluteToleranceSquared = this->m_AbsoluteTolerance * this->m_AbsoluteTolerance;
-  if ( ( itk::Math::NotEqualsComparison(this->m_AbsoluteTolerance , zeroValue) ) && ( itk::Math::NotEqualsComparison(this->m_RelativeTolerance , zeroValue) ) )
+  if ( ( itk::Math::NotEqualsComparison(this->m_AbsoluteTolerance, zeroValue) ) && ( itk::Math::NotEqualsComparison(this->m_RelativeTolerance, zeroValue) ) )
     {
     this->m_BoundingBox->SetPoints( this->GetInput()->GetPoints() );
     this->m_BoundingBox->ComputeBoundingBox();

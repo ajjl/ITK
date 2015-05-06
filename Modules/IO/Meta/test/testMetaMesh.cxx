@@ -35,9 +35,9 @@ bool TestingMetaMesh(MetaMesh* _mesh)
   for(j=0;j< static_cast<int>(_mesh->GetPoints().size());j++)
     {
     if( ((*it2)->m_Id != j)
-      || (itk::Math::NotEqualsComparison((*it2)->m_X[0] , j))
-      || (itk::Math::NotEqualsComparison((*it2)->m_X[1] , j))
-      || (itk::Math::NotEqualsComparison((*it2)->m_X[2] , j))
+      || (itk::Math::NotEqualsComparison((*it2)->m_X[0], j))
+      || (itk::Math::NotEqualsComparison((*it2)->m_X[1], j))
+      || (itk::Math::NotEqualsComparison((*it2)->m_X[2], j))
       )
       {
       std::cout <<  (*it2)->m_Id << " : " << (*it2)->m_X[0]

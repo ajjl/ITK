@@ -100,9 +100,9 @@ int itkSceneSpatialObjectTest(int, char* [])
 
   object->SetSpacing(spacing);
   const double* res_spacing = object->GetSpacing();
-  if((itk::Math::NotEqualsComparison(res_spacing[0] , 1)) ||
-     (itk::Math::NotEqualsComparison(res_spacing[1] , 2)) ||
-     (itk::Math::NotEqualsComparison(res_spacing[2] , 3)) )
+  if((itk::Math::NotEqualsComparison(res_spacing[0], 1)) ||
+     (itk::Math::NotEqualsComparison(res_spacing[1], 2)) ||
+     (itk::Math::NotEqualsComparison(res_spacing[2], 3)) )
   {
     std::cout << "[FAILURE]" << std::endl;
     return EXIT_FAILURE;

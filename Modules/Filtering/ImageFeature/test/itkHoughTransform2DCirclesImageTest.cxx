@@ -184,7 +184,7 @@ int itkHoughTransform2DCirclesImageTest(int, char* [])
   it_output.GoToBegin();
   for(it_input.GoToBegin();!it_input.IsAtEnd();++it_input)
   {
-    if(itk::Math::EqualsComparison(it_input.Get() , max))
+    if(itk::Math::EqualsComparison(it_input.Get(), max))
     {
       it_output.Set(255);
       double radius2 = m_RadiusImage->GetPixel(it_output.GetIndex());

@@ -149,7 +149,7 @@ MeanSquareRegistrationFunction< TFixedImage, TMovingImage, TDisplacementField >
     denominator = speedValue * speedValue * fixedGradientSquaredMagnitude;
     denominator = std::sqrt(denominator);
     }
-  if ( itk::Math::EqualsComparison(denominator , 0) )
+  if ( itk::Math::EqualsComparison(denominator, 0) )
     {
     denominator = 1.0;
     }

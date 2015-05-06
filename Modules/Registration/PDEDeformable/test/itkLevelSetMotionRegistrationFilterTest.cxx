@@ -296,7 +296,7 @@ int itkLevelSetMotionRegistrationFilterTest(int argc, char * argv [] )
   unsigned int numPixelsDifferent = 0;
   while( !fixedIter.IsAtEnd() )
     {
-    if( itk::Math::NotEqualsComparison(fixedIter.Get() , warpedIter.Get()) )
+    if( itk::Math::NotEqualsComparison(fixedIter.Get(), warpedIter.Get()) )
       {
       numPixelsDifferent++;
       }

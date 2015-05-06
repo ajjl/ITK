@@ -153,7 +153,7 @@ int itkNaryMaximumImageFilterTest(int, char* [] )
   it.GoToBegin();
   while( !it.IsAtEnd() )
   {
-    if (itk::Math::NotEqualsComparison(it.Get() , maxValue))
+    if (itk::Math::NotEqualsComparison(it.Get(), maxValue))
       {
       std::cerr << "Test Failed!" << std::endl;
       return -1;
@@ -176,7 +176,7 @@ int itkNaryMaximumImageFilterTest(int, char* [] )
   it2.GoToBegin();
   while( !it2.IsAtEnd() )
   {
-    if (itk::Math::NotEqualsComparison(it2.Get() , maxValue))
+    if (itk::Math::NotEqualsComparison(it2.Get(), maxValue))
     {
       std::cerr << "Test Failed!" << std::endl;
       return -1;

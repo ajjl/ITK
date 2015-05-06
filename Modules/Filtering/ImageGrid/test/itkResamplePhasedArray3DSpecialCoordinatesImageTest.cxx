@@ -115,7 +115,7 @@ int itkResamplePhasedArray3DSpecialCoordinatesImageTest(int, char* [] )
       }
       // check the values down a portion of the z-axis
       if( index[1] == int(cubeSize[1]-1)/2 && 2 <= index[2] && index[2] <= 5 ) {
-        if( itk::Math::NotEqualsComparison(value , (index[2]-1)*2) ) {
+        if( itk::Math::NotEqualsComparison(value, (index[2]-1)*2) ) {
           std::cout << " (Error in resampled image: Pixel " << index
                     << " = " << value
                     << ", expecting " << (index[2]-1)*2 << ")"
@@ -162,7 +162,7 @@ int itkResamplePhasedArray3DSpecialCoordinatesImageTest(int, char* [] )
       }
       // check the values down the z-axis
       if( index[1] == int(size[1]-1)/2 ) {
-        if( itk::Math::NotEqualsComparison(value , index[2]) ) {
+        if( itk::Math::NotEqualsComparison(value, index[2]) ) {
           std::cout << " (Error in resampled image: Pixel " << index
                     << " = " << value
                     << ", expecting " << index[2] << ")"

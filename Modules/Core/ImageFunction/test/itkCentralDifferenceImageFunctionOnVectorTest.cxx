@@ -170,7 +170,7 @@ int itkCentralDifferenceImageFunctionOnVectorTestRun( )
     }
   for( itk::SizeValueType n=0; n < VectorLength; n++ )
     {
-    if( itk::Math::NotEqualsComparison(indexOutput(n,0) , itk::NumericTraits<OutputValueType>::ZeroValue()) )
+    if( itk::Math::NotEqualsComparison(indexOutput(n,0), itk::NumericTraits<OutputValueType>::ZeroValue()) )
       {
       std::cout << "ERROR: Index: " << index << " expected output dim 0 to be 0. << std::endl; " << std::endl;
       result = EXIT_FAILURE;
@@ -217,7 +217,7 @@ int itkCentralDifferenceImageFunctionOnVectorTestRun( )
     }
   for( itk::SizeValueType n=0; n < VectorLength; n++ )
     {
-    if( itk::Math::NotEqualsComparison(indexOutput(n,1) , itk::NumericTraits<OutputValueType>::ZeroValue()) )
+    if( itk::Math::NotEqualsComparison(indexOutput(n,1), itk::NumericTraits<OutputValueType>::ZeroValue()) )
       {
       std::cout << "ERROR: Index: " << index << " expected output dim 1 to be 0. " << std::endl;
       result = EXIT_FAILURE;
@@ -326,8 +326,8 @@ int itkCentralDifferenceImageFunctionOnVectorTestRun( )
   OutputType directionOnDerivative = function->Evaluate( point );
   std::cout << "Point: " << point << " directionOnDerivative: " << directionOnDerivative << std::endl;
 
-  if( itk::Math::NotEqualsComparison(directionOnDerivative[0][0] , -origDerivative[0][0]) ||
-      itk::Math::NotEqualsComparison(directionOnDerivative[0][1] , -origDerivative[0][1]) )
+  if( itk::Math::NotEqualsComparison(directionOnDerivative[0][0], -origDerivative[0][0]) ||
+      itk::Math::NotEqualsComparison(directionOnDerivative[0][1], -origDerivative[0][1]) )
     {
     std::cout << "ERROR: Expected origDerivative and directionOnDerivative to be opposite." << std::endl;
     result = EXIT_FAILURE;

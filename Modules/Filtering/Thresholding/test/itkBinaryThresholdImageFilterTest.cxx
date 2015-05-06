@@ -121,12 +121,12 @@ int itkBinaryThresholdImageFilterTest(int, char* [] )
     bool pass = true;
     if( lower <= input && input <= upper )
       {
-      if ( itk::Math::NotEqualsComparison(output , inside) )
+      if ( itk::Math::NotEqualsComparison(output, inside) )
         {
         pass = false;
         }
       }
-    else if ( itk::Math::NotEqualsComparison(output , outside) )
+    else if ( itk::Math::NotEqualsComparison(output, outside) )
       {
       pass = false;
       }

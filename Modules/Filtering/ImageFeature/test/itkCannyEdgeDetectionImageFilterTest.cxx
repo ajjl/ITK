@@ -75,7 +75,7 @@ int itkCannyEdgeDetectionImageFilterTest(int argc, char * argv[] )
     }
 
   // test for correct setting of non-macro methods
-  if (filter->GetVariance()[0] != 1.0f || itk::Math::NotEqualsComparison(filter->GetMaximumError()[0] , .01f))
+  if (filter->GetVariance()[0] != 1.0f || itk::Math::NotEqualsComparison(filter->GetMaximumError()[0], .01f))
     {
       return EXIT_FAILURE;
     }

@@ -74,8 +74,8 @@ int itkSpatialObjectToPointSetFilterTest(int, char* [] )
   unsigned int val = 0;
   while( pointItr != pointEnd )
     {
-    if( (itk::Math::NotEqualsComparison(pointItr.Value()[0] , val))
-        || (itk::Math::NotEqualsComparison(pointItr.Value()[1] , val))
+    if( (itk::Math::NotEqualsComparison(pointItr.Value()[0], val))
+        || (itk::Math::NotEqualsComparison(pointItr.Value()[1], val))
       )
       {
       std::cout << "[FAILURE]" << std::endl;
@@ -162,9 +162,9 @@ int itkSpatialObjectToPointSetFilterTest(int, char* [] )
   val = 0;
   while( pointItr2 != pointEnd2 )
     {
-    if( (itk::Math::NotEqualsComparison(pointItr2.Value()[0] , val))
-        || (itk::Math::NotEqualsComparison(pointItr2.Value()[1] , val+1))
-        || (itk::Math::NotEqualsComparison(pointItr2.Value()[2] , val+2))
+    if( (itk::Math::NotEqualsComparison(pointItr2.Value()[0], val))
+        || (itk::Math::NotEqualsComparison(pointItr2.Value()[1], val+1))
+        || (itk::Math::NotEqualsComparison(pointItr2.Value()[2], val+2))
       )
       {
       std::cout << pointItr2.Value()[0] << " :" << pointItr2.Value()[1] << " : " << pointItr2.Value()[2] << std::endl;

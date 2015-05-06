@@ -329,7 +329,7 @@ Solver<VDimension>
        * element in Le is zero, to prevent zeros from being
        * allocated in sparse matrix.
        */
-      if( itk::Math::NotEqualsComparison(Le[j][k] , Float(0.0)) )
+      if( itk::Math::NotEqualsComparison(Le[j][k], Float(0.0)) )
         {
         this->m_ls->AddMatrixValue(e->GetDegreeOfFreedom(j), e->GetDegreeOfFreedom(k), Le[j][k]);
         }
@@ -368,7 +368,7 @@ Solver<VDimension>
        * element in Ke is zero, to prevent zeros from being
        * allocated in sparse matrix.
        */
-      if( itk::Math::NotEqualsComparison(Ke[j][k] , Float(0.0)) )
+      if( itk::Math::NotEqualsComparison(Ke[j][k], Float(0.0)) )
         {
         this->m_ls->AddMatrixValue(e->GetDegreeOfFreedom(j), e->GetDegreeOfFreedom(k), Ke[j][k]);
         }

@@ -56,7 +56,7 @@ int itkVariableLengthVectorTest(int, char*[])
     }
     {
     DoubleVariableLengthVectorType x( d, 3, false );
-    if( (itk::Math::NotEqualsComparison(d[0] , 0.1)) || (itk::Math::NotEqualsComparison(x[0] , 0.1)) )
+    if( (itk::Math::NotEqualsComparison(d[0], 0.1)) || (itk::Math::NotEqualsComparison(x[0], 0.1)) )
       {
       std::cerr << "Memory management: [FAILED]" << std::endl;
       }
@@ -65,13 +65,13 @@ int itkVariableLengthVectorTest(int, char*[])
     x[3] = 3.0;
     x[4] = 4.0;
     std::cout << x << std::endl;
-    if( (itk::Math::NotEqualsComparison(d[0] , 0.1)) || (itk::Math::NotEqualsComparison(x[0] , 0.1)) ) // increase length but preserve existing data
+    if( (itk::Math::NotEqualsComparison(d[0], 0.1)) || (itk::Math::NotEqualsComparison(x[0], 0.1)) ) // increase length but preserve existing data
       {
       std::cerr << "Memory management: [FAILED]" << std::endl;
       }
     x.SetSize( 2 , false); // reduce length but preserve existing data
     std::cout << x << std::endl;
-    if( (x.GetSize() != 2) || (itk::Math::NotEqualsComparison(d[0] , 0.1)) || (itk::Math::NotEqualsComparison(x[0] , 0.1)) )
+    if( (x.GetSize() != 2) || (itk::Math::NotEqualsComparison(d[0], 0.1)) || (itk::Math::NotEqualsComparison(x[0], 0.1)) )
       {
       std::cerr << "Memory management: [FAILED]" << std::endl;
       }

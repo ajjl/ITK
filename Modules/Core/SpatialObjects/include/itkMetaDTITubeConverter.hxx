@@ -131,13 +131,13 @@ MetaDTITubeConverter< NDimensions >
     delete[] tensor;
 
     // This attribute is optional
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("r") , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("r"), -1) )
       {
       pnt.SetRadius( ( *it2 )->GetField("r") );
       }
 
     char vnd[] = "v1x";
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField( vnd ) , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField( vnd ), -1) )
       {
       v[0]  = ( *it2 )->GetField( vnd );
       for( unsigned int ii = 1; ii < ndims; ++ii )
@@ -150,7 +150,7 @@ MetaDTITubeConverter< NDimensions >
 
     vnd[1] = '2';
     vnd[2] = 'x';
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField( vnd ) , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField( vnd ), -1) )
       {
       v[0]  = ( *it2 )->GetField( vnd );
       for( unsigned int ii = 1; ii < ndims; ++ii )
@@ -162,7 +162,7 @@ MetaDTITubeConverter< NDimensions >
       }
 
     char td[] = "tx";
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField( td ) , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField( td ), -1) )
       {
       t[0] = ( *it2 )->GetField( td );
       for( unsigned int ii = 1; ii < ndims; ++ii )
@@ -173,27 +173,27 @@ MetaDTITubeConverter< NDimensions >
       pnt.SetTangent(t);
       }
 
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("red") , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("red"), -1) )
       {
       pnt.SetRed( ( *it2 )->GetField("red") );
       }
 
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("green") , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("green"), -1) )
       {
       pnt.SetGreen( ( *it2 )->GetField("green") );
       }
 
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("blue") , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("blue"), -1) )
       {
       pnt.SetBlue( ( *it2 )->GetField("blue") );
       }
 
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("alpha") , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("alpha"), -1) )
       {
       pnt.SetAlpha( ( *it2 )->GetField("alpha") );
       }
 
-    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("id") , -1) )
+    if ( itk::Math::NotEqualsComparison(( *it2 )->GetField("id"), -1) )
       {
       pnt.SetID( (int)( ( *it2 )->GetField("id") ) );
       }
@@ -238,7 +238,7 @@ MetaDTITubeConverter< NDimensions >
       writeID = true;
       }
 
-    if ( itk::Math::NotEqualsComparison(( *it ).GetRadius() , 0) )
+    if ( itk::Math::NotEqualsComparison(( *it ).GetRadius(), 0) )
       {
       writeRadius = true;
       }
@@ -246,15 +246,15 @@ MetaDTITubeConverter< NDimensions >
     unsigned int d;
     for ( d = 0; d < NDimensions; d++ )
       {
-      if ( itk::Math::NotEqualsComparison(( *it ).GetNormal1()[d] , 0) )
+      if ( itk::Math::NotEqualsComparison(( *it ).GetNormal1()[d], 0) )
         {
         writeNormal1 = true;
         }
-      if ( itk::Math::NotEqualsComparison(( *it ).GetNormal2()[d] , 0) )
+      if ( itk::Math::NotEqualsComparison(( *it ).GetNormal2()[d], 0) )
         {
         writeNormal2 = true;
         }
-      if ( itk::Math::NotEqualsComparison(( *it ).GetTangent()[d] , 0) )
+      if ( itk::Math::NotEqualsComparison(( *it ).GetTangent()[d], 0) )
         {
         writeTangent = true;
         }

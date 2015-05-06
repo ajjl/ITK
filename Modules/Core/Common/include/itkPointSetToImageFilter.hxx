@@ -203,7 +203,7 @@ PointSetToImageFilter< TInputPointSet, TOutputImage >
   specified = false;
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Spacing[i] , 0) )
+    if ( itk::Math::NotEqualsComparison(m_Spacing[i], 0) )
       {
       specified = true;
       break;
@@ -218,7 +218,7 @@ PointSetToImageFilter< TInputPointSet, TOutputImage >
   specified = false;
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Origin[i] , 0) )
+    if ( itk::Math::NotEqualsComparison(m_Origin[i], 0) )
       {
       specified = true;
       break;

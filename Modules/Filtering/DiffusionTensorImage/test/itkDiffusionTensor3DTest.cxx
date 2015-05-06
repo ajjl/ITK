@@ -50,7 +50,7 @@ int itkDiffusionTensor3DTest(int, char* [] )
   bool passed = true;
   for (unsigned int i = 0; i < pixel.GetNumberOfComponents(); i++)
     {
-    if (itk::Math::NotEqualsComparison(pixel.GetNthComponent(i) , val[i]))
+    if (itk::Math::NotEqualsComparison(pixel.GetNthComponent(i), val[i]))
       {
       std::cout << "Float3DTensorType pixel(val) failed." << std::endl
                 << "\tExpected val["

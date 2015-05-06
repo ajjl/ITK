@@ -136,8 +136,8 @@ int itkMetaArrowConverterTest(int ac, char* av[])
 
   // check color
   const float* newMetaColor = newMetaArrow->Color();
-  if (itk::Math::NotEqualsComparison(newMetaColor[0] , color[0]) || itk::Math::NotEqualsComparison(newMetaColor[1] , color[1]) ||
-      itk::Math::NotEqualsComparison(newMetaColor[2] , color[2]) || itk::Math::NotEqualsComparison(newMetaColor[3] , color[3]))
+  if (itk::Math::NotEqualsComparison(newMetaColor[0], color[0]) || itk::Math::NotEqualsComparison(newMetaColor[1], color[1]) ||
+      itk::Math::NotEqualsComparison(newMetaColor[2], color[2]) || itk::Math::NotEqualsComparison(newMetaColor[3], color[3]))
     {
     std::cout << "Conversion to MetaArrow failed to convert color [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -173,7 +173,7 @@ int itkMetaArrowConverterTest(int ac, char* av[])
   newMetaDirectionNorm[2] = newMetaDirection[2];
 
   // normalize if the vector isn't all zeros
-  if (itk::Math::NotEqualsComparison(newMetaDirection[0] , 0) || itk::Math::NotEqualsComparison(newMetaDirection[1] , 0) || itk::Math::NotEqualsComparison(newMetaDirection[2] , 0))
+  if (itk::Math::NotEqualsComparison(newMetaDirection[0], 0) || itk::Math::NotEqualsComparison(newMetaDirection[1], 0) || itk::Math::NotEqualsComparison(newMetaDirection[2], 0))
     {
     newMetaDirectionNorm.Normalize();
     }
@@ -211,10 +211,10 @@ int itkMetaArrowConverterTest(int ac, char* av[])
   delete metaArrow;
 
   // check color
-  if (itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetRed() , color[0]) ||
-      itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetGreen() , color[1]) ||
-      itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetBlue() , color[2]) ||
-      itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetAlpha() , color[3]))
+  if (itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetRed(), color[0]) ||
+      itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetGreen(), color[1]) ||
+      itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetBlue(), color[2]) ||
+      itk::Math::NotEqualsComparison(newItkArrow->GetProperty()->GetAlpha(), color[3]))
     {
     std::cout << "Conversion to SpatialObject failed to convert color [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -247,7 +247,7 @@ int itkMetaArrowConverterTest(int ac, char* av[])
   mDirectionNorm[0] = mDirection[0];
   mDirectionNorm[1] = mDirection[1];
   mDirectionNorm[2] = mDirection[2];
-  if (itk::Math::NotEqualsComparison(mDirection[0] , 0) || itk::Math::NotEqualsComparison(mDirection[1] , 0) || itk::Math::NotEqualsComparison(mDirection[2] , 0))
+  if (itk::Math::NotEqualsComparison(mDirection[0], 0) || itk::Math::NotEqualsComparison(mDirection[1], 0) || itk::Math::NotEqualsComparison(mDirection[2], 0))
     {
     mDirectionNorm.Normalize();
     }
@@ -287,10 +287,10 @@ int itkMetaArrowConverterTest(int ac, char* av[])
   std::cout << "[PASSED] Reading: length" << std::endl;
 
   // check color
-  if (itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetRed() , color[0]) ||
-      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetGreen() , color[1]) ||
-      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetBlue() , color[2]) ||
-      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetAlpha() , color[3]))
+  if (itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetRed(), color[0]) ||
+      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetGreen(), color[1]) ||
+      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetBlue(), color[2]) ||
+      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetAlpha(), color[3]))
     {
     std::cout << "Didn't read color properly [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -318,7 +318,7 @@ int itkMetaArrowConverterTest(int ac, char* av[])
 
   // check direction (note: need to normalize before comparing)
   SpatialObjectType::VectorType reLoadDirectionNorm = reLoad->GetDirection();
-  if (itk::Math::NotEqualsComparison(reLoadDirectionNorm[0] , 0) || itk::Math::NotEqualsComparison(reLoadDirectionNorm[1] , 0) || itk::Math::NotEqualsComparison(reLoadDirectionNorm[2] , 0))
+  if (itk::Math::NotEqualsComparison(reLoadDirectionNorm[0], 0) || itk::Math::NotEqualsComparison(reLoadDirectionNorm[1], 0) || itk::Math::NotEqualsComparison(reLoadDirectionNorm[2], 0))
     {
     reLoadDirectionNorm.Normalize();
     }

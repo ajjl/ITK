@@ -150,17 +150,17 @@ int itkImageToParametricSpaceFilterTest(int, char* [] )
   while( pointIt != endPoint )
     {
     PointType point = pointIt.Value();
-    if( itk::Math::NotEqualsComparison(point[0] , ix.Value()) )
+    if( itk::Math::NotEqualsComparison(point[0], ix.Value()) )
       {
       ok = false;
       break;
       }
-    if( itk::Math::NotEqualsComparison(point[1] , iy.Value()) )
+    if( itk::Math::NotEqualsComparison(point[1], iy.Value()) )
       {
       ok = false;
       break;
       }
-    if( itk::Math::NotEqualsComparison(point[2] , iz.Value()) )
+    if( itk::Math::NotEqualsComparison(point[2], iz.Value()) )
       {
       ok = false;
       break;

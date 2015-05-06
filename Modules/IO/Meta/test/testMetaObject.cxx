@@ -111,7 +111,7 @@ int testMetaObject(int argc, char *argv[])
   float* matrix = static_cast<float*>(tObj.GetUserField("MyMatrix"));
   for(i=0; i<4; i++)
     {
-    if(itk::Math::NotEqualsComparison(matrix[i] , i))
+    if(itk::Math::NotEqualsComparison(matrix[i], i))
       {
       std::cout << "MyMatrix: FAIL" << std::endl;
       delete[] matrix;
@@ -147,7 +147,7 @@ int testMetaObject(int argc, char *argv[])
     }
 
   int zero = 0;
-  if(itk::Math::NotEqualsComparison(tObj.Position(zero) , 4))
+  if(itk::Math::NotEqualsComparison(tObj.Position(zero), 4))
     {
     std::cout << "Position: FAIL :" << tObj.Position(zero) << std::endl;
     return EXIT_FAILURE;
@@ -157,7 +157,7 @@ int testMetaObject(int argc, char *argv[])
     std::cout << "Position: PASS" << std::endl;
     }
 
-  if(itk::Math::NotEqualsComparison(tObj.ElementSpacing(zero) , 2))
+  if(itk::Math::NotEqualsComparison(tObj.ElementSpacing(zero), 2))
     {
     std::cout << "ElementSpacing: FAIL: " << tObj.ElementSpacing(zero) << std::endl;
     return EXIT_FAILURE;

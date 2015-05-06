@@ -39,7 +39,7 @@ bool DoCastWithRangeCheckTestVerify( const T2 value, const T1 = 0 )
     {
     ret = itk::Math::CastWithRangeCheck<T1>( value );
     // value should match
-    if ( itk::Math::NotEqualsComparison(double(ret) , double(value)) )
+    if ( itk::Math::NotEqualsComparison(double(ret), double(value)) )
       {
       std::cout << "casting error with input value: "
                 << static_cast<typename itk::NumericTraits<T2>::PrintType>(value)
@@ -52,7 +52,7 @@ bool DoCastWithRangeCheckTestVerify( const T2 value, const T1 = 0 )
     {
     // conversion should result in some overflow problem
     T1 retCheck =  static_cast<T1>( value );
-    if ( itk::Math::EqualsComparison(double(retCheck) , double(value)) )
+    if ( itk::Math::EqualsComparison(double(retCheck), double(value)) )
       {
       std::cout << "unexpected exception with value: " << value << std::endl;
       return false;

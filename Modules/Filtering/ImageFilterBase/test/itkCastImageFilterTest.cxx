@@ -93,7 +93,7 @@ bool TestCastFromTo()
     /** Warning:
      * expectedValue == static_cast< TOutputPixelType( inValue ) is
      * false on some systems and compilers with some values of inValue. */
-    if ( itk::Math::NotEqualsComparison(outValue , expectedValue) )
+    if ( itk::Math::NotEqualsComparison(outValue, expectedValue) )
       {
       success = false;
       break;

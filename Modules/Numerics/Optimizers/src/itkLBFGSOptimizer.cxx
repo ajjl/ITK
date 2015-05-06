@@ -125,7 +125,7 @@ void
 LBFGSOptimizer
 ::SetGradientConvergenceTolerance(double f)
 {
-  if ( itk::Math::EqualsComparison(f , m_GradientConvergenceTolerance) )
+  if ( itk::Math::EqualsComparison(f, m_GradientConvergenceTolerance) )
     {
     return;
     }
@@ -146,7 +146,7 @@ void
 LBFGSOptimizer
 ::SetLineSearchAccuracy(double f)
 {
-  if ( itk::Math::EqualsComparison(f , m_LineSearchAccuracy) )
+  if ( itk::Math::EqualsComparison(f, m_LineSearchAccuracy) )
     {
     return;
     }
@@ -167,7 +167,7 @@ void
 LBFGSOptimizer
 ::SetDefaultStepLength(double f)
 {
-  if ( itk::Math::EqualsComparison(f , m_DefaultStepLength) )
+  if ( itk::Math::EqualsComparison(f, m_DefaultStepLength) )
     {
     return;
     }

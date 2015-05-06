@@ -283,7 +283,7 @@ int itkWarpImageFilterTest(int, char* [] )
     else
       {
 
-      if( itk::Math::NotEqualsComparison(value , padValue) )
+      if( itk::Math::NotEqualsComparison(value, padValue) )
         {
         testPassed = false;
         std::cout << "Error at Index: " << index << " ";
@@ -327,7 +327,7 @@ int itkWarpImageFilterTest(int, char* [] )
 
   while( !outIter.IsAtEnd() )
     {
-    if( itk::Math::NotEqualsComparison(outIter.Get() , streamIter.Get()) )
+    if( itk::Math::NotEqualsComparison(outIter.Get(), streamIter.Get()) )
       {
       std::cout << "Error C at Index: " << outIter.GetIndex() << " ";
       std::cout << "Expected: " << outIter.Get() << " ";

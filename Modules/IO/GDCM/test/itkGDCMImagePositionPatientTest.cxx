@@ -114,9 +114,9 @@ int itkGDCMImagePositionPatientTest( int argc, char* argv[] )
 
   Image3DType::PointType readerOrigin3D;
   readerOrigin3D = reader->GetOutput()->GetOrigin();
-  if ((itk::Math::NotEqualsComparison(readerOrigin3D[0] , origin3D[0])) ||
-      (itk::Math::NotEqualsComparison(readerOrigin3D[1] , origin3D[1])) ||
-      (itk::Math::NotEqualsComparison(readerOrigin3D[2] , origin3D[2])))
+  if ((itk::Math::NotEqualsComparison(readerOrigin3D[0], origin3D[0])) ||
+      (itk::Math::NotEqualsComparison(readerOrigin3D[1], origin3D[1])) ||
+      (itk::Math::NotEqualsComparison(readerOrigin3D[2], origin3D[2])))
     {
     std::cout << "ERROR: read origin does not equal written origin: "
               << readerOrigin3D << " != ["

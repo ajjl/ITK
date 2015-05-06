@@ -33,7 +33,7 @@ int testMetaImage(int , char * [])
 
   for(i=0; i<64; i++)
     {
-    if(itk::Math::NotEqualsComparison(i , tIm.ElementData(i)))
+    if(itk::Math::NotEqualsComparison(i, tIm.ElementData(i)))
       {
       std::cout << "Assigned Element Values Maintained: FAIL" << std::endl;
       return EXIT_FAILURE;
@@ -110,7 +110,7 @@ int testMetaImage(int , char * [])
   tIm2.PrintInfo();
   for(i=0; i<64; i++)
     {
-    if(itk::Math::NotEqualsComparison(i , tIm.ElementData(i)))
+    if(itk::Math::NotEqualsComparison(i, tIm.ElementData(i)))
       {
       std::cout << "Read Element Values: FAIL" << std::endl;
       return EXIT_FAILURE;

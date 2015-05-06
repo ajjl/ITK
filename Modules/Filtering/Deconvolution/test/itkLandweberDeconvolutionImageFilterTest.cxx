@@ -62,7 +62,7 @@ int itkLandweberDeconvolutionImageFilterTest(int argc, char* argv[])
   deconvolutionFilter->SetKernelImage( kernelReader->GetOutput() );
   deconvolutionFilter->NormalizeOn();
   deconvolutionFilter->SetAlpha( atof( argv[5] ) );
-  if ( itk::Math::NotEqualsComparison(deconvolutionFilter->GetAlpha() , atof( argv[5] )) )
+  if ( itk::Math::NotEqualsComparison(deconvolutionFilter->GetAlpha(), atof( argv[5] )) )
     {
     std::cerr << "Set/GetAlpha() test failed." << std::endl;
     return EXIT_FAILURE;

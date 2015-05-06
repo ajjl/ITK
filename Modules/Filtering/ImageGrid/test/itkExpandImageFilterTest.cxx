@@ -177,7 +177,7 @@ int itkExpandImageFilterTest(int, char* [] )
       }
     else
       {
-      if( itk::Math::NotEqualsComparison(value , padValue) )
+      if( itk::Math::NotEqualsComparison(value, padValue) )
         {
         testPassed = false;
         std::cout << "Error at Index: " << index << " ";
@@ -223,7 +223,7 @@ int itkExpandImageFilterTest(int, char* [] )
 
   while( !outIter.IsAtEnd() )
     {
-    if( itk::Math::NotEqualsComparison(outIter.Get() , streamIter.Get()) )
+    if( itk::Math::NotEqualsComparison(outIter.Get(), streamIter.Get()) )
       {
       testPassed = false;
       }

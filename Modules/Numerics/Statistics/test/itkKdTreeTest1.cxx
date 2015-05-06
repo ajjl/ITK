@@ -121,7 +121,7 @@ int itkKdTreeTest1(int argc , char * argv [] )
 
       if( distanceFromMetric > vnl_math::eps ||
           searchDistance[i] > vnl_math::eps ||
-          itk::Math::NotEqualsComparison(distanceFromMetric , searchDistance[i])  )
+          itk::Math::NotEqualsComparison(distanceFromMetric, searchDistance[i])  )
         {
         std::cerr << "kd-tree knn search result:" << std::endl
                   << "query point = [" << queryPoint << "]" << std::endl

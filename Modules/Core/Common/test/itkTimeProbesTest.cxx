@@ -62,7 +62,7 @@ void TestTransformPhysicalPointToIndex(T * image)
         image->TransformPhysicalPointToIndex(point3D, index3D);
         }
       }
-    if (itk::Math::EqualsComparison(k , 5)) std::cout << point3D << std::endl;
+    if (itk::Math::EqualsComparison(k, 5)) std::cout << point3D << std::endl;
     }
 }
 //-------------------------

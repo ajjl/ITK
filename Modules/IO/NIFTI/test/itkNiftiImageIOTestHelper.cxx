@@ -97,7 +97,7 @@ int TestNiftiByteSwap(const std::string & prefix)
                                                        big->GetLargestPossibleRegion());
       while(!littleIter.IsAtEnd())
         {
-          if(itk::Math::NotEqualsComparison(littleIter.Get() , bigIter.Get()))
+          if(itk::Math::NotEqualsComparison(littleIter.Get(), bigIter.Get()))
             break;
           ++littleIter;
           ++bigIter;

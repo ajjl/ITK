@@ -231,7 +231,7 @@ int itkSubsampleTest(int, char* [] )
     static_cast< FloatImage::OffsetValueType >(filter->GetInput()
                                                ->ComputeOffset(index));
 
-  if (itk::Math::NotEqualsComparison(pixel[0] , subsample->GetMeasurementVector(ind)[0]))
+  if (itk::Math::NotEqualsComparison(pixel[0], subsample->GetMeasurementVector(ind)[0]))
     {
     pass = false;
     whereFail = "GetMeasurementVector()";
@@ -246,7 +246,7 @@ int itkSubsampleTest(int, char* [] )
   unsigned int count = 0;
   while (count < subsample->Size())
     {
-    if (itk::Math::NotEqualsComparison(i_iter.Get()[0] , s_iter.GetMeasurementVector()[0]))
+    if (itk::Math::NotEqualsComparison(i_iter.Get()[0], s_iter.GetMeasurementVector()[0]))
       {
       pass = false;
       whereFail = "Iterator: GetMeasurementVector()";

@@ -99,7 +99,7 @@ int itkTriangleMeshToBinaryImageFilterTest3( int argc, char * argv [] )
   }
 
   const ImageType::DirectionType& inbuiltDirection = imageFilter->GetDirection();
-  if ((itk::Math::EqualsComparison(inbuiltDirection[0][0] , 1))&&(itk::Math::EqualsComparison(inbuiltDirection[1][1] , 1))&&(itk::Math::EqualsComparison(inbuiltDirection[2][2] , 1)))
+  if ((itk::Math::EqualsComparison(inbuiltDirection[0][0], 1))&&(itk::Math::EqualsComparison(inbuiltDirection[1][1], 1))&&(itk::Math::EqualsComparison(inbuiltDirection[2][2], 1)))
   {
     ImageType::DirectionType Direction;
 
@@ -129,7 +129,7 @@ int itkTriangleMeshToBinaryImageFilterTest3( int argc, char * argv [] )
 
   const ImageType::SpacingType& mySpacing = imageFilter->GetOutput()->GetSpacing();
 
-  if((itk::Math::NotEqualsComparison(mySpacing[0] , spacing[0]))&&(itk::Math::NotEqualsComparison(mySpacing[1] , spacing[1]))&&(itk::Math::NotEqualsComparison(mySpacing[2] , spacing[2])))
+  if((itk::Math::NotEqualsComparison(mySpacing[0], spacing[0]))&&(itk::Math::NotEqualsComparison(mySpacing[1], spacing[1]))&&(itk::Math::NotEqualsComparison(mySpacing[2], spacing[2])))
     {
     std::cerr << "image->GetSpacing() != spacing" <<std::endl;
     return EXIT_FAILURE;

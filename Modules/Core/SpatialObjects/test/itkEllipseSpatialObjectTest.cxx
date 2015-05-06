@@ -124,8 +124,8 @@ int itkEllipseSpatialObjectTest(int, char* [])
 
   for(unsigned int i=0;i<3;i++)
   {
-    if( (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i] , 7) )
-       || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i+1] , 16) )
+    if( (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i], 7) )
+       || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i+1], 16) )
        )
     {
       std::cout<<"[FAILED]"<<std::endl;

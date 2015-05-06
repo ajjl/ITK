@@ -85,7 +85,7 @@ void
 GradientMagnitudeRecursiveGaussianImageFilter< TInputImage, TOutputImage >
 ::SetSigma(RealType sigma)
 {
-  if ( itk::Math::NotEqualsComparison(sigma , this->GetSigma()) )
+  if ( itk::Math::NotEqualsComparison(sigma, this->GetSigma()) )
     {
     for ( unsigned int i = 0; i < ImageDimension - 1; i++ )
       {

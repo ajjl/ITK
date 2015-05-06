@@ -78,7 +78,7 @@ int itkNeighborhoodSamplerTest1(int, char* [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get() , radius1) )
+  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get(), radius1) )
     {
     std::cerr << "GetRadiusInput() test for value consistency 1 failed." << std::endl;
     return EXIT_FAILURE;
@@ -94,7 +94,7 @@ int itkNeighborhoodSamplerTest1(int, char* [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get() , radius2) )
+  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get(), radius2) )
     {
     std::cerr << "GetRadiusInput() test for value consistency 2 failed." << std::endl;
     return EXIT_FAILURE;
@@ -116,7 +116,7 @@ int itkNeighborhoodSamplerTest1(int, char* [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get() , radius1) )
+  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get(), radius1) )
     {
     std::cerr << "GetRadiusInput() test for value consistency 3 failed." << std::endl;
     return EXIT_FAILURE;
@@ -137,7 +137,7 @@ int itkNeighborhoodSamplerTest1(int, char* [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get() , radius2) )
+  if( itk::Math::NotEqualsComparison(recoveredRadiusObject->Get(), radius2) )
     {
     std::cerr << "GetRadiusInput() test for value consistency 4 failed." << std::endl;
     return EXIT_FAILURE;

@@ -149,8 +149,8 @@ int itkMetaGaussianConverterTest(int argc, char* argv[])
 
   // Check color
   const float* newMetaColor = newMetaGaussian->Color();
-  if (itk::Math::NotEqualsComparison(newMetaColor[0] , color[0]) || itk::Math::NotEqualsComparison(newMetaColor[1] , color[1]) ||
-      itk::Math::NotEqualsComparison(newMetaColor[2] , color[2]) || itk::Math::NotEqualsComparison(newMetaColor[3] , color[3]))
+  if (itk::Math::NotEqualsComparison(newMetaColor[0], color[0]) || itk::Math::NotEqualsComparison(newMetaColor[1], color[1]) ||
+      itk::Math::NotEqualsComparison(newMetaColor[2], color[2]) || itk::Math::NotEqualsComparison(newMetaColor[3], color[3]))
     {
     std::cout << "[FAILED] Conversion to MetaGaussian failed to convert color"
       << std::endl;
@@ -227,10 +227,10 @@ int itkMetaGaussianConverterTest(int argc, char* argv[])
 
 
   // Check color
-  if (itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetRed() , color[0]) ||
-      itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetGreen() , color[1]) ||
-      itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetBlue() , color[2]) ||
-      itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetAlpha() , color[3]))
+  if (itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetRed(), color[0]) ||
+      itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetGreen(), color[1]) ||
+      itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetBlue(), color[2]) ||
+      itk::Math::NotEqualsComparison(newGaussianSpatialObj->GetProperty()->GetAlpha(), color[3]))
     {
     std::cout << "[FAILED] Conversion to SpatialObject failed to convert color"
       << std::endl;
@@ -299,10 +299,10 @@ int itkMetaGaussianConverterTest(int argc, char* argv[])
   std::cout << "[PASSED] Reading: sigma: " << reLoad->GetSigma() << std::endl;
 
   // Check color
-  if (itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetRed() , color[0]) ||
-      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetGreen() , color[1]) ||
-      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetBlue() , color[2]) ||
-      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetAlpha() , color[3]))
+  if (itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetRed(), color[0]) ||
+      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetGreen(), color[1]) ||
+      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetBlue(), color[2]) ||
+      itk::Math::NotEqualsComparison(reLoad->GetProperty()->GetAlpha(), color[3]))
     {
     std::cout << "[FAILED] Didn't read color properly" << std::endl;
     return EXIT_FAILURE;

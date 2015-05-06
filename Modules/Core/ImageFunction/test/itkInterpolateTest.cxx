@@ -192,7 +192,7 @@ int itkInterpolateTest(int, char *[] )
 
   mindex.CopyWithRound( cindex );
   double expectedValue = mindex[0] + mindex[1] + mindex[2];
-  if ( itk::Math::NotEqualsComparison(interp->EvaluateAtIndex( mindex ) , expectedValue) )
+  if ( itk::Math::NotEqualsComparison(interp->EvaluateAtIndex( mindex ), expectedValue) )
     {
     std::cout << "Index: " << index;
     std::cout << "Value: " << interp->EvaluateAtIndex(index) << std::endl;

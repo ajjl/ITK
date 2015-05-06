@@ -48,7 +48,7 @@ bool runTestByType()
   itk::OptimizerParameters<TValue> paramsCopy( params );
   for( itk::SizeValueType i=0; i < params.GetSize(); i++ )
     {
-    if( itk::Math::NotEqualsComparison(params[i] , paramsCopy[i]) )
+    if( itk::Math::NotEqualsComparison(params[i], paramsCopy[i]) )
       {
       std::cerr << "Copy constructor failed. " << std::endl;
       passed = false;
@@ -64,7 +64,7 @@ bool runTestByType()
   itk::OptimizerParameters<TValue> paramsCopy( array );
   for( itk::SizeValueType i=0; i < params.GetSize(); i++ )
     {
-    if( itk::Math::NotEqualsComparison(array[i] , paramsCopy[i]) )
+    if( itk::Math::NotEqualsComparison(array[i], paramsCopy[i]) )
       {
       std::cerr << "Constructor from Array failed. " << std::endl;
       passed = false;
@@ -79,7 +79,7 @@ bool runTestByType()
   paramsArray = array;
   for( itk::SizeValueType i=0; i < array.GetSize(); i++ )
     {
-    if( itk::Math::NotEqualsComparison(paramsArray[i] , array[i]) )
+    if( itk::Math::NotEqualsComparison(paramsArray[i], array[i]) )
       {
       std::cerr << "Copy from Array via assignment failed. " << std::endl;
       passed = false;
@@ -95,7 +95,7 @@ bool runTestByType()
   paramsVnl = vector;
   for( itk::SizeValueType i=0; i < paramsVnl.GetSize(); i++ )
     {
-    if( itk::Math::NotEqualsComparison(vector[i] , paramsVnl[i]) )
+    if( itk::Math::NotEqualsComparison(vector[i], paramsVnl[i]) )
       {
       std::cerr << "Assignment from VnlVector failed. " << std::endl;
       passed = false;
@@ -108,7 +108,7 @@ bool runTestByType()
   params.MoveDataPointer( block );
   for( int i=0; i < 10; i++)
     {
-    if( itk::Math::NotEqualsComparison(params[i] , 10-i) )
+    if( itk::Math::NotEqualsComparison(params[i], 10-i) )
       {
       std::cerr << "Failed reading memory after MoveDataPointer." << std::endl
                 << "Expected: " << 10-i << ", got: " << params[i] << std::endl;
@@ -132,7 +132,7 @@ bool runTestByType()
   params2 = params1;
   for( itk::SizeValueType i=0; i < params1.GetSize(); i++ )
     {
-    if( itk::Math::NotEqualsComparison(params1[i] , params2[i]) )
+    if( itk::Math::NotEqualsComparison(params1[i], params2[i]) )
       {
       std::cerr << "Copy operator failed:" << std::endl
               << "params1 " << params1 << std::endl

@@ -212,14 +212,14 @@ int itkScalarImageToRunLengthMatrixFilterTest(int, char* [] )
         << std::endl;
       passed = false;
       }
-    if( itk::Math::NotEqualsComparison(filter->GetMinDistance() , 0) )
+    if( itk::Math::NotEqualsComparison(filter->GetMinDistance(), 0) )
       {
       std::cerr << "Error: " << std::endl;
       std::cerr << "GetMinDistance() is not returning the expected value"
         << std::endl;
       passed = false;
       }
-    if( itk::Math::NotEqualsComparison(filter->GetMaxDistance() , 8) )
+    if( itk::Math::NotEqualsComparison(filter->GetMaxDistance(), 8) )
       {
       std::cerr << "Error: " << std::endl;
       std::cerr << "GetMaxDistance() is not returning the expected value"

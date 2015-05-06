@@ -127,7 +127,7 @@ int itkAdaptImageFilterTest(int, char* [] ) {
   while( !it.IsAtEnd() )
   {
   std::cout << it.Get()   << std::endl;
-  if (itk::Math::NotEqualsComparison(it.Get() , it1.Get().GetRed()))
+  if (itk::Math::NotEqualsComparison(it.Get(), it1.Get().GetRed()))
     {
     passed = false;
     }
@@ -152,7 +152,7 @@ int itkAdaptImageFilterTest(int, char* [] ) {
   while( !it.IsAtEnd() )
   {
   std::cout << it.Get()   << std::endl;
-  if (itk::Math::NotEqualsComparison(it.Get() , it1.Get().GetGreen()))
+  if (itk::Math::NotEqualsComparison(it.Get(), it1.Get().GetGreen()))
     {
     passed = false;
     }
@@ -177,7 +177,7 @@ int itkAdaptImageFilterTest(int, char* [] ) {
   while( !it.IsAtEnd() )
   {
   std::cout << it.Get()   << std::endl;
-  if (itk::Math::NotEqualsComparison(it.Get() , it1.Get().GetBlue()))
+  if (itk::Math::NotEqualsComparison(it.Get(), it1.Get().GetBlue()))
     {
     passed = false;
     }

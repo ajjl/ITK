@@ -87,7 +87,7 @@ int itkDivideOrZeroOutImageFilterTest(int, char* [])
     }
 
   divider->SetConstant( -2.3f );
-  if ( itk::Math::NotEqualsComparison(divider->GetConstant() , -2.3f) )
+  if ( itk::Math::NotEqualsComparison(divider->GetConstant(), -2.3f) )
     {
     std::cerr << "Constant not set correctly. Got " << divider->GetConstant()
               << ", expected -2.3 ." << std::endl;

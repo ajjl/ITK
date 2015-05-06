@@ -89,19 +89,19 @@ int itkLineSpatialObjectTest(int, char* [])
     {
     for(unsigned int d=0;d<3;d++)
       {
-      if(itk::Math::NotEqualsComparison((*it).GetPosition()[d] , i+d))
+      if(itk::Math::NotEqualsComparison((*it).GetPosition()[d], i+d))
         {
         std::cout<<"[FAILED]"<<std::endl;
         return EXIT_FAILURE;
         }
 
-      if(itk::Math::NotEqualsComparison(((*it).GetNormal(0))[d] , d))
+      if(itk::Math::NotEqualsComparison(((*it).GetNormal(0))[d], d))
         {
         std::cout<<"[FAILED]"<<std::endl;
         return EXIT_FAILURE;
         }
 
-      if(itk::Math::NotEqualsComparison(((*it).GetNormal(1))[d] , 2*d))
+      if(itk::Math::NotEqualsComparison(((*it).GetNormal(1))[d], 2*d))
         {
         std::cout<<"[FAILED]"<<std::endl;
         return EXIT_FAILURE;
@@ -154,7 +154,7 @@ int itkLineSpatialObjectTest(int, char* [])
      return EXIT_FAILURE;
   }
 
-  if(itk::Math::NotEqualsComparison(value , 1))
+  if(itk::Math::NotEqualsComparison(value, 1))
   {
      std::cout<<"[FAILED]"<<std::endl;
      return EXIT_FAILURE;

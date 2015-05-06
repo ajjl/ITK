@@ -178,7 +178,7 @@ int itkImageToListSampleAdaptorTest2(int, char* [] )
         vId = vImage->ComputeOffset( vIndex );
         for ( unsigned int m=0; m < vAdaptor->GetMeasurementVectorSize(); m++ )
           {
-          if ( itk::Math::NotEqualsComparison(vAdaptor->GetMeasurementVector(vId)[m] , vPixel[m]) )
+          if ( itk::Math::NotEqualsComparison(vAdaptor->GetMeasurementVector(vId)[m], vPixel[m]) )
             {
             std::cerr << "Error in vPixel value accessed using the vAdaptor" << std::endl;
             return EXIT_FAILURE;

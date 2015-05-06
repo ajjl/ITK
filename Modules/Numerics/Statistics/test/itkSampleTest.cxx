@@ -162,7 +162,7 @@ int itkSampleTest(int, char* [] )
 
   for( unsigned int j=0; j<MeasurementVectorSize; j++)
     {
-    if( itk::Math::NotEqualsComparison(measureBack[j] , measure[j]) )
+    if( itk::Math::NotEqualsComparison(measureBack[j], measure[j]) )
       {
       std::cerr << "Error in Set/Get MeasurementVector()" << std::endl;
       return EXIT_FAILURE;

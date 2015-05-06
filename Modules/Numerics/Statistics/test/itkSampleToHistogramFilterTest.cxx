@@ -267,7 +267,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get() , marginalScale1) )
+  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get(), marginalScale1) )
     {
     std::cerr << "GetMarginalScaleInput() test for value consistency 1 failed." << std::endl;
     return EXIT_FAILURE;
@@ -283,7 +283,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get() , marginalScale2) )
+  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get(), marginalScale2) )
     {
     std::cerr << "GetMarginalScaleInput() test for value consistency 2 failed." << std::endl;
     return EXIT_FAILURE;
@@ -305,7 +305,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get() , marginalScale1) )
+  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get(), marginalScale1) )
     {
     std::cerr << "GetMarginalScaleInput() test for value consistency 3 failed." << std::endl;
     return EXIT_FAILURE;
@@ -326,7 +326,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get() , marginalScale2) )
+  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get(), marginalScale2) )
     {
     std::cerr << "GetMarginalScaleInput() test for value consistency 4 failed." << std::endl;
     return EXIT_FAILURE;
@@ -342,7 +342,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
     return EXIT_FAILURE;
     }
 
-  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get() , marginalScale1) )
+  if( itk::Math::NotEqualsComparison(recoveredMarginalScaleObject->Get(), marginalScale1) )
     {
     std::cerr << "GetMarginalScaleInput() test for value consistency 5 failed." << std::endl;
     return EXIT_FAILURE;
@@ -377,7 +377,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k1 = 0; k1 < numberOfComponents; k1++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k1] , histogramBinMinimum1[k1]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k1], histogramBinMinimum1[k1]) )
       {
       std::cerr << "Get/Set HistogramBinMinimum() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -393,7 +393,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k2 = 0; k2 < numberOfComponents; k2++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k2] , histogramBinMinimum2[k2]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k2], histogramBinMinimum2[k2]) )
       {
       std::cerr << "Get/Set HistogramSize() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -420,7 +420,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k3 = 0; k3 < numberOfComponents; k3++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k3] , histogramBinMinimum1[k3]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k3], histogramBinMinimum1[k3]) )
       {
       std::cerr << "Get/Set HistogramBinMinimum() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -443,7 +443,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k4 = 0; k4 < numberOfComponents; k4++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k4] , histogramBinMinimum2[k4]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMinimum[k4], histogramBinMinimum2[k4]) )
       {
       std::cerr << "Get/Set HistogramBinMinimum() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -498,7 +498,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k1 = 0; k1 < numberOfComponents; k1++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k1] , histogramBinMaximum1[k1]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k1], histogramBinMaximum1[k1]) )
       {
       std::cerr << "Get/Set HistogramBinMaximum() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -514,7 +514,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k2 = 0; k2 < numberOfComponents; k2++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k2] , histogramBinMaximum2[k2]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k2], histogramBinMaximum2[k2]) )
       {
       std::cerr << "Get/Set HistogramSize() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -541,7 +541,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k3 = 0; k3 < numberOfComponents; k3++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k3] , histogramBinMaximum1[k3]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k3], histogramBinMaximum1[k3]) )
       {
       std::cerr << "Get/Set HistogramBinMaximum() failed value consistency test" << std::endl;
       return EXIT_FAILURE;
@@ -564,7 +564,7 @@ int itkSampleToHistogramFilterTest( int , char * [] )
 
   for( unsigned int k4 = 0; k4 < numberOfComponents; k4++ )
     {
-    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k4] , histogramBinMaximum2[k4]) )
+    if( itk::Math::NotEqualsComparison(returnedHistogramBinMaximum[k4], histogramBinMaximum2[k4]) )
       {
       std::cerr << "Get/Set HistogramBinMaximum() failed value consistency test" << std::endl;
       return EXIT_FAILURE;

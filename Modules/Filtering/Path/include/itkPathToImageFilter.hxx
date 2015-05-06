@@ -99,7 +99,7 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(spacing[i] , m_Spacing[i]) )
+    if ( itk::Math::NotEqualsComparison(spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -122,7 +122,7 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)spacing[i] , m_Spacing[i]) )
+    if ( itk::Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -154,7 +154,7 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(origin[i] , m_Origin[i]) )
+    if ( itk::Math::NotEqualsComparison(origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -177,7 +177,7 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)origin[i] , m_Origin[i]) )
+    if ( itk::Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -271,7 +271,7 @@ PathToImageFilter< TInputPath, TOutputImage >
   specified = false;
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Spacing[i] , 0) )
+    if ( itk::Math::NotEqualsComparison(m_Spacing[i], 0) )
       {
       specified = true;
       break;

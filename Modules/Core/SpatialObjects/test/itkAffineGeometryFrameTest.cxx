@@ -65,9 +65,9 @@ int itkAffineGeometryFrameTest(int, char* [])
   std::cout<<"[DONE]"<<std::endl;
 
   std::cout << "Testing GetExtent() of geometry-frame: ";
-  if((itk::Math::NotEqualsComparison(geometryFrame1->GetExtent(0) , bounds[1]-bounds[0])) ||
-     (itk::Math::NotEqualsComparison(geometryFrame1->GetExtent(1) , bounds[3]-bounds[2])) ||
-     (itk::Math::NotEqualsComparison(geometryFrame1->GetExtent(2) , bounds[5]-bounds[4])) )
+  if((itk::Math::NotEqualsComparison(geometryFrame1->GetExtent(0), bounds[1]-bounds[0])) ||
+     (itk::Math::NotEqualsComparison(geometryFrame1->GetExtent(1), bounds[3]-bounds[2])) ||
+     (itk::Math::NotEqualsComparison(geometryFrame1->GetExtent(2), bounds[5]-bounds[4])) )
     {
     std::cerr << " [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -80,7 +80,7 @@ int itkAffineGeometryFrameTest(int, char* [])
   geometryFrame1->GetModifiableIndexToObjectTransform()->SetOffset(offset);
   AffineGeometryFrameType::TransformType::OffsetType diff;
   diff = geometryFrame1->GetIndexToObjectTransform()->GetOffset()-offset;
-  if(itk::Math::NotEqualsComparison(diff.GetNorm() , 0))
+  if(itk::Math::NotEqualsComparison(diff.GetNorm(), 0))
     {
     std::cerr << " [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -127,9 +127,9 @@ int itkAffineGeometryFrameTest(int, char* [])
   std::cout<<"[PASSED]"<<std::endl;
 
   std::cout << "Testing GetExtent() of cloned geometry-frame: ";
-  if((itk::Math::NotEqualsComparison(clonedGeometryFrame1->GetExtent(0) , bounds[1]-bounds[0])) ||
-     (itk::Math::NotEqualsComparison(clonedGeometryFrame1->GetExtent(1) , bounds[3]-bounds[2])) ||
-     (itk::Math::NotEqualsComparison(clonedGeometryFrame1->GetExtent(2) , bounds[5]-bounds[4])) )
+  if((itk::Math::NotEqualsComparison(clonedGeometryFrame1->GetExtent(0), bounds[1]-bounds[0])) ||
+     (itk::Math::NotEqualsComparison(clonedGeometryFrame1->GetExtent(1), bounds[3]-bounds[2])) ||
+     (itk::Math::NotEqualsComparison(clonedGeometryFrame1->GetExtent(2), bounds[5]-bounds[4])) )
     {
     std::cerr << " [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -138,7 +138,7 @@ int itkAffineGeometryFrameTest(int, char* [])
 
   std::cout << "Testing GetIndexToObjectTransform()->GetOffset()  of cloned geometry-frame: ";
   diff = clonedGeometryFrame1->GetIndexToObjectTransform()->GetOffset()-offset;
-  if(itk::Math::NotEqualsComparison(diff.GetNorm() , 0))
+  if(itk::Math::NotEqualsComparison(diff.GetNorm(), 0))
     {
     std::cerr << " [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -149,7 +149,7 @@ int itkAffineGeometryFrameTest(int, char* [])
   offset.Fill(15);
   geometryFrame1->GetModifiableIndexToObjectTransform()->SetOffset(offset);
   diff = clonedGeometryFrame1->GetIndexToObjectTransform()->GetOffset()-offset;
-  if(itk::Math::EqualsComparison(diff.GetNorm() , 0))
+  if(itk::Math::EqualsComparison(diff.GetNorm(), 0))
     {
     std::cerr << " [FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -159,7 +159,7 @@ int itkAffineGeometryFrameTest(int, char* [])
   std::cout << "Testing independency of ObjectToNodeTransform of original and cloned geometry-frame: ";
   geometryFrame1->GetModifiableObjectToNodeTransform()->SetOffset(offset);
   diff = clonedGeometryFrame1->GetObjectToNodeTransform()->GetOffset()-offset;
-  if(itk::Math::EqualsComparison(diff.GetNorm() , 0))
+  if(itk::Math::EqualsComparison(diff.GetNorm(), 0))
     {
     std::cerr << " [FAILED]" << std::endl;
     return EXIT_FAILURE;

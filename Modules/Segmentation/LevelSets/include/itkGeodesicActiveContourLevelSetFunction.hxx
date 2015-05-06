@@ -47,7 +47,7 @@ void GeodesicActiveContourLevelSetFunction< TImageType, TFeatureImageType >
 
   typename VectorImageType::Pointer gradientImage;
 
-  if ( itk::Math::NotEqualsComparison(m_DerivativeSigma , NumericTraits< float >::ZeroValue()) )
+  if ( itk::Math::NotEqualsComparison(m_DerivativeSigma, NumericTraits< float >::ZeroValue()) )
     {
     typedef GradientRecursiveGaussianImageFilter< FeatureImageType, VectorImageType >
     DerivativeFilterType;

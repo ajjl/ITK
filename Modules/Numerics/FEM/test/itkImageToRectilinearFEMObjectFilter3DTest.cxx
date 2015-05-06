@@ -178,8 +178,8 @@ int itkImageToRectilinearFEMObjectFilter3DTest(int argc, char *argv[])
     foundError = true;
     }
   else if ((m1->GetYoungsModulus() != 3000.0) ||
-           (itk::Math::NotEqualsComparison(m1->GetCrossSectionalArea() , 0.02)) ||
-           (itk::Math::NotEqualsComparison(m1->GetMomentOfInertia() , 0.004)) )
+           (itk::Math::NotEqualsComparison(m1->GetCrossSectionalArea(), 0.02)) ||
+           (itk::Math::NotEqualsComparison(m1->GetMomentOfInertia(), 0.004)) )
     {
       std::cout << " [FAILED]" << std::endl;
       std::cout << "\tExpected  3000.0, 0.02, 0.004" << " Obtained ";

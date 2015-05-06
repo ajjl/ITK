@@ -145,7 +145,7 @@ void FEMRegistrationFilter<TMovingImage, TFixedImage, TFemObject>::SetStandardDe
 
   for ( j = 0; j < ImageDimension; j++ )
   {
-    if ( itk::Math::NotEqualsComparison(value , m_StandardDeviations[j]) )
+    if ( itk::Math::NotEqualsComparison(value, m_StandardDeviations[j]) )
     {
       break;
     }
@@ -460,7 +460,7 @@ void FEMRegistrationFilter<TMovingImage, TFixedImage, TFemObject>::ApplyLoads(
     CornerCounter = 0;
     for( ii = 0; ii < ImageDimension; ii++ )
       {
-      if( itk::Math::EqualsComparison(coord[ii] , m_ImageOrigin[ii]) || itk::Math::EqualsComparison(coord[ii] , ImgSz[ii] - 1) )
+      if( itk::Math::EqualsComparison(coord[ii], m_ImageOrigin[ii]) || itk::Math::EqualsComparison(coord[ii], ImgSz[ii] - 1) )
         {
         CornerCounter++;
         }
@@ -484,7 +484,7 @@ void FEMRegistrationFilter<TMovingImage, TFixedImage, TFemObject>::ApplyLoads(
           CornerCounter = 0;
           for( ii = 0; ii < ImageDimension; ii++ )
             {
-            if( itk::Math::EqualsComparison(coord[ii] , m_ImageOrigin[ii]) || itk::Math::EqualsComparison(coord[ii] , ImgSz[ii] - 1) )
+            if( itk::Math::EqualsComparison(coord[ii], m_ImageOrigin[ii]) || itk::Math::EqualsComparison(coord[ii], ImgSz[ii] - 1) )
               {
               CornerCounter++;
               }
@@ -594,7 +594,7 @@ void FEMRegistrationFilter<TMovingImage, TFixedImage, TFemObject>::IterativeSolv
       Done = true;
       }
     float curmaxsol = mySolver->GetCurrentMaxSolution();
-    if( itk::Math::EqualsComparison(curmaxsol , 0) )
+    if( itk::Math::EqualsComparison(curmaxsol, 0) )
       {
       curmaxsol = 1.0;
       }

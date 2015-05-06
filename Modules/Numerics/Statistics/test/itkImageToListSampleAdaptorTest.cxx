@@ -151,7 +151,7 @@ int itkImageToListSampleAdaptorTestTemplate()
 
         pixel = sample->GetImage()->GetPixel( index );
         iid = sample->GetImage()->ComputeOffset( index );
-        if ( itk::Math::NotEqualsComparison(sample->GetMeasurementVector(iid)[0] , pixel[0]) )
+        if ( itk::Math::NotEqualsComparison(sample->GetMeasurementVector(iid)[0], pixel[0]) )
           {
           std::cerr << "Error in pixel value accessed using the adaptor" << std::endl;
           return EXIT_FAILURE;

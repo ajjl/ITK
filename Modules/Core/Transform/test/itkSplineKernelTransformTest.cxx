@@ -190,7 +190,7 @@ int itkSplineKernelTransformTest(int , char* [] )
     const double TestValue = 0.012345;
     tps2D->SetStiffness(TestValue); //This value should not change the result at all.
 
-    if ( itk::Math::NotEqualsComparison(tps2D->GetStiffness() , TestValue) )
+    if ( itk::Math::NotEqualsComparison(tps2D->GetStiffness(), TestValue) )
       {
       std::cout << "ERROR:  Explicitly set stiffness value not retained." << std::endl;
       return EXIT_FAILURE;

@@ -107,7 +107,7 @@ bool TestClampFromTo()
       expectedValue = static_cast< TOutputPixelType >( inValue );
       }
 
-    if ( itk::Math::NotEqualsComparison(outValue , expectedValue) )
+    if ( itk::Math::NotEqualsComparison(outValue, expectedValue) )
       {
       success = false;
       break;
@@ -214,7 +214,7 @@ bool TestClampFromToWithCustomBounds()
       expectedValue = static_cast< TOutputPixelType >( inValue );
       }
 
-    if ( itk::Math::NotEqualsComparison(outValue , expectedValue) )
+    if ( itk::Math::NotEqualsComparison(outValue, expectedValue) )
       {
       success = false;
       break;

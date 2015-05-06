@@ -53,7 +53,7 @@ GaussianDistribution
 
   if ( m_Parameters.GetSize() > 0 )
     {
-    if ( itk::Math::NotEqualsComparison(m_Parameters[0] , mean) )
+    if ( itk::Math::NotEqualsComparison(m_Parameters[0], mean) )
       {
       modified = true;
       }
@@ -117,7 +117,7 @@ GaussianDistribution
 
   if ( m_Parameters.GetSize() > 1 )
     {
-    if ( itk::Math::NotEqualsComparison(m_Parameters[1] , variance) )
+    if ( itk::Math::NotEqualsComparison(m_Parameters[1], variance) )
       {
       modified = true;
       }
@@ -284,11 +284,11 @@ GaussianDistribution
 {
   double x = GaussianDistribution::InverseCDF(p);
 
-  if ( itk::Math::EqualsComparison(x , itk::NumericTraits< double >::NonpositiveMin()) )
+  if ( itk::Math::EqualsComparison(x, itk::NumericTraits< double >::NonpositiveMin()) )
     {
     return x;
     }
-  else if ( itk::Math::EqualsComparison(x , itk::NumericTraits< double >::max()) )
+  else if ( itk::Math::EqualsComparison(x, itk::NumericTraits< double >::max()) )
     {
     return x;
     }

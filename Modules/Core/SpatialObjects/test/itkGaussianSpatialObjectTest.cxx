@@ -33,7 +33,7 @@ int itkGaussianSpatialObjectTest(int, char* [])
   myGaussian->SetMaximum(2);
   GaussianType::ScalarType maximum = myGaussian->GetMaximum();
   std::cout << "Testing Maximum: ";
-  if( itk::Math::NotEqualsComparison(maximum , 2) )
+  if( itk::Math::NotEqualsComparison(maximum, 2) )
     {
     std::cout << "[FAILURE]" << std::endl;
       return EXIT_FAILURE;
@@ -43,7 +43,7 @@ int itkGaussianSpatialObjectTest(int, char* [])
   GaussianType::ScalarType radius =
     myGaussian->GetRadius();
   std::cout << "Testing Radius: ";
-  if( itk::Math::NotEqualsComparison(radius , 3) )
+  if( itk::Math::NotEqualsComparison(radius, 3) )
     {
     std::cout << "[FAILURE]" << std::endl;
       return EXIT_FAILURE;
@@ -129,8 +129,8 @@ int itkGaussianSpatialObjectTest(int, char* [])
 
   for(unsigned int i=0;i<3;i++)
     {
-    if( (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i] , 7) )
-        || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i+1] , 16) )
+    if( (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i], 7) )
+        || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2*i+1], 16) )
       )
       {
       std::cout<<"[FAILED]"<<std::endl;

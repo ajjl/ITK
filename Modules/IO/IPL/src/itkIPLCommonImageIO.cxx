@@ -583,7 +583,7 @@ int IPLCommonImageIO
     {
     return 0;
     }
-  else if(itk::Math::NotEqualsComparison(XRes , m_FilenameList->GetXRes()) || itk::Math::NotEqualsComparison(YRes , m_FilenameList->GetYRes())  )
+  else if(itk::Math::NotEqualsComparison(XRes, m_FilenameList->GetXRes()) || itk::Math::NotEqualsComparison(YRes, m_FilenameList->GetYRes())  )
     {
     return 0;
     }

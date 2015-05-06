@@ -98,7 +98,7 @@ int itkPlaneSpatialObjectTest(int, char* [])
      return EXIT_FAILURE;
   }
 
-  if(itk::Math::NotEqualsComparison(value , 1))
+  if(itk::Math::NotEqualsComparison(value, 1))
   {
      std::cout<<"[FAILED]"<<std::endl;
      return EXIT_FAILURE;

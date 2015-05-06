@@ -161,7 +161,7 @@ QPropXORTest1(int argc, char* argv[])
         {
         ++error1;
         }
-      else if (flag == 1 && itk::Math::EqualsComparison(tv[0] , -0.5))
+      else if (flag == 1 && itk::Math::EqualsComparison(tv[0], -0.5))
         {
         ++error2;
         }

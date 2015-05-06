@@ -94,7 +94,7 @@ RescaleIntensityImageFilter< TInputImage, TOutputImage >
   m_InputMinimum = calculator->GetMinimum();
   m_InputMaximum = calculator->GetMaximum();
 
-  if ( itk::Math::NotEqualsComparison(m_InputMinimum , m_InputMaximum) )
+  if ( itk::Math::NotEqualsComparison(m_InputMinimum, m_InputMaximum) )
     {
     m_Scale =
       ( static_cast< RealType >( m_OutputMaximum )
@@ -102,7 +102,7 @@ RescaleIntensityImageFilter< TInputImage, TOutputImage >
       / ( static_cast< RealType >( m_InputMaximum )
           - static_cast< RealType >( m_InputMinimum ) );
     }
-  else if ( itk::Math::NotEqualsComparison(m_InputMaximum , NumericTraits< InputPixelType >::ZeroValue()) )
+  else if ( itk::Math::NotEqualsComparison(m_InputMaximum, NumericTraits< InputPixelType >::ZeroValue()) )
     {
     m_Scale =
       ( static_cast< RealType >( m_OutputMaximum )

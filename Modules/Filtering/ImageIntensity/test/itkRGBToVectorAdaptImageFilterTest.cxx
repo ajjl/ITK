@@ -119,9 +119,9 @@ int itkRGBToVectorAdaptImageFilterTest(int, char* [] ) {
   VectorPixelType v =   it.Get();
   RGBPixelType    c =  it1.Get();
 
-  if ( itk::Math::NotEqualsComparison(v[0] , c.GetRed())   ||
-       itk::Math::NotEqualsComparison(v[1] , c.GetGreen()) ||
-       itk::Math::NotEqualsComparison(v[2] , c.GetBlue())     )
+  if ( itk::Math::NotEqualsComparison(v[0], c.GetRed())   ||
+       itk::Math::NotEqualsComparison(v[1], c.GetGreen()) ||
+       itk::Math::NotEqualsComparison(v[2], c.GetBlue())     )
     {
     std::cerr << "Vector pixel = " << v << std::endl;
     std::cerr << "does not match " << std::endl;

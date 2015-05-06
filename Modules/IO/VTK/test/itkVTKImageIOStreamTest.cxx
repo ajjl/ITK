@@ -95,7 +95,7 @@ bool ImagesEqual(const TImage* img1, const TImage* img2,
 
   for(it1.GoToBegin(), it2.GoToBegin(); !it1.IsAtEnd(); ++it1, ++it2)
     {
-    if(itk::Math::NotEqualsComparison(it1.Get() , it2.Get()))
+    if(itk::Math::NotEqualsComparison(it1.Get(), it2.Get()))
       {
       return false;
       }

@@ -69,7 +69,7 @@ int itkDiscreteGaussianImageFilterTest(int , char * [] )
       ArrayType maxErrorReturned = filter->GetMaximumError();
       for ( unsigned int i = 0; i < Dimension; ++i )
         {
-        if ( itk::Math::NotEqualsComparison(maxErrorReturned[ i ] , 0.01) )
+        if ( itk::Math::NotEqualsComparison(maxErrorReturned[ i ], 0.01) )
           {
           std::cout << "GetMaximumError()[" << i << "] failed. Expected: "
             << 0.01

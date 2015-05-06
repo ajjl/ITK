@@ -72,7 +72,7 @@ int itkVectorImageToImageAdaptorTest( int, char* [] )
   while (!adaptIt.IsAtEnd())
     {
     PixelType pixelV = adaptIt.Get();
-    if (itk::Math::NotEqualsComparison(pixelV , PixelType(componentToExtract)))
+    if (itk::Math::NotEqualsComparison(pixelV, PixelType(componentToExtract)))
       {
       std::cout << "Wrong Pixel Value: adaptIt(" << adaptIt.GetIndex() << ") = " << adaptIt.Get()
                  << std::endl;

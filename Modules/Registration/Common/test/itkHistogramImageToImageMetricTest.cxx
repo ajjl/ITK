@@ -138,7 +138,7 @@ int itkHistogramImageToImageMetricTest(int , char*[] )
     metric->SetPaddingValue(-1);
     metric->SetUsePaddingValue(true);
 
-    if (itk::Math::NotEqualsComparison(metric->GetPaddingValue() , -1))
+    if (itk::Math::NotEqualsComparison(metric->GetPaddingValue(), -1))
       {
       std::cerr << "Incorrect padding value." << std::endl;
       return EXIT_FAILURE;
@@ -152,7 +152,7 @@ int itkHistogramImageToImageMetricTest(int , char*[] )
       }
 
     // Check GetDerivativeStepLength().
-    if (itk::Math::NotEqualsComparison(metric->GetDerivativeStepLength() , STEP_LENGTH))
+    if (itk::Math::NotEqualsComparison(metric->GetDerivativeStepLength(), STEP_LENGTH))
       {
       std::cout << "Incorrect derivative step length." << std::endl;
       return EXIT_FAILURE;

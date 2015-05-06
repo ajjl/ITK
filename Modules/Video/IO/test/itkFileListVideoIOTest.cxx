@@ -157,12 +157,12 @@ int test_FileListVideoIO ( const char* input,
     // Compare Spacing, Origin, Direction
     for (unsigned int j = 0; j < ImageType::ImageDimension; ++j)
       {
-      if (itk::Math::NotEqualsComparison(fileListIO->GetSpacing(j) , reader->GetImageIO()->GetSpacing(j)))
+      if (itk::Math::NotEqualsComparison(fileListIO->GetSpacing(j), reader->GetImageIO()->GetSpacing(j)))
         {
         std::cerr << "Spacing not read correctly" << std::endl;
         ret = false;
         }
-      if (itk::Math::NotEqualsComparison(fileListIO->GetOrigin(j) , reader->GetImageIO()->GetOrigin(j)))
+      if (itk::Math::NotEqualsComparison(fileListIO->GetOrigin(j), reader->GetImageIO()->GetOrigin(j)))
         {
         std::cerr << "Origin not read correctly" << std::endl;
         ret = false;
@@ -226,7 +226,7 @@ int test_FileListVideoIO ( const char* input,
   fileListIO->SetWriterParameters(fps, size, fourCC, nChannels, itk::ImageIOBase::UCHAR);
 
   // Make sure they set correctly
-  if (itk::Math::NotEqualsComparison(fileListIO->GetFramesPerSecond() , fps) || fileListIO->GetDimensions(0) != width ||
+  if (itk::Math::NotEqualsComparison(fileListIO->GetFramesPerSecond(), fps) || fileListIO->GetDimensions(0) != width ||
       fileListIO->GetDimensions(1) != height || fileListIO->GetNumberOfComponents() != nChannels)
     {
     std::cerr << "Didn't set writer parmeters correctly" << std::endl;

@@ -231,25 +231,25 @@ bool MRCImageIOTester<TImageType>
       switch (cnt%4)
         {
         case 0:
-          if (itk::Math::NotEqualsComparison(iter.Get() , itk::NumericTraits<PixelType>::ZeroValue()) )
+          if (itk::Math::NotEqualsComparison(iter.Get(), itk::NumericTraits<PixelType>::ZeroValue()) )
             {
             pixelsGood = false;
             }
           break;
         case 1:
-          if (itk::Math::NotEqualsComparison(iter.Get() , itk::NumericTraits<PixelType>::OneValue()) )
+          if (itk::Math::NotEqualsComparison(iter.Get(), itk::NumericTraits<PixelType>::OneValue()) )
             {
             pixelsGood = false;
             }
           break;
         case 2:
-          if (itk::Math::NotEqualsComparison(iter.Get() , itk::NumericTraits<PixelType>::min( PixelType() )) )
+          if (itk::Math::NotEqualsComparison(iter.Get(), itk::NumericTraits<PixelType>::min( PixelType() )) )
             {
             pixelsGood = false;
             }
           break;
         case 3:
-          if (itk::Math::NotEqualsComparison(iter.Get() , itk::NumericTraits<PixelType>::max( PixelType() )) )
+          if (itk::Math::NotEqualsComparison(iter.Get(), itk::NumericTraits<PixelType>::max( PixelType() )) )
             {
             pixelsGood = false;
             }

@@ -147,7 +147,7 @@ PDEDeformableRegistrationFilter< TFixedImage, TMovingImage, TDisplacementField >
 
   for ( j = 0; j < ImageDimension; j++ )
     {
-    if ( itk::Math::NotEqualsComparison(value , m_StandardDeviations[j]) )
+    if ( itk::Math::NotEqualsComparison(value, m_StandardDeviations[j]) )
       {
       break;
       }
@@ -175,7 +175,7 @@ PDEDeformableRegistrationFilter< TFixedImage, TMovingImage, TDisplacementField >
 
   for ( j = 0; j < ImageDimension; j++ )
     {
-    if ( itk::Math::NotEqualsComparison(value , m_UpdateFieldStandardDeviations[j]) )
+    if ( itk::Math::NotEqualsComparison(value, m_UpdateFieldStandardDeviations[j]) )
       {
       break;
       }

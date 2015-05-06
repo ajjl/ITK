@@ -168,7 +168,7 @@ int itkNearestNeighborInterpolateImageFunctionTest( int , char*[] )
            //test scalar image
            const double computedValue = interpolator->Evaluate( point );
 
-           if( itk::Math::NotEqualsComparison(expectedValue , computedValue) )
+           if( itk::Math::NotEqualsComparison(expectedValue, computedValue) )
              {
              std::cerr << "Error found while computing interpolation "
                        << std::endl;

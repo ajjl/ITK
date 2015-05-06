@@ -38,7 +38,7 @@ bool CheckBuffer( const TImageType* image, typename TImageType::PixelType p )
 
   while( !iter.IsAtEnd() )
     {
-    if (itk::Math::NotEqualsComparison(iter.Get() , p))
+    if (itk::Math::NotEqualsComparison(iter.Get(), p))
       return false;
     ++iter;
     }

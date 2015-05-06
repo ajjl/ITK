@@ -528,7 +528,7 @@ int itkDisplacementFieldTransformTest(int, char *[] )
   for( unsigned int i = 0;
        i < displacementTransform->GetNumberOfParameters(); i++ )
     {
-    if( itk::Math::NotEqualsComparison(params[i] , updateTruth[i]) )
+    if( itk::Math::NotEqualsComparison(params[i], updateTruth[i]) )
       {
       std::cout << "UpdateTransformParameters test failed: " << std::endl;
       std::cout << "params: " << std::endl << params << std::endl

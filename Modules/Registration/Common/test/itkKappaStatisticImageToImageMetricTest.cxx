@@ -91,7 +91,7 @@ int itkKappaStatisticImageToImageMetricTest(int, char* [] )
   std::cout << "Test [Set,Get]ForegroundValue method..." << std::endl;
 
   metric->SetForegroundValue(255);
-  if (itk::Math::NotEqualsComparison(metric->GetForegroundValue() , 255))
+  if (itk::Math::NotEqualsComparison(metric->GetForegroundValue(), 255))
     {
     std::cerr << "Error!" << std::endl;
     return EXIT_FAILURE;
@@ -191,7 +191,7 @@ int itkKappaStatisticImageToImageMetricTest(int, char* [] )
   yGradIt.GoToBegin();
   while ( !gradIt.IsAtEnd() )
     {
-    if ((itk::Math::NotEqualsComparison((gradIt.Get())[0] , xGradIt.Get()))||(itk::Math::NotEqualsComparison((gradIt.Get())[1] , yGradIt.Get())))
+    if ((itk::Math::NotEqualsComparison((gradIt.Get())[0], xGradIt.Get()))||(itk::Math::NotEqualsComparison((gradIt.Get())[1], yGradIt.Get())))
       {
       std::cerr << "Error!" << std::endl;
       return EXIT_FAILURE;

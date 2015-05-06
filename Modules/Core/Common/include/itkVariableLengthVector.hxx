@@ -319,7 +319,7 @@ VariableLengthVector< TValue >
     }
   for ( ElementIdentifier i = 0; i < m_NumElements; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Data[i] , v[i]) )
+    if ( itk::Math::NotEqualsComparison(m_Data[i], v[i]) )
       {
       return false;
       }
@@ -338,7 +338,7 @@ VariableLengthVector< TValue >
     }
   for ( ElementIdentifier i = 0; i < m_NumElements; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Data[i] , v[i]) )
+    if ( itk::Math::NotEqualsComparison(m_Data[i], v[i]) )
       {
       return true;
       }

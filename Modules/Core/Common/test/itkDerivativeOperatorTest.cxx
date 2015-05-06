@@ -42,7 +42,7 @@ public:
 
     for( unsigned int i=0; i < expected.size(); i++ )
       {
-      if( itk::Math::NotEqualsComparison(expected[i] , coefficients[i]) )
+      if( itk::Math::NotEqualsComparison(expected[i], coefficients[i]) )
         {
         std::cerr << "Wrong coefficient value at " << i << std::endl;
         std::cerr << "expected " << expected[i] << std::endl;

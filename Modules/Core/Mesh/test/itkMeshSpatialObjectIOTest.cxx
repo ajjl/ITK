@@ -182,7 +182,7 @@ int itkMeshSpatialObjectIOTest(int argc, char* argv[])
       }
     for(i=0;i<3;i++)
       {
-      if(itk::Math::NotEqualsComparison(((*it_points)->Value())[i] , j+i))
+      if(itk::Math::NotEqualsComparison(((*it_points)->Value())[i], j+i))
         {
         std::cout<<" [FAILED]"<<std::endl;
         std::cout << "Value = " << (*it_points)->Value() << std::endl;

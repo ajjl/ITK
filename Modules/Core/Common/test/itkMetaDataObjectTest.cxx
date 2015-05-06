@@ -31,7 +31,7 @@ testMetaData( const TMetaData & value )
   typename MetaDataObjectType::Pointer metaDataObject = MetaDataObjectType::New();
 
   metaDataObject->SetMetaDataObjectValue( value );
-  if( itk::Math::NotEqualsComparison(metaDataObject->GetMetaDataObjectValue() , value) )
+  if( itk::Math::NotEqualsComparison(metaDataObject->GetMetaDataObjectValue(), value) )
     {
     std::cerr << "Set value does not equal original value!" << std::endl;
     return EXIT_FAILURE;

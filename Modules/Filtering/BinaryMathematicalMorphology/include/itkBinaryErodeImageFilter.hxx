@@ -148,7 +148,7 @@ BinaryErodeImageFilter< TInputImage, TOutputImage, TKernel >
         ++iRegIt, ++tmpRegIt )
     {
     OutputPixelType pxl = iRegIt.Get();
-    if ( itk::Math::NotEqualsComparison(pxl , foregroundValue) )
+    if ( itk::Math::NotEqualsComparison(pxl, foregroundValue) )
       {
       tmpRegIt.Set(onTag);
       }
@@ -437,7 +437,7 @@ BinaryErodeImageFilter< TInputImage, TOutputImage, TKernel >
         // has a value equal to the dilate one, this means
         // that the output pixel at currentIndex will be on in the output.
         if ( !inputRegionForThread.IsInside(translatedIndex)
-             || itk::Math::NotEqualsComparison(input->GetPixel(translatedIndex) , foregroundValue) )
+             || itk::Math::NotEqualsComparison(input->GetPixel(translatedIndex), foregroundValue) )
           {
           ouRegIndexIt.Set(backgroundValue);
           break; // Do not need to examine other offsets because at least one
@@ -459,7 +459,7 @@ BinaryErodeImageFilter< TInputImage, TOutputImage, TKernel >
         IndexType translatedIndex = currentIndex - *vecIt;
 
         if ( inputRegionForThread.IsInside(translatedIndex)
-             && itk::Math::NotEqualsComparison(input->GetPixel(translatedIndex) , foregroundValue) )
+             && itk::Math::NotEqualsComparison(input->GetPixel(translatedIndex), foregroundValue) )
           {
           ouRegIndexIt.Set(backgroundValue);
           break;
@@ -478,7 +478,7 @@ BinaryErodeImageFilter< TInputImage, TOutputImage, TKernel >
     {
     InputPixelType  inValue = inIt.Get();
     OutputPixelType outValue = outIt.Get();
-    if ( itk::Math::NotEqualsComparison(outValue , backgroundValue) && itk::Math::NotEqualsComparison(inValue , foregroundValue) )
+    if ( itk::Math::NotEqualsComparison(outValue, backgroundValue) && itk::Math::NotEqualsComparison(inValue, foregroundValue) )
       {
       outIt.Set( static_cast< OutputPixelType >( inValue ) );
       }

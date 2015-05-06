@@ -115,7 +115,7 @@ GaussianDerivativeImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension2); i++ )
     {
-    if ( itk::Math::NotEqualsComparison(sigma , m_Sigma[i]) )
+    if ( itk::Math::NotEqualsComparison(sigma, m_Sigma[i]) )
       {
       break;
       }
@@ -165,7 +165,7 @@ GaussianDerivativeImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension2); i++ )
     {
-    if ( itk::Math::NotEqualsComparison(extent , m_Extent[i]) )
+    if ( itk::Math::NotEqualsComparison(extent, m_Extent[i]) )
       {
       break;
       }

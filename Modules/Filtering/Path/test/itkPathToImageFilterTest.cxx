@@ -140,7 +140,7 @@ int itkPathToImageFilterTest(int, char* [] )
         // on the path
         targetValue=1;
         }
-      if(itk::Math::NotEqualsComparison(image->GetPixel(index) , targetValue))
+      if(itk::Math::NotEqualsComparison(image->GetPixel(index), targetValue))
         {
         std::cout << "[FAILURE]" << std::endl;
         return EXIT_FAILURE;

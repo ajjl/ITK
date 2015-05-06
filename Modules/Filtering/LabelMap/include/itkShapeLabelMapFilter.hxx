@@ -327,7 +327,7 @@ ShapeLabelMapFilter< TImage, TLabelImage >
     elongation = 1;
     flatness = 1;
     }
-  else if ( itk::Math::NotEqualsComparison(principalMoments[0] , 0) )
+  else if ( itk::Math::NotEqualsComparison(principalMoments[0], 0) )
     {
     elongation = std::sqrt(principalMoments[ImageDimension - 1] / principalMoments[ImageDimension - 2]);
     flatness = std::sqrt(principalMoments[1] / principalMoments[0]);

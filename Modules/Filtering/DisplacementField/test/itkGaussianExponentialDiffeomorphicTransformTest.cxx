@@ -88,17 +88,17 @@ int itkGaussianExponentialDiffeomorphicTransformTest(int ,char *[] )
         i++ )
     {
     bool ok = true;
-    if( i < linelength && itk::Math::NotEqualsComparison(params[i] , 0) )
+    if( i < linelength && itk::Math::NotEqualsComparison(params[i], 0) )
       {
       ok = false;
       std::cout << params[i] << " != 0 " << std::endl;
       }
-    if( i % linelength == 0 && itk::Math::NotEqualsComparison(params[i] , 0) )
+    if( i % linelength == 0 && itk::Math::NotEqualsComparison(params[i], 0) )
       {
       ok = false;
       std::cout << params[i] << " != 0 " << std::endl;
       }
-    if( i % linelength == (linelength - 1) && itk::Math::NotEqualsComparison(params[i] , 0) )
+    if( i % linelength == (linelength - 1) && itk::Math::NotEqualsComparison(params[i], 0) )
       {
       ok = false;
       std::cout << params[i] << " != 0 " << std::endl;
@@ -143,17 +143,17 @@ int itkGaussianExponentialDiffeomorphicTransformTest(int ,char *[] )
         i++ )
     {
     bool ok = true;
-    if( i < linelength && itk::Math::NotEqualsComparison(params[i] , 0) )
+    if( i < linelength && itk::Math::NotEqualsComparison(params[i], 0) )
       {
       ok = false;
       std::cout << params[i] << " != 0 " << std::endl;
       }
-    if( i % linelength == 0 && itk::Math::NotEqualsComparison(params[i] , 0) )
+    if( i % linelength == 0 && itk::Math::NotEqualsComparison(params[i], 0) )
       {
       ok = false;
       std::cout << params[i] << " != 0 " << std::endl;
       }
-    if( i % linelength == (linelength - 1) && itk::Math::NotEqualsComparison(params[i] , 0) )
+    if( i % linelength == (linelength - 1) && itk::Math::NotEqualsComparison(params[i], 0) )
       {
       ok = false;
       std::cout << params[i] << " != 0 " << std::endl;
@@ -187,7 +187,7 @@ int itkGaussianExponentialDiffeomorphicTransformTest(int ,char *[] )
       unsigned int index = outlier +
         (unsigned int) (i * (signed int)(dimLength*dimensions) + j);
       std::cout << params(index) << " ";
-      if( itk::Math::EqualsComparison(params(index) , paramsFillValue) )
+      if( itk::Math::EqualsComparison(params(index), paramsFillValue) )
         {
         std::cout << "Expected to read a smoothed value at this index."
                   << " Instead, read " << params(index) << std::endl;

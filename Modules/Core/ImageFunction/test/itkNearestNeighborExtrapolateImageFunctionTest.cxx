@@ -103,7 +103,7 @@ int itkNearestNeighborExtrapolateImageFunctionTest( int, char *[])
 
   std::cout << "Point: " << point << " Value: " << value
             << " Vector Value: " << vectorvalue << std::endl;
-  if ( itk::Math::NotEqualsComparison(value , trueValue) )
+  if ( itk::Math::NotEqualsComparison(value, trueValue) )
     {
     std::cout << "Value not the same as trueValue: " << trueValue << std::endl;
     std::cout << "Test failed. " << std::endl;
@@ -126,7 +126,7 @@ int itkNearestNeighborExtrapolateImageFunctionTest( int, char *[])
     ( 6.0 )  * static_cast<double>( imageSize[0] );
 
   std::cout << "Point: " << point << " Value: " << value << std::endl;
-  if ( itk::Math::NotEqualsComparison(value , trueValue) )
+  if ( itk::Math::NotEqualsComparison(value, trueValue) )
     {
     std::cout << "Value not the same as trueValue: " << trueValue << std::endl;
     std::cout << "Test failed. " << std::endl;
@@ -142,7 +142,7 @@ int itkNearestNeighborExtrapolateImageFunctionTest( int, char *[])
     static_cast<double>( index[1] )  * static_cast<double>( imageSize[0] );
 
   std::cout << "Index: " << index << " Value: " << value << std::endl;
-  if ( itk::Math::NotEqualsComparison(value , trueValue) )
+  if ( itk::Math::NotEqualsComparison(value, trueValue) )
     {
     std::cout << "Value not the same as trueValue: " << trueValue << std::endl;
     std::cout << "Test failed. " << std::endl;
@@ -159,7 +159,7 @@ int itkNearestNeighborExtrapolateImageFunctionTest( int, char *[])
     static_cast<double>( 0 )  * static_cast<double>( imageSize[0] );
 
   std::cout << "Index: " << index << " Value: " << value << std::endl;
-  if ( itk::Math::NotEqualsComparison(value , trueValue) )
+  if ( itk::Math::NotEqualsComparison(value, trueValue) )
     {
     std::cout << "Value not the same as trueValue: " << trueValue << std::endl;
     std::cout << "Test failed. " << std::endl;

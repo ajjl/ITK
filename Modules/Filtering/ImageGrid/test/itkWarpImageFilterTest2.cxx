@@ -128,7 +128,7 @@ itkWarpImageFilterTest2(int, char * [])
       !it1.IsAtEnd() && !it2.IsAtEnd();
       ++it1, ++it2)
     {
-    if(itk::Math::NotEqualsComparison(it1.Value() , it2.Value()))
+    if(itk::Math::NotEqualsComparison(it1.Value(), it2.Value()))
       {
       std::cout << "Pixels differ " << it1.Value() << " "
                 << it2.Value()
@@ -166,7 +166,7 @@ itkWarpImageFilterTest2(int, char * [])
       !streamIt.IsAtEnd() && !it2.IsAtEnd();
       ++streamIt, ++it2)
     {
-    if(itk::Math::NotEqualsComparison(streamIt.Value() , it2.Value()))
+    if(itk::Math::NotEqualsComparison(streamIt.Value(), it2.Value()))
       {
       std::cout << "Pixels differ " << streamIt.Value() << " "
                 << it2.Value()

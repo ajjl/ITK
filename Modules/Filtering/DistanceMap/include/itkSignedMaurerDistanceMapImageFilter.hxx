@@ -291,7 +291,7 @@ SignedMaurerDistanceMapImageFilter< TInputImage, TOutputImage >
         static_cast< OutputPixelType >(
           std::sqrt( static_cast< OutputRealType >( vnl_math_abs( Ot.Get() ) ) ) );
 
-      if ( itk::Math::NotEqualsComparison(It.Get() , this->m_BackgroundValue) )
+      if ( itk::Math::NotEqualsComparison(It.Get(), this->m_BackgroundValue) )
         {
         if ( this->GetInsideIsPositive() )
           {
@@ -358,7 +358,7 @@ SignedMaurerDistanceMapImageFilter< TInputImage, TOutputImage >
       iw  = static_cast< OutputPixelType >( i );
       }
 
-    if ( itk::Math::NotEqualsComparison(di , NumericTraits< OutputPixelType >::max()) )
+    if ( itk::Math::NotEqualsComparison(di, NumericTraits< OutputPixelType >::max()) )
       {
       if ( l < 1 )
         {
@@ -418,7 +418,7 @@ SignedMaurerDistanceMapImageFilter< TInputImage, TOutputImage >
       }
     idx[d] = i + startIndex[d];
 
-    if ( itk::Math::NotEqualsComparison(m_InputCache->GetPixel(idx) , this->m_BackgroundValue) )
+    if ( itk::Math::NotEqualsComparison(m_InputCache->GetPixel(idx), this->m_BackgroundValue) )
       {
       if ( this->m_InsideIsPositive )
         {

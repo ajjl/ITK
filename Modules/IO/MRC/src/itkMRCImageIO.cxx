@@ -186,9 +186,9 @@ void MRCImageIO::ReadImageInformation(void)
       }
     }
 
-  if ( itk::Math::EqualsComparison(header.xlen , 0)
-       && itk::Math::EqualsComparison(header.ylen , 0)
-       && itk::Math::EqualsComparison(header.zlen , 0) )
+  if ( itk::Math::EqualsComparison(header.xlen, 0)
+       && itk::Math::EqualsComparison(header.ylen, 0)
+       && itk::Math::EqualsComparison(header.zlen, 0) )
     {
     // if the spacing was not set in the header then this is the
     // default

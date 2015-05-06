@@ -37,7 +37,7 @@ int itkCylinderSpatialObjectTest(int, char* [])
 
   myCylinder->SetRadius(radius);
   double radius2 = myCylinder->GetRadius();
-  if(itk::Math::NotEqualsComparison(radius2 , radius))
+  if(itk::Math::NotEqualsComparison(radius2, radius))
     {
     std::cout << "[FAILURE]" << std::endl;
     return EXIT_FAILURE;
@@ -72,12 +72,12 @@ int itkCylinderSpatialObjectTest(int, char* [])
   CylinderType::BoundingBoxType * boundingBox = myCylinder->GetBoundingBox();
 
 
-  if( (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[0] , -3) )
-    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[1] , 3) )
-    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2] , -6) )
-    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[3] , 6) )
-    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[4] , -3) )
-    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[5] , 3) )
+  if( (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[0], -3) )
+    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[1], 3) )
+    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2], -6) )
+    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[3], 6) )
+    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[4], -3) )
+    || (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[5], 3) )
     )
    {
    std::cout<<"[FAILED]"<<std::endl;

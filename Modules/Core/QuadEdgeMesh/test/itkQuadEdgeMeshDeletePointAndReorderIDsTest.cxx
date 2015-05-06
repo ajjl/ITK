@@ -89,7 +89,7 @@ int itkQuadEdgeMeshDeletePointAndReorderIDsTest( int , char* [] )
 
     // check data
     mesh->GetPointData( 0, &ptData );
-    if( itk::Math::NotEqualsComparison(ptData , 4) )
+    if( itk::Math::NotEqualsComparison(ptData, 4) )
     {
     return EXIT_FAILURE;
     }

@@ -91,7 +91,7 @@ PolyLineParametricPath<VDimension>
   bool timeStepSmallEnough = false;
   while (!timeStepSmallEnough)
     {
-    if (itk::Math::EqualsComparison(input , this->EndOfInput()))
+    if (itk::Math::EqualsComparison(input, this->EndOfInput()))
       {
       const IndexType finalIndex = this->EvaluateToIndex(this->EndOfInput());
       OffsetType finalOffset;

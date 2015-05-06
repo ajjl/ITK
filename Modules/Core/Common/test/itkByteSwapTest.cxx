@@ -130,7 +130,7 @@ int itkByteSwapTest ( int, char*[] )
       itk::ByteSwapper<float>::SwapFromSystemToBigEndian ( &f );
       itk::ByteSwapper<float>::SwapFromSystemToBigEndian ( &f );
       }
-    if ( itk::Math::NotEqualsComparison(f , f1) )
+    if ( itk::Math::NotEqualsComparison(f, f1) )
       {
       return EXIT_FAILURE;
       }
@@ -155,7 +155,7 @@ int itkByteSwapTest ( int, char*[] )
       itk::ByteSwapper<double>::SwapFromSystemToBigEndian ( &d );
       itk::ByteSwapper<double>::SwapFromSystemToBigEndian ( &d );
       }
-    if ( itk::Math::NotEqualsComparison(d , d1) )
+    if ( itk::Math::NotEqualsComparison(d, d1) )
       {
       return EXIT_FAILURE;
       }

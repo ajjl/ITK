@@ -81,14 +81,14 @@ int itkContourSpatialObjectTest(int, char* [])
   std::cout << "[PASSED] GetNumberOfControlPoints" << std::endl;
 
   // check values of points
-  if (itk::Math::NotEqualsComparison(contour->GetControlPoints()[0].GetPickedPoint()[0] , pt1.GetPickedPoint()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[0].GetPickedPoint()[1] , pt1.GetPickedPoint()[1]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[1].GetPickedPoint()[0] , pt2.GetPickedPoint()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[1].GetPickedPoint()[1] , pt2.GetPickedPoint()[1]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[2].GetPickedPoint()[0] , pt3.GetPickedPoint()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[2].GetPickedPoint()[1] , pt3.GetPickedPoint()[1]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[3].GetPickedPoint()[0] , pt4.GetPickedPoint()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoints()[3].GetPickedPoint()[1] , pt4.GetPickedPoint()[1]))
+  if (itk::Math::NotEqualsComparison(contour->GetControlPoints()[0].GetPickedPoint()[0], pt1.GetPickedPoint()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[0].GetPickedPoint()[1], pt1.GetPickedPoint()[1]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[1].GetPickedPoint()[0], pt2.GetPickedPoint()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[1].GetPickedPoint()[1], pt2.GetPickedPoint()[1]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[2].GetPickedPoint()[0], pt3.GetPickedPoint()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[2].GetPickedPoint()[1], pt3.GetPickedPoint()[1]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[3].GetPickedPoint()[0], pt4.GetPickedPoint()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoints()[3].GetPickedPoint()[1], pt4.GetPickedPoint()[1]))
     {
     std::cout << "[FAILED] Did not add/retrieve control point list correctly" << std::endl;
     return EXIT_FAILURE;
@@ -96,8 +96,8 @@ int itkContourSpatialObjectTest(int, char* [])
   std::cout << "[PASSED] Set/GetControlPoints" << std::endl;
 
   // check retrieval of a single point
-  if (itk::Math::NotEqualsComparison(contour->GetControlPoint(0)->GetPickedPoint()[0] , pt1.GetPickedPoint()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetControlPoint(0)->GetPickedPoint()[1] , pt1.GetPickedPoint()[1]))
+  if (itk::Math::NotEqualsComparison(contour->GetControlPoint(0)->GetPickedPoint()[0], pt1.GetPickedPoint()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetControlPoint(0)->GetPickedPoint()[1], pt1.GetPickedPoint()[1]))
     {
     std::cout << "[FAILED] Did not retrieve single control point correctly" << std::endl;
     return EXIT_FAILURE;
@@ -196,10 +196,10 @@ int itkContourSpatialObjectTest(int, char* [])
   std::cout << "[PASSED] GetNumberOfInterpolatedPoints" << std::endl;
 
   // check values of points
-  if (itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[0].GetPosition()[0] , intPt1.GetPosition()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[0].GetPosition()[1] , intPt1.GetPosition()[1]) ||
-      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[1].GetPosition()[0] , intPt2.GetPosition()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[1].GetPosition()[1] , intPt2.GetPosition()[1]))
+  if (itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[0].GetPosition()[0], intPt1.GetPosition()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[0].GetPosition()[1], intPt1.GetPosition()[1]) ||
+      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[1].GetPosition()[0], intPt2.GetPosition()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoints()[1].GetPosition()[1], intPt2.GetPosition()[1]))
     {
     std::cout << "[FAILED] Did not add/retrieve interpolated point list correctly" << std::endl;
     return EXIT_FAILURE;
@@ -207,8 +207,8 @@ int itkContourSpatialObjectTest(int, char* [])
   std::cout << "[PASSED] Set/GetInterpolatedPoints" << std::endl;
 
   // check retrieval of a single point
-  if (itk::Math::NotEqualsComparison(contour->GetInterpolatedPoint(0)->GetPosition()[0] , intPt1.GetPosition()[0]) ||
-      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoint(0)->GetPosition()[1] , intPt1.GetPosition()[1]))
+  if (itk::Math::NotEqualsComparison(contour->GetInterpolatedPoint(0)->GetPosition()[0], intPt1.GetPosition()[0]) ||
+      itk::Math::NotEqualsComparison(contour->GetInterpolatedPoint(0)->GetPosition()[1], intPt1.GetPosition()[1]))
     {
     std::cout << "[FAILED] Did not retrieve single interpolated point correctly" << std::endl;
     return EXIT_FAILURE;
@@ -257,7 +257,7 @@ int itkContourSpatialObjectTest(int, char* [])
   //
   double val = -1;
   double* valPtr = &val;
-  if (contour->ValueAt(testPoint, *valPtr) || itk::Math::NotEqualsComparison(val , contour->GetDefaultOutsideValue()))
+  if (contour->ValueAt(testPoint, *valPtr) || itk::Math::NotEqualsComparison(val, contour->GetDefaultOutsideValue()))
     {
     std::cout << "[FAILED] Somehow returned true for ValueAt" << std::endl;
     return EXIT_FAILURE;

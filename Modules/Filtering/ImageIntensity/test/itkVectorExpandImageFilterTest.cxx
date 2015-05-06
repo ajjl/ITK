@@ -201,7 +201,7 @@ int itkVectorExpandImageFilterTest(int, char* [] )
 
       for( k = 0; k < VectorDimension; k++ )
         {
-        if( itk::Math::NotEqualsComparison(value[k] , padValue[k]) ){break;}
+        if( itk::Math::NotEqualsComparison(value[k], padValue[k]) ){break;}
         }
       if( k < VectorDimension )
         {
@@ -251,7 +251,7 @@ int itkVectorExpandImageFilterTest(int, char* [] )
 
     for( k = 0; k < VectorDimension; k++ )
       {
-      if( itk::Math::NotEqualsComparison(outIter.Get()[k] , streamIter.Get()[k]) )
+      if( itk::Math::NotEqualsComparison(outIter.Get()[k], streamIter.Get()[k]) )
         {
         testPassed = false;
         }

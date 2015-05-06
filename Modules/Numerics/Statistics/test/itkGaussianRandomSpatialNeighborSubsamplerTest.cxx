@@ -98,7 +98,7 @@ int itkGaussianRandomSpatialNeighborSubsamplerTest(int argc, char* argv[] )
     std::cerr << "Clone did not copy the number of results requested correctly!" << std::endl;
     return EXIT_FAILURE;
     }
-  if (itk::Math::NotEqualsComparison(sampler->GetVariance() , sampler_orig->GetVariance()))
+  if (itk::Math::NotEqualsComparison(sampler->GetVariance(), sampler_orig->GetVariance()))
     {
     std::cerr << "Clone did not copy the variance correctly!" << std::endl;
     return EXIT_FAILURE;

@@ -193,7 +193,7 @@ FRPROptimizer
         }
       }
 
-    if ( itk::Math::EqualsComparison(gg , 0) )
+    if ( itk::Math::EqualsComparison(gg, 0) )
       {
       this->SetCurrentPosition(p);
       this->InvokeEvent( EndEvent() );

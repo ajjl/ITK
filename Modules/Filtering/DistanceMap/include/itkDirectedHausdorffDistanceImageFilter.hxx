@@ -201,7 +201,7 @@ DirectedHausdorffDistanceImageFilter< TInputImage1, TInputImage2 >
   // do the work
   while ( !it1.IsAtEnd() )
     {
-    if ( itk::Math::NotEqualsComparison(it1.Get() , NumericTraits< InputImage1PixelType >::ZeroValue()) )
+    if ( itk::Math::NotEqualsComparison(it1.Get(), NumericTraits< InputImage1PixelType >::ZeroValue()) )
       {
       // The signed distance map is calculated, but we want the calculation based on the
       // unsigned distance map.  Therefore, we set all distance map values less than 0 to 0.

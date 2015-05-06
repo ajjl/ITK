@@ -146,7 +146,7 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       std::cout << "CopyAttributeFrom failed for attribute " << "NumberOfPixels" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetPhysicalSize() , labelObject->GetPhysicalSize()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetPhysicalSize(), labelObject->GetPhysicalSize()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "PhysicalSize" << std::endl;
       status = EXIT_FAILURE;
@@ -161,12 +161,12 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       std::cout << "CopyAttributeFrom failed for attribute " << "NumberOfPixelsOnBorder" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetPerimeterOnBorder() , labelObject->GetPerimeterOnBorder()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetPerimeterOnBorder(), labelObject->GetPerimeterOnBorder()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "PerimeterOnBorder" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetFeretDiameter() , labelObject->GetFeretDiameter()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetFeretDiameter(), labelObject->GetFeretDiameter()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "FeretDiameter" << std::endl;
       status = EXIT_FAILURE;
@@ -181,27 +181,27 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       std::cout << "CopyAttributeFrom failed for attribute " << "PrincipalAxes" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetElongation() , labelObject->GetElongation()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetElongation(), labelObject->GetElongation()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "Elongation" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetPerimeter() , labelObject->GetPerimeter()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetPerimeter(), labelObject->GetPerimeter()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "Perimeter" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetRoundness() , labelObject->GetRoundness()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetRoundness(), labelObject->GetRoundness()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "Roundness" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetEquivalentSphericalRadius() , labelObject->GetEquivalentSphericalRadius()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetEquivalentSphericalRadius(), labelObject->GetEquivalentSphericalRadius()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "EquivalentSphericalRadius" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetEquivalentSphericalPerimeter() , labelObject->GetEquivalentSphericalPerimeter()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetEquivalentSphericalPerimeter(), labelObject->GetEquivalentSphericalPerimeter()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "EquivalentSphericalPerimeter" << std::endl;
       status = EXIT_FAILURE;
@@ -211,12 +211,12 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       std::cout << "CopyAttributeFrom failed for attribute " << "EquivalentEllipsoidDiameter" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetFlatness() , labelObject->GetFlatness()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetFlatness(), labelObject->GetFlatness()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "Flatness" << std::endl;
       status = EXIT_FAILURE;
       }
-    if (itk::Math::NotEqualsComparison(labelCopy->GetPerimeterOnBorderRatio() , labelObject->GetPerimeterOnBorderRatio()))
+    if (itk::Math::NotEqualsComparison(labelCopy->GetPerimeterOnBorderRatio(), labelObject->GetPerimeterOnBorderRatio()))
       {
       std::cout << "CopyAttributeFrom failed for attribute " << "PerimeterOnBorderRatio" << std::endl;
       status = EXIT_FAILURE;
@@ -246,7 +246,7 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       status = EXIT_FAILURE;
       }
     itk::Functor::PhysicalSizeLabelObjectAccessor< ShapeLabelObjectType > accessorPhysicalSize;
-    if (itk::Math::NotEqualsComparison(l->GetPhysicalSize() , accessorPhysicalSize(l)))
+    if (itk::Math::NotEqualsComparison(l->GetPhysicalSize(), accessorPhysicalSize(l)))
       {
       std::cout << "l->GetPhysicalSize() != accessorPhysicalSize(l)" << std::endl;
       status = EXIT_FAILURE;
@@ -264,13 +264,13 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       status = EXIT_FAILURE;
       }
     itk::Functor::PerimeterOnBorderLabelObjectAccessor< ShapeLabelObjectType > accessorPerimeterOnBorder;
-    if (itk::Math::NotEqualsComparison(l->GetPerimeterOnBorder() , accessorPerimeterOnBorder(l)))
+    if (itk::Math::NotEqualsComparison(l->GetPerimeterOnBorder(), accessorPerimeterOnBorder(l)))
       {
       std::cout << "l->GetPerimeterOnBorder() != accessorPerimeterOnBorder(l)" << std::endl;
       status = EXIT_FAILURE;
       }
     itk::Functor::FeretDiameterLabelObjectAccessor< ShapeLabelObjectType > accessorFeretDiameter;
-    if (itk::Math::NotEqualsComparison(l->GetFeretDiameter() , accessorFeretDiameter(l)))
+    if (itk::Math::NotEqualsComparison(l->GetFeretDiameter(), accessorFeretDiameter(l)))
       {
       std::cout << "l->GetFeretDiameter() != accessorFeretDiameter(l)" << std::endl;
       status = EXIT_FAILURE;
@@ -288,31 +288,31 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       status = EXIT_FAILURE;
       }
     itk::Functor::ElongationLabelObjectAccessor< ShapeLabelObjectType > accessorElongation;
-    if (itk::Math::NotEqualsComparison(l->GetElongation() , accessorElongation(l)))
+    if (itk::Math::NotEqualsComparison(l->GetElongation(), accessorElongation(l)))
       {
       std::cout << "l->GetElongation() != accessorElongation(l)" << std::endl;
       status = EXIT_FAILURE;
       }
     itk::Functor::PerimeterLabelObjectAccessor< ShapeLabelObjectType > accessorPerimeter;
-    if (itk::Math::NotEqualsComparison(l->GetPerimeter() , accessorPerimeter(l)))
+    if (itk::Math::NotEqualsComparison(l->GetPerimeter(), accessorPerimeter(l)))
       {
       std::cout << "l->GetPerimeter() != accessorPerimeter(l)" << std::endl;
       status = EXIT_FAILURE;
       }
     itk::Functor::RoundnessLabelObjectAccessor< ShapeLabelObjectType > accessorRoundness;
-    if (itk::Math::NotEqualsComparison(l->GetRoundness() , accessorRoundness(l)))
+    if (itk::Math::NotEqualsComparison(l->GetRoundness(), accessorRoundness(l)))
       {
       std::cout << "l->GetRoundness() != accessorRoundness(l)" << std::endl;
       status = EXIT_FAILURE;
       }
     itk::Functor::EquivalentSphericalRadiusLabelObjectAccessor< ShapeLabelObjectType > accessorEquivalentSphericalRadius;
-    if (itk::Math::NotEqualsComparison(l->GetEquivalentSphericalRadius() , accessorEquivalentSphericalRadius(l)))
+    if (itk::Math::NotEqualsComparison(l->GetEquivalentSphericalRadius(), accessorEquivalentSphericalRadius(l)))
       {
       std::cout << "l->GetEquivalentSphericalRadius() != accessorEquivalentSphericalRadius(l)" << std::endl;
       status = EXIT_FAILURE;
       }
     itk::Functor::EquivalentSphericalPerimeterLabelObjectAccessor< ShapeLabelObjectType > accessorEquivalentSphericalPerimeter;
-    if (itk::Math::NotEqualsComparison(l->GetEquivalentSphericalPerimeter() , accessorEquivalentSphericalPerimeter(l)))
+    if (itk::Math::NotEqualsComparison(l->GetEquivalentSphericalPerimeter(), accessorEquivalentSphericalPerimeter(l)))
       {
       std::cout << "l->GetEquivalentSphericalPerimeter() != accessorEquivalentSphericalPerimeter(l)" << std::endl;
       status = EXIT_FAILURE;
@@ -324,13 +324,13 @@ int itkShapeLabelObjectAccessorsTest1(int argc, char * argv[])
       status = EXIT_FAILURE;
       }
     itk::Functor::FlatnessLabelObjectAccessor< ShapeLabelObjectType > accessorFlatness;
-    if (itk::Math::NotEqualsComparison(l->GetFlatness() , accessorFlatness(l)))
+    if (itk::Math::NotEqualsComparison(l->GetFlatness(), accessorFlatness(l)))
       {
       std::cout << "l->GetFlatness() != accessorFlatness(l)" << std::endl;
       status = EXIT_FAILURE;
       }
     itk::Functor::PerimeterOnBorderRatioLabelObjectAccessor< ShapeLabelObjectType > accessorPerimeterOnBorderRatio;
-    if (itk::Math::NotEqualsComparison(l->GetPerimeterOnBorderRatio() , accessorPerimeterOnBorderRatio(l)))
+    if (itk::Math::NotEqualsComparison(l->GetPerimeterOnBorderRatio(), accessorPerimeterOnBorderRatio(l)))
       {
       std::cout << "l->GetPerimeterOnBorderRatio() != accessorPerimeterOnBorderRatio(l)" << std::endl;
       status = EXIT_FAILURE;

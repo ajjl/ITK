@@ -91,14 +91,14 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   point2 = aff2->GetCenterOfRotationComponent();
 
   if(
-    itk::Math::NotEqualsComparison(matrix2[0][0] , 1) ||
-    itk::Math::NotEqualsComparison(matrix2[0][1] , 2) ||
-    itk::Math::NotEqualsComparison(matrix2[1][0] , 3) ||
-    itk::Math::NotEqualsComparison(matrix2[1][1] , 4) ||
-    itk::Math::NotEqualsComparison(vector2[0] , 5) ||
-    itk::Math::NotEqualsComparison(vector2[1] , 6) ||
-    itk::Math::NotEqualsComparison(point2[0] , 1) ||
-    itk::Math::NotEqualsComparison(point2[1] , 1)
+    itk::Math::NotEqualsComparison(matrix2[0][0], 1) ||
+    itk::Math::NotEqualsComparison(matrix2[0][1], 2) ||
+    itk::Math::NotEqualsComparison(matrix2[1][0], 3) ||
+    itk::Math::NotEqualsComparison(matrix2[1][1], 4) ||
+    itk::Math::NotEqualsComparison(vector2[0], 5) ||
+    itk::Math::NotEqualsComparison(vector2[1], 6) ||
+    itk::Math::NotEqualsComparison(point2[0], 1) ||
+    itk::Math::NotEqualsComparison(point2[1], 1)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -124,16 +124,16 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   std::cout << "Modify the affine matrix: ";
 
   if(
-    itk::Math::NotEqualsComparison(matrix2[0][0] , 1) ||
-    itk::Math::NotEqualsComparison(matrix2[0][1] , 2) ||
-    itk::Math::NotEqualsComparison(matrix2[1][0] , 3) ||
-    itk::Math::NotEqualsComparison(matrix2[1][1] , 4) ||
-    itk::Math::NotEqualsComparison(vector2[0] , 5) ||
-    itk::Math::NotEqualsComparison(vector2[1] , 6) ||
-    itk::Math::NotEqualsComparison(point2[0] , 1) ||
-    itk::Math::NotEqualsComparison(point2[1] , 1) ||
-    itk::Math::NotEqualsComparison(resultingScale[0] ,2) ||
-    itk::Math::NotEqualsComparison(resultingScale[1] ,4)
+    itk::Math::NotEqualsComparison(matrix2[0][0], 1) ||
+    itk::Math::NotEqualsComparison(matrix2[0][1], 2) ||
+    itk::Math::NotEqualsComparison(matrix2[1][0], 3) ||
+    itk::Math::NotEqualsComparison(matrix2[1][1], 4) ||
+    itk::Math::NotEqualsComparison(vector2[0], 5) ||
+    itk::Math::NotEqualsComparison(vector2[1], 6) ||
+    itk::Math::NotEqualsComparison(point2[0], 1) ||
+    itk::Math::NotEqualsComparison(point2[1], 1) ||
+    itk::Math::NotEqualsComparison(resultingScale[0],2) ||
+    itk::Math::NotEqualsComparison(resultingScale[1],4)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -152,10 +152,10 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   matrix2 = aff2->GetMatrix();
 
   if(
-      itk::Math::NotEqualsComparison(matrix2[0][0] , 2) ||
-      itk::Math::NotEqualsComparison(matrix2[0][1] , 0) ||
-      itk::Math::NotEqualsComparison(matrix2[1][0] , 0) ||
-      itk::Math::NotEqualsComparison(matrix2[1][1] , 4)
+      itk::Math::NotEqualsComparison(matrix2[0][0], 2) ||
+      itk::Math::NotEqualsComparison(matrix2[0][1], 0) ||
+      itk::Math::NotEqualsComparison(matrix2[1][0], 0) ||
+      itk::Math::NotEqualsComparison(matrix2[1][1], 4)
     )
     {
     std::cout << "[FAILURE]" << std::endl;
@@ -192,12 +192,12 @@ int itkFixedCenterOfRotationAffineTransformTest(int, char *[])
   parameters2 = aff2->GetParameters();
 
   if(
-      itk::Math::NotEqualsComparison(parameters2[0] , 1) ||
-      itk::Math::NotEqualsComparison(parameters2[1] , 2) ||
-      itk::Math::NotEqualsComparison(parameters2[2] , 3) ||
-      itk::Math::NotEqualsComparison(parameters2[3] , 4) ||
-      itk::Math::NotEqualsComparison(parameters2[4] , 3) ||
-      itk::Math::NotEqualsComparison(parameters2[5] , 4)
+      itk::Math::NotEqualsComparison(parameters2[0], 1) ||
+      itk::Math::NotEqualsComparison(parameters2[1], 2) ||
+      itk::Math::NotEqualsComparison(parameters2[2], 3) ||
+      itk::Math::NotEqualsComparison(parameters2[3], 4) ||
+      itk::Math::NotEqualsComparison(parameters2[4], 3) ||
+      itk::Math::NotEqualsComparison(parameters2[5], 4)
     )
     {
     std::cout << "[FAILURE]" << std::endl;

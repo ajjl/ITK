@@ -321,7 +321,7 @@ int itkRecursiveMultiResolutionPyramidImageFilterTest(int argc, char* argv[] )
 
   while( !iter1.IsAtEnd() )
     {
-    if( itk::Math::NotEqualsComparison(iter1.Get() , iter2.Get()) )
+    if( itk::Math::NotEqualsComparison(iter1.Get(), iter2.Get()) )
       {
       std::cout << "Streamed output is different!!!" << std::endl;
       pass = false;

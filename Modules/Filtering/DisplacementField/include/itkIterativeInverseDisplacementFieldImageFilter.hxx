@@ -210,7 +210,7 @@ void IterativeInverseDisplacementFieldImageFilter< TInputImage, TOutputImage >
         stillSamePoint = 1;
         for ( unsigned int j = 0; j < ImageDimension; j++ )
           {
-          if ( itk::Math::NotEqualsComparison(newPoint[j] , mappedPoint[j]) )
+          if ( itk::Math::NotEqualsComparison(newPoint[j], mappedPoint[j]) )
             {
             stillSamePoint = 0;
             }

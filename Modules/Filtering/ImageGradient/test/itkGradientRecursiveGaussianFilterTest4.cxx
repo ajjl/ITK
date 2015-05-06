@@ -96,7 +96,7 @@ int itkGradientRecursiveGaussianFilterTest4(int argc, char* argv[] )
   filter->SetSigmaArray(sigmas);
 
   sigmas = filter->GetSigmaArray();
-  if (itk::Math::NotEqualsComparison(sigmas[0] , 1.8) || itk::Math::NotEqualsComparison(sigmas[1] , 1.8) || itk::Math::NotEqualsComparison(filter->GetSigma() , 1.8))
+  if (itk::Math::NotEqualsComparison(sigmas[0], 1.8) || itk::Math::NotEqualsComparison(sigmas[1], 1.8) || itk::Math::NotEqualsComparison(filter->GetSigma(), 1.8))
   {
     std::cerr << "Exception detected: wrong sigmas after SetSigmaArray" << std::endl;
     std::cerr << "Sigma Array: " << sigmas[0] << ", " << sigmas[1] << std::endl;

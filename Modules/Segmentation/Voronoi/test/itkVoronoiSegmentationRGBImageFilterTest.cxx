@@ -223,7 +223,7 @@ int TestNoPrior(ImageType::Pointer inputImage)
 
   // test GetMaxValueOfRGB
   std::cout << "Checking GetMaxValueOfRGB" << std::endl;
-  if (itk::Math::NotEqualsComparison(filter->GetMaxValueOfRGB() , 255))
+  if (itk::Math::NotEqualsComparison(filter->GetMaxValueOfRGB(), 255))
     {
     std::cout << "[FAILED] Didn't set max RGB correctly" << std::endl;
     return EXIT_FAILURE;
@@ -382,12 +382,12 @@ int itkVoronoiSegmentationRGBImageFilterTest(int, char* [] )
   filter->SetMeanPercentError(meanPercentErrorIn);
   double meanPercentErrorOut[6];
   filter->GetMeanPercentError(meanPercentErrorOut);
-  if (itk::Math::NotEqualsComparison(meanPercentErrorOut[0] , 0.1) ||
-      itk::Math::NotEqualsComparison(meanPercentErrorOut[1] , 0.1) ||
-      itk::Math::NotEqualsComparison(meanPercentErrorOut[2] , 0.1) ||
-      itk::Math::NotEqualsComparison(meanPercentErrorOut[3] , 0.1) ||
-      itk::Math::NotEqualsComparison(meanPercentErrorOut[4] , 0.1) ||
-      itk::Math::NotEqualsComparison(meanPercentErrorOut[5] , 0.1))
+  if (itk::Math::NotEqualsComparison(meanPercentErrorOut[0], 0.1) ||
+      itk::Math::NotEqualsComparison(meanPercentErrorOut[1], 0.1) ||
+      itk::Math::NotEqualsComparison(meanPercentErrorOut[2], 0.1) ||
+      itk::Math::NotEqualsComparison(meanPercentErrorOut[3], 0.1) ||
+      itk::Math::NotEqualsComparison(meanPercentErrorOut[4], 0.1) ||
+      itk::Math::NotEqualsComparison(meanPercentErrorOut[5], 0.1))
     {
     std::cout << "[FAILED] Didn't set/get MeanPercentError correctly" << std::endl;
     return EXIT_FAILURE;
@@ -398,12 +398,12 @@ int itkVoronoiSegmentationRGBImageFilterTest(int, char* [] )
   filter->SetSTDPercentError(stdPercentErrorIn);
   double stdPercentErrorOut[6];
   filter->GetSTDPercentError(stdPercentErrorOut);
-  if (itk::Math::NotEqualsComparison(stdPercentErrorOut[0] , 0.1) ||
-      itk::Math::NotEqualsComparison(stdPercentErrorOut[1] , 0.1) ||
-      itk::Math::NotEqualsComparison(stdPercentErrorOut[2] , 0.1) ||
-      itk::Math::NotEqualsComparison(stdPercentErrorOut[3] , 0.1) ||
-      itk::Math::NotEqualsComparison(stdPercentErrorOut[4] , 0.1) ||
-      itk::Math::NotEqualsComparison(stdPercentErrorOut[5] , 0.1))
+  if (itk::Math::NotEqualsComparison(stdPercentErrorOut[0], 0.1) ||
+      itk::Math::NotEqualsComparison(stdPercentErrorOut[1], 0.1) ||
+      itk::Math::NotEqualsComparison(stdPercentErrorOut[2], 0.1) ||
+      itk::Math::NotEqualsComparison(stdPercentErrorOut[3], 0.1) ||
+      itk::Math::NotEqualsComparison(stdPercentErrorOut[4], 0.1) ||
+      itk::Math::NotEqualsComparison(stdPercentErrorOut[5], 0.1))
     {
     std::cout << "[FAILED] Didn't set/get STDPercentError correctly" << std::endl;
     return EXIT_FAILURE;

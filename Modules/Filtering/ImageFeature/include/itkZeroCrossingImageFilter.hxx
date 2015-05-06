@@ -147,8 +147,8 @@ ZeroCrossingImageFilter< TInputImage, TOutputImage >
         that = bit.GetPixel(center + offset[i]);
         if ( ( ( this_one < zero ) && ( that > zero ) )
              || ( ( this_one > zero ) && ( that < zero ) )
-             || ( ( itk::Math::NotEqualsComparison(this_one , zero) ) && ( itk::Math::NotEqualsComparison(that , zero) ) )
-             || ( ( itk::Math::NotEqualsComparison(this_one , zero) ) && ( itk::Math::EqualsComparison(that , zero) ) ) )
+             || ( ( itk::Math::NotEqualsComparison(this_one, zero) ) && ( itk::Math::NotEqualsComparison(that, zero) ) )
+             || ( ( itk::Math::NotEqualsComparison(this_one, zero) ) && ( itk::Math::EqualsComparison(that, zero) ) ) )
           {
           abs_this_one =  vnl_math_abs(this_one);
           abs_that = vnl_math_abs(that);
@@ -157,7 +157,7 @@ ZeroCrossingImageFilter< TInputImage, TOutputImage >
             it.Set(m_ForegroundValue);
             break;
             }
-          else if ( itk::Math::EqualsComparison(abs_this_one , abs_that) && i >= ImageDimension )
+          else if ( itk::Math::EqualsComparison(abs_this_one, abs_that) && i >= ImageDimension )
             {
             it.Set(m_ForegroundValue);
             break;

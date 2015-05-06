@@ -62,7 +62,7 @@ HardConnectedComponentImageFilter< TInputImage, TOutputImage >
   ot.GoToBegin();
   for (; !it.IsAtEnd(); ++it, ++ot )
     {
-    if ( itk::Math::NotEqualsComparison(it.Get() , 0) )
+    if ( itk::Math::NotEqualsComparison(it.Get(), 0) )
       {
       ot.Set( NumericTraits< unsigned short >::max() );
       }

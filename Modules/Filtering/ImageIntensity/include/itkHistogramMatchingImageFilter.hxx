@@ -206,7 +206,7 @@ HistogramMatchingImageFilter< TInputImage, TOutputImage, THistogramMeasurement >
     {
     denominator = m_QuantileTable[0][j + 1]
                   - m_QuantileTable[0][j];
-    if ( itk::Math::NotEqualsComparison(denominator , 0) )
+    if ( itk::Math::NotEqualsComparison(denominator, 0) )
       {
       m_Gradients[j] = m_QuantileTable[1][j + 1]
                        - m_QuantileTable[1][j];
@@ -219,7 +219,7 @@ HistogramMatchingImageFilter< TInputImage, TOutputImage, THistogramMeasurement >
     }
 
   denominator = m_QuantileTable[0][0] - m_SourceMinValue;
-  if ( itk::Math::NotEqualsComparison(denominator , 0) )
+  if ( itk::Math::NotEqualsComparison(denominator, 0) )
     {
     m_LowerGradient = m_QuantileTable[1][0] - m_ReferenceMinValue;
     m_LowerGradient /= denominator;
@@ -231,7 +231,7 @@ HistogramMatchingImageFilter< TInputImage, TOutputImage, THistogramMeasurement >
 
   denominator = m_QuantileTable[0][m_NumberOfMatchPoints + 1]
                 - m_SourceMaxValue;
-  if ( itk::Math::NotEqualsComparison(denominator , 0) )
+  if ( itk::Math::NotEqualsComparison(denominator, 0) )
     {
     m_UpperGradient = m_QuantileTable[1][m_NumberOfMatchPoints + 1]
                       - m_ReferenceMaxValue;

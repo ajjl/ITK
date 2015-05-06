@@ -292,7 +292,7 @@ int itkNiftiReadAnalyzeTest(int ac, char *av[])
     // byte swapping on floats pulled from the little-endian array.
     float cur = *fPtr;
     itk::ByteSwapper<float>::SwapFromSystemToLittleEndian(&cur);
-    if(itk::Math::NotEqualsComparison(it.Get() , cur))
+    if(itk::Math::NotEqualsComparison(it.Get(), cur))
       {
       std::cerr << "expected pixel value "
                 << cur

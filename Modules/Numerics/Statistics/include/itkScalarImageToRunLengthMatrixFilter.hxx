@@ -244,7 +244,7 @@ ScalarImageToRunLengthMatrixFilter<TImageType, THistogramFrequencyContainer>
         // the bin is left close and right open.
 
         if ( pixelIntensity >= centerBinMin
-            && ( pixelIntensity < centerBinMax || ( itk::Math::EqualsComparison(pixelIntensity , centerBinMax) && itk::Math::EqualsComparison(centerBinMax , lastBinMax) ) ) )
+            && ( pixelIntensity < centerBinMax || ( itk::Math::EqualsComparison(pixelIntensity, centerBinMax) && itk::Math::EqualsComparison(centerBinMax, lastBinMax) ) ) )
           {
           alreadyVisitedImage->SetPixel( index, true );
           lastGoodIndex = index;
@@ -312,7 +312,7 @@ void
 ScalarImageToRunLengthMatrixFilter<TImageType, THistogramFrequencyContainer>
 ::SetDistanceValueMinMax( RealType min, RealType max )
 {
-  if( itk::Math::NotEqualsComparison(this->m_MinDistance , min) || itk::Math::NotEqualsComparison(this->m_MaxDistance , max) )
+  if( itk::Math::NotEqualsComparison(this->m_MinDistance, min) || itk::Math::NotEqualsComparison(this->m_MaxDistance, max) )
     {
     itkDebugMacro( "setting MinDistance to " << min << "and MaxDistance to "
       << max );

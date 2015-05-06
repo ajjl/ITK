@@ -68,8 +68,8 @@ bool testVectorImageAdaptor( typename TAdaptor::Pointer & vectorImageAdaptor,
   vectorImageAdaptor->SetImage( vectorImage );
   vectorImageAdaptor->Update();
 
-  if(   (itk::Math::NotEqualsComparison(vectorImageAdaptor->GetPixel(index) , vectorImage->GetPixel( index )[componentToExtract]))
-     || (itk::Math::NotEqualsComparison(vectorImage->GetPixel( index )[componentToExtract] , componentToExtract) ))
+  if(   (itk::Math::NotEqualsComparison(vectorImageAdaptor->GetPixel(index), vectorImage->GetPixel( index )[componentToExtract]))
+     || (itk::Math::NotEqualsComparison(vectorImage->GetPixel( index )[componentToExtract], componentToExtract) ))
     {
     std::cerr << "[FAILED]" << std::endl;
     std::cerr << "vImageToImageAdaptor->GetPixel("
@@ -97,7 +97,7 @@ bool testVectorImageAdaptor( typename TAdaptor::Pointer & vectorImageAdaptor,
   while (!adaptIt.IsAtEnd())
     {
     PixelType pixel = adaptIt.Get();
-    if (itk::Math::NotEqualsComparison(pixel , f[componentToExtract]))
+    if (itk::Math::NotEqualsComparison(pixel, f[componentToExtract]))
       {
       itFailed = true;
       std::cout << "adaptIt(" << adaptIt.GetIndex() << ") = " << adaptIt.Get()
@@ -607,8 +607,8 @@ int itkVectorImageTest( int, char* argv[] )
     {
     for (unsigned int i = 0; i < Dimension; i++)
       {
-      if (itk::Math::NotEqualsComparison(cit.Get()[i] , cit.GetIndex()[i]) ||
-          itk::Math::NotEqualsComparison(cit.Get()[i+Dimension] , cit.GetIndex()[i]))
+      if (itk::Math::NotEqualsComparison(cit.Get()[i], cit.GetIndex()[i]) ||
+          itk::Math::NotEqualsComparison(cit.Get()[i+Dimension], cit.GetIndex()[i]))
         {
         failed1 = true;
         }
@@ -655,8 +655,8 @@ int itkVectorImageTest( int, char* argv[] )
     {
     for (unsigned int i = 0; i < Dimension; i++)
       {
-      if (itk::Math::NotEqualsComparison(cit.Get()[i] , cit.GetIndex()[i]) ||
-          itk::Math::NotEqualsComparison(cit.Get()[i+Dimension] , cit.GetIndex()[i]))
+      if (itk::Math::NotEqualsComparison(cit.Get()[i], cit.GetIndex()[i]) ||
+          itk::Math::NotEqualsComparison(cit.Get()[i+Dimension], cit.GetIndex()[i]))
         {
         failed1 = true;
         }
@@ -777,7 +777,7 @@ int itkVectorImageTest( int, char* argv[] )
     //const unsigned int neighborhoodSize = neighborhood.Size();
     //for( unsigned int i=0; i< neighborhoodSize; i++)
     //  { std::cout << neighborhood[i] << std::endl; }
-    if( (itk::Math::NotEqualsComparison(neighborhood[0][0] , 0)) || (itk::Math::NotEqualsComparison(neighborhood[0][2*Dimension-1] , (Dimension-1))))
+    if( (itk::Math::NotEqualsComparison(neighborhood[0][0], 0)) || (itk::Math::NotEqualsComparison(neighborhood[0][2*Dimension-1], (Dimension-1))))
       {
       std::cerr << "  GetNeighborhood() on ConstNeighborhoodIterator [FAILED]" << std::endl;
       failed = true;
@@ -896,7 +896,7 @@ int itkVectorImageTest( int, char* argv[] )
             std::cerr << "GetNeighborhoodOffset() on ConstShapedNeighborhoodIterato [FAILED]"
                                                                                 << std::endl;
             }
-          if( (itk::Math::NotEqualsComparison(ci.Get()[0] , 0)) || (itk::Math::NotEqualsComparison(ci.Get()[1] , 1)) || (itk::Math::NotEqualsComparison(ci.Get()[2] , 2)) )
+          if( (itk::Math::NotEqualsComparison(ci.Get()[0], 0)) || (itk::Math::NotEqualsComparison(ci.Get()[1], 1)) || (itk::Math::NotEqualsComparison(ci.Get()[2], 2)) )
             {
             failed=true;
             std::cerr

@@ -60,7 +60,7 @@ int testMemoryAccess( OptimizerParametersType& params,
       for(itk::SizeValueType ind=0; ind < VectorDimension; ind++)
         {
         ValueType paramsValue = params[offset+ind];
-        if( itk::Math::NotEqualsComparison(vectorpixel[ind] , paramsValue) )
+        if( itk::Math::NotEqualsComparison(vectorpixel[ind], paramsValue) )
           {
           std::cout << "VectorImage pixel value does not match params value."
                     << "vectorpixel[" << ind << "]: " << vectorpixel[ind]

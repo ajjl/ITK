@@ -88,10 +88,10 @@ int itkExtractImage3Dto2DTest(int, char* [] )
   // remove first column/row, should obtain :
   // 0 1
   // 1 0
-  if (itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[0][0] , 0) ||
-      itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[1][1] , 0) ||
-      itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[0][1] , 1) ||
-      itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[1][0] , 1))
+  if (itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[0][0], 0) ||
+      itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[1][1], 0) ||
+      itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[0][1], 1) ||
+      itk::Math::NotEqualsComparison(extract->GetOutput()->GetDirection()[1][0], 1))
   {
     return EXIT_FAILURE;
   }

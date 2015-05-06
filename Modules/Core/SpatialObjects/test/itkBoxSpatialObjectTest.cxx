@@ -86,10 +86,10 @@ int itkBoxSpatialObjectTest( int argc, char *argv[] )
   std::cout << box2->GetBoundingBox()->GetBounds() << std::endl;
   BoxType::BoundingBoxType * boundingBox = box1->GetBoundingBox();
 
-  if(     (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[0] , 29))
-      ||  (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[1] , 59))
-      ||  (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2] , 29))
-      ||  (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[3] , 59)) )
+  if(     (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[0], 29))
+      ||  (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[1], 59))
+      ||  (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[2], 29))
+      ||  (itk::Math::NotEqualsComparison(boundingBox->GetBounds()[3], 59)) )
     {
     std::cout << "[FAILED] Test returned" << std::endl;
     std::cout << box1->GetBoundingBox()->GetBounds() << std::endl;
@@ -98,10 +98,10 @@ int itkBoxSpatialObjectTest( int argc, char *argv[] )
     }
 
   BoxType::BoundingBoxType * boundingBox2 = box2->GetBoundingBox();
-  if(     (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[0] , 50))
-      ||  (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[1] , 80))
-      ||  (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[2] , 50))
-      ||  (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[3] , 80)) )
+  if(     (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[0], 50))
+      ||  (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[1], 80))
+      ||  (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[2], 50))
+      ||  (itk::Math::NotEqualsComparison(boundingBox2->GetBounds()[3], 80)) )
     {
     std::cout << "[FAILED] Test returned" << std::endl;
     std::cout << box2->GetBoundingBox()->GetBounds() << std::endl;

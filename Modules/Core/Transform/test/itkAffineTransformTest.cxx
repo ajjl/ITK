@@ -718,7 +718,7 @@ int itkAffineTransformTest(int, char *[])
   parametersRead = paff->GetParameters();
   for( unsigned int k = 0; k < paff->GetNumberOfParameters(); k++ )
     {
-    if( itk::Math::NotEqualsComparison(updateTruth[k] , parametersRead[k]) )
+    if( itk::Math::NotEqualsComparison(updateTruth[k], parametersRead[k]) )
       {
       std::cout << "UpdateTransformParameters 1 failed." << std::endl;
       std::cout << "updateTruth: " << std::endl
@@ -739,7 +739,7 @@ int itkAffineTransformTest(int, char *[])
   parametersRead = paff->GetParameters();
   for( unsigned int k = 0; k < paff->GetNumberOfParameters(); k++ )
     {
-    if( itk::Math::NotEqualsComparison(updateTruth[k] , parametersRead[k]) )
+    if( itk::Math::NotEqualsComparison(updateTruth[k], parametersRead[k]) )
       {
       std::cout << "UpdateTransformParameters 2 failed." << std::endl;
       return EXIT_FAILURE;

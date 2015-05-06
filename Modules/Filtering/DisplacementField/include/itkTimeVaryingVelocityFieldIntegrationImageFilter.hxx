@@ -150,7 +150,7 @@ TimeVaryingVelocityFieldIntegrationImageFilter
   <TTimeVaryingVelocityField, TDisplacementField>
 ::ThreadedGenerateData( const OutputRegionType &region, ThreadIdType itkNotUsed( threadId ) )
 {
-  if( itk::Math::EqualsComparison(this->m_LowerTimeBound , this->m_UpperTimeBound) )
+  if( itk::Math::EqualsComparison(this->m_LowerTimeBound, this->m_UpperTimeBound) )
     {
     return;
     }

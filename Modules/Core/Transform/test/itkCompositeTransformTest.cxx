@@ -884,7 +884,7 @@ int itkCompositeTransformTest(int, char *[] )
   for( itk::SizeValueType n=0; n < 12; n++ )
     {
     const TranslationTransformType::ParametersType & params = translationTransformVector[n]->GetParameters();
-    if( itk::Math::NotEqualsComparison(params[0] , n) )
+    if( itk::Math::NotEqualsComparison(params[0], n) )
       {
       passed = false;
       }

@@ -113,7 +113,7 @@ GaussianBlurImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension); i++ )
     {
-    if ( itk::Math::NotEqualsComparison(sigma , m_Sigma[i]) )
+    if ( itk::Math::NotEqualsComparison(sigma, m_Sigma[i]) )
       {
       break;
       }
@@ -163,7 +163,7 @@ GaussianBlurImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension); i++ )
     {
-    if ( itk::Math::NotEqualsComparison(extent , m_Extent[i]) )
+    if ( itk::Math::NotEqualsComparison(extent, m_Extent[i]) )
       {
       break;
       }

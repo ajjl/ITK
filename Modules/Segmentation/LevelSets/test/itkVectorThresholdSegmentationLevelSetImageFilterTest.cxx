@@ -115,7 +115,7 @@ int itkVectorThresholdSegmentationLevelSetImageFilterTest(int ac, char* av[] )
     }
 
   // Test the GetMacros
-  if( itk::Math::NotEqualsComparison(filter->GetThreshold() , threshold) )
+  if( itk::Math::NotEqualsComparison(filter->GetThreshold(), threshold) )
     {
     std::cerr << "Error GetThreshold returns a value";
     std::cerr << " different from the one in SetThreshold" << std::endl;
