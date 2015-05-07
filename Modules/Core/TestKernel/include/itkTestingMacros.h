@@ -55,7 +55,7 @@
     return EXIT_FAILURE;  \
     }
 
-#define TEST_EXPECT_TRUE( command )                                     \
+#define TEST_EXPECT_TRUE_STATUSVAL( command, statusVal )                \
   {                                                                     \
   bool _TEST_EXPECT_TRUE_command(command);                              \
   if( !(_TEST_EXPECT_TRUE_command) )                                    \
@@ -64,11 +64,21 @@
     std::cerr << "  In " __FILE__ ", line " << __LINE__ << std::endl;   \
     std::cerr << "Expected true" << std::endl;                          \
     std::cerr << "  but got  " <<  _TEST_EXPECT_TRUE_command << std::endl; \
+    statusVal = EXIT_FAILURE;                                           \
+    }                                                                   \
+  }
+
+#define TEST_EXPECT_TRUE( command )                                     \
+  {                                                                     \
+  int _TEST_EXPECT_TRUE_statusVal = EXIT_SUCCESS;                       \
+  TEST_EXPECT_TRUE_STATUSVAL( command, _TEST_EXPECT_TRUE_statusVal );   \
+  if( ( _TEST_EXPECT_TRUE_statusVal != EXIT_SUCCESS ) )                     \
+    {                                                                   \
     return EXIT_FAILURE;                                                \
     }                                                                   \
   }
 
-#define TEST_EXPECT_EQUAL( lh, rh )                                     \
+#define TEST_EXPECT_EQUAL_STATUSVAL( lh, rh, statusVal )                                     \
   {                                                                     \
     bool _TEST_EXPECT_EQUAL_result((lh) == (rh));                       \
     if( !(_TEST_EXPECT_EQUAL_result) )                                  \
@@ -78,10 +88,19 @@
     std::cerr << "\tlh: " << (lh) << std::endl;                         \
     std::cerr << "\trh: " << (rh) << std::endl;                         \
     std::cerr << "Expression is not equal" << std::endl;                \
-    return EXIT_FAILURE;                                                \
+    statusVal = EXIT_FAILURE;                                                \
     }                                                                   \
   }
 
+#define TEST_EXPECT_EQUAL( lh, rh )                                     \
+  {                                                                     \
+  int _TEST_EXPECT_EQUAL_statusVal = EXIT_SUCCESS;                    \
+  TEST_EXPECT_EQUAL_STATUSVAL( rh, lh, _TEST_EXPECT_EQUAL_statusVal)  \
+  if ( _TEST_EXPECT_EQUAL_statusVal != EXIT_SUCCESS )                 \
+    {                                                                 \
+    return EXIT_FAILURE;                                              \
+    }                                                                 \
+  }
 
 #define TEST_SET_GET( variable, command ) \
   if( variable.GetPointer() != command )   \
