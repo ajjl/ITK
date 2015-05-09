@@ -47,7 +47,7 @@ typename HeavisideStepFunction< TInput, TOutput >::OutputType
 HeavisideStepFunction< TInput, TOutput >
 ::EvaluateDerivative(const InputType & input) const
 {
-  return ( itk::Math::EqualsComparison(input, NumericTraits< InputType >::ZeroValue()) ) ?
+  return ( Math::EqualsComparison(input, NumericTraits< InputType >::ZeroValue()) ) ?
     NumericTraits< OutputType >::OneValue() : NumericTraits< OutputType >::ZeroValue();
 }
 

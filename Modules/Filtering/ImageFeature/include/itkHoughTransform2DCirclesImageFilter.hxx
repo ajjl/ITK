@@ -241,7 +241,7 @@ HoughTransform2DCirclesImageFilter< TInputPixelType, TOutputPixelType >
     found = false;
     for ( it_input.GoToBegin(); !it_input.IsAtEnd(); ++it_input )
       {
-      if ( itk::Math::EqualsComparison(it_input.Get(), max) )
+      if ( Math::EqualsComparison(it_input.Get(), max) )
         {
         // Create a Line Spatial Object
         CirclePointer Circle = CircleType::New();

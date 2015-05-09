@@ -124,7 +124,7 @@ JensenHavrdaCharvatTsallisPointSetToPointSetMetricv4<TPointSet, TInternalComputa
 
   probabilityStar /= this->m_TotalNumberOfPoints;
 
-  if( itk::Math::EqualsComparison( probabilityStar, NumericTraits<RealType>::ZeroValue() ) )
+  if( Math::EqualsComparison( probabilityStar, NumericTraits<RealType>::ZeroValue() ) )
     {
     return;
     }
@@ -132,7 +132,7 @@ JensenHavrdaCharvatTsallisPointSetToPointSetMetricv4<TPointSet, TInternalComputa
   if( calcValue )
     {
     RealType realOne = NumericTraits<RealType>::OneValue();
-    if( itk::Math::EqualsComparison( this->m_Alpha, realOne ) )
+    if( Math::EqualsComparison( this->m_Alpha, realOne ) )
       {
       value = ( std::log( probabilityStar ) );
       }
@@ -154,7 +154,7 @@ JensenHavrdaCharvatTsallisPointSetToPointSetMetricv4<TPointSet, TInternalComputa
       {
       RealType gaussian = this->m_MovingDensityFunction->GetGaussian( neighbors[n] )->Evaluate( samplePoint );
 
-      if( itk::Math::EqualsComparison( gaussian, NumericTraits<RealType>::ZeroValue() ) )
+      if( Math::EqualsComparison( gaussian, NumericTraits<RealType>::ZeroValue() ) )
         {
         continue;
         }

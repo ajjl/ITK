@@ -228,7 +228,7 @@ ContourDirectedMeanDistanceImageFilter< TInputImage1, TInputImage2 >
           {
           // second test if at least one neighbour pixel is off
           // the center pixel belongs to contour
-          if ( itk::Math::EqualsComparison(bit.GetPixel(i), NumericTraits< InputImage1PixelType >::ZeroValue()) )
+          if ( Math::EqualsComparison(bit.GetPixel(i), NumericTraits< InputImage1PixelType >::ZeroValue()) )
             {
             bIsOnContour = true;
             break;

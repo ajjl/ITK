@@ -312,7 +312,7 @@ FastMarchingImageFilter< TLevelSet, TSpeedImage >
     // does this node contain the current value ?
     currentValue = static_cast< double >( output->GetPixel( node.GetIndex() ) );
 
-    if ( itk::Math::EqualsComparison(node.GetValue(), currentValue) )
+    if ( Math::EqualsComparison(node.GetValue(), currentValue) )
       {
       // is this node already alive ?
       if ( m_LabelImage->GetPixel( node.GetIndex() ) != AlivePoint )

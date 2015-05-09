@@ -96,7 +96,7 @@ void
 ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
 ::BeforeThreadedGenerateData()
 {
-  if ( itk::Math::EqualsComparison(m_ObjectValue, 0) )
+  if ( Math::EqualsComparison(m_ObjectValue, 0) )
     {
     this->GetOutput()->FillBuffer(1);
     }
@@ -169,7 +169,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
 
     while ( !iSNIter.IsAtEnd() )
       {
-      if ( itk::Math::EqualsComparison(iSNIter.GetCenterPixel(), m_ObjectValue) )
+      if ( Math::EqualsComparison(iSNIter.GetCenterPixel(), m_ObjectValue) )
         {
         if ( this->IsObjectPixelOnBoundary(iSNIter) )
           {

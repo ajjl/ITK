@@ -392,7 +392,7 @@ ParallelSparseFieldLevelSetImageFilter< TInputImage, TOutputImage >
   for ( outputIt.GoToBegin(); !outputIt.IsAtEnd(); ++outputIt )
     {
     bounds_status = true;
-    if ( itk::Math::EqualsComparison(outputIt.GetCenterPixel(), m_ValueZero) )
+    if ( Math::EqualsComparison(outputIt.GetCenterPixel(), m_ValueZero) )
       {
       // Grab the neighborhood in the status image.
       center_index = outputIt.GetIndex();

@@ -271,7 +271,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       }
     }
   this->m_BSplineEpsilon = 100 * std::numeric_limits<RealType>::epsilon();
-  while( itk::Math::EqualsComparison( static_cast<RealType>( maximumNumberOfSpans ),
+  while( Math::EqualsComparison( static_cast<RealType>( maximumNumberOfSpans ),
     ( static_cast<RealType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon ) ) )
     {
     this->m_BSplineEpsilon *= 10;

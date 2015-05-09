@@ -350,7 +350,7 @@ ConfidenceConnectedImageFilter< TInputImage, TOutputImage >
     m_Mean      = sum / double(numberOfSamples);
     m_Variance  = ( sumOfSquares - ( sum * sum / double(numberOfSamples) ) ) / ( double(numberOfSamples) - 1.0 );
     // if the variance is zero, there is no point in continuing
-    if ( itk::Math::EqualsComparison(m_Variance, 0) )
+    if ( Math::EqualsComparison(m_Variance, 0) )
       {
       itkDebugMacro( << "\nLower intensity = " << lower
                      << ", Upper intensity = " << upper

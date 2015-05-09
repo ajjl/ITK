@@ -1148,10 +1148,10 @@ BinaryMask3DMeshSource< TInputImage, TOutputMesh >
     {
     vertexindex = 0;
 
-    if ( itk::Math::EqualsComparison(it1.Value(), m_ObjectValue) ) { vertexindex += 1; }
-    if ( itk::Math::EqualsComparison(it2.Value(), m_ObjectValue) ) { vertexindex += 8; }
-    if ( itk::Math::EqualsComparison(it3.Value(), m_ObjectValue) ) { vertexindex += 16; }
-    if ( itk::Math::EqualsComparison(it4.Value(), m_ObjectValue) ) { vertexindex += 128; }
+    if ( Math::EqualsComparison(it1.Value(), m_ObjectValue) ) { vertexindex += 1; }
+    if ( Math::EqualsComparison(it2.Value(), m_ObjectValue) ) { vertexindex += 8; }
+    if ( Math::EqualsComparison(it3.Value(), m_ObjectValue) ) { vertexindex += 16; }
+    if ( Math::EqualsComparison(it4.Value(), m_ObjectValue) ) { vertexindex += 128; }
     ++it1;
     ++it2;
     ++it3;
@@ -1160,10 +1160,10 @@ BinaryMask3DMeshSource< TInputImage, TOutputMesh >
     if ( ( i % m_ImageWidth < m_ImageWidth - 1 )
          && ( ( i % ( m_ImageWidth * m_ImageHeight ) ) / m_ImageWidth < m_ImageHeight - 1 ) )
       {
-      if ( itk::Math::EqualsComparison(it1.Value(), m_ObjectValue) ) { vertexindex += 2; }
-      if ( itk::Math::EqualsComparison(it2.Value(), m_ObjectValue) ) { vertexindex += 4; }
-      if ( itk::Math::EqualsComparison(it3.Value(), m_ObjectValue) ) { vertexindex += 32; }
-      if ( itk::Math::EqualsComparison(it4.Value(), m_ObjectValue) ) { vertexindex += 64; }
+      if ( Math::EqualsComparison(it1.Value(), m_ObjectValue) ) { vertexindex += 2; }
+      if ( Math::EqualsComparison(it2.Value(), m_ObjectValue) ) { vertexindex += 4; }
+      if ( Math::EqualsComparison(it3.Value(), m_ObjectValue) ) { vertexindex += 32; }
+      if ( Math::EqualsComparison(it4.Value(), m_ObjectValue) ) { vertexindex += 64; }
       }
     else
       {
@@ -1171,8 +1171,8 @@ BinaryMask3DMeshSource< TInputImage, TOutputMesh >
         {
         if ( vertexindex > 50 ) { vertexindex -= 128; }
         if ( ( ( vertexindex > 7 ) && ( vertexindex < 10 ) ) || ( vertexindex > 17 ) ) { vertexindex -= 8; }
-        if ( itk::Math::EqualsComparison(it1.Value(), m_ObjectValue) ) { vertexindex += 2; }
-        if ( itk::Math::EqualsComparison(it3.Value(), m_ObjectValue) ) { vertexindex += 32; }
+        if ( Math::EqualsComparison(it1.Value(), m_ObjectValue) ) { vertexindex += 2; }
+        if ( Math::EqualsComparison(it3.Value(), m_ObjectValue) ) { vertexindex += 32; }
         }
       }
 

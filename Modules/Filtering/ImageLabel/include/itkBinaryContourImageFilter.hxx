@@ -187,7 +187,7 @@ BinaryContourImageFilter< TInputImage, TOutputImage >
       {
       InputImagePixelType PVal = inLineIt.Get();
 
-      if ( itk::Math::EqualsComparison(PVal, m_ForegroundValue) )
+      if ( Math::EqualsComparison(PVal, m_ForegroundValue) )
         {
         // We've hit the start of a run
         SizeValueType length = 0;
@@ -200,7 +200,7 @@ BinaryContourImageFilter< TInputImage, TOutputImage >
         ++outLineIt;
 
         while ( !inLineIt.IsAtEndOfLine()
-                && itk::Math::EqualsComparison(inLineIt.Get(), m_ForegroundValue) )
+                && Math::EqualsComparison(inLineIt.Get(), m_ForegroundValue) )
           {
           outLineIt.Set(m_BackgroundValue);
           ++length;

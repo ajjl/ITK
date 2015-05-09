@@ -477,7 +477,7 @@ BSplineTransform<TScalar, NDimensions, VSplineOrder>
     {
     ScalarType maxLimit = static_cast<ScalarType>( gridSize[j] ) - 0.5
       * static_cast<ScalarType>( SplineOrder - 1 ) - 1.0;
-    if( itk::Math::EqualsComparison(index[j], maxLimit)  )
+    if( Math::EqualsComparison(index[j], maxLimit)  )
       {
       index[j] -= 1e-6;
       }

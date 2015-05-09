@@ -273,7 +273,7 @@ void DiffusionTensor3DReconstructionImageFilter< TReferenceImagePixelType,
           {
           GradientPixelType b = gradientItContainer[i]->Get();
 
-          if ( itk::Math::EqualsComparison(b, 0) )
+          if ( Math::EqualsComparison(b, 0) )
             {
             B[i] = 0;
             }
@@ -395,7 +395,7 @@ void DiffusionTensor3DReconstructionImageFilter< TReferenceImagePixelType,
         {
         for ( unsigned int i = 0; i < m_NumberOfGradientDirections; i++ )
           {
-          if ( itk::Math::EqualsComparison(b[gradientind[i]], 0) )
+          if ( Math::EqualsComparison(b[gradientind[i]], 0) )
             {
             B[i] = 0;
             }

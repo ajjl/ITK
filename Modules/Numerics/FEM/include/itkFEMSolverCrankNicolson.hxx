@@ -530,14 +530,14 @@ SolverCrankNicolson<VDimension>
         {
         b = u;
         }
-      if( fu <= fw || itk::Math::EqualsComparison(w, x) )
+      if( fu <= fw || Math::EqualsComparison(w, x) )
         {
         v = w;
         w = u;
         fv = fw;
         fw = fu;
         }
-      else if( fu <= fv || itk::Math::EqualsComparison(v, x) || itk::Math::EqualsComparison(v, w) )
+      else if( fu <= fv || Math::EqualsComparison(v, x) || Math::EqualsComparison(v, w) )
         {
         v = u;
         fv = fu;

@@ -973,7 +973,7 @@ void UpdateWhitakerSparseLevelSet< VDimension, TLevelSetValueType, TEquationCont
       LevelSetLayerIterator phiIt = this->m_TempPhi.find( tempIndex );
       if( phiIt != this->m_TempPhi.end() )
         {
-        if( itk::Math::EqualsComparison( phiIt->second, -3. ) ) // change values
+        if( Math::EqualsComparison( phiIt->second, -3. ) ) // change values
           {
           phiIt->second = currentValue - 1;
           layerMinus2.insert( NodePairType( tempIndex, currentValue - 1 ) );

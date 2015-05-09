@@ -55,7 +55,7 @@ ShapeDetectionLevelSetImageFilter< TInputImage, TFeatureImage, TOutputType >
   // is zero while CurvatureScaling is non-zero
   if ( this->GetSegmentationFunction()
        && Math::NotEqualsComparison(this->GetSegmentationFunction()->GetCurvatureWeight(), 0)
-       && itk::Math::EqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
+       && Math::EqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
     {
     this->GetSegmentationFunction()->AllocateSpeedImage();
     this->GetSegmentationFunction()->CalculateSpeedImage();

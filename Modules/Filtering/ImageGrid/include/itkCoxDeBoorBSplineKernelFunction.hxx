@@ -94,7 +94,7 @@ CoxDeBoorBSplineKernelFunction<VSplineOrder,TRealValueType>
 
   // Term 1
   TRealValueType den = knots(i + p) - knots(i);
-  if ( itk::Math::EqualsComparison(den, NumericTraits< TRealValueType >::ZeroValue()) )
+  if ( Math::EqualsComparison(den, NumericTraits< TRealValueType >::ZeroValue()) )
     {
     PolynomialType poly( NumericTraits< TRealValueType >::ZeroValue() );
     poly1 = poly;
@@ -110,7 +110,7 @@ CoxDeBoorBSplineKernelFunction<VSplineOrder,TRealValueType>
 
   // Term 2
   den = knots(i + p + 1) - knots(i + 1);
-  if ( itk::Math::EqualsComparison(den, NumericTraits< TRealValueType >::ZeroValue()) )
+  if ( Math::EqualsComparison(den, NumericTraits< TRealValueType >::ZeroValue()) )
     {
     PolynomialType poly( NumericTraits< TRealValueType >::ZeroValue() );
     poly2 = poly;

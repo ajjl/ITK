@@ -309,14 +309,14 @@ SurfaceSpatialObject< TDimension >
           PointType p = m_Points[identifier[j]].GetPosition();
           float     d = ( pos2[0] - p[0] ) * ( pos2[0] - p[0] ) + ( pos2[1] - p[1] )
                         * ( pos2[1] - p[1] ) + ( pos2[2] - p[2] ) * ( pos2[2] - p[2] );
-          if ( itk::Math::EqualsComparison(d, 0) )
+          if ( Math::EqualsComparison(d, 0) )
             {
             valid = false;
             break;
             }
           }
 
-        if ( itk::Math::EqualsComparison(distance, 0) || !valid )
+        if ( Math::EqualsComparison(distance, 0) || !valid )
           {
           i++;
           it2++;
@@ -372,7 +372,7 @@ SurfaceSpatialObject< TDimension >
 
       absvec = -std::sqrt ( (double)( ( coa * coa ) + ( cob * cob ) + ( coc * coc ) ) );
 
-      if ( itk::Math::EqualsComparison(absvec, 0) )
+      if ( Math::EqualsComparison(absvec, 0) )
         {
         badId.push_back(identifier[2]);
         }
@@ -385,9 +385,9 @@ SurfaceSpatialObject< TDimension >
         ( *it ).SetNormal(normal);
         }
       }
-    while ( ( itk::Math::EqualsComparison(absvec, 0) ) && ( badId.size() < m_Points.size() - 1 ) );
+    while ( ( Math::EqualsComparison(absvec, 0) ) && ( badId.size() < m_Points.size() - 1 ) );
 
-    if ( itk::Math::EqualsComparison(absvec, 0) )
+    if ( Math::EqualsComparison(absvec, 0) )
       {
       std::cout << "Approximate3DNormals Failed!" << std::endl;
       std::cout << identifier[0] << " : " << identifier[1] << " : " << identifier[2] << std::endl;
