@@ -221,7 +221,7 @@ BinaryContourImageFilter< TInputImage, TOutputImage >
         ++inLineIt;
         ++outLineIt;
         while ( !inLineIt.IsAtEndOfLine()
-                && itk::Math::NotEqualsComparison(inLineIt.Get(), m_ForegroundValue) )
+                && Math::NotEqualsComparison(inLineIt.Get(), m_ForegroundValue) )
           {
           outLineIt.Set( inLineIt.Get() );
           ++length;

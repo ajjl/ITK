@@ -103,7 +103,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < TOutputImage::ImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
+    if ( Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -128,7 +128,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(spacing[i], m_Spacing[i]) )
+    if ( Math::NotEqualsComparison(spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -152,7 +152,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
+    if ( Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -185,7 +185,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
+    if ( Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -210,7 +210,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(origin[i], m_Origin[i]) )
+    if ( Math::NotEqualsComparison(origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -234,7 +234,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
+    if ( Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -342,7 +342,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
   specified = false;
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Spacing[i], 0) )
+    if ( Math::NotEqualsComparison(m_Spacing[i], 0) )
       {
       specified = true;
       break;
@@ -384,7 +384,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
     double val = 0;
 
     bool evaluable = InputObject->ValueAt(objectPoint, val, m_ChildrenDepth);
-    if ( itk::Math::NotEqualsComparison(m_InsideValue, 0) || itk::Math::NotEqualsComparison(m_OutsideValue, 0) )
+    if ( Math::NotEqualsComparison(m_InsideValue, 0) || Math::NotEqualsComparison(m_OutsideValue, 0) )
       {
       if ( evaluable )
         {

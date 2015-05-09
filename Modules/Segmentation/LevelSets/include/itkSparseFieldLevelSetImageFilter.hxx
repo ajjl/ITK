@@ -748,7 +748,7 @@ SparseFieldLevelSetImageFilter< TInputImage, TOutputImage >
         offset_index = center_index
                        + m_NeighborList.GetNeighborhoodOffset(i);
 
-        if ( itk::Math::NotEqualsComparison(outputIt.GetPixel( m_NeighborList.GetArrayIndex(i) ), m_ValueZero) )
+        if ( Math::NotEqualsComparison(outputIt.GetPixel( m_NeighborList.GetArrayIndex(i) ), m_ValueZero) )
           {
           value = shiftedIt.GetPixel( m_NeighborList.GetArrayIndex(i) );
 

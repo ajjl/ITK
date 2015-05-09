@@ -35,7 +35,7 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(spacing[i], m_Spacing[i]) )
+    if ( Math::NotEqualsComparison(spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -58,7 +58,7 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
+    if ( Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -90,7 +90,7 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(origin[i], m_Origin[i]) )
+    if ( Math::NotEqualsComparison(origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -113,7 +113,7 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
-    if ( itk::Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
+    if ( Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
       {
       break;
       }

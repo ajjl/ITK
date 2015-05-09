@@ -777,7 +777,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       }
     for( int i = ImageDimension - 1; i >= 0; i-- )
       {
-      if( itk::Math::NotEqualsComparison(U[i], currentU[i]) )
+      if( Math::NotEqualsComparison(U[i], currentU[i]) )
         {
         for( int j = i; j >= 0; j-- )
           {
@@ -863,7 +863,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       {
       PointDataType P;
       P.Fill( 0 );
-      if( itk::Math::NotEqualsComparison(ItO.Get(), 0) )
+      if( Math::NotEqualsComparison(ItO.Get(), 0) )
         {
         P = ItD.Get() / ItO.Get();
         for( unsigned int i = 0; i < P.Size(); i++ )
@@ -1111,7 +1111,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       }
     for( int i = ImageDimension - 1; i >= 0; i-- )
       {
-      if( itk::Math::NotEqualsComparison(U[i], currentU[i]) )
+      if( Math::NotEqualsComparison(U[i], currentU[i]) )
         {
         for( int j = i; j >= 0; j-- )
           {

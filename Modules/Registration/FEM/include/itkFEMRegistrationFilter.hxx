@@ -145,7 +145,7 @@ void FEMRegistrationFilter<TMovingImage, TFixedImage, TFemObject>::SetStandardDe
 
   for ( j = 0; j < ImageDimension; j++ )
   {
-    if ( itk::Math::NotEqualsComparison(value, m_StandardDeviations[j]) )
+    if ( Math::NotEqualsComparison(value, m_StandardDeviations[j]) )
     {
       break;
     }

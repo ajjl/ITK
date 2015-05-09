@@ -278,7 +278,7 @@ IsolatedConnectedImageFilter< TInputImage, TOutputImage >
         si++;
         }
 
-      if ( itk::Math::NotEqualsComparison(seedIntensitySum, 0) )
+      if ( Math::NotEqualsComparison(seedIntensitySum, 0) )
         {
         upper = guess;
         }
@@ -345,7 +345,7 @@ IsolatedConnectedImageFilter< TInputImage, TOutputImage >
         si++;
         }
 
-      if ( itk::Math::NotEqualsComparison(seedIntensitySum, 0) )
+      if ( Math::NotEqualsComparison(seedIntensitySum, 0) )
         {
         lower = guess;
         }
@@ -413,7 +413,7 @@ IsolatedConnectedImageFilter< TInputImage, TOutputImage >
     seed2IntensitySum += value;
     si2++;
     }
-  if ( itk::Math::NotEqualsComparison(seed1IntensitySum, m_ReplaceValue * m_Seeds1.size()) || itk::Math::NotEqualsComparison(seed2IntensitySum, 0) )
+  if ( Math::NotEqualsComparison(seed1IntensitySum, m_ReplaceValue * m_Seeds1.size()) || Math::NotEqualsComparison(seed2IntensitySum, 0) )
     {
     m_ThresholdingFailed = true;
     }

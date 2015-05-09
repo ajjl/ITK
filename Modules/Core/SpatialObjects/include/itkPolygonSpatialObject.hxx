@@ -57,15 +57,15 @@ PolygonSpatialObject< TDimension >
       }
     it++;
     }
-  if ( itk::Math::NotEqualsComparison(min[0], max[0]) && itk::Math::NotEqualsComparison(min[1], max[1]) && itk::Math::NotEqualsComparison(min[2], max[2]) )
+  if ( Math::NotEqualsComparison(min[0], max[0]) && Math::NotEqualsComparison(min[1], max[1]) && Math::NotEqualsComparison(min[2], max[2]) )
     {
     plane = Sagittal;
     }
-  else if ( itk::Math::NotEqualsComparison(min[0], max[0]) && itk::Math::NotEqualsComparison(min[1], max[1]) && itk::Math::NotEqualsComparison(min[2], max[2]) )
+  else if ( Math::NotEqualsComparison(min[0], max[0]) && Math::NotEqualsComparison(min[1], max[1]) && Math::NotEqualsComparison(min[2], max[2]) )
     {
     plane = Coronal;
     }
-  else if ( itk::Math::NotEqualsComparison(min[0], max[0]) && itk::Math::NotEqualsComparison(min[1], max[1]) && itk::Math::EqualsComparison(min[2], max[2]) )
+  else if ( Math::NotEqualsComparison(min[0], max[0]) && Math::NotEqualsComparison(min[1], max[1]) && itk::Math::EqualsComparison(min[2], max[2]) )
     {
     plane = Axial;
     }

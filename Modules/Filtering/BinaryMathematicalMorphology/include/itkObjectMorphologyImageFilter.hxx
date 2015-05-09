@@ -124,7 +124,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
   oRegIter.GoToBegin();
   while ( !oRegIter.IsAtEnd() )
     {
-    if ( itk::Math::NotEqualsComparison(oRegIter.Get(), m_ObjectValue) )
+    if ( Math::NotEqualsComparison(oRegIter.Get(), m_ObjectValue) )
       {
       oRegIter.Set( iRegIter.Get() );
       }
@@ -202,7 +202,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
     for ( i = 0; i < s; i++ )
       {
       tf = iNIter.GetPixel(i);
-      if ( itk::Math::NotEqualsComparison(tf, m_ObjectValue) )
+      if ( Math::NotEqualsComparison(tf, m_ObjectValue) )
         {
         return true;
         }
@@ -213,7 +213,7 @@ ObjectMorphologyImageFilter< TInputImage, TOutputImage, TKernel >
     for ( i = 0; i < s; i++ )
       {
       tf = iNIter.GetPixel(i, isInside);
-      if ( itk::Math::NotEqualsComparison(tf, m_ObjectValue) && isInside )
+      if ( Math::NotEqualsComparison(tf, m_ObjectValue) && isInside )
         {
         return true;
         }

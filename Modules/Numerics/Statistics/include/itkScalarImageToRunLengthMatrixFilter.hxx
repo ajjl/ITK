@@ -312,7 +312,7 @@ void
 ScalarImageToRunLengthMatrixFilter<TImageType, THistogramFrequencyContainer>
 ::SetDistanceValueMinMax( RealType min, RealType max )
 {
-  if( itk::Math::NotEqualsComparison(this->m_MinDistance, min) || itk::Math::NotEqualsComparison(this->m_MaxDistance, max) )
+  if( Math::NotEqualsComparison(this->m_MinDistance, min) || Math::NotEqualsComparison(this->m_MaxDistance, max) )
     {
     itkDebugMacro( "setting MinDistance to " << min << "and MaxDistance to "
       << max );

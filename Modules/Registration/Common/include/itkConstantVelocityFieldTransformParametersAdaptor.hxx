@@ -50,7 +50,7 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
   bool isModified = false;
   for( SizeValueType d = 0; d < ConstantVelocityFieldDimension; d++ )
     {
-    if( itk::Math::NotEqualsComparison(this->m_RequiredFixedParameters[d], size[d]) )
+    if( Math::NotEqualsComparison(this->m_RequiredFixedParameters[d], size[d]) )
       {
       isModified = true;
       }
@@ -85,7 +85,7 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
   bool isModified = false;
   for( SizeValueType d = 0; d < ConstantVelocityFieldDimension; d++ )
     {
-    if( itk::Math::NotEqualsComparison(this->m_RequiredFixedParameters[ConstantVelocityFieldDimension + d], origin[d]) )
+    if( Math::NotEqualsComparison(this->m_RequiredFixedParameters[ConstantVelocityFieldDimension + d], origin[d]) )
       {
       isModified = true;
       }
@@ -120,7 +120,7 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
   bool isModified = false;
   for( SizeValueType d = 0; d < ConstantVelocityFieldDimension; d++ )
     {
-    if( itk::Math::NotEqualsComparison(this->m_RequiredFixedParameters[2*ConstantVelocityFieldDimension + d], spacing[d]) )
+    if( Math::NotEqualsComparison(this->m_RequiredFixedParameters[2*ConstantVelocityFieldDimension + d], spacing[d]) )
       {
       isModified = true;
       }
@@ -157,7 +157,7 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
     {
     for( SizeValueType dj = 0; dj < ConstantVelocityFieldDimension; dj++ )
       {
-      if( itk::Math::NotEqualsComparison(this->m_RequiredFixedParameters[3 * ConstantVelocityFieldDimension + ( di * ConstantVelocityFieldDimension + dj )], direction[di][dj]) )
+      if( Math::NotEqualsComparison(this->m_RequiredFixedParameters[3 * ConstantVelocityFieldDimension + ( di * ConstantVelocityFieldDimension + dj )], direction[di][dj]) )
         {
         isModified = true;
         }

@@ -405,7 +405,7 @@ DeformableSimplexMesh3DFilter< TInputMesh, TOutputMesh >
   data->internalForce.Fill(0.0);
 
   // quick hack fixing for div by zero error
-  if ( itk::Math::NotEqualsComparison(L_Ref, (double)NumericTraits< IdentifierType >::max()) && itk::Math::NotEqualsComparison(L, (double)NumericTraits< IdentifierType >::max()) )
+  if ( Math::NotEqualsComparison(L_Ref, (double)NumericTraits< IdentifierType >::max()) && Math::NotEqualsComparison(L, (double)NumericTraits< IdentifierType >::max()) )
     {
     data->internalForce += tangentForce + normalForce;
     }
@@ -597,7 +597,7 @@ double DeformableSimplexMesh3DFilter< TInputMesh, TOutputMesh >
   if ( tmpSqr > 0 )
     {
     double denom = eps * ( std::sqrt(tmpSqr) + r );
-    if ( itk::Math::NotEqualsComparison(denom, 0) )
+    if ( Math::NotEqualsComparison(denom, 0) )
       {
       L = ( r2Minusd2 * tanPhi ) / denom;
       }

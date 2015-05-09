@@ -75,7 +75,7 @@ ImageMaskSpatialObject< TDimension >
 
   typedef typename InterpolatorType::OutputType InterpolatorOutputType;
   const bool insideMask = (
-    itk::Math::NotEqualsComparison(
+    Math::NotEqualsComparison(
     DefaultConvertPixelTraits<InterpolatorOutputType>::GetScalarValue(this->m_Interpolator->EvaluateAtContinuousIndex(index)),
     NumericTraits<PixelType>::Zero)
     );

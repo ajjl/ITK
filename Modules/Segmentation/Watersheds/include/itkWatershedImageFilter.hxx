@@ -36,7 +36,7 @@ WatershedImageFilter< TInputImage >
     val = 1.0;
     }
 
-  if ( itk::Math::NotEqualsComparison(val, m_Threshold) )
+  if ( Math::NotEqualsComparison(val, m_Threshold) )
     {
     m_Threshold = val;
     m_Segmenter->SetThreshold(m_Threshold);
@@ -60,7 +60,7 @@ WatershedImageFilter< TInputImage >
     val = 1.0;
     }
 
-  if ( itk::Math::NotEqualsComparison(val, m_Level) )
+  if ( Math::NotEqualsComparison(val, m_Level) )
     {
     m_Level = val;
     m_TreeGenerator->SetFloodLevel(m_Level);

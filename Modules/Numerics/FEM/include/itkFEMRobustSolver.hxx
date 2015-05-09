@@ -679,7 +679,7 @@ RobustSolver<VDimension>
         throw FEMExceptionSolution(__FILE__, __LINE__, "Solver::AssembleElementMatrix()", "Illegal GFN!");
         }
 
-      if( itk::Math::NotEqualsComparison(Ke[j][k], Float(0.0)) )
+      if( Math::NotEqualsComparison(Ke[j][k], Float(0.0)) )
         {
         this->m_ls->AddMatrixValue(dofj, dofk, Ke[j][k], matrixIndex);
         }

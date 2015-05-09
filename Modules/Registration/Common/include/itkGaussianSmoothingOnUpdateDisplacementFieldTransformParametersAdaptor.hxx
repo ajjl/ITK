@@ -46,7 +46,7 @@ GaussianSmoothingOnUpdateDisplacementFieldTransformParametersAdaptor<TTransform>
 ::SetGaussianSmoothingVarianceForTheUpdateField( ScalarType variance )
 {
   this->m_GaussianSmoothingVarianceForTheUpdateFieldSetTime = this->GetMTime();
-  if( itk::Math::NotEqualsComparison(this->m_GaussianSmoothingVarianceForTheUpdateField, variance) )
+  if( Math::NotEqualsComparison(this->m_GaussianSmoothingVarianceForTheUpdateField, variance) )
     {
     itkDebugMacro( "Setting GaussianSmoothingVarianceForTheUpdateField to " << variance );
     this->m_GaussianSmoothingVarianceForTheUpdateField = variance;
@@ -60,7 +60,7 @@ GaussianSmoothingOnUpdateDisplacementFieldTransformParametersAdaptor<TTransform>
 ::SetGaussianSmoothingVarianceForTheTotalField( const ScalarType variance )
 {
   this->m_GaussianSmoothingVarianceForTheTotalFieldSetTime = this->GetMTime();
-  if( itk::Math::NotEqualsComparison(this->m_GaussianSmoothingVarianceForTheTotalField, variance) )
+  if( Math::NotEqualsComparison(this->m_GaussianSmoothingVarianceForTheTotalField, variance) )
     {
     itkDebugMacro( "Setting GaussianSmoothingVarianceForTheTotalField to " << variance );
     this->m_GaussianSmoothingVarianceForTheTotalField = variance;

@@ -63,7 +63,7 @@ ShapePriorSegmentationLevelSetFunction< TImageType, TFeatureImageType >
   PixelType value = this->Superclass::ComputeUpdate(neighborhood, gd, offset);
 
   // Add the shape prior term
-  if ( m_ShapeFunction && itk::Math::NotEqualsComparison(m_ShapePriorWeight, NumericTraits< ScalarValueType >::ZeroValue()) )
+  if ( m_ShapeFunction && Math::NotEqualsComparison(m_ShapePriorWeight, NumericTraits< ScalarValueType >::ZeroValue()) )
     {
     IndexType                                 idx = neighborhood.GetIndex();
     ContinuousIndex< double, ImageDimension > cdx;

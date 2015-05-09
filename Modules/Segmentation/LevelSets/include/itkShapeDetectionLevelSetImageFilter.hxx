@@ -54,7 +54,7 @@ ShapeDetectionLevelSetImageFilter< TInputImage, TFeatureImage, TOutputType >
   // Make sure the SpeedImage is setup for the case when PropagationScaling
   // is zero while CurvatureScaling is non-zero
   if ( this->GetSegmentationFunction()
-       && itk::Math::NotEqualsComparison(this->GetSegmentationFunction()->GetCurvatureWeight(), 0)
+       && Math::NotEqualsComparison(this->GetSegmentationFunction()->GetCurvatureWeight(), 0)
        && itk::Math::EqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
     {
     this->GetSegmentationFunction()->AllocateSpeedImage();

@@ -415,7 +415,7 @@ CannyEdgeDetectionImageFilter< TInputImage, TOutputImage >
       uit.SetIndex(nIndex);
       if ( inputRegion.IsInside(nIndex) )
         {
-        if ( oit.GetPixel(i) > m_LowerThreshold && itk::Math::NotEqualsComparison(uit.Value(), NumericTraits< OutputImagePixelType >::OneValue())  )
+        if ( oit.GetPixel(i) > m_LowerThreshold && Math::NotEqualsComparison(uit.Value(), NumericTraits< OutputImagePixelType >::OneValue())  )
           {
           node = m_NodeStore->Borrow();  // get a new node struct
           node->m_Value = nIndex;        // set its value

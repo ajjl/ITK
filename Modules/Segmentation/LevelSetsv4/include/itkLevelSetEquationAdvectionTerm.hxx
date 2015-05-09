@@ -84,7 +84,7 @@ LevelSetEquationAdvectionTerm< TInput, TLevelSetContainer >
 
   AdvectionImagePointer gradientImage;
 
-  if ( itk::Math::NotEqualsComparison( m_DerivativeSigma, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
+  if ( Math::NotEqualsComparison( m_DerivativeSigma, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
     {
     typedef GradientRecursiveGaussianImageFilter< InputImageType, AdvectionImageType >
     DerivativeFilterType;

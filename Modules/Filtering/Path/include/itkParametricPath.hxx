@@ -75,7 +75,7 @@ ParametricPath< VDimension >
   currentImageIndex = this->EvaluateToIndex(input);
   finalImageIndex   = this->EvaluateToIndex(finalInputValue);
   offset            = finalImageIndex - currentImageIndex;
-  if ( ( offset == this->GetZeroOffset() && itk::Math::NotEqualsComparison(input, this->StartOfInput()) )
+  if ( ( offset == this->GetZeroOffset() && Math::NotEqualsComparison(input, this->StartOfInput()) )
        || ( input >= finalInputValue ) )
     {
     return this->GetZeroOffset();

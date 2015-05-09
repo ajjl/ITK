@@ -90,12 +90,12 @@ SegmentationLevelSetImageFilter< TInputImage, TFeatureImage, TOutputPixelType >
   // if it is uninitialized and AutoGenerateSpeedAvection is true
   if ( !this->m_IsInitialized && m_AutoGenerateSpeedAdvection == true )
     {
-    if ( itk::Math::NotEqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
+    if ( Math::NotEqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
       {
       this->GenerateSpeedImage();
       }
 
-    if ( itk::Math::NotEqualsComparison(this->GetSegmentationFunction()->GetAdvectionWeight(), 0) )
+    if ( Math::NotEqualsComparison(this->GetSegmentationFunction()->GetAdvectionWeight(), 0) )
       {
       this->GenerateAdvectionImage();
       }

@@ -62,7 +62,7 @@ void
 SimpleDataObjectDecorator< T >
 ::Set(const T & val)
 {
-  if ( !this->m_Initialized || ( itk::Math::NotEqualsComparison(this->m_Component, val) ) )
+  if ( !this->m_Initialized || ( Math::NotEqualsComparison(this->m_Component, val) ) )
     {
     this->m_Component = val;
     this->m_Initialized = true;

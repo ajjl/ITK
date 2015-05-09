@@ -192,7 +192,7 @@ StatisticsLabelMapFilter< TImage, TFeatureImage >
 
   double elongation = 0;
   double flatness = 0;
-  if ( itk::Math::NotEqualsComparison(sum, 0) )
+  if ( Math::NotEqualsComparison(sum, 0) )
     {
     // Normalize using the total mass
     for ( unsigned int i = 0; i < ImageDimension; i++ )
@@ -250,7 +250,7 @@ StatisticsLabelMapFilter< TImage, TFeatureImage >
       elongation = 1;
       flatness = 1;
       }
-    else if ( itk::Math::NotEqualsComparison(principalMoments[0], 0) )
+    else if ( Math::NotEqualsComparison(principalMoments[0], 0) )
       {
       //    elongation = principalMoments[ImageDimension-1] /
       // principalMoments[0];

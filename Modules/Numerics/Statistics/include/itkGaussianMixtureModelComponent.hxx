@@ -105,7 +105,7 @@ GaussianMixtureModelComponent< TSample >
 
   for ( i = 0; i < measurementVectorSize; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_Mean[i], parameters[paramIndex]) )
+    if ( Math::NotEqualsComparison(m_Mean[i], parameters[paramIndex]) )
       {
       m_Mean[i] = parameters[paramIndex];
       changed = true;
@@ -130,7 +130,7 @@ GaussianMixtureModelComponent< TSample >
     {
     for ( j = 0; j < measurementVectorSize; j++ )
       {
-      if ( itk::Math::NotEqualsComparison( m_Covariance.GetVnlMatrix().get(i, j),
+      if ( Math::NotEqualsComparison( m_Covariance.GetVnlMatrix().get(i, j),
            parameters[paramIndex] ) )
         {
         m_Covariance.GetVnlMatrix().put(i, j, parameters[paramIndex]);

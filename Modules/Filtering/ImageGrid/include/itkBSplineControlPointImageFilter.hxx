@@ -301,7 +301,7 @@ BSplineControlPointImageFilter<TInputImage, TOutputImage>
       }
     for( int i = ImageDimension - 1; i >= 0; i-- )
       {
-      if( itk::Math::NotEqualsComparison(U[i], currentU[i]) )
+      if( Math::NotEqualsComparison(U[i], currentU[i]) )
         {
         for( int j = i; j >= 0; j-- )
           {

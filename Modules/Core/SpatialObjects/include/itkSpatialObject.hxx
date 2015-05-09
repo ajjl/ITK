@@ -562,8 +562,8 @@ SpatialObject< TDimension >
       bool bbDefined = false;
       for ( unsigned int i = 0; i < m_Dimension; i++ )
         {
-        if ( itk::Math::NotEqualsComparison(m_Bounds->GetBounds()[2 * i], 0)
-             || itk::Math::NotEqualsComparison(m_Bounds->GetBounds()[2 * i + 1], 0) )
+        if ( Math::NotEqualsComparison(m_Bounds->GetBounds()[2 * i], 0)
+             || Math::NotEqualsComparison(m_Bounds->GetBounds()[2 * i + 1], 0) )
           {
           bbDefined = true;
           break;

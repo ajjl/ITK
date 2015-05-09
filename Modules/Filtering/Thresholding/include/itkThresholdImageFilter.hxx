@@ -79,7 +79,7 @@ void
 ThresholdImageFilter< TImage >
 ::ThresholdAbove(const PixelType & thresh)
 {
-  if ( itk::Math::NotEqualsComparison(m_Upper, thresh)
+  if ( Math::NotEqualsComparison(m_Upper, thresh)
        || m_Lower > NumericTraits< PixelType >::NonpositiveMin() )
     {
     m_Lower = NumericTraits< PixelType >::NonpositiveMin();
@@ -96,7 +96,7 @@ void
 ThresholdImageFilter< TImage >
 ::ThresholdBelow(const PixelType & thresh)
 {
-  if ( itk::Math::NotEqualsComparison(m_Lower, thresh) || m_Upper < NumericTraits< PixelType >::max() )
+  if ( Math::NotEqualsComparison(m_Lower, thresh) || m_Upper < NumericTraits< PixelType >::max() )
     {
     m_Lower = thresh;
     m_Upper = NumericTraits< PixelType >::max();
@@ -118,7 +118,7 @@ ThresholdImageFilter< TImage >
     return;
     }
 
-  if ( itk::Math::NotEqualsComparison(m_Lower, lower) || itk::Math::NotEqualsComparison(m_Upper, upper) )
+  if ( Math::NotEqualsComparison(m_Lower, lower) || Math::NotEqualsComparison(m_Upper, upper) )
     {
     m_Lower = lower;
     m_Upper = upper;

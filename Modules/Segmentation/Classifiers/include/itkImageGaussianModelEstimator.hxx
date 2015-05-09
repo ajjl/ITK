@@ -227,7 +227,7 @@ ImageGaussianModelEstimator< TInputImage, TMembershipFunction, TTrainingImage >
   //Loop through the classes to calculate the means and covariance
   for ( unsigned int classIndex = 0; classIndex < numberOfModels; classIndex++ )
     {
-    if ( itk::Math::NotEqualsComparison(m_NumberOfSamples[classIndex][0], 0) )
+    if ( Math::NotEqualsComparison(m_NumberOfSamples[classIndex][0], 0) )
       {
       for ( unsigned int i = 0; i < VectorDimension; i++ )
         {
@@ -243,7 +243,7 @@ ImageGaussianModelEstimator< TInputImage, TMembershipFunction, TTrainingImage >
         }
       } // end else
 
-    if ( itk::Math::NotEqualsComparison(( m_NumberOfSamples[classIndex][0] - 1 ), 0) )
+    if ( Math::NotEqualsComparison(( m_NumberOfSamples[classIndex][0] - 1 ), 0) )
       {
       for ( unsigned int band_x = 0; band_x < VectorDimension; band_x++ )
         {
@@ -279,7 +279,7 @@ ImageGaussianModelEstimator< TInputImage, TMembershipFunction, TTrainingImage >
         }
       } // end for band_x loop
 
-    if ( itk::Math::NotEqualsComparison(( m_NumberOfSamples[classIndex][0] - 1 ), 0) )
+    if ( Math::NotEqualsComparison(( m_NumberOfSamples[classIndex][0] - 1 ), 0) )
       {
       tempMeanSq *= ( m_NumberOfSamples[classIndex][0]
                       / ( m_NumberOfSamples[classIndex][0] - 1 ) );

@@ -340,7 +340,7 @@ ExpectationMaximizationMixtureModelEstimator< TSample >
       tempSum /= totalFrequency;
       }
 
-    if ( itk::Math::NotEqualsComparison(tempSum, m_Proportions[i]) )
+    if ( Math::NotEqualsComparison(tempSum, m_Proportions[i]) )
       {
       m_Proportions[i] = tempSum;
       updated = true;

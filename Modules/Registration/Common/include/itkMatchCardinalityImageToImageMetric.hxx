@@ -182,7 +182,7 @@ MatchCardinalityImageToImageMetric< TFixedImage, TMovingImage >
         }
       else
         {
-        diff = ( itk::Math::NotEqualsComparison(movingValue, fixedValue) ); // count mismatches
+        diff = ( Math::NotEqualsComparison(movingValue, fixedValue) ); // count mismatches
         }
       threadMeasure += diff;
       }

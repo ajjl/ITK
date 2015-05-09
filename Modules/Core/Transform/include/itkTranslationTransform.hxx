@@ -64,7 +64,7 @@ TranslationTransform<TScalar, NDimensions>
   bool modified = false;
   for( unsigned int i = 0; i < SpaceDimension; i++ )
     {
-    if( itk::Math::NotEqualsComparison(m_Offset[i], parameters[i]) )
+    if( Math::NotEqualsComparison(m_Offset[i], parameters[i]) )
       {
       m_Offset[i] = parameters[i];
       modified = true;

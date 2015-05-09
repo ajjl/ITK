@@ -162,7 +162,7 @@ SolverCrankNicolson<VDimension>
          * element in Ke is zero, to prevent zeros from being
          * allocated in sparse matrix.
          */
-        if( itk::Math::NotEqualsComparison(Ke(j, k), Float(0.0)) || itk::Math::NotEqualsComparison(Me(j, k), Float(0.0)) )
+        if( Math::NotEqualsComparison(Ke(j, k), Float(0.0)) || Math::NotEqualsComparison(Me(j, k), Float(0.0)) )
           {
           // left hand side matrix
           lhsval = ( Me(j, k) + m_Alpha * m_TimeStep * Ke(j, k) );
@@ -206,7 +206,7 @@ SolverCrankNicolson<VDimension>
 
           // Now update the corresponding element in the master
           // stiffness matrix and omit the zeros for the sparseness
-          if( itk::Math::NotEqualsComparison(Le(j, k), Float(0.0)) )
+          if( Math::NotEqualsComparison(Le(j, k), Float(0.0)) )
             {
             // lhs matrix
             lhsval = m_Alpha * m_TimeStep * Le(j, k);

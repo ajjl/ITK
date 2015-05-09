@@ -94,7 +94,7 @@ VectorExpandImageFilter< TInputImage, TOutputImage >
 
   for ( j = 0; j < ImageDimension; j++ )
     {
-    if ( itk::Math::NotEqualsComparison(factor, m_ExpandFactors[j]) ) { break; }
+    if ( Math::NotEqualsComparison(factor, m_ExpandFactors[j]) ) { break; }
     }
   if ( j < ImageDimension )
     {

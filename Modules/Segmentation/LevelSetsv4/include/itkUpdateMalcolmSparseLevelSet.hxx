@@ -331,7 +331,7 @@ UpdateMalcolmSparseLevelSet< VDimension, TEquationContainer >
     LevelSetInputType currentIdx = nodeIt->first;
     LevelSetInputType inputIndex = currentIdx + this->m_Offset;
 
-    if( itk::Math::NotEqualsComparison( update, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
+    if( Math::NotEqualsComparison( update, NumericTraits< LevelSetOutputRealType >::ZeroValue() ) )
       {
       // only allow positiveUpdate forces
       if( iContraction )

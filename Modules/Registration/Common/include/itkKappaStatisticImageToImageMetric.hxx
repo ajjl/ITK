@@ -355,11 +355,11 @@ KappaStatisticImageToImageMetric<TFixedImage, TMovingImage>
         plusIndex[i] = currIndex[i] + 1;
         double minusVal = double( this->m_MovingImage->GetPixel(minusIndex) );
         double plusVal  = double( this->m_MovingImage->GetPixel(plusIndex) );
-        if( ( itk::Math::NotEqualsComparison(minusVal, m_ForegroundValue) ) && ( itk::Math::EqualsComparison(plusVal, m_ForegroundValue) ) )
+        if( ( Math::NotEqualsComparison(minusVal, m_ForegroundValue) ) && ( itk::Math::EqualsComparison(plusVal, m_ForegroundValue) ) )
           {
           tempGradPixel[i] = 1;
           }
-        else if( ( itk::Math::NotEqualsComparison(minusVal, m_ForegroundValue) ) && ( itk::Math::NotEqualsComparison(plusVal, m_ForegroundValue) ) )
+        else if( ( Math::NotEqualsComparison(minusVal, m_ForegroundValue) ) && ( Math::NotEqualsComparison(plusVal, m_ForegroundValue) ) )
           {
           tempGradPixel[i] = -1;
           }

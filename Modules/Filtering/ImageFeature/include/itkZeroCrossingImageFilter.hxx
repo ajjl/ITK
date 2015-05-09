@@ -147,8 +147,8 @@ ZeroCrossingImageFilter< TInputImage, TOutputImage >
         that = bit.GetPixel(center + offset[i]);
         if ( ( ( this_one < zero ) && ( that > zero ) )
              || ( ( this_one > zero ) && ( that < zero ) )
-             || ( ( itk::Math::NotEqualsComparison(this_one, zero) ) && ( itk::Math::NotEqualsComparison(that, zero) ) )
-             || ( ( itk::Math::NotEqualsComparison(this_one, zero) ) && ( itk::Math::EqualsComparison(that, zero) ) ) )
+             || ( ( Math::NotEqualsComparison(this_one, zero) ) && ( Math::NotEqualsComparison(that, zero) ) )
+             || ( ( Math::NotEqualsComparison(this_one, zero) ) && ( itk::Math::EqualsComparison(that, zero) ) ) )
           {
           abs_this_one =  vnl_math_abs(this_one);
           abs_that = vnl_math_abs(that);

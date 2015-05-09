@@ -39,8 +39,8 @@ void
 BinaryThresholdImageFunction< TInputImage, TCoordRep >
 ::ThresholdAbove(PixelType thresh)
 {
-  if ( itk::Math::NotEqualsComparison(m_Lower, thresh)
-       || itk::Math::NotEqualsComparison(m_Upper, NumericTraits< PixelType >::max()) )
+  if ( Math::NotEqualsComparison(m_Lower, thresh)
+       || Math::NotEqualsComparison(m_Upper, NumericTraits< PixelType >::max()) )
     {
     m_Lower = thresh;
     m_Upper = NumericTraits< PixelType >::max();
@@ -56,8 +56,8 @@ void
 BinaryThresholdImageFunction< TInputImage, TCoordRep >
 ::ThresholdBelow(PixelType thresh)
 {
-  if ( itk::Math::NotEqualsComparison(m_Lower, NumericTraits< PixelType >::NonpositiveMin())
-       || itk::Math::NotEqualsComparison(m_Upper, thresh) )
+  if ( Math::NotEqualsComparison(m_Lower, NumericTraits< PixelType >::NonpositiveMin())
+       || Math::NotEqualsComparison(m_Upper, thresh) )
     {
     m_Lower = NumericTraits< PixelType >::NonpositiveMin();
     m_Upper = thresh;
@@ -73,8 +73,8 @@ void
 BinaryThresholdImageFunction< TInputImage, TCoordRep >
 ::ThresholdBetween(PixelType lower, PixelType upper)
 {
-  if ( itk::Math::NotEqualsComparison(m_Lower, lower)
-       || itk::Math::NotEqualsComparison(m_Upper, upper) )
+  if ( Math::NotEqualsComparison(m_Lower, lower)
+       || Math::NotEqualsComparison(m_Upper, upper) )
     {
     m_Lower = lower;
     m_Upper = upper;

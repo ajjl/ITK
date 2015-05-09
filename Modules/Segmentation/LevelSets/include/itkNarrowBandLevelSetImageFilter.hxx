@@ -89,12 +89,12 @@ NarrowBandLevelSetImageFilter< TInputImage, TFeatureImage, TOutputPixelType, TOu
     }
 
   // Allocate the images from which speeds will be sampled.
-  if ( itk::Math::NotEqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
+  if ( Math::NotEqualsComparison(this->GetSegmentationFunction()->GetPropagationWeight(), 0) )
     {
     m_SegmentationFunction->AllocateSpeedImage();
     m_SegmentationFunction->CalculateSpeedImage();
     }
-  if ( itk::Math::NotEqualsComparison(this->GetSegmentationFunction()->GetAdvectionWeight(), 0) )
+  if ( Math::NotEqualsComparison(this->GetSegmentationFunction()->GetAdvectionWeight(), 0) )
     {
     m_SegmentationFunction->AllocateAdvectionImage();
     m_SegmentationFunction->CalculateAdvectionImage();

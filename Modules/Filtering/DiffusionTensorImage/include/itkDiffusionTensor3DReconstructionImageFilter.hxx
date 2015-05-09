@@ -267,7 +267,7 @@ void DiffusionTensor3DReconstructionImageFilter< TReferenceImagePixelType,
         unmaskedPixel = maskSpatialObject->IsInside(point);
         }
 
-      if ( ( itk::Math::NotEqualsComparison(b0, 0) ) && unmaskedPixel && ( b0 >= m_Threshold ) )
+      if ( ( Math::NotEqualsComparison(b0, 0) ) && unmaskedPixel && ( b0 >= m_Threshold ) )
         {
         for ( unsigned int i = 0; i < m_NumberOfGradientDirections; i++ )
           {
@@ -391,7 +391,7 @@ void DiffusionTensor3DReconstructionImageFilter< TReferenceImagePixelType,
         unmaskedPixel = maskSpatialObject->IsInside(point);
         }
 
-      if ( ( itk::Math::NotEqualsComparison(b0, 0) ) && unmaskedPixel && ( b0 >= m_Threshold ) )
+      if ( ( Math::NotEqualsComparison(b0, 0) ) && unmaskedPixel && ( b0 >= m_Threshold ) )
         {
         for ( unsigned int i = 0; i < m_NumberOfGradientDirections; i++ )
           {

@@ -104,7 +104,7 @@ RandomImageSource< TOutputImage >
 
   for ( i = 0; i < count; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(spacingArray[i], this->m_Spacing[i]) )
+    if ( Math::NotEqualsComparison(spacingArray[i], this->m_Spacing[i]) )
       {
       break;
       }
@@ -129,7 +129,7 @@ RandomImageSource< TOutputImage >
 
   for ( i = 0; i < count; i++ )
     {
-    if ( itk::Math::NotEqualsComparison(originArray[i], this->m_Origin[i]) )
+    if ( Math::NotEqualsComparison(originArray[i], this->m_Origin[i]) )
       {
       break;
       }

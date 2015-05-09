@@ -55,7 +55,7 @@ DisplacementFieldJacobianDeterminantFilter< TInputImage, TRealType, TOutputImage
 
   for ( unsigned int i = 0; i < ImageDimension; ++i )
     {
-    if ( itk::Math::NotEqualsComparison(m_DerivativeWeights[i], data[i]) )
+    if ( Math::NotEqualsComparison(m_DerivativeWeights[i], data[i]) )
       {
       this->Modified();
       m_DerivativeWeights[i] = data[i];
