@@ -31,7 +31,6 @@
 #include "itkIntTypes.h"
 #include "itkMathDetail.h"
 #include "itkConceptChecking.h"
-#include "itkMacro.h"
 
 namespace itk
 {
