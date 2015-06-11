@@ -21,6 +21,7 @@
 #include "itkUnaryFunctorImageFilter.h"
 #include "itkConceptChecking.h"
 #include "itkSimpleDataObjectDecorator.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -87,10 +88,10 @@ public:
 
   bool operator!=(const BinaryThreshold & other) const
   {
-    if ( m_LowerThreshold != other.m_LowerThreshold
-         || m_UpperThreshold != other.m_UpperThreshold
-         || m_InsideValue    != other.m_InsideValue
-         || m_OutsideValue   != other.m_OutsideValue  )
+    if (    itk::Math::NotEqualsComparison( m_LowerThreshold, other.m_LowerThreshold )
+         || itk::Math::NotEqualsComparison( m_UpperThreshold, other.m_UpperThreshold )
+         || itk::Math::NotEqualsComparison( m_InsideValue,    other.m_InsideValue )
+         || itk::Math::NotEqualsComparison( m_OutsideValue,     other.m_OutsideValue  ) )
       {
       return true;
       }

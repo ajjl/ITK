@@ -20,6 +20,7 @@
 
 #include "itkSymmetricSecondRankTensor.h"
 #include "itkImageRegionIterator.h"
+#include "itkMath.h"
 
 int itkSymmetricSecondRankTensorTest(int, char* [] )
 {
@@ -433,7 +434,7 @@ int itkSymmetricSecondRankTensorTest(int, char* [] )
     std::cout << result1 << std::endl;
     for (unsigned int ii = 0; ii < 3; ++ii)
     {
-      if (result1[0][ii] != ans[ii])
+      if (itk::Math::NotEqualsComparison(result1[0][ii], ans[ii]))
       {
         std::cout << "PreMultiply FAILED" << std::endl;
         return EXIT_FAILURE;
@@ -444,7 +445,7 @@ int itkSymmetricSecondRankTensorTest(int, char* [] )
     std::cout << result2 << std::endl;
     for (unsigned int ii = 0; ii < 3; ++ii)
     {
-      if (result2[ii][0] != ans[ii])
+      if (itk::Math::NotEqualsComparison(result2[ii][0], ans[ii]))
       {
         std::cout << "PostMultiply FAILED" << std::endl;
         return EXIT_FAILURE;
@@ -455,7 +456,7 @@ int itkSymmetricSecondRankTensorTest(int, char* [] )
     std::cout << result3 << std::endl;
     for (unsigned int ii = 0; ii < 6; ++ii)
     {
-      if (result3[ii] != 85)
+      if (itk::Math::NotEqualsComparison(result3[ii], 85))
       {
         std::cout << "Rotate FAILED" << std::endl;
         return EXIT_FAILURE;

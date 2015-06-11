@@ -19,6 +19,7 @@
 #include "itkImageToImageMetricv4.h"
 
 #include "itkAffineTransform.h"
+#include "itkMath.h"
 
 /**
  *  \class RegistrationParameterScalesEstimatorTestMetric for test.
@@ -287,7 +288,7 @@ int itkRegistrationParameterScalesEstimatorTest(int , char* [])
   bool jacobianPass = true;
   for (itk::SizeValueType p = 0; p < jacobianScales.GetSize(); p++)
     {
-    if (jacobianScales[p] != theoreticalJacobianScales[p])
+    if (itk::Math::NotEqualsComparison( jacobianScales[p], theoreticalJacobianScales[p] ) )
       {
       jacobianPass = false;
       break;
@@ -296,7 +297,7 @@ int itkRegistrationParameterScalesEstimatorTest(int , char* [])
   bool nonUniformForJacobian = false;
   for (itk::SizeValueType p = 1; p < jacobianScales.GetSize(); p++)
     {
-    if (jacobianScales[p] != jacobianScales[0])
+    if ( itk::Math::NotEqualsComparison( jacobianScales[p], jacobianScales[0]) )
       {
       nonUniformForJacobian = true;
       break;
@@ -319,7 +320,7 @@ int itkRegistrationParameterScalesEstimatorTest(int , char* [])
   bool fullDomainPass = true;
   for (itk::SizeValueType p = 0; p < jacobianScales.GetSize(); p++)
     {
-    if (jacobianScales[p] != theoreticalJacobianScales[p])
+    if ( itk::Math::NotEqualsComparison( jacobianScales[p], theoreticalJacobianScales[p] ) )
       {
       fullDomainPass = false;
       break;

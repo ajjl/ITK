@@ -137,7 +137,7 @@ public:
    * derivatives  */
   void SetDerivativeSigma(float value)
   {
-    if ( value != m_GeodesicActiveContourFunction->GetDerivativeSigma() )
+    if ( itk::Math::NotEqualsComparison( value, m_GeodesicActiveContourFunction->GetDerivativeSigma() ) )
       {
       m_GeodesicActiveContourFunction->SetDerivativeSigma(value);
       this->Modified();

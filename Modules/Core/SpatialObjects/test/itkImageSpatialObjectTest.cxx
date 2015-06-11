@@ -29,6 +29,7 @@
 
 #include "itkImageSpatialObject.h"
 #include "itkLinearInterpolateImageFunction.h"
+#include "itkMath.h"
 
 
 int itkImageSpatialObjectTest(int, char* [])
@@ -108,7 +109,7 @@ int itkImageSpatialObjectTest(int, char* [])
     }
 
   std::cout<<"ValueAt()...";
-  if( returnedValue != expectedValue )
+  if( itk::Math::NotEqualsComparison(returnedValue, expectedValue) )
     {
     std::cout << "Expected: " << expectedValue << " returned: " << returnedValue << std::endl;
     std::cout <<"[FAILED]: " << std::endl;

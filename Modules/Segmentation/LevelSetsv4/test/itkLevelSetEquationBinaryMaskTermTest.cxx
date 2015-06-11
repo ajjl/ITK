@@ -20,6 +20,7 @@
 #include "itkLevelSetEquationBinaryMaskTerm.h"
 #include "itkSinRegularizedHeavisideStepFunction.h"
 #include "itkBinaryImageToLevelSetImageAdaptor.h"
+#include "itkMath.h"
 
 int itkLevelSetEquationBinaryMaskTermTest( int argc, char* argv[] )
 {
@@ -166,7 +167,7 @@ int itkLevelSetEquationBinaryMaskTermTest( int argc, char* argv[] )
   index[1] = 5;
 
   std::cout << maskTerm0->Evaluate( index ) << std::endl;
-  if ( maskTerm0->Evaluate( index ) != 1000 )
+  if ( itk::Math::NotEqualsComparison( maskTerm0->Evaluate( index ), 1000 ) )
     {
     return EXIT_FAILURE;
     }
@@ -175,7 +176,7 @@ int itkLevelSetEquationBinaryMaskTermTest( int argc, char* argv[] )
   index[1] = 20;
 
   std::cout << maskTerm0->Evaluate( index ) << std::endl;
-  if ( maskTerm0->Evaluate( index ) != 0 )
+  if ( itk::Math::NotEqualsComparison( maskTerm0->Evaluate( index ), 0 ) )
     {
     return EXIT_FAILURE;
     }

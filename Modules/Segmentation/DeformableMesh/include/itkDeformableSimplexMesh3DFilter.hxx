@@ -36,6 +36,7 @@
 #include "vxl_version.h"
 #if VXL_VERSION_DATE_FULL > 20040406
 #include "vnl/vnl_cross.h"
+#include "itkMath.h"
 #define itk_cross_3d vnl_cross_3d
 #else
 #define itk_cross_3d cross_3d
@@ -404,7 +405,7 @@ DeformableSimplexMesh3DFilter< TInputMesh, TOutputMesh >
   data->internalForce.Fill(0.0);
 
   // quick hack fixing for div by zero error
-  if ( L_Ref != (double)NumericTraits< IdentifierType >::max() && L != (double)NumericTraits< IdentifierType >::max() )
+  if ( itk::Math::NotEqualsComparison(L_Ref, (double)NumericTraits< IdentifierType >::max()) && itk::Math::NotEqualsComparison(L, (double)NumericTraits< IdentifierType >::max()) )
     {
     data->internalForce += tangentForce + normalForce;
     }
@@ -596,7 +597,7 @@ double DeformableSimplexMesh3DFilter< TInputMesh, TOutputMesh >
   if ( tmpSqr > 0 )
     {
     double denom = eps * ( std::sqrt(tmpSqr) + r );
-    if ( denom != 0 )
+    if ( itk::Math::NotEqualsComparison(denom, 0) )
       {
       L = ( r2Minusd2 * tanPhi ) / denom;
       }

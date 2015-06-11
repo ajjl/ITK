@@ -19,6 +19,7 @@
 #define itkOnePlusOneEvolutionaryOptimizerv4_hxx
 
 #include "itkOnePlusOneEvolutionaryOptimizerv4.h"
+#include "itkMath.h"
 #include "vnl/vnl_matrix.h"
 namespace itk
 {
@@ -67,7 +68,7 @@ OnePlusOneEvolutionaryOptimizerv4<TInternalComputationValueType>
 {
   m_InitialRadius = initialRadius;
 
-  if ( grow == -1 )
+  if ( itk::Math::EqualsComparison( grow, -1 ) )
     {
     m_GrowthFactor = 1.05;
     }
@@ -75,7 +76,7 @@ OnePlusOneEvolutionaryOptimizerv4<TInternalComputationValueType>
     {
     m_GrowthFactor = grow;
     }
-  if ( shrink == -1 )
+  if ( itk::Math::EqualsComparison( shrink, -1 ) )
     {
     m_ShrinkFactor = std::pow(m_GrowthFactor, -0.25);
     }

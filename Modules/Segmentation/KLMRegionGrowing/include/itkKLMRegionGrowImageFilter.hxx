@@ -18,6 +18,7 @@
 #ifndef itkKLMRegionGrowImageFilter_hxx
 #define itkKLMRegionGrowImageFilter_hxx
 #include "itkKLMRegionGrowImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -540,7 +541,7 @@ KLMRegionGrowImageFilter< TInputImage, TOutputImage >
     actualBorderLength += tmpDblVal;
     }
 
-  if ( m_TotalBorderLength != actualBorderLength )
+  if ( itk::Math::NotEqualsComparison(m_TotalBorderLength, actualBorderLength) )
     {
     itkExceptionMacro(<< "KLM initialization is incorrect");
     } // end if

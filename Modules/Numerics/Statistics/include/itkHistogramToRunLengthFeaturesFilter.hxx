@@ -22,6 +22,7 @@
 
 #include "itkNumericTraits.h"
 #include "vnl/vnl_math.h"
+#include "itkMath.h"
 
 namespace itk {
 namespace Statistics {
@@ -107,7 +108,7 @@ GenerateData( void )
           hit != inputHistogram->End(); ++hit )
     {
     MeasurementType frequency = hit.GetFrequency();
-    if ( frequency == 0 )
+    if ( itk::Math::EqualsComparison(frequency, 0) )
       {
       continue;
       }

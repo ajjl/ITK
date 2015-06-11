@@ -29,6 +29,7 @@
 #include "vnl/algo/vnl_matrix_inverse.h"
 #include "vnl/vnl_vector.h"
 #include "vcl_limits.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -270,8 +271,8 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       }
     }
   this->m_BSplineEpsilon = 100 * std::numeric_limits<RealType>::epsilon();
-  while( static_cast<RealType>( maximumNumberOfSpans ) ==
-    static_cast<RealType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon )
+  while( itk::Math::EqualsComparison( static_cast<RealType>( maximumNumberOfSpans ),
+    ( static_cast<RealType>( maximumNumberOfSpans ) - this->m_BSplineEpsilon ) ) )
     {
     this->m_BSplineEpsilon *= 10;
     }
@@ -776,7 +777,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       }
     for( int i = ImageDimension - 1; i >= 0; i-- )
       {
-      if( U[i] != currentU[i] )
+      if( itk::Math::NotEqualsComparison(U[i], currentU[i]) )
         {
         for( int j = i; j >= 0; j-- )
           {
@@ -862,7 +863,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       {
       PointDataType P;
       P.Fill( 0 );
-      if( ItO.Get() != 0 )
+      if( itk::Math::NotEqualsComparison(ItO.Get(), 0) )
         {
         P = ItD.Get() / ItO.Get();
         for( unsigned int i = 0; i < P.Size(); i++ )
@@ -1110,7 +1111,7 @@ BSplineScatteredDataPointSetToImageFilter<TInputPointSet, TOutputImage>
       }
     for( int i = ImageDimension - 1; i >= 0; i-- )
       {
-      if( U[i] != currentU[i] )
+      if( itk::Math::NotEqualsComparison(U[i], currentU[i]) )
         {
         for( int j = i; j >= 0; j-- )
           {

@@ -21,6 +21,7 @@
 #include "itkNumericTraits.h"
 #include "itkScalableAffineTransform.h"
 #include "vnl/algo/vnl_matrix_inverse.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -182,7 +183,7 @@ ScalableAffineTransform<TParametersValueType, NDimensions>
   bool scaleChanged = false;
   for ( unsigned int i = 0; i < NDimensions; i++ )
     {
-    if ( m_Scale[i] != m_MatrixScale[i] )
+    if ( itk::Math::NotEqualsComparison(m_Scale[i], m_MatrixScale[i]) )
       {
       scaleChanged = true;
       }
@@ -193,7 +194,7 @@ ScalableAffineTransform<TParametersValueType, NDimensions>
     typename MatrixType::InternalMatrixType & imat = mat.GetVnlMatrix();
     for ( unsigned int i = 0; i < NDimensions; i++ )
       {
-      if ( m_MatrixScale[i] != 0 && m_Scale[i] != 0 )
+      if ( itk::Math::NotEqualsComparison(m_MatrixScale[i], 0) && itk::Math::NotEqualsComparison(m_Scale[i], 0) )
         {
         imat.put(i, i, m_Scale[i] / m_MatrixScale[i] * this->GetMatrix()[i][i]);
         m_MatrixScale[i] = m_Scale[i];

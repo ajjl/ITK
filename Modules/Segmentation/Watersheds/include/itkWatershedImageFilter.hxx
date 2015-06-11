@@ -18,6 +18,7 @@
 #ifndef itkWatershedImageFilter_hxx
 #define itkWatershedImageFilter_hxx
 #include "itkWatershedImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -35,7 +36,7 @@ WatershedImageFilter< TInputImage >
     val = 1.0;
     }
 
-  if ( val != m_Threshold )
+  if ( itk::Math::NotEqualsComparison(val, m_Threshold) )
     {
     m_Threshold = val;
     m_Segmenter->SetThreshold(m_Threshold);
@@ -59,7 +60,7 @@ WatershedImageFilter< TInputImage >
     val = 1.0;
     }
 
-  if ( val != m_Level )
+  if ( itk::Math::NotEqualsComparison(val, m_Level) )
     {
     m_Level = val;
     m_TreeGenerator->SetFloodLevel(m_Level);

@@ -23,6 +23,7 @@
 #include "itkNumericTraits.h"
 #include "vnl/vnl_math.h"
 #include "itkMath.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -133,7 +134,7 @@ HistogramToTextureFeaturesFilter< THistogram >::GenerateData(void)
     {
     RelativeFrequencyType frequency = *rFreqIterator;
     ++rFreqIterator;
-    if ( frequency == 0 )
+    if ( itk::Math::EqualsComparison(frequency, 0) )
       {
       continue; // no use doing these calculations if we're just multiplying by
                 // zero.

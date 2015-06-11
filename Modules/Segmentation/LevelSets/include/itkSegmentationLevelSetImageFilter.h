@@ -20,6 +20,7 @@
 
 #include "itkSparseFieldLevelSetImageFilter.h"
 #include "itkSegmentationLevelSetFunction.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -312,11 +313,11 @@ public:
       on when and whether to set these parameters. */
   void SetFeatureScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetPropagationWeight() )
+    if ( itk::Math::NotEqualsComparison( v, m_SegmentationFunction->GetPropagationWeight() ) )
       {
       this->SetPropagationScaling(v);
       }
-    if ( v != m_SegmentationFunction->GetAdvectionWeight() )
+    if ( itk::Math::NotEqualsComparison( v, m_SegmentationFunction->GetAdvectionWeight() ) )
       {
       this->SetAdvectionScaling(v);
       }
@@ -326,7 +327,7 @@ public:
       parameter overrides any previous values set for PropagationScaling. */
   void SetPropagationScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetPropagationWeight() )
+    if ( itk::Math::NotEqualsComparison( v, m_SegmentationFunction->GetPropagationWeight() ) )
       {
       m_SegmentationFunction->SetPropagationWeight(v);
       this->Modified();
@@ -342,7 +343,7 @@ public:
       parameter will override any existing value for AdvectionScaling. */
   void SetAdvectionScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetAdvectionWeight() )
+    if ( itk::Math::NotEqualsComparison( v, m_SegmentationFunction->GetAdvectionWeight() ) )
       {
       m_SegmentationFunction->SetAdvectionWeight(v);
       this->Modified();
@@ -360,7 +361,7 @@ public:
    *  values will give smoother surfaces. */
   void SetCurvatureScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetCurvatureWeight() )
+    if ( itk::Math::NotEqualsComparison( v, m_SegmentationFunction->GetCurvatureWeight() ) )
       {
       m_SegmentationFunction->SetCurvatureWeight(v);
       this->Modified();
@@ -423,7 +424,7 @@ public:
    *   of creating an unstable solution. */
   void SetMaximumCurvatureTimeStep(double n)
   {
-    if ( n != m_SegmentationFunction->GetMaximumCurvatureTimeStep() )
+    if ( itk::Math::NotEqualsComparison( n, m_SegmentationFunction->GetMaximumCurvatureTimeStep() ) )
       {
       m_SegmentationFunction->SetMaximumCurvatureTimeStep(n);
       this->Modified();

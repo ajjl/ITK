@@ -24,6 +24,7 @@
 
 #include "itkConstantPadImageFilter.h"
 #include "itkCropImageFilter.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -352,7 +353,7 @@ ReconstructionImageFilter< TInputImage, TOutputImage, TCompare >
       InputImagePixelType VN = outNIt.GetPixel(*oLIt);
       InputImagePixelType iN = mskNIt.GetPixel(*mLIt);
       // candidate for dilation via flooding
-      if ( compare(V, VN) && ( iN != VN ) )
+      if ( compare(V, VN) && ( itk::Math::NotEqualsComparison(iN, VN) ) )
         {
         if ( compare(iN, V) )
           {

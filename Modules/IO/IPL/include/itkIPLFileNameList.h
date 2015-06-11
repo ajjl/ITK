@@ -31,21 +31,25 @@
 
 #include "itkMacro.h"
 #include "itkObject.h"
+#include "itkMath.h"
 
 #include <cstdio>
 #include <string>
 #include <list>
 /** Set built-in type.  Creates member Set"name"() (e.g., SetVisibility()); */
-#define IPLSetMacroDeclaration(name, type)              \
+#define IPLSetMacroDeclaration(name, type)        \
   virtual void Set##name (const type _arg);
 
-#define IPLSetMacroDefinition(class, name, type)              \
-  void class::Set##name (const type _arg) \
-  {                                        \
-    if ( this->m_##name != _arg )          \
-    {                                      \
-      this->m_##name = _arg;               \
-    }                                      \
+#define IPLSetMacroDefinition(class, name, type)  \
+  void class::Set##name (const type _arg)         \
+  {                                               \
+CLANG_PRAGMA_PUSH                                 \
+CLANG_SUPPRESS_Wfloat_equal                       \
+    if ( this->m_##name != _arg )                 \
+CLANG_PRAGMA_POP                                  \
+    {                                             \
+      this->m_##name = _arg;                      \
+    }                                             \
   }
 
 /** Get built-in type.  Creates member Get"name"() (e.g., GetVisibility()); */
@@ -198,7 +202,7 @@ public:
       {
       return false;
       }
-    else if(XRes != m_XRes || YRes != m_YRes)
+    else if( itk::Math::NotEqualsComparison( XRes, m_XRes ) || itk::Math::NotEqualsComparison( YRes, m_YRes) )
       {
       return false;
       }

@@ -21,6 +21,7 @@
 #include "itkInPlaceLabelMapFilter.h"
 #include "itkShapeLabelObjectAccessors.h"
 #include "itkProgressReporter.h"
+#include "itkMath.h"
 #include <queue>
 
 namespace itk
@@ -199,7 +200,7 @@ protected:
           typename TAttributeAccessor::AttributeValueType attr = accessor(l.labelObject);
           // this may be changed to a single boolean expression, but may become
           // quite difficult to read
-          if ( attr == prevAttr  )
+          if ( itk::Math::EqualsComparison( attr, prevAttr  ) )
             {
             if ( l.labelObject->GetLabel() > prev.labelObject->GetLabel() )
               {

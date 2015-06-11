@@ -18,6 +18,7 @@
 
 #include "itkEuclideanDistancePointSetToPointSetMetricv4.h"
 #include "itkTranslationTransform.h"
+#include "itkMath.h"
 
 #include <fstream>
 
@@ -97,7 +98,7 @@ int itkEuclideanDistancePointSetMetricTestRun()
     }
 
   // Check for the same results from different methods
-  if( value != value2 )
+  if( itk::Math::NotEqualsComparison( value, value2 ) )
     {
     std::cerr << "value does not match between calls to different methods: "
               << "value: " << value << " value2: " << value2 << std::endl;
