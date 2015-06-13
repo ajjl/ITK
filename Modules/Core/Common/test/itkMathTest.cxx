@@ -526,9 +526,9 @@ int main( int, char *[] )
   TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(12u) == false), testPassStatus );
   TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(13u)), testPassStatus );
 
-  TEST_EXPECT_EQUAL_STATUSVAL( (itk::Math::GreatestPrimeFactor(12u), 3), testPassStatus );
-  TEST_EXPECT_EQUAL_STATUSVAL( (itk::Math::GreatestPrimeFactor(75u), 5), testPassStatus );
-  TEST_EXPECT_EQUAL_STATUSVAL( (itk::Math::GreatestPrimeFactor(1024u), 2), testPassStatus );
+  TEST_EXPECT_EQUAL_STATUSVAL( itk::Math::GreatestPrimeFactor(12u), 3, testPassStatus );
+  TEST_EXPECT_EQUAL_STATUSVAL( itk::Math::GreatestPrimeFactor(75u), 5, testPassStatus );
+  TEST_EXPECT_EQUAL_STATUSVAL( itk::Math::GreatestPrimeFactor(1024u), 2, testPassStatus );
 
   return testPassStatus;
 }
