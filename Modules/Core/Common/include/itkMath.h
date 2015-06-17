@@ -349,7 +349,6 @@ struct CASE <3>
   }
 };
 
-
 //case 4 is signed type v. unsigned type
 template<>
 struct CASE <4>
@@ -362,7 +361,6 @@ struct CASE <4>
     return signed_x1 == static_cast< SIGNED_INT >(unsigned_x2) ;
   }
 };
-
 
 //case 5 is unsigned type v. signed type
 template<>
@@ -389,14 +387,12 @@ struct CASE <6>
 };
 /// end of all the cases
 
-
 //SELECTOR STRUCTS, these select the correct case based on its types
 template<bool INP_1_INT, bool INP_1_SIGNED, bool INP_2_INT, bool INP_2_SIGNED>
 struct SELECTOR
 { //default case
   typedef CASE <0> SELECTED;
 };
-
 
 template<>
 struct SELECTOR < false, true, false, true>
@@ -412,15 +408,12 @@ struct SELECTOR <false, true, true, true>
   typedef CASE <2> SELECTED;
 };
 
-
 template<>
 struct SELECTOR <false, true, true,false>
 //float vs unsigned int
 {
   typedef CASE <2> SELECTED;
 };
-
-
 
 template<>
 struct SELECTOR <true, false, false, true>
@@ -442,7 +435,6 @@ struct SELECTOR<true, true, true, false>
 {
   typedef CASE<4> SELECTED;
 };
-
 
 template<>
 struct SELECTOR<true, false, true, true>
@@ -470,33 +462,16 @@ struct SELECTOR<true, false, true, false>
 template<typename U1, typename U2>
 struct IMPLEMENTOR
 {
-/*
-  typedef typename SELECTOR< itk::NumericTraits<U1>::is_integer, itk::NumericTraits<U1>::is_signed,
-                                itk::NumericTraits<U2>::is_integer, itk::NumericTraits<U2>::is_signed>::SELECTED FUNCTION;
-*/
-
   typedef typename SELECTOR< std::numeric_limits<U1>::is_integer, std::numeric_limits<U1>::is_signed,
                                 std::numeric_limits<U2>::is_integer, std::numeric_limits<U2>::is_signed>::SELECTED FUNCTION;
 };
-
-//The executor chooses the correct function and returns the results
-template <typename V1, typename V2>
-bool
-EqualsComparisonExecutor(V1 x1, V2 x2)
-{
-  return IMPLEMENTOR<V1,V2>::FUNCTION::template func<V1, V2>(x1, x2);
-}
-
 
 template <typename T1, typename T2>
 inline bool
 EqualsComparison( T1 x1, T2 x2 )
 {
-  return EqualsComparisonExecutor<T1, T2>(x1, x2);
-//return ( x1 == x2 );
+  return IMPLEMENTOR<T1, T2>(x1, x2);
 }
-
-
 
 template <typename T1, typename T2>
 inline bool
