@@ -295,8 +295,35 @@ struct CASE <1>
   template <typename FLOATtype_1, typename FLOATtype_2>
   static bool func(FLOATtype_1 x1, FLOATtype_2 x2)
   {
-  //write function to overload later
     return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(double x1, double x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(double x1, float x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(float x1, double x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(float x1, float x2)
+  {
+    return FloatAlmostEqual<float>(x1, x2);
   }
 };
 
@@ -331,8 +358,8 @@ struct CASE <4>
   static bool func(SIGNED_INT signed_x1, UNSIGNED_INT unsigned_x2)
   {
     if(signed_x1 < 0) return false;
-    if( unsigned_x2 > itk::NumericTraits<SIGNED_INT>::max() ) return false;
-    return signed_x1 == unsigned_x2 ;
+    if( unsigned_x2 > static_cast< size_t >(itk::NumericTraits<SIGNED_INT>::max()) ) return false;
+    return signed_x1 == static_cast< SIGNED_INT >(unsigned_x2) ;
   }
 };
 
@@ -345,8 +372,8 @@ struct CASE <5>
   static bool func(UNSIGNED_INT unsigned_x1, SIGNED_INT signed_x2)
   {
     if(signed_x2 < 0) return false;
-    if( unsigned_x1 > itk::NumericTraits<SIGNED_INT>::max() ) return false;
-    return unsigned_x1 == signed_x2 ;
+    if( unsigned_x1 > static_cast< size_t >(itk::NumericTraits<SIGNED_INT>::max()) ) return false;
+    return ( static_cast<SIGNED_INT>(unsigned_x1) == signed_x2 );
   }
 };
 
@@ -357,7 +384,6 @@ struct CASE <6>
   template <typename INTtype_1, typename INTtype_2>
   static bool func(INTtype_1 x1, INTtype_2 x2)
   {
-  //write function to overload later
     return x1 == x2;
   }
 };
