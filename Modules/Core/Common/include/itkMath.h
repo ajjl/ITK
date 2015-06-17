@@ -470,8 +470,10 @@ template <typename T1, typename T2>
 inline bool
 EqualsComparison( T1 x1, T2 x2 )
 {
-  return IMPLEMENTOR<T1, T2>(x1, x2);
+  return IMPLEMENTOR<T1,T2>::FUNCTION::template func<T1, T2>(x1, x2);
 }
+
+
 
 template <typename T1, typename T2>
 inline bool
