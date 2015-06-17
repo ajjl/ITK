@@ -309,7 +309,7 @@ struct CASE <2>
   {
     return FloatAlmostEqual<FLOAT_TYPE> (x1, x2);
   }
-}
+};
 
 //case 3 is int type v. floating type
 template<>
@@ -320,7 +320,7 @@ struct CASE <3>
   {
     return FloatAlmostEqual<FLOAT_TYPE> (x1, x2);
   }
-}
+};
 
 
 //case 4 is signed type v. unsigned type
@@ -334,7 +334,7 @@ struct CASE <4>
     if( unsigned_x2 > itk::NumericTraits<SIGNED_INT>::max() ) return false;
     return signed_x1 == unsigned_x2 ;
   }
-}
+};
 
 
 //case 5 is unsigned type v. signed type
@@ -348,7 +348,7 @@ struct CASE <5>
     if( unsigned_x1 > itk::NumericTraits<SIGNED_INT>::max() ) return false;
     return unsigned_x1 == signed_x2 ;
   }
-}
+};
 
 //case 6 is that of int v. int both signed or both unsigned
 template<>
@@ -422,7 +422,7 @@ template<>
 struct SELECTOR<true, false, true, true>
 //unsigned vs signed
 {
-  typedef CASE<4> SELECTED;
+  typedef CASE<5> SELECTED;
 };
 
 template<>
@@ -438,14 +438,19 @@ struct SELECTOR<true, false, true, false>
 {
   typedef CASE<6> SELECTED;
 };
-
+//////////end of SELECTOR structs
 
 //The implementor tells the selector what to do
 template<typename U1, typename U2>
 struct IMPLEMENTOR
 {
-  typedef typename SELECTOR< itk::NumericTraits<U1>::IsInteger, itk::NumericTraits<U1>::IsSigned,
-                                itk::NumericTraits<U2>::IsInteger, itk::NumericTraits<U2>::IsSigned>::SELECTED FUNCTION;
+/*
+  typedef typename SELECTOR< itk::NumericTraits<U1>::is_integer, itk::NumericTraits<U1>::is_signed,
+                                itk::NumericTraits<U2>::is_integer, itk::NumericTraits<U2>::is_signed>::SELECTED FUNCTION;
+*/
+
+  typedef typename SELECTOR< std::numeric_limits<U1>::is_integer, std::numeric_limits<U1>::is_signed,
+                                std::numeric_limits<U2>::is_integer, std::numeric_limits<U2>::is_signed>::SELECTED FUNCTION;
 };
 
 //The executor chooses the correct function and returns the results
