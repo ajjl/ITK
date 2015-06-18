@@ -109,6 +109,9 @@ public:
     return b;
   }
 
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
+  itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO();
+
   /** Set the length of the input array and fill it with zeros. */
   static void SetLength(Array< T > & m, const unsigned int s)
   {

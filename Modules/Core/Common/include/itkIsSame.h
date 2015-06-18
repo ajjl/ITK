@@ -26,17 +26,28 @@ namespace itk
   struct TrueType
   {
     typedef bool     ValueType;
+    typedef bool     value_type;          ////to make compatible with std:: and std::tr1 ::true_type
+
     typedef TrueType Type;
+    typedef TrueType type;               //to make compatible with std:: and std::tr1 ::true_type
 
     static const ValueType Value = true;
+    static const ValueType value = true;       //to make compatible with std:: and std::tr1 ::true_type
+
     operator ValueType() { return Value; }
   };
 
   struct FalseType
   {
     typedef bool      ValueType;
+    typedef bool     value_type;          ////to make compatible with std:: and std::tr1 ::false_type
+
     typedef FalseType Type;
+    typedef FalseType type;               //to make compatible with std:: and std::tr1 ::false_type
+
     static const ValueType Value = false;
+    static const ValueType value = false;       //to make compatible with std:: and std::tr1 ::false_type
+
     operator ValueType() { return Value; }
   };
 
