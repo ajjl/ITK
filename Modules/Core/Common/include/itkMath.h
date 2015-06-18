@@ -31,6 +31,7 @@
 #include "itkIntTypes.h"
 #include "itkMathDetail.h"
 #include "itkConceptChecking.h"
+#include "itkNumericTraits.h"
 
 namespace itk
 {
@@ -462,8 +463,17 @@ struct SELECTOR<true, false, true, false>
 template<typename U1, typename U2>
 struct IMPLEMENTOR
 {
-  typedef typename SELECTOR< std::numeric_limits<U1>::is_integer, std::numeric_limits<U1>::is_signed,
-                                std::numeric_limits<U2>::is_integer, std::numeric_limits<U2>::is_signed>::SELECTED FUNCTION;
+  typedef typename itk::NumericTraits<U1>::IsInteger U1_isInt;
+  typedef typename itk::NumericTraits<U1>::IsSigned U1_isSigned;
+  typedef typename itk::NumericTraits<U2>::IsInteger U2_isInt;
+  typedef typename itk::NumericTraits<U2>::IsSigned U2_isSigned;
+
+  static const bool U1_Ival = U1_isInt::value;
+  static const bool U1_Sval = U1_isSigned::value;
+  static const bool U2_Ival = U2_isInt::value;
+  static const bool U2_Sval = U2_isSigned::value;
+
+  typedef typename SELECTOR< U1_Ival, U1_Sval, U2_Ival, U2_Sval>::SELECTED FUNCTION;
 };
 
 template <typename T1, typename T2>
