@@ -134,6 +134,9 @@ public:
     return OneValue();
   }
 
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
+  itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO();
+
   /** RGB pixels must have 3 components, so the size cannot be
    *  set to anything besides 3.  If called with size of 3, this
    *  function will fill the pixel with zeros. */

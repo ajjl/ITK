@@ -36,6 +36,7 @@ namespace itk
   {
     typedef bool      ValueType;
     typedef FalseType Type;
+
     static const ValueType Value = false;
     operator ValueType() { return Value; }
   };

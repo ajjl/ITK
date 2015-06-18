@@ -122,6 +122,9 @@ public:
     return OneValue();
   }
 
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
+  itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO();
+
   /** Fixed length vectors cannot be resized, so an exception will
    *  be thrown if the input size is not valid.  If the size is valid
    *  the vector will be filled with zeros. */
