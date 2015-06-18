@@ -44,6 +44,18 @@
 
 #include "vcl_limits.h" // for std::numeric_limits
 #include <complex>
+#include "itkIsSame.h"
+
+//how to define TrueType and FalseType
+#define   itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO()      \
+  typedef itk::TrueType TrueType;            \
+  typedef itk::FalseType FalseType;
+
+//a macro for setting the default IsSigned and IsInteger to FalseType
+#define itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO()    \
+  typedef FalseType IsSigned;                                       \
+  typedef FalseType IsInteger;
+
 
 namespace itk
 {
@@ -70,6 +82,7 @@ template< typename T >
 class NumericTraits:public std::numeric_limits< T >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   /** The type of this limits trait object. */
   typedef std::numeric_limits< T > TraitsType;
 
@@ -118,6 +131,12 @@ public:
 
   /** Is a given value nonnegative? */
   static bool IsNonnegative(T val) { return val >= Zero; }
+
+  /** Is a given type signed? -- default is no. */
+  typedef FalseType IsSigned;
+
+  /** Is a given type an integer? -- default is no. */
+  typedef FalseType IsInteger;
 
   /** Return zero value. This function should be used to support
    *  RGBPixel type and standard types (not vectors) */
@@ -213,6 +232,7 @@ template< >
 class NumericTraits< bool > :public std::numeric_limits< bool >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef bool                     ValueType;
   typedef bool                     PrintType;
   typedef unsigned char            AbsType;
@@ -234,6 +254,8 @@ public:
   static bool IsNonpositive(bool val) { return !val; }
   static bool IsNegative(bool val) { return val ? false : false; }
   static bool IsNonnegative(bool val) { return val ? true : true; }
+  typedef FalseType IsSigned;
+  typedef TrueType  IsInteger;
   static bool ZeroValue() { return Zero; }
   static bool OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -267,6 +289,7 @@ template< >
 class NumericTraits< char > :public std::numeric_limits< char >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef char                     ValueType;
   typedef int                      PrintType;
   typedef unsigned char            AbsType;
@@ -291,10 +314,13 @@ public:
 #if VCL_CHAR_IS_SIGNED
   static bool IsNegative(char val) { return val < Zero; }
   static bool IsNonnegative(char val) { return val >= Zero; }
+  typedef TrueType IsSigned;
 #else
   static bool IsNegative(char) { return false; }
   static bool IsNonnegative(char) { return true; }
+  typedef FalseType IsSigned;
 #endif
+  typedef TrueType IsInteger;
   static char ZeroValue() { return Zero; }
   static char OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -327,6 +353,7 @@ template< >
 class NumericTraits< signed char > :public std::numeric_limits< signed char >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef signed char              ValueType;
   typedef int                      PrintType;
   typedef unsigned char            AbsType;
@@ -348,6 +375,8 @@ public:
   static bool IsNonpositive(signed char val) { return val <= Zero; }
   static bool IsNegative(signed char val) { return val < Zero; }
   static bool IsNonnegative(signed char val) { return val >= Zero; }
+  typedef TrueType IsSigned;
+  typedef TrueType IsInteger;
   static signed char  ZeroValue() { return Zero; }
   static signed char OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -380,6 +409,7 @@ template< >
 class NumericTraits< unsigned char > :public std::numeric_limits< unsigned char >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef unsigned char            ValueType;
   typedef int                      PrintType;
   typedef unsigned char            AbsType;
@@ -399,6 +429,8 @@ public:
   static bool IsNonpositive(unsigned char val) { return val == Zero; }
   static bool IsNegative(unsigned char val) { return val ? false : false; }
   static bool IsNonnegative(unsigned char val) { return val ? true : true; }
+  typedef FalseType IsSigned;
+  typedef TrueType  IsInteger;
   static unsigned char  ZeroValue() { return Zero; }
   static unsigned char OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -430,6 +462,7 @@ template< >
 class NumericTraits< short > :public std::numeric_limits< short >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef short                    ValueType;
   typedef short                    PrintType;
   typedef unsigned short           AbsType;
@@ -448,6 +481,8 @@ public:
   static bool IsNonpositive(short val) { return val <= Zero; }
   static bool IsNegative(short val) { return val < Zero; }
   static bool IsNonnegative(short val) { return val >= Zero; }
+  typedef TrueType IsSigned;
+  typedef TrueType IsInteger;
   static short  ZeroValue() { return Zero; }
   static short OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -480,6 +515,7 @@ template< >
 class NumericTraits< unsigned short > :public std::numeric_limits< unsigned short >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef unsigned short           ValueType;
   typedef unsigned short           PrintType;
   typedef unsigned short           AbsType;
@@ -498,6 +534,8 @@ public:
   static bool IsNonpositive(unsigned short val) { return val == Zero; }
   static bool IsNegative(unsigned short val) { return val ? false : false; }
   static bool IsNonnegative(unsigned short val) { return val ? true : true; }
+  typedef FalseType IsSigned;
+  typedef TrueType  IsInteger;
   static unsigned short ZeroValue() { return Zero; }
   static unsigned short OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -529,6 +567,7 @@ template< >
 class NumericTraits< int > :public std::numeric_limits< int >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef int                      ValueType;
   typedef int                      PrintType;
   typedef unsigned int             AbsType;
@@ -547,6 +586,8 @@ public:
   static bool IsNonpositive(int val) { return val <= Zero; }
   static bool IsNegative(int val) { return val < Zero; }
   static bool IsNonnegative(int val) { return val >= Zero; }
+  typedef TrueType IsSigned;
+  typedef TrueType IsInteger;
   static int  ZeroValue() { return Zero; }
   static int OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -579,6 +620,7 @@ template< >
 class NumericTraits< unsigned int > :public std::numeric_limits< unsigned int >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef unsigned int             ValueType;
   typedef unsigned int             PrintType;
   typedef unsigned int             AbsType;
@@ -600,6 +642,8 @@ public:
   static bool IsNonpositive(unsigned int val) { return val == Zero; }
   static bool IsNegative(unsigned int val) { return val ? false : false; }
   static bool IsNonnegative(unsigned int val) { return val ? true : true; }
+  typedef FalseType IsSigned;
+  typedef TrueType  IsInteger;
   static unsigned int  ZeroValue() { return Zero; }
   static unsigned int OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -632,6 +676,7 @@ template< >
 class NumericTraits< long > :public std::numeric_limits< long >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef long                     ValueType;
   typedef long                     PrintType;
   typedef unsigned long            AbsType;
@@ -650,6 +695,8 @@ public:
   static bool IsNonpositive(long val) { return val <= Zero; }
   static bool IsNegative(long val) { return val < Zero; }
   static bool IsNonnegative(long val) { return val >= Zero; }
+  typedef TrueType IsSigned;
+  typedef TrueType IsInteger;
   static long  ZeroValue() { return Zero; }
   static long OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -682,6 +729,7 @@ template< >
 class NumericTraits< unsigned long > :public std::numeric_limits< unsigned long >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef unsigned long            ValueType;
   typedef unsigned long            PrintType;
   typedef unsigned long            AbsType;
@@ -700,6 +748,8 @@ public:
   static bool IsNonpositive(unsigned long val) { return val == Zero; }
   static bool IsNegative(unsigned long) { return false; }
   static bool IsNonnegative(unsigned long) { return true; }
+  typedef FalseType IsSigned;
+  typedef TrueType  IsInteger;
   static unsigned long  ZeroValue() { return Zero; }
   static unsigned long  OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -732,6 +782,7 @@ template< >
 class NumericTraits< float > :public std::numeric_limits< float >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef float                    ValueType;
   typedef float                    PrintType;
   typedef float                    AbsType;
@@ -750,6 +801,8 @@ public:
   static bool IsNonpositive(float val) { return val <= Zero; }
   static bool IsNegative(float val) { return val < Zero; }
   static bool IsNonnegative(float val) { return val >= Zero; }
+  typedef TrueType  IsSigned;
+  typedef FalseType IsInteger;
   static float  ZeroValue() { return Zero; }
   static float  OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -782,6 +835,7 @@ template< >
 class NumericTraits< double > :public std::numeric_limits< double >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef double                   ValueType;
   typedef double                   PrintType;
   typedef double                   AbsType;
@@ -800,6 +854,8 @@ public:
   static bool IsNonpositive(double val) { return val <= Zero; }
   static bool IsNegative(double val) { return val < Zero; }
   static bool IsNonnegative(double val) { return val >= Zero; }
+  typedef TrueType  IsSigned;
+  typedef FalseType IsInteger;
   static double  ZeroValue() { return Zero; }
   static double  OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -832,6 +888,7 @@ template< >
 class NumericTraits< long double > :public std::numeric_limits< long double >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef long double ValueType;
 #if defined( __SUNPRO_CC ) && defined( _ILP32 )
   // sun studio in 32 bit mode is unable to print long double values: it
@@ -858,6 +915,8 @@ public:
   static bool IsNonpositive(long double val) { return val <= Zero; }
   static bool IsNegative(long double val) { return val < Zero; }
   static bool IsNonnegative(long double val) { return val >= Zero; }
+  typedef TrueType  IsSigned;
+  typedef FalseType IsInteger;
   static long double ZeroValue() { return Zero; }
   static long double OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -890,6 +949,7 @@ template< >
 class NumericTraits< std::complex< char > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< char >   Self;
   // for backward compatibility
   typedef Self                   TheType;
@@ -924,6 +984,8 @@ public:
   static bool IsNegative(Self) { return false; }
   static bool IsNonnegative(Self) { return true; }
 #endif
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -956,6 +1018,7 @@ template< >
 class NumericTraits< std::complex< unsigned char > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< unsigned char >   Self;
   // for backward compatibility
   typedef Self                         TheType;
@@ -984,6 +1047,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() == 0; }
   static bool IsNegative(Self) { return false; }
   static bool IsNonnegative(Self) { return true; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1016,6 +1081,7 @@ template< >
 class NumericTraits< std::complex< short > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< short >  Self;
   // for backward compatibility
   typedef Self                   TheType;
@@ -1044,6 +1110,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() <= 0; }
   static bool IsNegative(Self val) { return val.real() < 0; }
   static bool IsNonnegative(Self val) { return val.real() >= 0; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1076,6 +1144,7 @@ template< >
 class NumericTraits< std::complex< unsigned short > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< unsigned short >  Self;
   // for backward compatibility
   typedef Self                            TheType;
@@ -1104,6 +1173,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() == 0; }
   static bool IsNegative(Self) { return false; }
   static bool IsNonnegative(Self) { return true; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1136,6 +1207,7 @@ template< >
 class NumericTraits< std::complex< int > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< int >    Self;
   // for backward compatibility
   typedef Self                   TheType;
@@ -1164,6 +1236,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() <= 0; }
   static bool IsNegative(Self val) { return val.real() < 0; }
   static bool IsNonnegative(Self val) { return val.real() >= 0; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1196,6 +1270,7 @@ template< >
 class NumericTraits< std::complex< unsigned int > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< unsigned int >  Self;
   // for backward compatibility
   typedef Self                          TheType;
@@ -1224,6 +1299,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() == 0; }
   static bool IsNegative(Self) { return false; }
   static bool IsNonnegative(Self) { return true; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1256,6 +1333,7 @@ template< >
 class NumericTraits< std::complex< long > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< long >    Self;
   // for backward compatibility
   typedef Self                   TheType;
@@ -1284,6 +1362,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() <= 0; }
   static bool IsNegative(Self val) { return val.real() < 0; }
   static bool IsNonnegative(Self val) { return val.real() >= 0; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1316,6 +1396,7 @@ template< >
 class NumericTraits< std::complex< unsigned long > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< unsigned long >  Self;
   // for backward compatibility
   typedef Self                           TheType;
@@ -1344,6 +1425,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() == 0; }
   static bool IsNegative(Self) { return false; }
   static bool IsNonnegative(Self) { return true; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1376,6 +1459,7 @@ template< >
 class NumericTraits< std::complex< float > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< float >  Self;
   // for backward compatibility
   typedef Self                   TheType;
@@ -1404,6 +1488,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() <= 0.0; }
   static bool IsNegative(Self val) { return val.real() < 0.0; }
   static bool IsNonnegative(Self val) { return val.real() >= 0.0; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1436,6 +1522,7 @@ template< >
 class NumericTraits< std::complex< double > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< double > Self;
   // for backward compatibility
   typedef Self                   TheType;
@@ -1464,6 +1551,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() <= 0.0; }
   static bool IsNegative(Self val) { return val.real() < 0.0; }
   static bool IsNonnegative(Self val) { return val.real() >= 0.0; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1496,6 +1585,7 @@ template< >
 class NumericTraits< std::complex< long double > >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef std::complex< long double > Self;
   // for backward compatibility
   typedef Self                        TheType;
@@ -1524,6 +1614,8 @@ public:
   static bool IsNonpositive(Self val) { return val.real() <= 0.0; }
   static bool IsNegative(Self val) { return val.real() < 0.0; }
   static bool IsNonnegative(Self val) { return val.real() >= 0.0; }
+  typedef FalseType IsSigned;
+  typedef FalseType IsInteger;
   static Self ZeroValue() { return Zero; }
   static Self OneValue() { return One; }
   static unsigned int GetLength(const Self &) { return 2; }
@@ -1557,6 +1649,7 @@ class NumericTraits< long long > :
   public std::numeric_limits< long long >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef long long                ValueType;
   typedef long long                PrintType;
   typedef long long                AbsType;
@@ -1575,6 +1668,8 @@ public:
   static bool IsNonpositive(ValueType val) { return val <= Zero; }
   static bool IsNegative(ValueType val) { return val < Zero; }
   static bool IsNonnegative(ValueType val) { return val >= Zero; }
+  typedef TrueType IsSigned;
+  typedef TrueType IsInteger;
   static ValueType  ZeroValue() { return Zero; }
   static ValueType  OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
@@ -1608,6 +1703,7 @@ class NumericTraits< unsigned long long > :
   public std::numeric_limits< unsigned long long >
 {
 public:
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
   typedef unsigned long long       ValueType;
   typedef unsigned long long       PrintType;
   typedef unsigned long long       AbsType;
@@ -1626,6 +1722,8 @@ public:
   static bool IsNonpositive(ValueType val) { return val == Zero; }
   static bool IsNegative(ValueType) { return false; }
   static bool IsNonnegative(ValueType) { return true; }
+  typedef FalseType IsSigned;
+  typedef TrueType  IsInteger;
   static ValueType ZeroValue() { return Zero; }
   static ValueType OneValue() { return One; }
   static unsigned int GetLength(const ValueType &) { return 1; }
