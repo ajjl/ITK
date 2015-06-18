@@ -134,6 +134,9 @@ public:
     return OneValue();
   }
 
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
+  itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO();
+
   /** RGBA pixels must have 4 components, so the size cannot be
    *  set to anything besides 4.  If called with size of 4, this
    *  function will fill the pixel with zeros. */
