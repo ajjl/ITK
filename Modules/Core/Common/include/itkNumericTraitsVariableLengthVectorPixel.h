@@ -184,6 +184,9 @@ public:
     return flag;
   }
 
+  itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO();
+  itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO();
+
 
   /** Resize the input vector to the specified size. */
   static void SetLength(VariableLengthVector< T > & m, const unsigned int s)
