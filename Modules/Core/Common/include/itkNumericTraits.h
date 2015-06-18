@@ -78,8 +78,8 @@
 
 //a macro for setting the default IsSigned and IsInteger to FalseType
 #define itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO()    \
-  typedef FalseType IsSigned                                        \
-  typedef FalseType IsInteger
+  typedef FalseType IsSigned;                                       \
+  typedef FalseType IsInteger;
 
 namespace itk
 {
