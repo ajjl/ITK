@@ -151,7 +151,7 @@ FastMarchingImageToNodePairContainerAdaptor< TInput, TOutput, TImage >
       for (it.GoToBegin(); !it.IsAtEnd(); ++it)
         {
         // Test if index value is greater than zero, if so add the node
-        if (it.Get() != NumericTraits< ImagePixelType >::ZeroValue())
+        if (itk::Math::NotEqualsComparison(it.Get(), NumericTraits< ImagePixelType >::ZeroValue()))
         if (itk::Math::NotEqualsComparison(it.Get(), NumericTraits< ImagePixelType >::ZeroValue()))
           {
           nodes->push_back( NodePairType( it.GetIndex(), iValue ) );
