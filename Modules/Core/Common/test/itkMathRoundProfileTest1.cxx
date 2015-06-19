@@ -33,10 +33,10 @@ int itkMathRoundTestHelperFunction( double x )
       }                                       \
     else                                      \
       {                                       \
-CLANG_PRAGMA_PUSH				\
-CLANG_SUPPRESS_Wfloat_equal			\
+CLANG_PRAGMA_PUSH        			\
+CLANG_SUPPRESS_Wfloat_equal        		\
       if( (x+0.5) == static_cast<int>(x+0.5) )  \
-CLANG_PRAGMA_POP				\
+CLANG_PRAGMA_POP        			\
         {                                     \
         y = static_cast< int >( x + 0.5 );    \
         }                                     \
