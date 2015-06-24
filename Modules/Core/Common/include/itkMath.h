@@ -333,9 +333,17 @@ template<>
 struct CASE <2>
 {
   template <typename FLOAT_TYPE, typename INT_TYPE>
-  static bool func(FLOAT_TYPE x1, INT_TYPE x2)
+  static bool func(FLOAT_TYPE floatingVar, INT_TYPE integerVar)
   {
-    return FloatAlmostEqual<FLOAT_TYPE> (x1, x2);
+  switch( integerVar )
+  {
+  case 0:
+    return FloatAlmostEqual<FLOAT_TYPE>( floatingVar, itk::NumericTraits<FLOAT_TYPE>::ZeroValue() );
+  case 1:
+    return FloatAlmostEqual<FLOAT_TYPE>( floatingVar, itk::NumericTraits<FLOAT_TYPE>::OneValue() );
+  default:
+    return FloatAlmostEqual<FLOAT_TYPE> (floatingVar, integerVar);
+  }
   }
 };
 
@@ -344,9 +352,9 @@ template<>
 struct CASE <3>
 {
   template <typename INT_TYPE, typename FLOAT_TYPE>
-  static bool func(INT_TYPE x1, FLOAT_TYPE x2)
+  static bool func(INT_TYPE integerVar, FLOAT_TYPE floatingVar)
   {
-    return FloatAlmostEqual<FLOAT_TYPE> (x1, x2);
+    return CASE<2>::func(floatingVar, integerVar);
   }
 };
 
@@ -482,7 +490,6 @@ EqualsComparison( T1 x1, T2 x2 )
 {
   return IMPLEMENTOR<T1,T2>::FUNCTION::template func<T1, T2>(x1, x2);
 }
-
 
 
 template <typename T1, typename T2>
