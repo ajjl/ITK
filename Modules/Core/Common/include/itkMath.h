@@ -31,6 +31,7 @@
 #include "itkIntTypes.h"
 #include "itkMathDetail.h"
 #include "itkConceptChecking.h"
+#include "itkNumericTraits.h"
 
 namespace itk
 {
@@ -274,6 +275,228 @@ FloatAlmostEqual( T x1, T x2,
     ulps = -ulps;
     }
   return ulps <= maxUlps;
+}
+
+//Cases for choosing equalsComparisonMethod
+//default case
+template<int CASE_NUMBER>
+struct CASE
+{
+  template <typename INPUTtype_1, typename INPUTtype_2>
+  static bool func(INPUTtype_1 x1, INPUTtype_2 x2)
+  {
+    return x1 == x2;
+  }
+};
+
+//case 1 is that of float v. float
+template<>
+struct CASE <1>
+{
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool func(FLOATtype_1 x1, FLOATtype_2 x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(double x1, double x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(double x1, float x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(float x1, double x2)
+  {
+    return FloatAlmostEqual<double>(x1, x2);
+  }
+
+  template <typename FLOATtype_1, typename FLOATtype_2>
+  static bool
+  func(float x1, float x2)
+  {
+    return FloatAlmostEqual<float>(x1, x2);
+  }
+};
+
+//case 2 is floating type v. int type
+template<>
+struct CASE <2>
+{
+  template <typename FLOAT_TYPE, typename INT_TYPE>
+  static bool func(FLOAT_TYPE floatingVar, INT_TYPE integerVar)
+  {
+  switch( integerVar )
+  {
+  case 0:
+    return FloatAlmostEqual<FLOAT_TYPE>( floatingVar, itk::NumericTraits<FLOAT_TYPE>::ZeroValue() );
+  case 1:
+    return FloatAlmostEqual<FLOAT_TYPE>( floatingVar, itk::NumericTraits<FLOAT_TYPE>::OneValue() );
+  default:
+    return FloatAlmostEqual<FLOAT_TYPE> (floatingVar, integerVar);
+  }
+  }
+};
+
+//case 3 is int type v. floating type
+template<>
+struct CASE <3>
+{
+  template <typename INT_TYPE, typename FLOAT_TYPE>
+  static bool func(INT_TYPE integerVar, FLOAT_TYPE floatingVar)
+  {
+    return CASE<2>::func(floatingVar, integerVar);
+  }
+};
+
+//case 4 is signed type v. unsigned type
+template<>
+struct CASE <4>
+{
+  template <typename SIGNED_INT, typename UNSIGNED_INT>
+  static bool func(SIGNED_INT signed_x1, UNSIGNED_INT unsigned_x2)
+  {
+    if(signed_x1 < 0) return false;
+    if( unsigned_x2 > static_cast< size_t >(itk::NumericTraits<SIGNED_INT>::max()) ) return false;
+    return signed_x1 == static_cast< SIGNED_INT >(unsigned_x2) ;
+  }
+};
+
+//case 5 is unsigned type v. signed type
+template<>
+struct CASE <5>
+{
+  template <typename UNSIGNED_INT, typename SIGNED_INT>
+  static bool func(UNSIGNED_INT unsigned_x1, SIGNED_INT signed_x2)
+  {
+    if(signed_x2 < 0) return false;
+    if( unsigned_x1 > static_cast< size_t >(itk::NumericTraits<SIGNED_INT>::max()) ) return false;
+    return ( static_cast<SIGNED_INT>(unsigned_x1) == signed_x2 );
+  }
+};
+
+//case 6 is that of int v. int both signed or both unsigned
+template<>
+struct CASE <6>
+{
+  template <typename INTtype_1, typename INTtype_2>
+  static bool func(INTtype_1 x1, INTtype_2 x2)
+  {
+    return x1 == x2;
+  }
+};
+/// end of all the cases
+
+//SELECTOR STRUCTS, these select the correct case based on its types
+template<bool INP_1_INT, bool INP_1_SIGNED, bool INP_2_INT, bool INP_2_SIGNED>
+struct SELECTOR
+{ //default case
+  typedef CASE <0> SELECTED;
+};
+
+template<>
+struct SELECTOR < false, true, false, true>
+//floating type v floating type
+{
+  typedef CASE <1> SELECTED;
+};
+
+template<>
+struct SELECTOR <false, true, true, true>
+//float vs signed int
+{
+  typedef CASE <2> SELECTED;
+};
+
+template<>
+struct SELECTOR <false, true, true,false>
+//float vs unsigned int
+{
+  typedef CASE <2> SELECTED;
+};
+
+template<>
+struct SELECTOR <true, false, false, true>
+//unsigned int vs float
+{
+  typedef CASE <3> SELECTED;
+};
+
+template<>
+struct SELECTOR <true, true, false, true>
+//signed int vs float
+{
+  typedef CASE <3> SELECTED;
+};
+
+template<>
+struct SELECTOR<true, true, true, false>
+//signed vs unsigned
+{
+  typedef CASE<4> SELECTED;
+};
+
+template<>
+struct SELECTOR<true, false, true, true>
+//unsigned vs signed
+{
+  typedef CASE<5> SELECTED;
+};
+
+template<>
+struct SELECTOR<true, true, true, true>
+//signed vs signed
+{
+  typedef CASE<6> SELECTED;
+};
+
+template<>
+struct SELECTOR<true, false, true, false>
+//unsigned vs unsigned
+{
+  typedef CASE<6> SELECTED;
+};
+//////////end of SELECTOR structs
+
+//The implementor tells the selector what to do
+template<typename U1, typename U2>
+struct IMPLEMENTOR
+{
+  typedef typename itk::NumericTraits<U1>::IsInteger U1_isInt;
+  typedef typename itk::NumericTraits<U1>::IsSigned U1_isSigned;
+  typedef typename itk::NumericTraits<U2>::IsInteger U2_isInt;
+  typedef typename itk::NumericTraits<U2>::IsSigned U2_isSigned;
+
+  static const bool U1_Ival = U1_isInt::value;
+  static const bool U1_Sval = U1_isSigned::value;
+  static const bool U2_Ival = U2_isInt::value;
+  static const bool U2_Sval = U2_isSigned::value;
+
+  typedef typename SELECTOR< U1_Ival, U1_Sval, U2_Ival, U2_Sval>::SELECTED FUNCTION;
+};
+
+template <typename T1, typename T2>
+inline bool
+EqualsComparison( T1 x1, T2 x2 )
+{
+  return IMPLEMENTOR<T1,T2>::FUNCTION::template func<T1, T2>(x1, x2);
+}
+
+
+template <typename T1, typename T2>
+inline bool
+NotEqualsComparison( T1 x1, T2 x2 )
+{
+  return ! EqualsComparison( x1, x2 );
 }
 
 /** Return whether the number in a prime number or not.
