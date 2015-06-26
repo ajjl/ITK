@@ -44,37 +44,12 @@
 
 #include "vcl_limits.h" // for std::numeric_limits
 #include <complex>
-
-//which type traits library to use for the TrueType/False type
-//taken from itkImageAlgorithm.h
-#ifdef ITK_HAS_STLTR1_TYPE_TRAITS
-#  include <type_traits>
-#elif defined ITK_HAS_STLTR1_TR1_TYPE_TRAITS
-#  include <tr1/type_traits>
-#else
-#  include "itkIsSame.h"
-#endif
-
-#ifdef ITK_HAS_CPP11_TYPETRAITS
-#  define ITK_STD_TR1_NAMESPACE std
-#else
-#  define ITK_STD_TR1_NAMESPACE std::tr1
-#endif
+#include "itkIsSame.h"
 
 //how to define TrueType and FalseType
-#ifdef ITK_HAS_STLTR1_TR1_TYPE_TRAITS
-#define   itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO()      \
-  typedef ITK_STD_TR1_NAMESPACE::true_type TrueType;    \
-  typedef ITK_STD_TR1_NAMESPACE::false_type FalseType;
-#elif defined ITK_HAS_STLTR1_TYPE_TRAITS
-#define   itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO()      \
-  typedef ITK_STD_TR1_NAMESPACE::true_type TrueType;    \
-  typedef ITK_STD_TR1_NAMESPACE::false_type FalseType;
-#else
 #define   itkNUMERIC_TRAITS_TRUE_FALSE_TYPE_MACRO()      \
   typedef itk::TrueType TrueType;            \
   typedef itk::FalseType FalseType;
-#endif
 
 //a macro for setting the default IsSigned and IsInteger to FalseType
 #define itkNUMERIC_TRAITS_ISSIGNED_AND_ISINTEGER_DEFAULT_MACRO()    \

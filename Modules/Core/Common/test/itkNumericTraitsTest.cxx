@@ -109,6 +109,8 @@ template<typename T> void CheckTraits(const char *name, T t)
   std::cout << "\tIsNonpositive( One )" << itk::NumericTraits<T>::IsNonpositive( itk::NumericTraits<T>::OneValue() ) << std::endl;
   std::cout << "\tIsNegative( One )" << itk::NumericTraits<T>::IsNegative( itk::NumericTraits<T>::OneValue() ) << std::endl;
   std::cout << "\tIsNonnegative( One )" << itk::NumericTraits<T>::IsNonnegative( itk::NumericTraits<T>::OneValue() ) << std::endl;
+  std::cout << "\tIsInteger()" << typename itk::NumericTraits<T>::IsInteger() << std::endl;
+  std::cout << "\tIsSigned()" << typename itk::NumericTraits<T>::IsSigned() << std::endl;
 
  CheckFixedArrayTraits(t);
 }
