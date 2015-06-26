@@ -511,10 +511,10 @@ struct IMPLEMENTOR
   typedef typename itk::NumericTraits<U2>::IsInteger U2_isInt;
   typedef typename itk::NumericTraits<U2>::IsSigned U2_isSigned;
 
-  static const bool U1_Ival = U1_isInt::value;
-  static const bool U1_Sval = U1_isSigned::value;
-  static const bool U2_Ival = U2_isInt::value;
-  static const bool U2_Sval = U2_isSigned::value;
+  static const bool U1_Ival = U1_isInt::Value;
+  static const bool U1_Sval = U1_isSigned::Value;
+  static const bool U2_Ival = U2_isInt::Value;
+  static const bool U2_Sval = U2_isSigned::Value;
 
   typedef typename SELECTOR< U1_Ival, U1_Sval, U2_Ival, U2_Sval>::SELECTED FUNCTION;
 };
