@@ -277,7 +277,43 @@ FloatAlmostEqual( T x1, T x2,
   return ulps <= maxUlps;
 }
 
-//Cases for choosing equalsComparisonMethod
+
+/** \brief Provide consistent equality checks between values of potentially different types
+ *
+ * template< typename T1, typename T2 >
+ * EqualsComparison( T1 x1, T2 x2 )
+ *
+ * template< typename T1, typename T2 >
+ * NotEqualsComparison( T1 x1, T2 x2 )
+ *
+ * This function uses the FloatAlmostEqual() to compare floating point values with
+ * values of different types. For maximum extensibility the function is implemented through
+ * a series of templated structs which direct the EqualsComparison() call to the correct function
+ * by evaluating the parameter types.
+ *
+ * Overall algorithm:
+ *   To compare two floating point types...
+ *     use FloatAlmostEqual.
+ *
+ *   To compare a floating point and an integer type...
+ *     If the integer type value is 0 or 1 ...
+ *        use NumericTraits<FloatingPointType>::ZeroValue() or ::OneValue() and call
+ *        FloatAlmostEqual
+ *     Else
+ *        Use static_cast<FloatingPointType>(integerValue) and call FloatAlmostEqual
+ *
+ *   To compare signed and unsigned integers...
+ *     Check for negative value or overflow, then cast and use ==
+ *
+ *   To compare two sogned or two unsigned integers ...
+ *     Use ==
+ *
+ *   To compare anything else ...
+ *     Use ==
+ *
+ */
+
+//Cases for choosing EqualsComparison function
 //default case
 template<int CASE_NUMBER>
 struct CASE
@@ -289,7 +325,7 @@ struct CASE
   }
 };
 
-//case 1 is that of float v. float
+//case 1 is that of floating type v. floating type
 template<>
 struct CASE <1>
 {
@@ -378,9 +414,7 @@ struct CASE <5>
   template <typename UNSIGNED_INT, typename SIGNED_INT>
   static bool func(UNSIGNED_INT unsigned_x1, SIGNED_INT signed_x2)
   {
-    if(signed_x2 < 0) return false;
-    if( unsigned_x1 > static_cast< size_t >(itk::NumericTraits<SIGNED_INT>::max()) ) return false;
-    return ( static_cast<SIGNED_INT>(unsigned_x1) == signed_x2 );
+    return CASE<4>::func(signed_x2, unsigned_x1);
   }
 };
 
@@ -396,7 +430,8 @@ struct CASE <6>
 };
 /// end of all the cases
 
-//SELECTOR STRUCTS, these select the correct case based on its types
+//SELECTOR STRUCTS, these select the correct /case based on its types
+//       input1 is int?  input 1 is signed? input2 is int?  input 2 is signed?
 template<bool INP_1_INT, bool INP_1_SIGNED, bool INP_2_INT, bool INP_2_SIGNED>
 struct SELECTOR
 { //default case
@@ -484,6 +519,7 @@ struct IMPLEMENTOR
   typedef typename SELECTOR< U1_Ival, U1_Sval, U2_Ival, U2_Sval>::SELECTED FUNCTION;
 };
 
+//The EqualsComparison function
 template <typename T1, typename T2>
 inline bool
 EqualsComparison( T1 x1, T2 x2 )
@@ -491,13 +527,15 @@ EqualsComparison( T1 x1, T2 x2 )
   return IMPLEMENTOR<T1,T2>::FUNCTION::template func<T1, T2>(x1, x2);
 }
 
-
+//The NotEqualsComparison function
 template <typename T1, typename T2>
 inline bool
 NotEqualsComparison( T1 x1, T2 x2 )
 {
   return ! EqualsComparison( x1, x2 );
 }
+//End of structs and functions used for EqualsComparison(), and NotEqualsComparison().
+
 
 /** Return whether the number in a prime number or not.
  *

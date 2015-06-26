@@ -36,11 +36,13 @@ inline int TestIntegersAreSame(const T1 & v1, const T2 & v2)
     }
   if ( itk::Math::EqualsComparison(v2,v1) == true  )
     {
+    std::cout << "Error in " << "itk::Math::EqualsComparison(v2, v1) " << std::endl;
     std::cout << __FILE__ << " " << __LINE__ << " " << v2 << " == " << v1 << std::endl;
     passed=EXIT_FAILURE;
     }
   if ( itk::Math::EqualsComparison(v1,v2) == true )
     {
+    std::cout << "Error in " << "itk::Math::EqualsComparison(v1, v2) " << std::endl;
     std::cout << __FILE__ << " " << __LINE__ << " " << v1 << " == " << v2 << std::endl;
     passed=EXIT_FAILURE;
     }
