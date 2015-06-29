@@ -52,7 +52,10 @@ public:
    */
   bool operator>(const KLMDynamicBorderArray< TBorder > & rhs) const
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Pointer->GetLambda() == rhs.m_Pointer->GetLambda() )
+CLANG_PRAGMA_POP
       {
       if ( m_Pointer->GetLambda() < 0 )
         {

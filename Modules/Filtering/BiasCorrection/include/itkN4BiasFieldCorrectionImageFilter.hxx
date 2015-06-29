@@ -32,7 +32,10 @@
 #include "itkVectorIndexSelectionCastImageFilter.h"
 
 #include "vnl/algo/vnl_fft_1d.h"
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
 #include "vnl/vnl_complex_traits.h"
+CLANG_PRAGMA_POP
 #include "vcl_complex.h"
 
 namespace itk {

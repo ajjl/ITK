@@ -20,6 +20,7 @@
 
 #include "itkInPlaceImageFilter.h"
 #include "itkImageRegionIteratorWithIndex.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -88,7 +89,10 @@ public:
    * appropriate). */
   void SetFunctor(const FunctorType & functor)
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Functor != functor )
+CLANG_PRAGMA_POP
       {
       m_Functor = functor;
       this->Modified();

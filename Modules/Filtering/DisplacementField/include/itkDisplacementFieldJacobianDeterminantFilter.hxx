@@ -55,7 +55,10 @@ DisplacementFieldJacobianDeterminantFilter< TInputImage, TRealType, TOutputImage
 
   for ( unsigned int i = 0; i < ImageDimension; ++i )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_DerivativeWeights[i] != data[i] )
+CLANG_PRAGMA_POP
       {
       this->Modified();
       m_DerivativeWeights[i] = data[i];

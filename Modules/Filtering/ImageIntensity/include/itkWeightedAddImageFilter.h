@@ -41,7 +41,10 @@ public:
   ~WeightedAdd2() {}
   bool operator!=(const WeightedAdd2 & other) const
   {
-    if (  m_Alpha != other.m_Alpha  )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if ( m_Alpha != other.m_Alpha )
+CLANG_PRAGMA_POP
       {
       return true;
       }

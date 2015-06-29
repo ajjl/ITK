@@ -513,24 +513,24 @@ int main( int, char *[] )
       }
     }
 
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(0u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(1u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(2u)), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(3u)), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(4u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(5u)), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(6u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(7u)), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(8u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(9u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(10u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(11u)), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(12u) == false), testPassStatus );
-  TEST_EXPECT_TRUE_STATUSVAL( (itk::Math::IsPrime(13u)), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(0u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(1u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(2u)), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(3u)), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(4u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(5u)), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(6u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(7u)), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(8u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(9u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(10u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(11u)), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(12u) == false), testPassStatus );
+  TEST_EXPECT_TRUE_STATUS_VALUE( (itk::Math::IsPrime(13u)), testPassStatus );
 
-  TEST_EXPECT_EQUAL_STATUSVAL( itk::Math::GreatestPrimeFactor(12u), 3, testPassStatus );
-  TEST_EXPECT_EQUAL_STATUSVAL( itk::Math::GreatestPrimeFactor(75u), 5, testPassStatus );
-  TEST_EXPECT_EQUAL_STATUSVAL( itk::Math::GreatestPrimeFactor(1024u), 2, testPassStatus );
+  TEST_EXPECT_EQUAL_STATUS_VALUE( itk::Math::GreatestPrimeFactor(12u), 3, testPassStatus );
+  TEST_EXPECT_EQUAL_STATUS_VALUE( itk::Math::GreatestPrimeFactor(75u), 5, testPassStatus );
+  TEST_EXPECT_EQUAL_STATUS_VALUE( itk::Math::GreatestPrimeFactor(1024u), 2, testPassStatus );
 
   return testPassStatus;
 }

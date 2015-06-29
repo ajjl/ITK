@@ -210,7 +210,7 @@ public:
         {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-        if ( m_Matrix(r != c), matrix.m_Matrix(r, c)  )
+        if ( m_Matrix(r, c) != matrix.m_Matrix(r, c)  )
 CLANG_PRAGMA_POP
           {
           equal = false;
