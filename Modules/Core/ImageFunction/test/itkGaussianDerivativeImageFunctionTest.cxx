@@ -63,7 +63,7 @@ int TestGaussianDerivativeImageFunction()
   const double* sigma = DoG->GetSigma();
   for(unsigned int i=0;i<Dimension;i++)
     {
-    if( sigma[i] !=  2.0)
+    if( sigma[i] != 2.0)
       {
       std::cerr << "[FAILED]" << std::endl;
       return EXIT_FAILURE;
@@ -78,7 +78,7 @@ int TestGaussianDerivativeImageFunction()
   const double* ext = DoG->GetExtent();
   for( unsigned int i = 0; i < Dimension; ++i )
     {
-    if( ext[i] !=  4.0)
+    if( ext[i] != 4.0)
       {
       std::cerr << "[FAILED]" << std::endl;
       return EXIT_FAILURE;

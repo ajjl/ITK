@@ -147,7 +147,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  v != m_ShapePriorSegmentationFunction->GetShapePriorWeight()  )
+    if ( v != m_ShapePriorSegmentationFunction->GetShapePriorWeight() )
 CLANG_PRAGMA_POP
       {
       m_ShapePriorSegmentationFunction->SetShapePriorWeight(v);

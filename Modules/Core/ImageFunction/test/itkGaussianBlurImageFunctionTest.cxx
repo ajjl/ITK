@@ -66,7 +66,7 @@ int itkGaussianBlurImageFunctionTest(int, char* [] )
 
   for(unsigned int i=0;i<Dimension;i++)
   {
-    if( sigma[i] !=  5.0)
+    if( sigma[i] != 5.0)
     {
     std::cerr << "[FAILED]" << std::endl;
     return EXIT_FAILURE;
@@ -82,7 +82,7 @@ int itkGaussianBlurImageFunctionTest(int, char* [] )
 
   for(unsigned int i=0;i<Dimension;i++)
   {
-    if( ext[i] !=  5.0)
+    if( ext[i] != 5.0)
     {
     std::cerr << "[FAILED]" << std::endl;
     return EXIT_FAILURE;

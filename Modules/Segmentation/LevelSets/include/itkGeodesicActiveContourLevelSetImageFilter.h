@@ -140,7 +140,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  value != m_GeodesicActiveContourFunction->GetDerivativeSigma()  )
+    if ( value != m_GeodesicActiveContourFunction->GetDerivativeSigma() )
 CLANG_PRAGMA_POP
       {
       m_GeodesicActiveContourFunction->SetDerivativeSigma(value);

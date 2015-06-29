@@ -119,7 +119,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  threshold != this->GetFunctor().m_Threshold  )
+    if ( threshold != this->GetFunctor().m_Threshold )
 CLANG_PRAGMA_POP
       {
       this->GetFunctor().m_Threshold = threshold;
@@ -137,7 +137,7 @@ CLANG_PRAGMA_POP
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  constant != this->GetFunctor().m_Constant  )
+    if ( constant != this->GetFunctor().m_Constant )
 CLANG_PRAGMA_POP
       {
       this->GetFunctor().m_Constant = constant;

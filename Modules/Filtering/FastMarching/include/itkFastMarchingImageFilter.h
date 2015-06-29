@@ -195,7 +195,7 @@ private:
       {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-      if(  b_it.Get() == zero_value  )
+      if( b_it.Get() == zero_value )
 CLANG_PRAGMA_POP
         {
         if( NumberOfPoints == 0 )

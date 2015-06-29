@@ -164,7 +164,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  this->GetOutsideValue() != outsideValue  )
+    if ( this->GetOutsideValue() != outsideValue )
 CLANG_PRAGMA_POP
       {
       this->Modified();

@@ -203,7 +203,7 @@ public:
       }
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    else if(  XRes != m_XRes  ||  YRes != m_YRes )
+    else if( XRes != m_XRes || YRes != m_YRes )
 CLANG_PRAGMA_POP
       {
       return false;

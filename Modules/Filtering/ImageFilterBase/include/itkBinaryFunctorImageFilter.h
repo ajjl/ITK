@@ -145,7 +145,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  m_Functor != functor  )
+    if ( m_Functor != functor )
 CLANG_PRAGMA_POP
       {
       m_Functor = functor;

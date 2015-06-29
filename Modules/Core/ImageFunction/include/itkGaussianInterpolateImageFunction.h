@@ -129,7 +129,7 @@ public:
     itkDebugMacro( "setting Alpha to " << a );
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if(  this->m_Alpha != a  )
+    if( this->m_Alpha != a )
 CLANG_PRAGMA_POP
       {
       this->m_Alpha = a;

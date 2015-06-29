@@ -87,7 +87,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  constant != m_InternalBoundaryCondition.GetConstant()  )
+    if ( constant != m_InternalBoundaryCondition.GetConstant() )
 CLANG_PRAGMA_POP
       {
       m_InternalBoundaryCondition.SetConstant( constant );

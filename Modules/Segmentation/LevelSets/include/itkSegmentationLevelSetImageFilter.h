@@ -315,14 +315,14 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  v != m_SegmentationFunction->GetPropagationWeight()  )
+    if ( v != m_SegmentationFunction->GetPropagationWeight() )
 CLANG_PRAGMA_POP
       {
       this->SetPropagationScaling(v);
       }
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  v != m_SegmentationFunction->GetAdvectionWeight()  )
+    if ( v != m_SegmentationFunction->GetAdvectionWeight() )
 CLANG_PRAGMA_POP
       {
       this->SetAdvectionScaling(v);
@@ -335,7 +335,7 @@ CLANG_PRAGMA_POP
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  v != m_SegmentationFunction->GetPropagationWeight()  )
+    if ( v != m_SegmentationFunction->GetPropagationWeight() )
 CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetPropagationWeight(v);
@@ -354,7 +354,7 @@ CLANG_PRAGMA_POP
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  v != m_SegmentationFunction->GetAdvectionWeight()  )
+    if ( v != m_SegmentationFunction->GetAdvectionWeight() )
 CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetAdvectionWeight(v);
@@ -375,7 +375,7 @@ CLANG_PRAGMA_POP
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  v != m_SegmentationFunction->GetCurvatureWeight()  )
+    if ( v != m_SegmentationFunction->GetCurvatureWeight() )
 CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetCurvatureWeight(v);
@@ -441,7 +441,7 @@ CLANG_PRAGMA_POP
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if (  n != m_SegmentationFunction->GetMaximumCurvatureTimeStep()  )
+    if ( n != m_SegmentationFunction->GetMaximumCurvatureTimeStep() )
 CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetMaximumCurvatureTimeStep(n);

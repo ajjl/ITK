@@ -158,7 +158,7 @@ LBFGSOptimizerBasev4<TInternalVnlOptimizerType>
 {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-  if (  f == m_GradientConvergenceTolerance  )
+  if ( f == m_GradientConvergenceTolerance )
 CLANG_PRAGMA_POP
     {
     return;

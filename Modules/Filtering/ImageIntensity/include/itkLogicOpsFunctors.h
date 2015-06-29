@@ -134,7 +134,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if(  A == static_cast<TInput1>(B)  )
+    if( A == static_cast<TInput1>(B) )
 CLANG_PRAGMA_POP
       {
       return this->m_ForegroundValue;
@@ -172,7 +172,7 @@ public:
   {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-    if(  A != B  )
+    if( A != B )
 CLANG_PRAGMA_POP
       {
       return this->m_ForegroundValue;

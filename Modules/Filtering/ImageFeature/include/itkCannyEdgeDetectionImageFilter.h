@@ -155,7 +155,7 @@ public:
       {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-      if (  m_Variance[i] != v )
+      if ( m_Variance[i] != v )
 CLANG_PRAGMA_POP
         {
         m_Variance.Fill(v);
@@ -173,7 +173,7 @@ CLANG_PRAGMA_POP
       {
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
-      if (  m_MaximumError[i] != v  )
+      if ( m_MaximumError[i] != v )
 CLANG_PRAGMA_POP
         {
         m_MaximumError.Fill(v);
