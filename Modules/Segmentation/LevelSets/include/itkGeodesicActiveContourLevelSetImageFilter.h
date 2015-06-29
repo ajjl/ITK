@@ -20,6 +20,7 @@
 
 #include "itkSegmentationLevelSetImageFilter.h"
 #include "itkGeodesicActiveContourLevelSetFunction.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -137,7 +138,10 @@ public:
    * derivatives  */
   void SetDerivativeSigma(float value)
   {
-    if ( value != m_GeodesicActiveContourFunction->GetDerivativeSigma() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  value != m_GeodesicActiveContourFunction->GetDerivativeSigma()  )
+CLANG_PRAGMA_POP
       {
       m_GeodesicActiveContourFunction->SetDerivativeSigma(value);
       this->Modified();

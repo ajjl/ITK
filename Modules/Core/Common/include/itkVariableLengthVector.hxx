@@ -22,6 +22,7 @@
 #include "vnl/vnl_math.h"
 #include <cstring>
 #include <cstdlib>
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -318,7 +319,10 @@ VariableLengthVector< TValue >
     }
   for ( ElementIdentifier i = 0; i < m_NumElements; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Data[i] != v[i] )
+CLANG_PRAGMA_POP
       {
       return false;
       }
@@ -337,7 +341,10 @@ VariableLengthVector< TValue >
     }
   for ( ElementIdentifier i = 0; i < m_NumElements; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Data[i] != v[i] )
+CLANG_PRAGMA_POP
       {
       return true;
       }

@@ -20,6 +20,7 @@
 
 #include "itkBinaryFunctorImageFilter.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -40,7 +41,7 @@ public:
   ~WeightedAdd2() {}
   bool operator!=(const WeightedAdd2 & other) const
   {
-    if ( m_Alpha != other.m_Alpha )
+    if (  m_Alpha != other.m_Alpha  )
       {
       return true;
       }

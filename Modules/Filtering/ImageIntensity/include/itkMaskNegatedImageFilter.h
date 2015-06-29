@@ -20,6 +20,7 @@
 
 #include "itkBinaryFunctorImageFilter.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -161,7 +162,10 @@ public:
   /** Method to explicitly set the outside value of the mask. Defaults to 0 */
   void SetOutsideValue(const typename TOutputImage::PixelType & outsideValue)
   {
-    if ( this->GetOutsideValue() != outsideValue )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  this->GetOutsideValue() != outsideValue  )
+CLANG_PRAGMA_POP
       {
       this->Modified();
       this->GetFunctor().SetOutsideValue(outsideValue);

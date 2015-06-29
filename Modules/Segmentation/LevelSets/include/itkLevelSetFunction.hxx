@@ -20,6 +20,7 @@
 
 #include "itkLevelSetFunction.h"
 #include "vnl/algo/vnl_symmetric_eigensystem.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -350,7 +351,7 @@ LevelSetFunction< TImageType >
       }
     }
 
-  if ( m_CurvatureWeight != ZERO )
+  if ( itk::Math::NotEqualsComparison(m_CurvatureWeight, ZERO) )
     {
     curvature_term = this->ComputeCurvatureTerm(it, offset, gd) * m_CurvatureWeight
                      * this->CurvatureSpeed(it, offset);
@@ -369,7 +370,7 @@ LevelSetFunction< TImageType >
   // Here we can use a simple upwinding scheme since we know the
   // sign of each directional component of the advective force.
   //
-  if ( m_AdvectionWeight != ZERO )
+  if ( itk::Math::NotEqualsComparison(m_AdvectionWeight, ZERO) )
     {
     advection_field = this->AdvectionField(it, offset, gd);
     advection_term = ZERO;
@@ -397,7 +398,7 @@ LevelSetFunction< TImageType >
     advection_term = ZERO;
     }
 
-  if ( m_PropagationWeight != ZERO )
+  if ( itk::Math::NotEqualsComparison(m_PropagationWeight, ZERO) )
     {
     // Get the propagation speed
     propagation_term = m_PropagationWeight * this->PropagationSpeed(it, offset, gd);
@@ -438,7 +439,7 @@ LevelSetFunction< TImageType >
     }
   else { propagation_term = ZERO; }
 
-  if ( m_LaplacianSmoothingWeight != ZERO )
+  if ( itk::Math::NotEqualsComparison(m_LaplacianSmoothingWeight, ZERO) )
     {
     laplacian = ZERO;
 

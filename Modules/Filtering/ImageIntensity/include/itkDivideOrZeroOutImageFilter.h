@@ -20,6 +20,7 @@
 
 #include "itkBinaryFunctorImageFilter.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -116,7 +117,10 @@ public:
    * be considered zero. */
   void SetThreshold( DenominatorPixelType threshold  )
   {
-    if ( threshold != this->GetFunctor().m_Threshold )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  threshold != this->GetFunctor().m_Threshold  )
+CLANG_PRAGMA_POP
       {
       this->GetFunctor().m_Threshold = threshold;
       this->Modified();
@@ -131,7 +135,10 @@ public:
    * value is considered zero. */
   void SetConstant( OutputPixelType constant )
   {
-    if ( constant != this->GetFunctor().m_Constant )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  constant != this->GetFunctor().m_Constant  )
+CLANG_PRAGMA_POP
       {
       this->GetFunctor().m_Constant = constant;
       this->Modified();

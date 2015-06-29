@@ -24,6 +24,7 @@
 #include "itkProgressReporter.h"
 
 #include "itkShapedFloodFilledImageFunctionConditionalIterator.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -164,7 +165,10 @@ ConnectedThresholdImageFilter< TInputImage, TOutputImage >
 {
   // first check to see if anything changed
   typename InputPixelObjectType::Pointer upper = this->GetUpperInput();
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( upper && upper->Get() == threshold )
+CLANG_PRAGMA_POP
     {
     return;
     }
@@ -188,7 +192,10 @@ ConnectedThresholdImageFilter< TInputImage, TOutputImage >
 {
   // first check to see if anything changed
   typename InputPixelObjectType::Pointer lower = this->GetLowerInput();
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( lower && lower->Get() == threshold )
+CLANG_PRAGMA_POP
     {
     return;
     }

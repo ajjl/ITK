@@ -18,6 +18,7 @@
 #ifndef itkWatershedImageFilter_hxx
 #define itkWatershedImageFilter_hxx
 #include "itkWatershedImageFilter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -35,7 +36,10 @@ WatershedImageFilter< TInputImage >
     val = 1.0;
     }
 
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( val != m_Threshold )
+CLANG_PRAGMA_POP
     {
     m_Threshold = val;
     m_Segmenter->SetThreshold(m_Threshold);
@@ -59,7 +63,10 @@ WatershedImageFilter< TInputImage >
     val = 1.0;
     }
 
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( val != m_Level )
+CLANG_PRAGMA_POP
     {
     m_Level = val;
     m_TreeGenerator->SetFloodLevel(m_Level);

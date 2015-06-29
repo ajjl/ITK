@@ -19,6 +19,7 @@
 #define itkLaplacianSegmentationLevelSetFunction_h
 
 #include "itkSegmentationLevelSetFunction.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -78,7 +79,10 @@ public:
    */
   void SetAdvectionWeight(const ScalarValueType value) ITK_OVERRIDE
   {
-    if ( value == NumericTraits< ScalarValueType >::ZeroValue() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  value == NumericTraits< ScalarValueType >::ZeroValue()  )
+CLANG_PRAGMA_POP
       {
       Superclass::SetAdvectionWeight(value);
       }

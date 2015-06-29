@@ -18,6 +18,7 @@
 #include "itkImageToImageMetricv4.h"
 #include "itkTranslationTransform.h"
 #include "itkTestingMacros.h"
+#include "itkMath.h"
 
 /*
  * This test creates synthetic images and verifies numerical results
@@ -376,7 +377,7 @@ int ImageToImageMetricv4TestRunSingleTest(
 
   // Test same value returned by different methods
   std::cout << "Check Value return values..." << std::endl;
-  if( valueReturn1 != valueReturn2 )
+  if( itk::Math::NotEqualsComparison( valueReturn1, valueReturn2 ) )
     {
     std::cerr << "Results for Value don't match: " << valueReturn1
               << ", " << valueReturn2 << std::endl;
@@ -570,7 +571,7 @@ int itkImageToImageMetricv4Test(int, char ** const)
   expectedMetricMax = itk::NumericTraits<ImageToImageMetricv4TestMetricType::MeasureType>::max();
   std::cout << "Testing non-overlapping images. Expect a warning:" << std::endl;
   if( ImageToImageMetricv4TestRunSingleTest( metric, truthValue, truthDerivative, 0, true ) != EXIT_SUCCESS ||
-      metric->GetValue() != expectedMetricMax )
+      itk::Math::NotEqualsComparison( metric->GetValue(), expectedMetricMax ) )
     {
     std::cerr << "Failed testing for non-overlapping images. " << std::endl
               << "  Number of valid points: " << metric->GetNumberOfValidPoints() << std::endl

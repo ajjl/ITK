@@ -21,6 +21,7 @@
 #include "itkGaussianDerivativeImageFunction.h"
 
 #include "itkCompensatedSummation.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -114,7 +115,10 @@ GaussianDerivativeImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension2); i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( sigma != m_Sigma[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -164,7 +168,10 @@ GaussianDerivativeImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension2); i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( extent != m_Extent[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }

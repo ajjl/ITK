@@ -22,6 +22,7 @@
 #include "itkShapePriorSegmentationLevelSetFunction.h"
 #include "itkSingleValuedNonLinearOptimizer.h"
 #include "itkShapePriorMAPCostFunctionBase.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -144,7 +145,10 @@ public:
   /** Set/Get the scaling of the shape prior term. */
   void SetShapePriorScaling(ValueType v)
   {
-    if ( v != m_ShapePriorSegmentationFunction->GetShapePriorWeight() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  v != m_ShapePriorSegmentationFunction->GetShapePriorWeight()  )
+CLANG_PRAGMA_POP
       {
       m_ShapePriorSegmentationFunction->SetShapePriorWeight(v);
       this->Modified();

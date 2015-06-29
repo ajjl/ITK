@@ -19,6 +19,7 @@
 #define itkJensenHavrdaCharvatTsallisPointSetToPointSetMetricv4_hxx
 
 #include "itkJensenHavrdaCharvatTsallisPointSetToPointSetMetricv4.h"
+#include "itkMath.h"
 
 namespace itk {
 
@@ -123,7 +124,7 @@ JensenHavrdaCharvatTsallisPointSetToPointSetMetricv4<TPointSet, TInternalComputa
 
   probabilityStar /= this->m_TotalNumberOfPoints;
 
-  if( probabilityStar == NumericTraits<RealType>::ZeroValue() )
+  if( itk::Math::EqualsComparison( probabilityStar, NumericTraits<RealType>::ZeroValue() ) )
     {
     return;
     }
@@ -131,7 +132,7 @@ JensenHavrdaCharvatTsallisPointSetToPointSetMetricv4<TPointSet, TInternalComputa
   if( calcValue )
     {
     RealType realOne = NumericTraits<RealType>::OneValue();
-    if( this->m_Alpha == realOne )
+    if( itk::Math::EqualsComparison( this->m_Alpha, realOne ) )
       {
       value = ( std::log( probabilityStar ) );
       }
@@ -153,7 +154,7 @@ JensenHavrdaCharvatTsallisPointSetToPointSetMetricv4<TPointSet, TInternalComputa
       {
       RealType gaussian = this->m_MovingDensityFunction->GetGaussian( neighbors[n] )->Evaluate( samplePoint );
 
-      if( gaussian == NumericTraits<RealType>::ZeroValue() )
+      if( itk::Math::EqualsComparison( gaussian, NumericTraits<RealType>::ZeroValue() ) )
         {
         continue;
         }

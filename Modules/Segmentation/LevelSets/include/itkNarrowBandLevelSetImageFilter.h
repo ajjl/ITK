@@ -22,6 +22,7 @@
 #include "itkSegmentationLevelSetFunction.h"
 #include "itkFastChamferDistanceImageFilter.h"
 #include "itkIsoContourDistanceImageFilter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -277,7 +278,10 @@ public:
       parameter overrides any previous values set for PropagationScaling. */
   void SetPropagationScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetPropagationWeight() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  v != m_SegmentationFunction->GetPropagationWeight()  )
+CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetPropagationWeight(v);
       }
@@ -292,7 +296,10 @@ public:
       parameter will override any existing value for AdvectionScaling. */
   void SetAdvectionScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetAdvectionWeight() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  v != m_SegmentationFunction->GetAdvectionWeight()  )
+CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetAdvectionWeight(v);
       }
@@ -309,7 +316,10 @@ public:
     *  smoother surfaces. */
   void SetCurvatureScaling(ValueType v)
   {
-    if ( v != m_SegmentationFunction->GetCurvatureWeight() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  v != m_SegmentationFunction->GetCurvatureWeight()  )
+CLANG_PRAGMA_POP
       {
       m_SegmentationFunction->SetCurvatureWeight(v);
       }

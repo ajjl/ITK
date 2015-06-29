@@ -23,6 +23,7 @@
 #include "itkNumericTraits.h"
 #include "vnl/vnl_math.h"
 #include <algorithm>
+#include "itkMacro.h"
 
 namespace itk
 {

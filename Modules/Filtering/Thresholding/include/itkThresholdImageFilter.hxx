@@ -33,6 +33,7 @@
 #include "itkNumericTraits.h"
 #include "itkObjectFactory.h"
 #include "itkProgressReporter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -78,7 +79,10 @@ void
 ThresholdImageFilter< TImage >
 ::ThresholdAbove(const PixelType & thresh)
 {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( m_Upper != thresh
+CLANG_PRAGMA_POP
        || m_Lower > NumericTraits< PixelType >::NonpositiveMin() )
     {
     m_Lower = NumericTraits< PixelType >::NonpositiveMin();
@@ -95,7 +99,10 @@ void
 ThresholdImageFilter< TImage >
 ::ThresholdBelow(const PixelType & thresh)
 {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( m_Lower != thresh || m_Upper < NumericTraits< PixelType >::max() )
+CLANG_PRAGMA_POP
     {
     m_Lower = thresh;
     m_Upper = NumericTraits< PixelType >::max();
@@ -117,7 +124,10 @@ ThresholdImageFilter< TImage >
     return;
     }
 
-  if ( m_Lower != lower || m_Upper != upper )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+  if ( m_Lower != lower || itk::Math::NotEqualsComparison(m_Upper, upper) )
+CLANG_PRAGMA_POP
     {
     m_Lower = lower;
     m_Upper = upper;

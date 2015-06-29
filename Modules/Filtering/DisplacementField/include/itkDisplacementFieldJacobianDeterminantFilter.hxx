@@ -27,6 +27,7 @@
 #include "itkVectorCastImageFilter.h"
 
 #include "vnl/vnl_math.h"
+#include "itkMacro.h"
 
 namespace itk
 {

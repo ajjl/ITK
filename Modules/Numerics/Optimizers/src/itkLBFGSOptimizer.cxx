@@ -19,6 +19,7 @@
 #define _itkLBFGSOptimizer_hxx
 
 #include "itkLBFGSOptimizer.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -124,7 +125,7 @@ void
 LBFGSOptimizer
 ::SetGradientConvergenceTolerance(double f)
 {
-  if ( f == m_GradientConvergenceTolerance )
+  if ( itk::Math::EqualsComparison(f, m_GradientConvergenceTolerance) )
     {
     return;
     }
@@ -145,7 +146,7 @@ void
 LBFGSOptimizer
 ::SetLineSearchAccuracy(double f)
 {
-  if ( f == m_LineSearchAccuracy )
+  if ( itk::Math::EqualsComparison(f, m_LineSearchAccuracy) )
     {
     return;
     }
@@ -166,7 +167,7 @@ void
 LBFGSOptimizer
 ::SetDefaultStepLength(double f)
 {
-  if ( f == m_DefaultStepLength )
+  if ( itk::Math::EqualsComparison(f, m_DefaultStepLength) )
     {
     return;
     }

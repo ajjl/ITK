@@ -19,7 +19,8 @@
 #define itkTranslationTransform_hxx
 
 #include "itkTranslationTransform.h"
-#include "itkMath.h"
+#include "itkMacro.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -63,7 +64,10 @@ TranslationTransform<TParametersValueType, NDimensions>
   bool modified = false;
   for( unsigned int i = 0; i < SpaceDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if( m_Offset[i] != parameters[i] )
+CLANG_PRAGMA_POP
       {
       m_Offset[i] = parameters[i];
       modified = true;

@@ -19,6 +19,7 @@
 #define itkRescaleIntensityImageFilter_h
 
 #include "itkUnaryFunctorImageFilter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -46,10 +47,13 @@ public:
   void SetMaximum(TOutput max) { m_Maximum = max; }
   bool operator!=(const IntensityLinearTransform & other) const
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Factor != other.m_Factor
          || m_Offset != other.m_Offset
          || m_Maximum != other.m_Maximum
          || m_Minimum != other.m_Minimum )
+CLANG_PRAGMA_POP
       {
       return true;
       }

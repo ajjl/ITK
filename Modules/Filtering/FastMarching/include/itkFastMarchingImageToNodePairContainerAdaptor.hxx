@@ -21,6 +21,7 @@
 
 #include "itkFastMarchingImageToNodePairContainerAdaptor.h"
 #include "itkImageRegionConstIteratorWithIndex.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -150,7 +151,10 @@ FastMarchingImageToNodePairContainerAdaptor< TInput, TOutput, TImage >
       for (it.GoToBegin(); !it.IsAtEnd(); ++it)
         {
         // Test if index value is greater than zero, if so add the node
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
         if (it.Get() != NumericTraits< ImagePixelType >::ZeroValue())
+CLANG_PRAGMA_POP
           {
           nodes->push_back( NodePairType( it.GetIndex(), iValue ) );
           } //end if image iterator > zero

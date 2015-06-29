@@ -25,6 +25,7 @@
 #include <fstream>
 
 #include "itksys/SystemTools.hxx"
+#include "itkMath.h"
 
 
 namespace itk
@@ -185,9 +186,9 @@ void MRCImageIO::ReadImageInformation(void)
       }
     }
 
-  if ( header.xlen == 0
-       && header.ylen == 0
-       && header.zlen == 0 )
+  if ( itk::Math::EqualsComparison(header.xlen, 0)
+       && itk::Math::EqualsComparison(header.ylen, 0)
+       && itk::Math::EqualsComparison(header.zlen, 0) )
     {
     // if the spacing was not set in the header then this is the
     // default

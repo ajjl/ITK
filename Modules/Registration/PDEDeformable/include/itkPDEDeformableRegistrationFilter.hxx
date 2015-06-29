@@ -28,6 +28,7 @@
 #include "itkVectorNeighborhoodOperatorImageFilter.h"
 
 #include "vnl/vnl_math.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -146,7 +147,10 @@ PDEDeformableRegistrationFilter< TFixedImage, TMovingImage, TDisplacementField >
 
   for ( j = 0; j < ImageDimension; j++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( value != m_StandardDeviations[j] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -174,7 +178,10 @@ PDEDeformableRegistrationFilter< TFixedImage, TMovingImage, TDisplacementField >
 
   for ( j = 0; j < ImageDimension; j++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( value != m_UpdateFieldStandardDeviations[j] )
+CLANG_PRAGMA_POP
       {
       break;
       }

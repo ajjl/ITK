@@ -21,6 +21,7 @@
 #include <iostream>
 
 #include "itkGaussianMixtureModelComponent.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -104,7 +105,10 @@ GaussianMixtureModelComponent< TSample >
 
   for ( i = 0; i < measurementVectorSize; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Mean[i] != parameters[paramIndex] )
+CLANG_PRAGMA_POP
       {
       m_Mean[i] = parameters[paramIndex];
       changed = true;
@@ -129,8 +133,10 @@ GaussianMixtureModelComponent< TSample >
     {
     for ( j = 0; j < measurementVectorSize; j++ )
       {
-      if ( m_Covariance.GetVnlMatrix().get(i, j) !=
-           parameters[paramIndex] )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+      if ( m_Covariance.GetVnlMatrix().get(i, j) != parameters[paramIndex]  )
+CLANG_PRAGMA_POP
         {
         m_Covariance.GetVnlMatrix().put(i, j, parameters[paramIndex]);
         changed = true;

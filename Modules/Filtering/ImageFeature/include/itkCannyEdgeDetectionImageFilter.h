@@ -25,6 +25,7 @@
 #include "itkDerivativeOperator.h"
 #include "itkSparseFieldLayer.h"
 #include "itkObjectStore.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -152,7 +153,10 @@ public:
   {
     for ( unsigned int i = 0; i < TInputImage::ImageDimension; i++ )
       {
-      if ( m_Variance[i] != v )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+      if (  m_Variance[i] != v )
+CLANG_PRAGMA_POP
         {
         m_Variance.Fill(v);
         this->Modified();
@@ -167,7 +171,10 @@ public:
   {
     for ( unsigned int i = 0; i < TInputImage::ImageDimension; i++ )
       {
-      if ( m_MaximumError[i] != v )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+      if (  m_MaximumError[i] != v  )
+CLANG_PRAGMA_POP
         {
         m_MaximumError.Fill(v);
         this->Modified();

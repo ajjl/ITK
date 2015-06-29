@@ -20,6 +20,7 @@
 
 #include "itkImportImageFilter.h"
 #include "itkObjectFactory.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -210,7 +211,10 @@ ImportImageFilter< TPixel, VImageDimension >
     {
     for ( unsigned int c = 0; c < VImageDimension; c++ )
       {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
       if ( m_Direction[r][c] != direction[r][c] )
+CLANG_PRAGMA_POP
         {
         m_Direction[r][c] = direction[r][c];
         modified = true;

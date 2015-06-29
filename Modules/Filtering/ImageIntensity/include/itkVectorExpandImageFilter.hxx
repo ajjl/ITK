@@ -23,6 +23,7 @@
 #include "itkObjectFactory.h"
 #include "itkNumericTraits.h"
 #include "itkProgressReporter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -93,7 +94,10 @@ VectorExpandImageFilter< TInputImage, TOutputImage >
 
   for ( j = 0; j < ImageDimension; j++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( factor != m_ExpandFactors[j] ) { break; }
+CLANG_PRAGMA_POP
     }
   if ( j < ImageDimension )
     {

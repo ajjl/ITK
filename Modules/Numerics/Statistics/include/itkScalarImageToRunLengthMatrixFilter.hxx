@@ -24,6 +24,7 @@
 #include "itkNeighborhood.h"
 #include "vnl/vnl_math.h"
 #include "itkMacro.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -243,7 +244,7 @@ ScalarImageToRunLengthMatrixFilter<TImageType, THistogramFrequencyContainer>
         // the bin is left close and right open.
 
         if ( pixelIntensity >= centerBinMin
-            && ( pixelIntensity < centerBinMax || ( pixelIntensity == centerBinMax && centerBinMax == lastBinMax ) ) )
+            && ( pixelIntensity < centerBinMax || ( itk::Math::EqualsComparison(pixelIntensity, centerBinMax) && itk::Math::EqualsComparison(centerBinMax, lastBinMax) ) ) )
           {
           alreadyVisitedImage->SetPixel( index, true );
           lastGoodIndex = index;
@@ -311,7 +312,10 @@ void
 ScalarImageToRunLengthMatrixFilter<TImageType, THistogramFrequencyContainer>
 ::SetDistanceValueMinMax( RealType min, RealType max )
 {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if( this->m_MinDistance != min || this->m_MaxDistance != max )
+CLANG_PRAGMA_POP
     {
     itkDebugMacro( "setting MinDistance to " << min << "and MaxDistance to "
       << max );

@@ -19,6 +19,7 @@
 #define itkPowellOptimizerv4_hxx
 
 #include "itkPowellOptimizerv4.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -385,14 +386,14 @@ PowellOptimizerv4<TInternalComputationValueType>
         b = t;
         }
 
-      if ( functionValueOft <= functionValueOfW || w == x )
+      if ( functionValueOft <= functionValueOfW || itk::Math::EqualsComparison( w, x ) )
         {
         v = w;
         w = t;
         functionValueOfV = functionValueOfW;
         functionValueOfW = functionValueOft;
         }
-      else if ( functionValueOft <= functionValueOfV || v == x || v == w )
+      else if ( functionValueOft <= functionValueOfV || itk::Math::EqualsComparison( v, x ) || itk::Math::EqualsComparison(  v, w ) )
         {
         v = t;
         functionValueOfV = functionValueOft;

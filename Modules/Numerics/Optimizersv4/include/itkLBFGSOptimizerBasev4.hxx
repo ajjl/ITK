@@ -19,6 +19,7 @@
 #define itkLBFGSOptimizerBasev4_hxx
 
 #include "itkLBFGSOptimizerBasev4.h"
+#include "itkMacro.h"
 
 extern "C" {
   extern double v3p_netlib_dpmeps_();
@@ -155,7 +156,10 @@ void
 LBFGSOptimizerBasev4<TInternalVnlOptimizerType>
 ::SetGradientConvergenceTolerance(double f)
 {
-  if ( f == m_GradientConvergenceTolerance )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+  if (  f == m_GradientConvergenceTolerance  )
+CLANG_PRAGMA_POP
     {
     return;
     }

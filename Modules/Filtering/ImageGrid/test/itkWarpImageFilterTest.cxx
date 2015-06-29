@@ -21,6 +21,7 @@
 #include "itkWarpImageFilter.h"
 #include "itkVectorCastImageFilter.h"
 #include "itkStreamingImageFilter.h"
+#include "itkMath.h"
 
 // class to produce a linear image pattern
 template <int VDimension>
@@ -282,7 +283,7 @@ int itkWarpImageFilterTest(int, char* [] )
     else
       {
 
-      if( value != padValue )
+      if( itk::Math::NotEqualsComparison(value, padValue) )
         {
         testPassed = false;
         std::cout << "Error at Index: " << index << " ";
@@ -326,7 +327,7 @@ int itkWarpImageFilterTest(int, char* [] )
 
   while( !outIter.IsAtEnd() )
     {
-    if( outIter.Get() != streamIter.Get() )
+    if( itk::Math::NotEqualsComparison(outIter.Get(), streamIter.Get()) )
       {
       std::cout << "Error C at Index: " << outIter.GetIndex() << " ";
       std::cout << "Expected: " << outIter.Get() << " ";

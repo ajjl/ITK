@@ -19,6 +19,7 @@
 #define itkSigmoidImageFilter_h
 
 #include "itkUnaryFunctorImageFilter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -61,10 +62,13 @@ public:
   ~Sigmoid() {}
   bool operator!=(const Sigmoid & other) const
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Alpha != other.m_Alpha
          || m_Beta != other.m_Beta
          || m_OutputMaximum != other.m_OutputMaximum
          || m_OutputMinimum != other.m_OutputMinimum  )
+CLANG_PRAGMA_POP
       {
       return true;
       }
@@ -163,7 +167,10 @@ public:
 
   void SetAlpha(double alpha)
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( alpha == this->GetFunctor().GetAlpha() )
+CLANG_PRAGMA_POP
       {
       return;
       }
@@ -178,7 +185,10 @@ public:
 
   void SetBeta(double beta)
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( beta == this->GetFunctor().GetBeta() )
+CLANG_PRAGMA_POP
       {
       return;
       }
@@ -193,7 +203,10 @@ public:
 
   void SetOutputMinimum(OutputPixelType min)
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( min == this->GetFunctor().GetOutputMinimum() )
+CLANG_PRAGMA_POP
       {
       return;
       }
@@ -208,7 +221,10 @@ public:
 
   void SetOutputMaximum(OutputPixelType max)
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( max == this->GetFunctor().GetOutputMaximum() )
+CLANG_PRAGMA_POP
       {
       return;
       }

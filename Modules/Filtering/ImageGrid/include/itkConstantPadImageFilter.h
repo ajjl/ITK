@@ -21,6 +21,7 @@
 #include "itkPadImageFilter.h"
 
 #include "itkConstantBoundaryCondition.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -84,7 +85,10 @@ public:
   /** Set/Get the pad value.  Default is Zero. */
   void SetConstant( OutputImagePixelType constant )
   {
-    if ( constant != m_InternalBoundaryCondition.GetConstant() )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if (  constant != m_InternalBoundaryCondition.GetConstant()  )
+CLANG_PRAGMA_POP
       {
       m_InternalBoundaryCondition.SetConstant( constant );
       this->Modified();

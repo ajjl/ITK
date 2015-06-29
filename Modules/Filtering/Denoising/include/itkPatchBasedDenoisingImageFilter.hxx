@@ -29,6 +29,7 @@
 #include "itkImageAlgorithm.h"
 #include "itkVectorImageToImageAdaptor.h"
 #include "itkSpatialNeighborSubsampler.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -1975,7 +1976,7 @@ PatchBasedDenoisingImageFilter<TInputImage, TOutputImage>
 
     // if second derivative is zero or negative, compute update using gradient
     // descent
-    if ( (vnl_math_abs(secondDerivative) == NumericTraits<RealValueType>::ZeroValue()) ||
+    if ( (itk::Math::EqualsComparison(vnl_math_abs(secondDerivative), NumericTraits<RealValueType>::ZeroValue())) ||
          (secondDerivative < 0) )
       {
       itkDebugMacro( << "** Second derivative NOT POSITIVE" );

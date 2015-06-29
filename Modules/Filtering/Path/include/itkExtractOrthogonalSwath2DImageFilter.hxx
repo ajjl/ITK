@@ -22,6 +22,7 @@
 #include "itkLinearInterpolateImageFunction.h"
 #include "itkProgressReporter.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -34,7 +35,10 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( spacing[i] != m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -57,7 +61,10 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( (double)spacing[i] != m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -89,7 +96,10 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( origin[i] != m_Origin[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -112,7 +122,10 @@ ExtractOrthogonalSwath2DImageFilter< TImage >
 
   for ( i = 0; i < ImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( (double)origin[i] != m_Origin[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }

@@ -19,6 +19,7 @@
 #define itkLogicOpsFunctors_h
 
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 
 
 namespace itk
@@ -131,7 +132,10 @@ public:
   }
   inline TOutput operator()( const TInput1 & A, const TInput2 & B)
   {
-    if( A == static_cast<TInput1>(B) )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if(  A == static_cast<TInput1>(B)  )
+CLANG_PRAGMA_POP
       {
       return this->m_ForegroundValue;
       }
@@ -166,7 +170,10 @@ public:
   }
   inline TOutput operator()( const TInput1 & A, const TInput2 & B)
   {
-    if( A != B )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if(  A != B  )
+CLANG_PRAGMA_POP
       {
       return this->m_ForegroundValue;
       }

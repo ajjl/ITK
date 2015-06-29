@@ -19,6 +19,7 @@
 #include <iostream>
 
 #include "itkGaussianSmoothingOnUpdateDisplacementFieldTransform.h"
+#include "itkMath.h"
 
 /**
  * Test the UpdateTransformParameters and related methods,
@@ -84,11 +85,11 @@ int itkGaussianSmoothingOnUpdateDisplacementFieldTransformTest(int ,char *[] )
         i++ )
     {
     bool ok = true;
-    if( i < linelength && params[i] != 0 )
+    if( i < linelength && itk::Math::NotEqualsComparison(params[i], 0) )
       ok = false;
-    if( i % linelength == 0 && params[i] != 0 )
+    if( i % linelength == 0 && itk::Math::NotEqualsComparison(params[i], 0) )
       ok = false;
-    if( i % linelength == (linelength - 1) && params[i] != 0 )
+    if( i % linelength == (linelength - 1) && itk::Math::NotEqualsComparison(params[i], 0) )
       ok = false;
     if( !ok )
       {
@@ -130,11 +131,11 @@ int itkGaussianSmoothingOnUpdateDisplacementFieldTransformTest(int ,char *[] )
         i++ )
     {
     bool ok = true;
-    if( i < linelength && params[i] != 0 )
+    if( i < linelength && itk::Math::NotEqualsComparison(params[i], 0) )
       ok = false;
-    if( i % linelength == 0 && params[i] != 0 )
+    if( i % linelength == 0 && itk::Math::NotEqualsComparison(params[i], 0) )
       ok = false;
-    if( i % linelength == (linelength - 1) && params[i] != 0 )
+    if( i % linelength == (linelength - 1) && itk::Math::NotEqualsComparison(params[i], 0) )
       ok = false;
     if( !ok )
       {
@@ -165,7 +166,7 @@ int itkGaussianSmoothingOnUpdateDisplacementFieldTransformTest(int ,char *[] )
       unsigned int index = outlier +
         (unsigned int) (i * (signed int)(dimLength*dimensions) + j);
       std::cout << params(index) << " ";
-      if( params(index) == paramsFillValue )
+      if( itk::Math::EqualsComparison(params(index), paramsFillValue) )
         {
         std::cout << "Expected to read a smoothed value at this index."
                   << " Instead, read " << params(index) << std::endl;

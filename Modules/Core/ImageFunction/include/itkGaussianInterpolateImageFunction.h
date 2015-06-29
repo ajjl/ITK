@@ -22,6 +22,7 @@
 #include "itkConceptChecking.h"
 #include "itkFixedArray.h"
 #include "vnl/vnl_erf.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -126,7 +127,10 @@ public:
   virtual void SetAlpha( const RealType a )
     {
     itkDebugMacro( "setting Alpha to " << a );
-    if( this->m_Alpha != a )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+    if(  this->m_Alpha != a  )
+CLANG_PRAGMA_POP
       {
       this->m_Alpha = a;
       this->ComputeBoundingBox();

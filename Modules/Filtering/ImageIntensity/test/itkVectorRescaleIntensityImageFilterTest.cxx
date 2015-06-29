@@ -20,6 +20,7 @@
 
 
 #include "itkVectorRescaleIntensityImageFilter.h"
+#include "itkMath.h"
 
 int itkVectorRescaleIntensityImageFilterTest(int, char* [] )
 {
@@ -96,7 +97,7 @@ int itkVectorRescaleIntensityImageFilterTest(int, char* [] )
     const OutputPixelType outputValue = ot.Get();
     for(unsigned int k=0; k < VectorDimension; k++)
       {
-      if (outputValue[k] != 0)
+      if (itk::Math::NotEqualsComparison(outputValue[k], 0))
         {
         if( std::fabs( outputValue[k] - pixelValue[k] * factor ) / outputValue[k] - 1.0 > tolerance )
           {

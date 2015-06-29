@@ -19,6 +19,7 @@
 #define itkRGBPixel_hxx
 #include "itkRGBPixel.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -125,7 +126,10 @@ RGBPixel< T >
 {
   for ( unsigned int i = 0; i < 3; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( ( *this )[i] != r[i] )
+CLANG_PRAGMA_POP
       {
       return false;
       }

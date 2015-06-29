@@ -20,6 +20,7 @@
 
 #include "itkImageToImageMetric.h"
 #include "itkImageRandomConstIteratorWithIndex.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -620,7 +621,7 @@ ImageToImageMetric< TFixedImage, TMovingImage >
         double val;
         if ( m_FixedImageMask->ValueAt(inputPoint, val) )
           {
-          if ( val == 0 )
+          if ( itk::Math::EqualsComparison(val, 0) )
             {
             ++randIter; // jump to another random position
             continue;

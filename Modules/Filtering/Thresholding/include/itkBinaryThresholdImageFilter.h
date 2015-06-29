@@ -21,6 +21,7 @@
 #include "itkUnaryFunctorImageFilter.h"
 #include "itkConceptChecking.h"
 #include "itkSimpleDataObjectDecorator.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -87,10 +88,13 @@ public:
 
   bool operator!=(const BinaryThreshold & other) const
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_LowerThreshold != other.m_LowerThreshold
          || m_UpperThreshold != other.m_UpperThreshold
          || m_InsideValue    != other.m_InsideValue
          || m_OutsideValue   != other.m_OutsideValue  )
+CLANG_PRAGMA_POP
       {
       return true;
       }

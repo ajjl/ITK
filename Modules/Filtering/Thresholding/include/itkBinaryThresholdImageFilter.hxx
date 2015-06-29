@@ -29,6 +29,7 @@
 #define itkBinaryThresholdImageFilter_hxx
 
 #include "itkBinaryThresholdImageFilter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -64,7 +65,10 @@ BinaryThresholdImageFilter< TInputImage, TOutputImage >
 {
   // first check to see if anything changed
   typename InputPixelObjectType::Pointer lower = this->GetLowerThresholdInput();
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( lower && lower->Get() == threshold )
+CLANG_PRAGMA_POP
     {
     return;
     }
@@ -155,7 +159,10 @@ BinaryThresholdImageFilter< TInputImage, TOutputImage >
 {
   // first check to see if anything changed
   typename InputPixelObjectType::Pointer upper = this->GetUpperThresholdInput();
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( upper && upper->Get() == threshold )
+CLANG_PRAGMA_POP
     {
     return;
     }

@@ -23,6 +23,7 @@
 #include "itkIdentityTransform.h"
 #include "itkVectorResampleImageFilter.h"
 #include "itkVectorLinearInterpolateImageFunction.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -49,7 +50,10 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
   bool isModified = false;
   for( SizeValueType d = 0; d < ConstantVelocityFieldDimension; d++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if( this->m_RequiredFixedParameters[d] != size[d] )
+CLANG_PRAGMA_POP
       {
       isModified = true;
       }
@@ -84,7 +88,10 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
   bool isModified = false;
   for( SizeValueType d = 0; d < ConstantVelocityFieldDimension; d++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if( this->m_RequiredFixedParameters[ConstantVelocityFieldDimension + d] != origin[d] )
+CLANG_PRAGMA_POP
       {
       isModified = true;
       }
@@ -119,7 +126,10 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
   bool isModified = false;
   for( SizeValueType d = 0; d < ConstantVelocityFieldDimension; d++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if( this->m_RequiredFixedParameters[2*ConstantVelocityFieldDimension + d] != spacing[d] )
+CLANG_PRAGMA_POP
       {
       isModified = true;
       }
@@ -156,7 +166,10 @@ ConstantVelocityFieldTransformParametersAdaptor<TTransform>
     {
     for( SizeValueType dj = 0; dj < ConstantVelocityFieldDimension; dj++ )
       {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
       if( this->m_RequiredFixedParameters[3 * ConstantVelocityFieldDimension + ( di * ConstantVelocityFieldDimension + dj )] != direction[di][dj] )
+CLANG_PRAGMA_POP
         {
         isModified = true;
         }

@@ -16,6 +16,7 @@
  *
  *=========================================================================*/
 #include "itkLBFGSOptimizerv4.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -89,7 +90,10 @@ void
 LBFGSOptimizerv4
 ::SetLineSearchAccuracy(double f)
 {
-  if ( f == m_LineSearchAccuracy )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+  if (  f == m_LineSearchAccuracy  )
+CLANG_PRAGMA_POP
     {
     return;
     }
@@ -107,7 +111,10 @@ void
 LBFGSOptimizerv4
 ::SetDefaultStepLength(double f)
 {
-  if ( f == m_DefaultStepLength )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+  if (  f == m_DefaultStepLength  )
+CLANG_PRAGMA_POP
     {
     return;
     }

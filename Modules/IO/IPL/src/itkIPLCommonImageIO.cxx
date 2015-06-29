@@ -31,6 +31,7 @@
 #include <time.h>
 #include <assert.h>
 #include <vector>
+#include "itkMacro.h"
 
 //From uiig library "The University of Iowa Imaging Group-UIIG"
 
@@ -582,7 +583,10 @@ int IPLCommonImageIO
     {
     return 0;
     }
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   else if(XRes != m_FilenameList->GetXRes() || YRes != m_FilenameList->GetYRes()  )
+CLANG_PRAGMA_POP
     {
     return 0;
     }

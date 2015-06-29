@@ -20,6 +20,7 @@
 
 #include "itkGaussianBlurImageFunction.h"
 #include "itkImageLinearIteratorWithIndex.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -112,7 +113,10 @@ GaussianBlurImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension); i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( sigma != m_Sigma[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -162,7 +166,10 @@ GaussianBlurImageFunction< TInputImage, TOutput >
 
   for ( i = 0; i < itkGetStaticConstMacro(ImageDimension); i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( extent != m_Extent[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }

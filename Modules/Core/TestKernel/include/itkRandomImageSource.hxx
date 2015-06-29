@@ -32,6 +32,7 @@
 #include "itkImageRegionIterator.h"
 #include "itkObjectFactory.h"
 #include "itkProgressReporter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -103,7 +104,10 @@ RandomImageSource< TOutputImage >
 
   for ( i = 0; i < count; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( spacingArray[i] != this->m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -128,7 +132,10 @@ RandomImageSource< TOutputImage >
 
   for ( i = 0; i < count; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( originArray[i] != this->m_Origin[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }

@@ -25,6 +25,7 @@
 #include "vnl/vnl_transpose.h"
 #include "vnl/vnl_matrix.h"
 #include "itkArray.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -239,7 +240,10 @@ VariableSizeMatrix< T >
     {
     for ( unsigned int c = 0; c < this->Cols(); c++ )
       {
-      if ( m_Matrix(r, c) != matrix.m_Matrix(r, c) )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
+      if ( m_Matrix(r != c), matrix.m_Matrix(r, c) )
+CLANG_PRAGMA_POP
         {
         equal = false;
         break;

@@ -17,6 +17,8 @@
  *=========================================================================*/
 #include "itkGaussianDistribution.h"
 #include "vnl/vnl_erf.h"
+#include "itkMacro.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -52,7 +54,10 @@ GaussianDistribution
 
   if ( m_Parameters.GetSize() > 0 )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Parameters[0] != mean )
+CLANG_PRAGMA_POP
       {
       modified = true;
       }
@@ -116,7 +121,10 @@ GaussianDistribution
 
   if ( m_Parameters.GetSize() > 1 )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( m_Parameters[1] != variance )
+CLANG_PRAGMA_POP
       {
       modified = true;
       }
@@ -283,11 +291,11 @@ GaussianDistribution
 {
   double x = GaussianDistribution::InverseCDF(p);
 
-  if ( x == itk::NumericTraits< double >::NonpositiveMin() )
+  if ( itk::Math::EqualsComparison(x, itk::NumericTraits< double >::NonpositiveMin()) )
     {
     return x;
     }
-  else if ( x == itk::NumericTraits< double >::max() )
+  else if ( itk::Math::EqualsComparison(x, itk::NumericTraits< double >::max()) )
     {
     return x;
     }

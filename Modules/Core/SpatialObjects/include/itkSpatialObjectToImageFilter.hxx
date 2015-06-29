@@ -21,6 +21,7 @@
 #include "itkSpatialObjectToImageFilter.h"
 #include "itkImageRegionIteratorWithIndex.h"
 #include "itkProgressReporter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -102,7 +103,10 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < TOutputImage::ImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( (double)spacing[i] != m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -127,7 +131,10 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( spacing[i] != m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -151,7 +158,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( (double)spacing[i] != m_Spacing[i] )
+    if ( itk::Math::NotEqualsComparison((double)spacing[i], m_Spacing[i]) )
       {
       break;
       }
@@ -184,7 +191,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( (double)origin[i] != m_Origin[i] )
+    if ( itk::Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -209,7 +216,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( origin[i] != m_Origin[i] )
+    if ( itk::Math::NotEqualsComparison(origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -233,7 +240,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( (double)origin[i] != m_Origin[i] )
+    if ( itk::Math::NotEqualsComparison((double)origin[i], m_Origin[i]) )
       {
       break;
       }
@@ -341,7 +348,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
   specified = false;
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( m_Spacing[i] != 0 )
+    if ( itk::Math::NotEqualsComparison(m_Spacing[i], 0) )
       {
       specified = true;
       break;
@@ -383,7 +390,7 @@ SpatialObjectToImageFilter< TInputSpatialObject, TOutputImage >
     double val = 0;
 
     bool evaluable = InputObject->ValueAt(objectPoint, val, m_ChildrenDepth);
-    if ( m_InsideValue != 0 || m_OutsideValue != 0 )
+    if ( itk::Math::NotEqualsComparison(m_InsideValue, 0) || itk::Math::NotEqualsComparison(m_OutsideValue, 0) )
       {
       if ( evaluable )
         {

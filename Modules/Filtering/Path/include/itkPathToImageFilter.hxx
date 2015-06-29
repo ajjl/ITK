@@ -22,6 +22,8 @@
 #include "itkImageRegionIteratorWithIndex.h"
 #include "itkPathIterator.h"
 #include "itkNumericTraits.h"
+#include "itkMacro.h"
+#include "itkMath.h"
 
 namespace itk
 {
@@ -98,7 +100,10 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( spacing[i] != m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -121,7 +126,10 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( (double)spacing[i] != m_Spacing[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -153,7 +161,10 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( origin[i] != m_Origin[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -176,7 +187,10 @@ PathToImageFilter< TInputPath, TOutputImage >
 
   for ( i = 0; i < OutputImageDimension; i++ )
     {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
     if ( (double)origin[i] != m_Origin[i] )
+CLANG_PRAGMA_POP
       {
       break;
       }
@@ -270,7 +284,7 @@ PathToImageFilter< TInputPath, TOutputImage >
   specified = false;
   for ( i = 0; i < OutputImageDimension; i++ )
     {
-    if ( m_Spacing[i] != 0 )
+    if ( itk::Math::NotEqualsComparison(m_Spacing[i], 0) )
       {
       specified = true;
       break;

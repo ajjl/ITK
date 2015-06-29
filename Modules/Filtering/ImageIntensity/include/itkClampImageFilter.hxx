@@ -20,6 +20,7 @@
 
 #include "itkClampImageFilter.h"
 #include "itkProgressReporter.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -109,7 +110,10 @@ void
 ClampImageFilter< TInputImage, TOutputImage >
 ::SetBounds(const OutputPixelType lowerBound, const OutputPixelType upperBound)
   {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( lowerBound == this->GetFunctor().GetLowerBound() && upperBound == this->GetFunctor().GetUpperBound())
+CLANG_PRAGMA_POP
     {
     return;
     }

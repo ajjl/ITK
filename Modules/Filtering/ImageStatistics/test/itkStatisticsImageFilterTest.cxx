@@ -23,6 +23,7 @@
 #include "itkStatisticsImageFilter.h"
 #include "itkRandomImageSource.h"
 #include "itkFilterWatcher.h"
+#include "itkMath.h"
 
 int itkStatisticsImageFilterTest(int, char* [] )
 {
@@ -55,22 +56,22 @@ int itkStatisticsImageFilterTest(int, char* [] )
   filter->SetInput (image);
   filter->UpdateLargestPossibleRegion();
 
-  if (filter->GetMinimum() != fillValue)
+  if (itk::Math::NotEqualsComparison(filter->GetMinimum(), fillValue))
     {
     std::cerr << "GetMinimum failed! Got " << filter->GetMinimum() << " but expected " << fillValue << std::endl;
     status++;
     }
-  if (filter->GetMaximum() != fillValue)
+  if (itk::Math::NotEqualsComparison(filter->GetMaximum(), fillValue))
     {
     std::cerr << "GetMaximum failed! Got " << filter->GetMaximum() << " but expected " << fillValue << std::endl;
     status++;
     }
-  if (filter->GetSum() != sum)
+  if (itk::Math::NotEqualsComparison(filter->GetSum(), sum))
     {
     std::cerr << "GetSum failed! Got " << filter->GetSum() << " but expected " << sum << std::endl;
     status++;
     }
-  if (filter->GetMean() != fillValue)
+  if (itk::Math::NotEqualsComparison(filter->GetMean(), fillValue))
     {
     std::cerr << "GetMean failed! Got " << filter->GetMean() << " but expected " << fillValue << std::endl;
     status++;

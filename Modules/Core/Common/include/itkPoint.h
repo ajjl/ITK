@@ -21,6 +21,7 @@
 
 #include "itkNumericTraits.h"
 #include "itkVector.h"
+#include "itkMacro.h"
 
 #include "vnl/vnl_vector_ref.h"
 
@@ -102,7 +103,10 @@ public:
     bool same = true;
 
     for ( unsigned int i = 0; i < NPointDimension && same; ++i )
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
           { same = ( ( *this )[i] == pt[i] ); }
+CLANG_PRAGMA_POP
     return same;
   }
 
@@ -111,7 +115,6 @@ public:
   operator!=(const Self & pt) const
   {
     bool same = true;
-
 CLANG_PRAGMA_PUSH
 CLANG_SUPPRESS_Wfloat_equal
     for ( unsigned int i = 0; i < NPointDimension && same; ++i )

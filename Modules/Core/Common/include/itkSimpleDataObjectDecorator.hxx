@@ -29,6 +29,7 @@
 #define itkSimpleDataObjectDecorator_hxx
 
 #include "itkSimpleDataObjectDecorator.h"
+#include "itkMacro.h"
 
 namespace itk
 {
@@ -61,7 +62,10 @@ void
 SimpleDataObjectDecorator< T >
 ::Set(const T & val)
 {
+CLANG_PRAGMA_PUSH
+CLANG_SUPPRESS_Wfloat_equal
   if ( !this->m_Initialized || ( this->m_Component != val ) )
+CLANG_PRAGMA_POP
     {
     this->m_Component = val;
     this->m_Initialized = true;
